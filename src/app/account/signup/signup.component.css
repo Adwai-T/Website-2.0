@@ -1,0 +1,49 @@
+#signup-form-container{
+  border: solid 1px lightgray;
+  border-radius: 10px;
+  max-width: 400px;
+  margin: auto auto auto 20vw;
+  overflow: hidden;
+  margin-top: 5vh;
+}
+
+#signup-form{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.signup-input{
+  margin : 5px 0px;
+}
+
+#signup-img{
+  width: 100%;
+}
+
+#options{
+  display: block;
+  margin-top: 5px;
+}
+
+#inline-options{
+  display: flex;
+  justify-content: space-between; 
+  margin : 5px 0px; 
+}
+
+#other-options{
+  display: flex;
+  justify-content: center;
+}
+
+.button{
+  margin-top: 5px;
+}
+
+@media only screen and (max-width: 768px) {
+  #signup-form-container{
+    margin:auto;
+    margin-top: 10vh;
+  }
+}

@@ -1,0 +1,54 @@
+#app-container {
+  width: 100%;
+  height: 100vh;
+}
+h3{
+  margin-bottom: 0px;
+}
+
+#app-content {
+  width: 100%;
+  height: 100%;
+  /* overflow-y: auto; */
+}
+
+#mobile-controls{
+  position: absolute;
+  left: 5px;
+  right: 5px;
+}
+
+#side-nav{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 10px 20px;
+}
+
+#nav-title{
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  padding : 10px 5px;
+  margin: 0 10px;
+}
+#title-text{
+  margin : 0 0 -3px; /* margin by mat component */
+}
+
+#search-box{
+  margin: 10px 0px;
+}
+
+.side-nav-link{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 5px;
+}
+.side-nav-link mat-icon{
+  margin-right: 10px;
+}
+.bottom{
+  margin-top: auto;
+}

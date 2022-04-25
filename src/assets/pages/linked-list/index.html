@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div id="container">
+      <h1 id="header">Linked List</h1>
+      <div id="output"></div>
+      <div id="demo">
+        <div>
+          <p>Numbers based Linked List.</p>
+          <p>
+            Use the controls given below to manage the list. The code given
+            below will allow us to store any type of value, the demo here only
+            accepts numbers as input.
+          </p>
+        </div>
+        <div id="canvas-div"></div>
+        <div id="control-panel">
+          <div class="button-container">
+            <span class="button-green" id="button-create">Create List</span>
+            <input
+              type="text"
+              class="text-input"
+              id="text-create"
+              style="display: none"
+              placeholder="Number 0-100 or Array"
+            />
+            <button
+              class="button button-olive"
+              id="button-create-random"
+              style="display: none"
+            >
+              Random
+            </button>
+            <button
+              class="button button-olive"
+              id="button-create-array"
+              style="display: none"
+            >
+              From Array
+            </button>
+          </div>
+
+          <div class="button-container">
+            <span class="button-green" id="button-insert">Insert</span>
+            <input
+              type="text"
+              class="text-input"
+              id="text-insert"
+              style="display: none"
+              placeholder="Number | Number,index"
+            />
+            <button
+              class="button button-olive"
+              id="button-insert-head"
+              style="display: none"
+            >
+              Head
+            </button>
+            <button
+              class="button button-olive"
+              id="button-insert-tail"
+              style="display: none"
+            >
+              Tail
+            </button>
+            <button
+              class="button button-olive"
+              id="button-insert-at-index"
+              style="display: none"
+            >
+              At Index
+            </button>
+          </div>
+
+          <div class="button-container">
+            <span class="button-red" id="button-remove">Remove</span>
+            <input
+              type="text"
+              class="text-input"
+              id="text-remove"
+              style="display: none"
+              placeholder="Number | Index"
+            />
+            <button
+              class="button button-magenta"
+              id="button-remove-by-value"
+              style="display: none"
+            >
+              By Value
+            </button>
+            <button
+              class="button button-magenta"
+              id="button-remove-at-index"
+              style="display: none"
+            >
+              At Index
+            </button>
+          </div>
+
+          <div class="button-container">
+            <button class="button button-green" id="button-search">
+              Search
+            </button>
+            <input
+              type="text"
+              class="text-input"
+              id="text-search"
+              style="display: block"
+              placeholder="Number 0-100 or Array"
+            />
+          </div>
+
+          <button class="button button-red" id="button-clear">Clear</button>
+        </div>
+      </div>
+      <!---Content-->
+      <div id="content">
+        <h2>Understanding LinkedList</h2>
+        <p>
+          Linked lists are among the simplest and most common data structures. 
+          They can be used to implement several other common abstract data types, 
+          including lists, stacks, queues, associative arrays, and S-expressions
+        </p>
+        <p>
+          The principal benefit of a linked list over a conventional array is that the list elements 
+          can be easily inserted or removed without reallocation or reorganization of the entire structure 
+          because the data items need not be stored contiguously in memory or on disk, while restructuring 
+          an array at run-time is a much more expensive operation. Linked lists allow insertion and removal 
+          of nodes at any point in the list, and allow doing so with a constant number of operations by keeping 
+          the link previous to the link being added or removed in memory during list traversal.
+        </p>
+
+        <h2>Implementing LinkedList in Javascript</h2>
+        <pre>
+  <code class="language-javascript">
+    //--- LinkedList DataStructure
+    class Node {
+      constructor(value) {
+        this.value = value;
+        this.next = null;
+      }
+    }
+    class LinkedList {
+      head;
+      tail;
+      length;
+      constructor(value) {
+        this.head = new Node(value);
+        this.tail = this.head;
+        this.length = 1;
+      }
+    
+      _initiateEmptyList(value) {
+        this.head = new Node(value);
+        this.tail = this.head;
+        this.length++;
+        return;
+      }
+    
+      append(value) {
+        if (this.length === 0) {
+          this._initiateEmptyList(value);
+          return this;
+        }
+        const newNode = new Node(value);
+        this.tail.next = newNode;
+        this.tail = newNode;
+        this.length++;
+        return this;
+      }
+    
+      prepend(value) {
+        if (this.length === 0) {
+          this._initiateEmptyList(value);
+          return this;
+        }
+        let currentHead = this.head;
+        this.head = new Node(value);
+        this.head.next = currentHead;
+        this.length++;
+      }
+    
+      insert(value, index) {
+        if (this.length === 0) {
+          this._initiateEmptyList(value);
+          return this;
+        }
+    
+        if (index >= this.length) {
+          this.append(value);
+          return this;
+        }
+    
+        if (index <= 0) {
+          this.prepend(value);
+          return this;
+        }
+    
+        let prevNode = this.traverseToIndex(index - 1);
+        let laterNode = prevNode.next;
+        prevNode.next = new Node(value);
+        prevNode.next.next = laterNode;
+        this.length++;
+        return this;
+      }
+    
+      search(value) {
+        let index = 0;
+        let currentNode = this.head;
+        while (currentNode !== null) {
+          if (currentNode.value === value) return index;
+          index++;
+          currentNode = currentNode.next;
+        }
+        return null;
+      }
+    
+      traverseToIndex(index) {
+        if (index >= this.length) index = this.length - 1;
+        if (index <= 0) return this.head;
+    
+        let counter = 0;
+        let currentNode = this.head;
+        while (counter !== index && currentNode !== null) {
+          currentNode = currentNode.next;
+          counter++;
+        }
+        return currentNode;
+      }
+    
+      removeAtIndex(index) {
+        if (index >= this.length || index < 0) return null;
+    
+        if (index === 0) {
+          if (this.length === 1) this.tail = null;
+          const removedValue = this.head.value;
+          this.head = this.head.next;
+          this.length--;
+          return removedValue;
+        }
+    
+        let prevNode = this.traverseToIndex(index - 1);
+        if (index === this.length - 1) this.tail = prevNode;
+        let toRemoveNode = prevNode.next;
+        let removedValue = toRemoveNode.value;
+        prevNode.next = toRemoveNode.next;
+        this.length--;
+        return removedValue;
+      }
+    
+      remove(value) {
+        let counter = 0;
+        let currentNode = this.head;
+        let prevNode = null;
+        while (currentNode !== null) {
+          if (currentNode.value === value) {
+            let removedValue = currentNode.value;
+    
+            if (prevNode !== null) prevNode.next = currentNode.next;
+            else this.head = currentNode.next;
+    
+            if (counter === this.length - 1) this.tail = prevNode;
+            this.length--;
+            return removedValue;
+          }
+          prevNode = currentNode;
+          currentNode = currentNode.next;
+          counter++;
+        }
+        return null;
+      }
+    
+      printToConsole() {
+        if (this.length === 0) {
+          console.log(
+            `Length : ${this.length}. Head : ${this.head}, Tail : ${this.tail}`
+          );
+          return;
+        }
+        console.log(
+          `Length : ${this.length}, Head : ${this.head.value}, Tail : ${this.tail.value}`
+        );
+        let currentNode = this.head;
+        while (currentNode !== null) {
+          console.log(currentNode.value);
+          currentNode = currentNode.next;
+        }
+      }
+    }
+  </code>
+</pre>
+      </div>
+    </div>
+
+    <!--  Scripts  -->
+    <script src="bundle.js" type="module"></script>
+    <link
+      rel="stylesheet"
+      href="../../../assets/highlight/harmonic16-light.min.css"
+    />
+    <script src="../../../assets/highlight/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+  </body>
+</html>

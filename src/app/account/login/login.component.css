@@ -1,0 +1,46 @@
+#login-form-container{
+  border: solid 1px lightgray;
+  border-radius: 10px;
+  max-width: 400px;
+  margin: auto auto auto 20vw;
+  overflow: hidden;
+  margin-top: 5vh;
+}
+
+#login-form{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.login-input{
+  margin : 5px 0px;
+}
+
+#login-img{
+  width: 100%;
+
+}
+
+#options{
+  display: block;
+  margin-top: 5px;
+}
+
+#inline-options{
+  display: flex;
+  justify-content: space-between; 
+  margin : 5px 0px; 
+}
+
+#other-options{
+  display: flex;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 768px) {
+  #login-form-container{
+    margin:auto;
+    margin-top: 10vh;
+  }
+}

@@ -1,3 +1,60 @@
-<h2> Website Under Construction </h2>
+<mat-drawer-container id="app-container" autosize>
+  <!-- Side Nav -->
+  <mat-drawer
+    mode="side"
+    [opened]="isDesktop"
+    [disableClose]="isDesktop"
+    #matDrawer
+  >
+    <div id="side-nav">
+      <div id="nav-title">
+        <img id="title-img" src="assets/navicon.ico" />
+        <h1 id="title-text">dwait</h1>
+      </div>
+      <mat-divider></mat-divider>
 
-<router-outlet></router-outlet>
+      <app-search id="search-box"></app-search>
+
+      <div class="side-nav-link">
+        <mat-icon>newspaper</mat-icon>
+        <a routerLink="articles"><h3>Articles</h3></a>
+      </div>
+
+      <div class="side-nav-link">
+        <mat-icon>engineering</mat-icon>
+        <a routerLink=""><h3>Projects</h3></a>
+      </div>
+
+      <div class="bottom">
+        <mat-divider></mat-divider>
+        <div class="side-nav-link">
+          <mat-icon>manage_accounts</mat-icon>
+          <a routerLink="/account/signup"><h3>Account</h3></a>
+        </div>
+      </div>
+    </div>
+  </mat-drawer>
+
+  <!-- App Content -->
+  <div id="app-content" [style.overflow-y]="appContentOverflowY">
+    <div id="mobile-controls" *ngIf="!isDesktop">
+      <button
+        id="side-nav-button"
+        mat-icon-button
+        color="primary"
+        aria-label="side nav button"
+        (click)="matDrawer.toggle()"
+      >
+        <mat-icon *ngIf="!matDrawer.opened" aria-label="open menu"
+          >more_vert</mat-icon
+        >
+        <mat-icon *ngIf="matDrawer.opened" aria-label="close menu"
+          >cancel</mat-icon
+        >
+      </button>
+    </div>
+
+    <!-- Router Outlet -->
+    <router-outlet></router-outlet>
+  </div>
+</mat-drawer-container>
