@@ -1,0 +1,65 @@
+.scratch-pad {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  border: solid 1px lightgray;
+  padding:5px;
+  min-width: 200px;
+  min-height: 200px;
+  border-radius: 10px;
+  background-color: white;
+  position: relative;
+}
+
+.scratch-pad-head{
+  display: flex;
+  cursor: grab;
+}
+.scratch-pad-head:active{
+  cursor: grabbing;
+}
+.scratch-pad-handle{
+  margin : auto 0px auto auto; 
+}
+.scratch-pad-title{
+  margin: auto auto auto 0px;
+}
+.scratch-pad-topic{
+  font-size: medium;
+  font-weight: 700;
+}
+.scratch-pad-date{
+  font-size: smaller;
+  font-weight: 200;
+  color: lightgray;
+}
+
+.scratch-pad-editable{
+  overflow-wrap: break-word;
+  margin-top: 5px;
+  flex-grow: 1;
+  background-color: rgb(243, 250, 252);
+  border-radius: 10px;
+  outline: 0px solid transparent;
+}
+.scratch-pad-copytoclipboard{
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  z-index: 10;
+  color: lightgrey;
+  padding: 0px;
+}
+.scratch-pad-resize{
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  z-index: 9;
+  color: lightgray;
+  border-radius: 30%;
+  border-width: 0px 5px 5px 0px;
+  border-style: solid;
+  cursor:nw-resize;
+}

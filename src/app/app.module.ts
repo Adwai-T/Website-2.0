@@ -21,7 +21,7 @@ import { SearchComponent } from './components/search/search.component';
   declarations: [
     AppComponent,
     IframeContainerComponent,
-    SearchComponent
+    SearchComponent,
   ],
   imports: [
     BrowserModule,

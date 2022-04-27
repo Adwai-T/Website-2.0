@@ -1,0 +1,32 @@
+<div
+  [id] = "scratchPadId"
+  class="scratch-pad"
+  cdkDrag
+  [style.width.px]="width"
+  [style.height.px]="height"
+>
+  <div class="scratch-pad-head" cdkDragHandle>
+    <div class="scratch-pad-title">
+      <div class="scratch-pad-topic">Java</div>
+      <div class="scratch-pad-date">26-04-2022</div>
+    </div>
+    <button mat-icon-button>
+      <mat-icon
+        class="scratch-pad-handle"
+        color="primary"
+        aria-label="scratch pad menu"
+        >more_vert</mat-icon
+      >
+    </button>
+  </div>
+
+  <div class="scratch-pad-editable" contenteditable="true">Editable</div>
+  <button
+    mat-icon-button
+    class="scratch-pad-copytoclipboard"
+    aria-label="copy to clipboard"
+  >
+    <mat-icon>copy_all</mat-icon>
+  </button>
+  <span class="scratch-pad-resize" [id]="scratchPadId+'-resize'"></span>
+</div>

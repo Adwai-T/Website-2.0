@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
 import { Pages, Page } from 'src/app/objects/pages';
 import { FilesService } from 'src/app/services/files.service';
@@ -23,7 +23,7 @@ export class IframeContainerComponent implements OnDestroy {
     this.windowService.setAppContentOverflowY("hidden");
     this.loadPage(Pages.linkedList);
   }
-  
+
   loadPage(page:Page) :void{
     this.url = this.loadFileService.getSanitizedResourceUrl(page.html);
     this.navbarService.changeTitle(page.title);
