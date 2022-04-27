@@ -8,7 +8,7 @@
   min-height: 200px;
   border-radius: 10px;
   background-color: white;
-  position: relative;
+  position: absolute;
 }
 
 .scratch-pad-head{
@@ -24,9 +24,13 @@
 .scratch-pad-title{
   margin: auto auto auto 0px;
 }
-.scratch-pad-topic{
+.scratch-pad-title-editable{
   font-size: medium;
-  font-weight: 700;
+  font-weight: 500;
+}
+.scratch-pad-topic{
+  font-size: small;
+  font-weight: 300;
 }
 .scratch-pad-date{
   font-size: smaller;

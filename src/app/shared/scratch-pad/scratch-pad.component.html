@@ -2,13 +2,18 @@
   [id] = "scratchPadId"
   class="scratch-pad"
   cdkDrag
-  [style.width.px]="width"
-  [style.height.px]="height"
+  [style.width.px]="dimensions.x"
+  [style.height.px]="dimensions.y"
+  [style.top.px]="position.y"
+  [style.left.px]="position.x"
+  [style.z-index]="zIndex"
+  cdkDragBoundary="#app-container"
 >
   <div class="scratch-pad-head" cdkDragHandle>
     <div class="scratch-pad-title">
-      <div class="scratch-pad-topic">Java</div>
-      <div class="scratch-pad-date">26-04-2022</div>
+      <div class="scratch-pad-title-editable">Note Title</div>
+      <div class="scratch-pad-topic">{{topic}}</div>
+      <div class="scratch-pad-date">{{dateString}}</div>
     </div>
     <button mat-icon-button>
       <mat-icon

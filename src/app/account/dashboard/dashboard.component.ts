@@ -13,10 +13,11 @@ export class DashboardComponent implements OnInit {
 
   constructor(private scratchPadService: ScratchPadService) {}
 
-  public addNewScratchPad(dimensions:Vector) {
+  public addNewScratchPad(dimensions:Vector, position:Vector) {
     this.scratchPads.push({
       id: `scratch-pad-${ScratchPadService.generateScratchPadId()}`,
-      dimensions: dimensions
+      dimensions: dimensions,
+      position: position
     });
   }
 
@@ -26,5 +27,5 @@ export class DashboardComponent implements OnInit {
 interface ScratchPads{
   id:string;
   dimensions:Vector;
-  position?:Vector;
+  position:Vector;
 }
