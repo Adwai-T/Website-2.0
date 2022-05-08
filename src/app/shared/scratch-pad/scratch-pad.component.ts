@@ -1,6 +1,5 @@
 import {
   Component,
-  ElementRef,
   HostListener,
   Input,
   OnInit,
@@ -46,17 +45,14 @@ export class ScratchPadComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  @HostListener('mousedown', ['$event'])
-  private resizeScratchPad(e: MouseEvent): void {
+  private down(e:MouseEvent|Touch):void {
     this.mouseUp = false;
     this.resizeElement = document.getElementById(`${this.scratchPadId}-resize`);
     if (e.target === this.resizeElement) {
       this.mouseDown = true;
     }
   }
-
-  @HostListener('window:mousemove', ['$event'])
-  private mouseMoveHandler(e: MouseEvent): void {
+  private move(e:MouseEvent|Touch):void {
     this.currentMousePosition.x = e.clientX;
     this.currentMousePosition.y = e.clientY;
     if (this.mouseDown && !this.mouseUp) {
@@ -71,10 +67,51 @@ export class ScratchPadComponent implements OnInit {
       this.dimensions.y = this.dimensions.y + dy;
     }
   }
+  private up(e:MouseEvent|Touch):void {
+    this.mouseUp = true;
+    this.mouseDown = false;
+  }
+
+  @HostListener('mousedown', ['$event'])
+  private resizeScratchPad(e: MouseEvent): void {
+    this.down(e);
+  }
+
+  @HostListener('window:mousemove', ['$event'])
+  private mouseMoveHandler(e: MouseEvent): void {
+    this.move(e);
+  }
 
   @HostListener('window:mouseup', ['$event'])
   private mouseUpHandler(e: MouseEvent): void {
-    this.mouseUp = true;
-    this.mouseDown = false;
+    this.up(e);
+  }
+
+  @HostListener('touchstart', ['$event'])
+  private touchStartHandler(e: TouchEvent):void {
+    if(e.type === 'touchstart') {
+      this.down(e.touches[0]);
+    }
+  }
+
+  @HostListener('touchmove', ['$event'])
+  private touchMoveHandler(e: TouchEvent):void {
+    if(e.type === 'touchmove') {
+      this.move(e.touches[0]);
+    }
+  }
+
+  @HostListener('touchend', ['$event'])
+  private touchEndHandler(e: TouchEvent):void {
+    if(e.type === 'touchend' || e.type === 'touchcancel') {
+      this.up(e.touches[0]);
+    }
+  }
+
+  @HostListener('touchcancel', ['$event'])
+  private touchCancelHandler(e: TouchEvent):void {
+    if(e.type === 'touchcancel') {
+      this.up(e.touches[0]);
+    }
   }
 }

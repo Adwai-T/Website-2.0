@@ -1,5 +1,5 @@
 <div id="dashboard">
-  <button mat-fab color="primary" (click)="addNewScratchPad({x:300, y:300}, {x:100, y:100})">Add</button>
+  <button mat-fab color="primary" id="add-button" (click)="addNewScratchPad({x:300, y:300}, {x:100, y:100})">Add</button>
   <div id="notes-container"></div>
   <div *ngFor="let scratchPad of scratchPads">
     <app-scratch-pad

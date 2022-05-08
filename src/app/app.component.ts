@@ -1,10 +1,11 @@
-import { AfterViewInit, Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
-import { MatDrawer } from '@angular/material/sidenav';
-import { Observable, Subscription } from 'rxjs';
+import { Component, HostListener, ViewChild } from '@angular/core';
+import { MatDrawer, MatDrawerContainer } from '@angular/material/sidenav';
+import { Subscription } from 'rxjs';
 
 import { Vector } from './interface/interfaces';
 import { ErrorsService } from './services/errors.service';
 import { NavBarService } from './services/nav-bar.service';
+import { ThemeService } from './services/theme.service';
 import { WindowService } from './services/window.service';
 
 @Component({
@@ -14,6 +15,7 @@ import { WindowService } from './services/window.service';
 })
 export class AppComponent{
   @ViewChild('matDrawer') private matDrawer!: MatDrawer;
+  @ViewChild('container') private container!: MatDrawerContainer;
   
   public isDesktop: boolean = true;
   public title: string = '';
@@ -26,12 +28,14 @@ export class AppComponent{
   private titleEventSubscription: Subscription;
   private errorsEventSubscription: Subscription;
   private appContentOverflowYSubscription: Subscription;
+  private themeSubscription:Subscription;
 
   constructor(
     //Created Services
     private navBarService: NavBarService,
     private errorsService: ErrorsService,
-    private windowService: WindowService
+    private windowService: WindowService,
+    private theme:ThemeService,
   ) {
     this.windowSize.x = window.innerWidth;
     this.windowSize.y = window.innerHeight;
@@ -51,6 +55,10 @@ export class AppComponent{
     this.appContentOverflowYSubscription = windowService.appContentOverflowYEvent
     .subscribe(
       (overflowType:string) => (this.appContentOverflowY=overflowType)
+    );
+
+    this.themeSubscription = theme.themeEvent.subscribe(
+      (themeName:string) => (console.log(themeName))
     );
   }
 
