@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MD TO HTML</title>
+    <link rel="stylesheet" href="index.css" />
+    <!-- <link rel="stylesheet" href="default.min.css"> -->
+  </head>
+  <body>
+    <h2>Markdown to Html Transpiler</h2>
+    <div id="container">
+      <textarea id="text-input" class="display-area"></textarea>
+      <div id="controls">
+        <button id="from-text" class="button button-red">From Text</button>
+        <button id="from-link" class="button button-red">From Link</button>
+        <button id="show-html" class="button button-blue">Show Html</button>
+        <button id="show-page" class="button button-blue">Show page</button>
+      </div>
+      <iframe
+        id="result-page"
+        class="display-area"
+        style="display: none"
+      ></iframe>
+      <textarea id="result-html" class="display-area" type="text"></textarea>
+    </div>
+    <script src="index.js" type="module"></script>
+  </body>
+</html>

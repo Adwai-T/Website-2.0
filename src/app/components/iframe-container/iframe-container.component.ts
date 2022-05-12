@@ -2,6 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
 import { Pages, Page } from 'src/app/objects/pages';
 import { FilesService } from 'src/app/services/files.service';
+import { IframePageService } from 'src/app/services/iframe-page.service';
 import { NavBarService } from 'src/app/services/nav-bar.service';
 import { WindowService } from 'src/app/services/window.service';
 
@@ -19,9 +20,13 @@ export class IframeContainerComponent implements OnDestroy {
     private loadFileService: FilesService,
     private navbarService: NavBarService,
     private windowService:WindowService,
+    private pageService:IframePageService,
   ) {
+    this.loadPage(pageService.getCurrentPage());
     this.windowService.setAppContentOverflowY("hidden");
-    this.loadPage(Pages.linkedList);
+    pageService.getPageUrlEvent.subscribe((page:Page) => {
+      this.loadPage(page);
+    });
   }
 
   loadPage(page:Page) :void{

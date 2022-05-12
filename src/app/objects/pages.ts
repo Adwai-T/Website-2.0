@@ -5,15 +5,25 @@ export interface Page {
   bundlejs?:string,
 }
 
-interface PagesInterface{
+export interface PagesI{
   [key: string] :Page
 }
 
-export const Pages:PagesInterface = {
+export const Pages:PagesI = {
   linkedList : {
     title: 'Linked List',
-    html: 'assets/pages/linked-list/index.html',
-    css : 'assets/pages/linked-list/index.css',
-    bundlejs : 'assets/pages/linked-list/bundle.js',
+    html: 'assets/pages/withjs/linked-list/index.html',
   },
+  Cpp : {
+    title: 'Cpp',
+    html: 'assets/pages/htmlonly/C++.html',
+  },
+  angular : {
+    title: 'Angular 2+',
+    html: 'assets/pages/htmlonly/angular2+.html',
+  },
+  mdToHtml : {
+    title: 'MD To HTML',
+    html: 'assets/pages/withjs/md-to-html/index.html',
+  }
 }

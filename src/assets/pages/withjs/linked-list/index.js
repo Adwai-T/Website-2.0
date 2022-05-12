@@ -1,4 +1,4 @@
-import { Canvas, Circle, Line, Point, Vector2i, Rectangle } from "../Canvas.js";
+import { Canvas, Circle, Line, Point, Vector2i, Rectangle } from "../../../library/Canvas.js";
 
 //--- LinkedList DataStructure
 class Node {

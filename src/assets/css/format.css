@@ -1,0 +1,161 @@
+*{
+  box-sizing: border-box;
+  text-align: justify;
+  background-color: var(--color5);
+  color: var(--color2);
+}
+
+/* --- Index ---- */
+#index-toggle{
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 10;
+}
+#index{
+  position: fixed;
+  min-height: fit-content;
+  top: 0;
+  right: 0;
+  z-index: 5;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  border: 2px solid var(--color1);
+}
+#index-list{
+  color: var(--color3);
+  position: relative;
+  top: 0px;
+  border-radius: 30px;
+}
+#indexUp{
+  position: fixed;
+  right: 80px;
+  top: 10px;
+  z-index: 6;
+}
+#indexDown{
+  position: fixed;
+  right: 80px;
+  bottom: 20px;
+  z-index: 6;
+}
+.index-li-h2{
+  list-style-type: square; 
+  padding-top: 10px;
+}
+.index-li-h3{
+  text-indent: 10px;
+  list-style-type: disc; 
+  list-style-position: inside;
+}
+.index-li-h4{
+  text-indent: 20px;
+  list-style-type: circle; 
+  list-style-position: inside;
+}
+
+#content{
+  overflow-wrap: break-word;
+  overflow: auto;
+}
+
+/* Headings */
+h1{
+  text-align: center;
+  color: var(--color3);
+}
+h2{
+  color: var(--color2);
+}
+h3{
+  color: var(--color1);
+}
+h4{
+  color: var(--color3);
+}
+
+/* Links */
+a{
+  color: var(--color2);
+  text-decoration: none;
+  background-color: var(--color4);
+  border-radius: 3px;
+  padding: 3px 0px;
+}
+li a{
+  background-color: var(--color5);
+  line-height: 1.5em;
+}
+
+/* tables */
+table{
+  border: 3px solid;
+  border-collapse: collapse;
+}
+th {
+  border: 2px solid;
+}
+td{
+  border: 1px solid;
+}
+
+/* Samp code */
+samp{
+  background-color: var(--color1);
+  color: var(--color4);
+  padding: 3px;
+  border-radius: 2px;
+}
+
+/* Code */
+.copy-button{
+  position: relative;
+  bottom: 25px;
+  left: 50px;
+  opacity: 0.5;
+  background-color: var(--color5);
+  color: var(--color3);
+  border: 1px solid var(--color3);
+  z-index: 2;
+}
+
+/* Quotes / Important */
+quote{
+  background-color: var(--color1);
+  color: var(--color5);
+  padding: 10px;
+  line-height: 30px;
+  border-radius: 10px;
+}
+
+/* Buttons */
+button{
+  padding: 10px 15px;
+  border-color: var(--color4);
+}
+svg{
+  background: var(--color4);
+}
+#theme-switch{
+  position: absolute;
+  top : 20px;
+  left: 50px;
+  padding : 17px 30px;
+  background-color: var(--color2);
+  z-index: 5;
+  border: solid 2px var(--color1);
+  border-radius: 15px;
+}
+#theme-switch-toggle{
+  position: absolute;
+  top :20px;
+  left: 50px;
+  padding : 17px;
+  z-index: 6;
+  border: solid 2px var(--color2);
+  border-radius: 15px;
+}
+
+/* @media only screen and (max-width: 768px) {
+} */

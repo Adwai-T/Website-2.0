@@ -19,4 +19,9 @@ export const SiteIndex:SearchResultObject = {
     description : "Utility that transpiles Markdown to Html.",
     subject : "Utility",
   },
+  'Angular' : {
+    link: '/article/angular',
+    description : 'Angular 2 + complete Notes',
+    subject : 'Angular'
+  },
 }

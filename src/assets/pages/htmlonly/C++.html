@@ -1,0 +1,1943 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>c++</title>
+  </head>
+  <body>
+    <div id="container">
+      <div id="index">
+        <ul id="index-list">
+          <li class="index-li-h2"><a href="#h2-0">Getting Started</a></li>
+          <li class="index-li-h2"><a href="#h2-1">Data Types</a></li>
+          <li class="index-li-h3"><a href="#h3-0">Casting Data types</a></li>
+          <li class="index-li-h3"><a href="#h3-1">Typedef</a></li>
+          <li class="index-li-h2"><a href="#h2-2">Operators</a></li>
+          <li class="index-li-h3"><a href="#h3-2">Increament Operators</a></li>
+          <li class="index-li-h2"><a href="#h2-3">Strings</a></li>
+          <li class="index-li-h2"><a href="#h2-4">Static Varaibles</a></li>
+          <li class="index-li-h2"><a href="#h2-5">Namespace</a></li>
+          <li class="index-li-h2"><a href="#h2-6">Input From Terminal</a></li>
+          <li class="index-li-h2"><a href="#h2-7">String</a></li>
+          <li class="index-li-h2">
+            <a href="#h2-8">Conditional Statements</a>
+          </li>
+          <li class="index-li-h3"><a href="#h3-3">Ternary Operator</a></li>
+          <li class="index-li-h2"><a href="#h2-9">Functions</a></li>
+          <li class="index-li-h3"><a href="#h3-4">Default parameters</a></li>
+          <li class="index-li-h3"><a href="#h3-5">Overloading</a></li>
+          <li class="index-li-h3"><a href="#h3-6">Passed By Value</a></li>
+          <li class="index-li-h3"><a href="#h3-7">Passing By Reference</a></li>
+          <li class="index-li-h3">
+            <a href="#h3-8">Passing Arrays as Argument</a>
+          </li>
+          <li class="index-li-h3"><a href="#h3-9">Build in functions</a></li>
+          <li class="index-li-h2"><a href="#h2-10">Collections</a></li>
+          <li class="index-li-h3"><a href="#h3-10">Templatized Array</a></li>
+          <li class="index-li-h3"><a href="#h3-11">Vector</a></li>
+          <li class="index-li-h3">
+            <a href="#h3-12">Standard Array, Templatized Array and Vector</a>
+          </li>
+          <li class="index-li-h2">
+            <a href="#h2-11">Object Orineted Programming</a>
+          </li>
+          <li class="index-li-h3"><a href="#h3-13">Structs</a></li>
+          <li class="index-li-h2"><a href="#h2-12">Classes</a></li>
+          <li class="index-li-h3"><a href="#h3-14">Operator Overloading</a></li>
+          <li class="index-li-h3">
+            <a href="#h3-15">Friend Functions and classes</a>
+          </li>
+          <li class="index-li-h3"><a href="#h3-16">Inheritance</a></li>
+          <li class="index-li-h4"><a href="#h4-0">Multiple Inheritance</a></li>
+          <li class="index-li-h3">
+            <a href="#h3-17">Abstract and Concrete Classes</a>
+          </li>
+          <li class="index-li-h3"><a href="#h3-18">Example Class</a></li>
+          <li class="index-li-h2"><a href="#h2-13">Template Classes</a></li>
+          <li class="index-li-h3">
+            <a href="#h3-19">Example Template class</a>
+          </li>
+          <li class="index-li-h2"><a href="#h2-14">typename</a></li>
+          <li class="index-li-h2"><a href="#h2-15">Template Function</a></li>
+          <li class="index-li-h2">
+            <a href="#h2-16">Memory Management In C++</a>
+          </li>
+          <li class="index-li-h2"><a href="#h2-17">Pointers</a></li>
+          <li class="index-li-h3"><a href="#h3-20">Generic pointer</a></li>
+          <li class="index-li-h3"><a href="#h3-21">Pointer to Pointer</a></li>
+          <li class="index-li-h3"><a href="#h3-22">Pointer as Arguments</a></li>
+          <li class="index-li-h3">
+            <a href="#h3-23">Array and Pointer relation</a>
+          </li>
+          <li class="index-li-h3"><a href="#h3-24">Function Pointers</a></li>
+          <li class="index-li-h2">
+            <a href="#h2-18">Functions as arguments</a>
+          </li>
+          <li class="index-li-h2"><a href="#h2-19">Dynamic Memory</a></li>
+          <li class="index-li-h3"><a href="#h3-25">C and C++ ways</a></li>
+          <li class="index-li-h2">
+            <a href="#h2-20">Reading and Writing Files</a>
+          </li>
+          <li class="index-li-h2"><a href="#h2-21">Threads</a></li>
+          <li class="index-li-h2"><a href="#h2-22">Debugging</a></li>
+          <li class="index-li-h3"><a href="#h3-26">Using std::cerr</a></li>
+          <li class="index-li-h3"><a href="#h3-27">Compiler Extensions</a></li>
+          <li class="index-li-h3"><a href="#h3-28">Compilation Warning</a></li>
+          <li class="index-li-h3"><a href="#h3-29">Language Standard</a></li>
+          <li class="index-li-h2"><a href="#h2-23">MakeFiles</a></li>
+        </ul>
+      </div>
+      <div id="content">
+        <h1 id="h1-0">C++</h1>
+        <h2 id="h2-0">Getting Started</h2>
+        <p>We will first want to install a compiler for C++.</p>
+
+        <p>
+          There are a lot of options that we can use, C++ compiler that comes
+          with Visual Studio is a popular option. But we could also use one of
+          the other comilers.
+        </p>
+
+        <p>We in this tutorial will use Mingw with Visual Studio Code.</p>
+
+        <p>
+          After installing the compiler we want to add the compilers bin folder
+          to the path so that we can use it from our terminal.
+        </p>
+
+        <quote>
+          Detailed Explanation on setting up Development enviroment in
+          <a href="https://code.visualstudio.com/docs/cpp/config-mingw"
+            >Visual Studio Code here</a
+          >.</quote
+        >
+        <h2 id="h2-1">Data Types</h2>
+
+        <pre><code class="language-cpp">
+  #include &lt;iostream&gt;
+  #include &lt;iomanip&gt; // for std::setprecision()
+  
+  
+  using namespace std;
+  
+  
+  int main()
+  {
+    //-- Different Ways of Initializing variables
+    int a1 = 10; //copy initialization
+    int a2= {20};//brace-initialization -&gt; preferred
+    int a3 (30);//direct initialization
+    int a4;
+    a4 = a1 + a2 + a3;
+    cout &lt;&lt; "Sum =&gt; " &lt;&lt; a4 &lt;&lt; endl;
+  
+  
+    //-- Get the size of a datatype in bytes(8bits = 1byte)
+    cout &lt;&lt; "Size of Int in bytes : " &lt;&lt; sizeof(a4) &lt;&lt; endl;
+  
+  
+    //------ Data Types ------//
+  
+  
+    //Integer values signed and unsigned.
+    short a;
+    int b;
+    long c;
+    long long d;
+  
+  
+    unsigned short e;
+    unsigned int f;
+    unsigned long g;
+    unsigned long long h;
+  
+  
+    //-- Boolean
+    //Value of 0 or false or NULL is considered false. All other true.
+    bool is_true = true;
+    bool is_false = NULL;
+    cout &lt;&lt; "True : " &lt;&lt; is_true &lt;&lt; endl &lt;&lt; "False : " &lt;&lt; is_false &lt;&lt; endl;
+  
+  
+    //-- characters
+    char z = 'z';
+    int z_num = (int) z; //gives ASC-II based code for z
+    cout &lt;&lt; z &lt;&lt; " -&gt;  " &lt;&lt; z_num &lt;&lt; endl;
+  
+  
+    //-- Floats and doubles
+    float i = 0.2f;
+    double j = 7.2E5; // =&gt; 7.2 &lowast; 10^5;
+    long double k;
+    cout &lt;&lt; setprecision(17) &lt;&lt; "Double Value (j): " &lt;&lt; j &lt;&lt; endl;
+  
+  
+    //-- Constants
+    const double PI = 3.1415;
+    //-Enum Constants
+    enum { alpha = 9, delta = 5 };
+    //--- Enum Defination
+    enum Color
+    {
+        COLOR_BLACK, //will hold value 0 when called.
+        COLOR_WHITE, //will hold value 1 and so on further in the enum.
+        COLOR_RED,
+        COLOR_BLUE
+    };
+    //Having same values for enum elements is possible but not recommended.
+  
+  
+    //Constants that are known at compile time can be declared as constexpr.
+    constexpr double gravity { 9.8 };
+    //-- before c++ 17 inline constexpr could not be defined.
+    // &lsquo;inline constexpr double PI { 3.1415 };&lsquo;
+    //The inline constant have external linkages by default.
+  
+  
+    //-- Strings
+    char str[] = "Adwait";//C like strings
+    string str2 = "Sandipan";//string is the part of std library in C++.
+    cout &lt;&lt; str &lt;&lt; " and " &lt;&lt; str2 &lt;&lt; " are friends." &lt;&lt; endl;
+  
+  
+      //--- Fixed Width integers
+    //- For cross platfrom protability c99 introduced fixed width integers.
+    std::int32_t number_32bit= 1254;
+    //- Similarly we can have unit32_t which is unsigned int.
+    //- Other fixed width ints are : int8_t, int16_t, int64_t 
+    //and their respective unsigned values.
+    //- Downside : The above fixed-width integers should be avoided,
+    //as they may not be defined on all target architectures.
+  
+  
+    //--- Fast and least integers
+    std::int_fast32_t number_32bit_fast = 1268;
+    //- Similar for 8, 16, 32, 64 and also can similarly have int_least32_t. 
+    //- Similarly there are unsigned types that can be defined as uint_fast#_t.
+    //- Use least for memory conservation and fast for performace
+    //- 8 bit int in both above cases might behave as char in some systems.
+  
+  
+    //--- sizeof() and size_t
+    //- std::size_t is defined as an unsigned integral type, and it is typically
+    //- used to represent the size or length of objects.
+    cout &lt;&lt;"sizeof(size_t) : " &lt;&lt; sizeof(size_t) &lt;&lt; endl;
+  }
+  </code></pre>
+
+        <h3 id="h3-0">Casting Data types</h3>
+
+        <pre><code class="language-cpp">
+  //--- Casting
+  //C type casting
+  int cast_i1{1};
+  float cast_f1{(float)cast_i1/2};
+  //C++ type casting
+  double cast_d1{double(cast_i1)/2};
+  cout &lt;&lt; "Casting result of divide by 2 respectively of C style and C++ style : " &lt;&lt; cast_f1 &lt;&lt; "\t" &lt;&lt; cast_d1 &lt;&lt; endl;
+  //static_cast
+  float static_cast_f1{ static_cast&lt;float&gt;(cast_i1)/2 };
+  cout &lt;&lt; "Result of divide by 2 from static cast : " &lt;&lt;  static_cast_f1 &lt;&lt; endl;
+  //From above all three static cast should be prefered.
+  </code></pre>
+
+        <h3 id="h3-1">Typedef</h3>
+
+        <pre><code class="language-cpp">
+  //--- typedef and type alias
+  typedef int integer_number;
+  integer_number int_num1 = 10;
+  //intger_number is just as if using &lsquo;int int_num1 = 10&lsquo;, that is as an alias.
+  cout &lt;&lt; "Value of type integer_number : " &lt;&lt; int_num1 &lt;&lt; endl;
+  </code></pre>
+
+        <h2 id="h2-2">Operators</h2>
+        <h3 id="h3-2">Increament Operators</h3>
+
+        <pre><code class="language-cpp">
+  //Increment and decrement operators
+  //- Prefix ++x operator are prefered for performance as they : 
+  //Increment x, then return x,
+  //- where as x++ operator : 
+  //copies x, then increment x, then return the copy
+  int inc_x{2};
+  int inc_y = ++inc_x; //value inc_y is 3
+  inc_x = 2;
+  int inc_z = inc_x++; //value inc_z is 2
+  cout &lt;&lt; "Increment opertaor Prefix : inc_y = : " &lt;&lt; inc_y &lt;&lt; endl;
+  cout &lt;&lt; "Increment opertaor Postfix : ++inc when inc =  : " &lt;&lt; inc_z &lt;&lt; endl;
+  //Similar for --
+  //- It is not recommended to pass x as well as
+  //x++ or ++x to a function as the value will
+  //depend on what order the compiler executes it.
+  </code></pre>
+
+        <h2 id="h2-3">Strings</h2>
+        <p>
+          Strings in c++ are of two types, string as character array which were
+          used in c or string objects.
+        </p>
+
+        <p>
+          When strings are stored as a character array they need a array of size
+          n+1 where n is the number of characters to be stored in the string.
+        </p>
+
+        <p>
+          The final character that is stored in the character array is the
+          <samp>\0</samp> also called as the null character, denotes the end of
+          the string. It helps c and c++ identify the end of the string.
+        </p>
+
+        <p>
+          We can declare a character array of any length and define every
+          character that we want then end it with null character. When we print
+          this string we will see that the string is only printed till the null
+          character even though we might have an array that is longer.
+        </p>
+
+        <p>
+          When we initailize a string or a character array as a string literal
+          we do not need to specify the null character in it, c and c++ will
+          automatically add it.
+        </p>
+
+        <pre><code class="language-cpp">
+  char name[20] = "Jerry";
+  std::cout &lt;&lt; name &lt;&lt; std::endl;
+  char name2[10];
+  name2[0] = 'T';
+  name2[1] = 'o';
+  name2[2] = 'm';
+  name2[3] = '\0';
+  name2[4] = 'a';
+  std::cout &lt;&lt; name2 &lt;&lt; std::endl;
+  </code></pre>
+
+        <h2 id="h2-4">Static Varaibles</h2>
+        <p>
+          The static storage class instructs the compiler to keep a local
+          variable in existence during the life-time of the program instead of
+          creating and destroying it each time it comes into and goes out of
+          scope. Making local variables static allows them to maintain their
+          values between function calls.
+        </p>
+
+        <p>
+          The static modifier may also be applied to global variables. It causes
+          that variable's scope to be restricted to the file in which it is
+          declared.
+        </p>
+
+        <p>
+          When static is used on a class data member, it causes only one copy of
+          that variable to be shared by all objects of its class.
+        </p>
+
+        <h2 id="h2-5">Namespace</h2>
+        <p>Namespace is used for encapsulation.</p>
+
+        <p>
+          Function in c and c++ are global scoped and are usable across files,
+          thus we define them in a namespace to restrict their scope.
+        </p>
+
+        <p>
+          It helps us organize our code into local groups and prevents name
+          collision that might occur especially when our project are big and we
+          are using external libraries.
+        </p>
+
+        <p>
+          We have already seen the <samp>std</samp> name space that is the
+          standard namespace used by C++ library.
+        </p>
+
+        <quote>
+          Variables are scoped to the file. Using <samp>extern</samp> to define
+          a varaible makes it global in the sence that it can be used between
+          different files.</quote
+        >
+
+        <pre><code class="language-cpp">
+  namespace utils{
+      //And then we add all the code that needs to belong to the namespace inside this.
+  }
+  </code></pre>
+
+        <quote>
+          While using name space we have to add the name space to both the
+          header file as well as implementation.</quote
+        >
+        <h2 id="h2-6">Input From Terminal</h2>
+        <p>
+          When used the buffer from the first cin might not be cleared and will
+          directly be used as the input for
+        </p>
+
+        <p>second <samp>getline()</samp>.</p>
+
+        <p>
+          To prevent this we have to clear the buffer before we use the getline
+          by ignoring the value that is in it.
+        </p>
+
+        <p>
+          <samp
+            >std::cin.ignore(std::numeric_limits&lt;std::streamsize&gt;::max(),
+            '\n');</samp
+          >
+        </p>
+
+        <p>
+          This will ignore unlimited characters until a <samp>\n</samp> is
+          removed.
+        </p>
+
+        <pre><code class="language-cpp">
+  //--- Getting user input from console.
+  
+  
+  //-- Using cin
+  //THis could be a string but we are using the varaible above to store it,
+  //so it is parsed to integer automatically.
+  int i;
+  cout &lt;&lt; "Please enter a number to store in i : ";
+  cin &gt;&gt; i; //value will be implicitly be casted to an int as i is int
+  //clears the data in the stream.
+  cin.clear(); 
+  //We have to use the ignore method of the cin so that the all the data in the stream
+  //clears and when we use the next cin or getline() the value is reset and we can enter
+  //a new number.
+  //cin.ignore(numberOfCharactersToIgnore, ignoreTillReachCharacter);
+  cin.ignore(std::numeric_limits&lt;std::streamsize&gt;::max(), '\n');
+  cout &lt;&lt; "You entered : " &lt;&lt; i &lt;&lt; endl;
+  
+  
+  //-- Using getline();
+  string name;
+  getline(cin, name);
+  cout &lt;&lt; "Your name is : " &lt;&lt; name &lt;&lt; endl;
+  </code></pre>
+
+        <h2 id="h2-7">String</h2>
+        <p>
+          String are standard objects->class in cpp that has helper methods.
+        </p>
+
+        <pre><code class="language-cpp">
+  //String Functions
+  //length() -&gt; same as -&gt; size(), append(), insert(index, "value"),
+  //erase(), replace(index, howManyChar, "value")
+  //find("value"), substr(start, howLong), compare("compareToValue") -&gt; gives 1 or 0
+  </code></pre>
+
+        <h2 id="h2-8">Conditional Statements</h2>
+        <h3 id="h3-3">Ternary Operator</h3>
+
+        <pre><code class="language-cpp">
+  //--- Ternary if statement
+  int num1 = 10;
+  int num2 = 20;
+  cout &lt;&lt; "Compare Numbers : ";
+  num1 == num2 ? cout &lt;&lt; "Numbers are the same." &lt;&lt; endl : cout &lt;&lt; "Numbers are different." &lt;&lt; endl;
+  </code></pre>
+
+        <h2 id="h2-9">Functions</h2>
+        <quote>
+          Functions need to be declared before they can be used in the
+          code.</quote
+        >
+        <p>
+          A function can be declared initially in the program and defined later
+          in the program. This will allow us to use the function in the program
+          befrore we actually define it.
+        </p>
+
+        <h3 id="h3-4">Default parameters</h3>
+
+        <pre><code class="language-cpp">
+  void helloFunction(std::string message = "Hello World")
+  {
+      cout &lt;&lt; message &lt;&lt; endl;
+  }
+  </code></pre>
+
+        <h3 id="h3-5">Overloading</h3>
+        <p>
+          We can have multiple function with the same name that take different
+          parameters. This is called as function overloading.
+        </p>
+
+        <p>
+          Function is called according to the arguments passed to the function
+          call.
+        </p>
+
+        <pre><code class="language-cpp">
+  #include &lt;iostream&gt;
+  using namespace std;
+  
+  
+  int add(int&lowast; a, int&lowast; b) {
+    int c = (&lowast;a) + (&lowast;b);
+    return c;
+  }
+  
+  
+  int add(int&lowast; a, int&lowast; b, int&lowast; c) {
+    int d = (&lowast;a) + (&lowast;b) + (&lowast;c);
+    return d;
+  }
+  
+  
+  int main()
+  {
+    int a = {10}, b = {20}, c;
+    c = add(&amp;a, &amp;b);
+  
+  
+    int d = add(&amp;a, &amp;b, &amp;c);
+    cout &lt;&lt; "d : " &lt;&lt; d &lt;&lt; endl;
+  }
+  </code></pre>
+
+        <h3 id="h3-6">Passed By Value</h3>
+        <p>
+          When we pass arguments of primitive type as value, the value of the
+          variable is copied into the function and a local varaible for the
+          function is created.
+        </p>
+
+        <p>
+          Operations on the values passed by value do not effect the originally
+          declared varaibles.
+        </p>
+
+        <p>
+          Also we need to note that the varaibles are scoped for the function
+          and will be cleared once the function is poped off the stack.
+        </p>
+
+        <pre><code class="language-cpp">
+  #include &lt;iostream&gt;
+  
+  
+  using namespace std;
+  
+  
+  //--- we can check here that the pointer to a, b and c in add is different,
+  //as compared to the variables that were passed in main as arguments.
+  int add(int a, int b) {
+    cout &lt;&lt; " Pointer a in function add -&gt; " &lt;&lt; &amp;a &lt;&lt; endl;
+    cout &lt;&lt; " Pointer b in function add -&gt; " &lt;&lt; &amp;b &lt;&lt; endl;
+  
+  
+    int c = a + b;
+    cout &lt;&lt; " Pointer c(return value) in function add -&gt; " &lt;&lt; &amp;c &lt;&lt; endl;
+    return c;
+  }
+  
+  
+  int main()
+  {
+    int a = {10}, b = {20}, c;
+    c = add(a, b);
+    cout &lt;&lt; "Added Value : " &lt;&lt; c &lt;&lt; endl;
+    cout &lt;&lt; " Pointer a in main -&gt; " &lt;&lt; &amp;a &lt;&lt; endl;
+    cout &lt;&lt; " Pointer b in main -&gt; " &lt;&lt; &amp;b &lt;&lt; endl;
+    cout &lt;&lt; " Pointer c(returned by add) in main -&gt; " &lt;&lt; &amp;c &lt;&lt; endl;
+  }
+  </code></pre>
+
+        <h3 id="h3-7">Passing By Reference</h3>
+
+        <pre><code class="language-cpp">
+  #include &lt;iostream&gt;
+  
+  
+  using namespace std;
+  
+  
+  //'a' in function remains a value,
+  //'b' is a pointer
+  int add(int &amp;a, int&lowast; b) {
+    cout &lt;&lt; " Pointer a in function add -&gt; " &lt;&lt; &amp;a &lt;&lt; endl; //0x22fe4c
+    cout &lt;&lt; " Pointer b in function add -&gt; " &lt;&lt; b &lt;&lt; endl; //0x22fe48
+  
+  
+    //We add brackets around b so &lowast; is not considered as an operation.
+    int c = a + (&lowast;b);
+    cout &lt;&lt; " Pointer c(return value) in function add -&gt; " &lt;&lt; &amp;c &lt;&lt; endl; 
+    return c;
+  }
+  
+  
+  int main()
+  {
+    int a = {10}, b = {20}, c;
+    c = add(a, &amp;b);
+    cout &lt;&lt; "Added Value : " &lt;&lt; c &lt;&lt; endl;
+    cout &lt;&lt; " Pointer a in main -&gt; " &lt;&lt; &amp;a &lt;&lt; endl; //0x22fe4c
+    cout &lt;&lt; " Pointer b in main -&gt; " &lt;&lt; &amp;b &lt;&lt; endl; //0x22fe48
+    cout &lt;&lt; " Pointer c(returned by add) in main -&gt; " &lt;&lt; &amp;c &lt;&lt; endl;
+  }
+  </code></pre>
+
+        <h3 id="h3-8">Passing Arrays as Argument</h3>
+        <quote>
+          Arrays are always passed by reference. Array passed as argument only
+          retain the pointer to the first memory address.</quote
+        >
+
+        <pre><code class="language-cpp">
+  #include &lt;iostream&gt;
+  
+  
+  using namespace std;
+  
+  
+  //When standard arrays are passed as arguments they downgrade to pointer
+  //to the first element of the array.
+  void print(int a[], int size) {
+    cout &lt;&lt; "Array pointer in print : " &lt;&lt; a &lt;&lt; endl; //0x22fe30
+    
+    //arrays get downgraded to just pointer to first element of that array.
+    //We have to dereference to get the value of a as it is a pointer.
+    cout &lt;&lt; "byte size of array a in function : " &lt;&lt; sizeof(&lowast;a) &lt;&lt; endl;
+  
+  
+    cout &lt;&lt; "[ ";
+    for(int i = 0; i &lt; size; i++) {
+      cout &lt;&lt; a[i] &lt;&lt; ", ";
+    }
+    cout &lt;&lt; "\b\b ]";
+  }
+  
+  
+  int main()
+  {
+    int arr[5] = { 20, 30, 10, 8, 6 };
+    cout &lt;&lt; " Array pointer in main : " &lt;&lt; &amp;arr &lt;&lt; endl; //0x22fe30
+    cout &lt;&lt; "byte size of array a in main : " &lt;&lt; sizeof(arr) &lt;&lt; endl;
+    cout &lt;&lt; "Number of elements in array : " &lt;&lt; sizeof(arr)/sizeof(int) &lt;&lt; endl;
+    print(arr, 5); 
+  }
+  </code></pre>
+
+        <quote>
+          Pointers to an array can be incremented to get the pointer to the next
+          element but the array variable cannot be incremented, it will have a
+          compilation error.</quote
+        >
+        <h3 id="h3-9">Build in functions</h3>
+        <p>
+          C++ also provides a lot of inbuild function that can be used as
+          helpers for achiving different tasks.
+        </p>
+
+        <pre><code class="language-cpp">
+  //--- Character Functions
+  char letterZ = 'z';
+  char char5 = '5';
+  std::cout 
+    &lt;&lt; "Is z a letter or number : " 
+    &lt;&lt; std::isalnum(letterZ) 
+    &lt;&lt;std::endl;
+  //isalpha() isdigit() isspace();
+  
+  
+  
+  
+  </code></pre>
+
+        <h2 id="h2-10">Collections</h2>
+        <h3 id="h3-10">Templatized Array</h3>
+        <p>
+          <samp>#include &lt;array&gt;</samp> is where we import templatised
+          array from.
+        </p>
+
+        <p>
+          Unlike standard arrays when templatised array are passed to functions
+          they retain their method properties like size.
+        </p>
+
+        <p>
+          They have a static size. Once declared the size of templatized array
+          cannot be changed.
+        </p>
+
+        <p>
+          We can think of templatised arrays as arrays wrapped inside a object.
+        </p>
+
+        <h3 id="h3-11">Vector</h3>
+        <p>
+          Vectors can be thought as ArrayList in Java, or arrays in Javascript.
+          They have a varaible size and scale according to elements that we add
+          to the it.
+        </p>
+
+        <p>
+          When vectors are passed to an argument directly the vector is copied
+          into a new local variable for that function.
+        </p>
+
+        <p>
+          We need to explicitly pass the reference/pointer of the vector to a
+          function so that the same vector in memory is passed.
+        </p>
+
+        <p>
+          The initial size of a vector is 10 and it is doubled everytime the
+          size is exceeded.
+        </p>
+
+        <quote>
+          When vectors and templatized arrays are assigned to a another
+          variable, a copy of the collection is made and the variable assigned
+          point to that copy. This is not true for standard arrays.</quote
+        >
+        <h3 id="h3-12">Standard Array, Templatized Array and Vector</h3>
+
+        <pre><code class="language-cpp">
+  #include &lt;iostream&gt;
+  #include &lt;vector&gt; //Vector
+  #include &lt;array&gt;//Templatized Array
+  
+  
+  using namespace std;
+  
+  
+  void printArray(int a[], int size) {
+    cout &lt;&lt; "Array pointer in function : " &lt;&lt; a &lt;&lt; endl; //0x22fe30
+    cout &lt;&lt; "Size of Array in function : " &lt;&lt; sizeof(&lowast;a)/sizeof(int) &lt;&lt; endl;//1
+    cout &lt;&lt; "[ ";
+    for(int i = 0; i &lt; size; i++) {
+      cout &lt;&lt; a[i] &lt;&lt; ", ";
+    }
+    cout &lt;&lt; "\b\b ] \n\n";
+  }
+  
+  
+  //-- Passed by value
+  //A local copy of the array will be made for the function
+  void printTemplatizedArray(array&lt;int, 5&gt; a) {
+    cout &lt;&lt; "Templatized Array pointer in function : " &lt;&lt; &amp;a &lt;&lt; endl; 
+    cout &lt;&lt; "[ ";
+    for(int i = 0; i &lt; a.size(); i++) {
+      cout &lt;&lt; a[i] &lt;&lt; ", ";
+    }
+    cout &lt;&lt; "\b\b ] \n\n";
+  }
+  
+  
+  //-- Passed by reference
+  //The same vector from the memory will be passed.
+  void printVector(vector&lt;int&gt; &amp;v) {
+    cout &lt;&lt; "Vector pointer in print function : " &lt;&lt; &amp;v &lt;&lt; endl;
+    cout &lt;&lt; "[ ";
+    for(int i = 0; i &lt; v.size(); i++) {
+      cout &lt;&lt; v[i] &lt;&lt; ", ";
+    }
+    cout &lt;&lt; "\b\b ] \n\n";
+  }
+  
+  
+  int main()
+  {
+    //--- standard array in c and c++
+    int arr[5] = { 10, 20, 30, 40, 50 };
+    cout &lt;&lt; "Array pointer in main : " &lt;&lt; &amp;arr &lt;&lt; endl; //0x22fe30
+    cout &lt;&lt; "Size of array in main : " &lt;&lt; sizeof(arr)/sizeof(int) &lt;&lt; endl;//5
+    printArray(arr, sizeof(arr)/sizeof(int));
+  
+  
+    //--- templatized arrays
+    array&lt;int, 5&gt; temp_arr = { 1, 2, 3, 4, 5 };
+    cout &lt;&lt; "Templatized Array pointer in main : " &lt;&lt; &amp;temp_arr &lt;&lt; endl;
+    printTemplatizedArray(temp_arr);
+  
+  
+    //--- Vector
+    vector&lt;int&gt; vec = { 1, 2, 3, 4, 5 };
+    vec.push_back(9);
+    cout &lt;&lt; "Vector pointer in main : " &lt;&lt; &amp;vec &lt;&lt; endl;
+    printVector(vec);
+  </code></pre>
+
+        <h2 id="h2-11">Object Orineted Programming</h2>
+        <quote>
+          When we declare structs and classes, they are instantiated
+          automatically and a local variable for the instace is created in the
+          local scope where it is declared. We do not need to use the
+          <samp>new</samp> keyword. Using the <samp>new</samp> keyword will
+          create a dynamic object in the heap which we have to manage the memory
+          for.</quote
+        >
+        <h3 id="h3-13">Structs</h3>
+        <p>Structs are mostly used for small object definitions.</p>
+
+        <p>
+          Structs variables are by default public where class varaibles by
+          default are private.
+        </p>
+
+        <p>Structs mostly are used as PODS : Plain old data structures</p>
+
+        <pre><code class="language-cpp">
+  #include &lt;iostream&gt;
+  #include &lt;string&gt; //for converting int to string.
+  
+  
+  using namespace std;
+  
+  
+  struct Vehicle {
+    static int numberOfRegisteredVehicles;
+    string name;
+    int id;
+    Vehicle(string name, int id, string type) {
+      this-&gt;name = name;
+      this-&gt;type = type;
+      this-&gt;id = id;
+      numberOfRegisteredVehicles++;
+    }
+    Vehicle() {}
+    void setType(string type) {
+      this-&gt;type = type;
+      numberOfRegisteredVehicles++;
+    }
+    string getType() {
+      return type;
+    }
+    string toString() {
+      string output;
+      output = "Name : " + name + " \t type : " + type + "\t Id : " + to_string(id);
+      return output;
+    }
+  private:
+    string type;
+  };
+  
+  
+  //We have to declare static outside of the class as below.
+  int  Vehicle::numberOfRegisteredVehicles = 0;
+  
+  
+  int main()
+  {
+    //Initialize, we don't use new.
+    Vehicle veh1;
+    veh1.name = "6wheeler";
+    veh1.id = 20;
+    veh1.setType("Truck");
+    cout &lt;&lt; veh1.toString() &lt;&lt; endl;
+  
+  
+    Vehicle veh2("City Bus", 10, "Bus");
+    cout &lt;&lt; veh2.toString() &lt;&lt; endl;
+  }
+  </code></pre>
+
+        <h2 id="h2-12">Classes</h2>
+        <p>By default variables declared in a class are private variables.</p>
+
+        <h3 id="h3-14">Operator Overloading</h3>
+        <p>
+          Operators can be overloaded to define how they work when used with the
+          given class.
+        </p>
+
+        <p>
+          The example below shows a comparison operator that compares this
+          instance with the given instance for equality.
+        </p>
+
+        <h3 id="h3-15">Friend Functions and classes</h3>
+        <p>
+          <samp>friend</samp> function are function that are declared in the
+          class and have access to the private variables of the class it is
+          declared in, but we define it outside the class.
+        </p>
+
+        <quote>
+          Friends are functions or classes declared with the
+          <samp>friend</samp> keyword.</quote
+        >
+        <p>
+          It Also should be noted that it is not a instance function but its own
+          individual function.
+        </p>
+
+        <p>
+          As it is not a instance function we have to pass in the instace so we
+          know which instance we are refering to.
+        </p>
+
+        <h3 id="h3-16">Inheritance</h3>
+        <p>
+          We define inheritance like
+          <samp
+            >class Rectangle: public Polygon { /&lt;em&gt; ... &lt;/em&gt;/
+            }</samp
+          >.
+        </p>
+
+        <p>
+          In the above case we declare the parent class with an access modifier
+          of
+          <samp>public</samp>, this means that class will inherit all the
+          members with the same levels they had in the base/parent class.
+        </p>
+
+        <p>
+          With <samp>protected</samp>, like
+          <samp>class Daughter: protected Mother;</samp>, all
+          <samp>public</samp> members of the base class are inherited as
+          <samp>protected</samp> in the derived class. Conversely, if the most
+          restricting access level is specified (<samp>private</samp>), all the
+          base class members are inherited as <samp>private</samp>.
+        </p>
+
+        <p>
+          When inheritance level is defined as public, the methods not inherited
+          from parent are :
+        </p>
+
+        <ul>
+          <li>its constructors and its destructor</li>
+          <li>its assignment operator members (operator=)</li>
+          <li>its friends</li>
+          <li>its private members</li>
+        </ul>
+        <h4 id="h4-0">Multiple Inheritance</h4>
+        <p>
+          A class may inherit from more than one class by simply specifying more
+          base classes, separated by commas, in the list of a class's
+          base/parent classes.
+        </p>
+
+        <p><samp>class Rectangle: public Polygon, public Output;</samp></p>
+        <p><samp>class Triangle: public Polygon, public Output {}</samp></p>
+
+        <h3 id="h3-17">Abstract and Concrete Classes</h3>
+        <p>
+          Abstract Classes provide an appropriate base class from which other
+          classes can inherit. Abstract classes cannot be used to instantiate
+          objects and serves only as an interface.
+        </p>
+
+        <p>
+          Classes that can be instantiated are called as concrete classes. They
+          can inherit from abstract classes overide their methods.
+        </p>
+
+        <p>
+          A class is made abstract by declaring at least one of its functions as
+          pure <strong>virtual function</strong>.
+        </p>
+
+        <p>
+          A pure virtual function is specified as
+          <samp>virtual double getArea() = 0</samp>.
+        </p>
+
+        <h3 id="h3-18">Example Class</h3>
+
+        <pre><code class="language-cpp">
+  #include &lt;iostream&gt;
+  #include &lt;string&gt; //for converting int to string.
+  
+  
+  using namespace std;
+  
+  
+  class Animal
+  {
+  private:
+    string name;
+  
+  
+  public:
+    Animal() {}
+    string getName()
+    {
+      return name;
+    }
+    void setName(string name)
+    {
+      this-&gt;name = name;
+    }
+    void drink() {
+      cout &lt;&lt; "Animal is drinking water." &lt;&lt; endl;
+    }
+    void eat(string food)
+    {
+      cout &lt;&lt; name &lt;&lt; " is eating " &lt;&lt; food &lt;&lt; "." &lt;&lt; endl;
+    }
+    // Makes the animal class abstract.
+    //  =0 makes this a pure virtual function.
+    virtual void talk() = 0;
+  };
+  
+  
+  class Dog : public Animal
+  {
+  private:
+    int age;
+  
+  
+  public:
+  //--Constructor
+    Dog(string name, int age)
+    {
+      this-&gt;setName(name);
+      this-&gt;age = age;
+      cout &lt;&lt; getName() &lt;&lt; " has come to visit." &lt;&lt; endl;
+    }
+  //--Destructor
+    ~Dog() {
+      cout &lt;&lt; getName() &lt;&lt; " has run away." &lt;&lt;endl;
+    }
+    void talk()
+    {
+      cout &lt;&lt; this-&gt;getName() &lt;&lt; " is barking." &lt;&lt; endl;
+    }
+    int getAge()
+    {
+      return age;
+    }
+    void drink()
+    {
+      cout &lt;&lt; getName() &lt;&lt; " is drinking water." &lt;&lt; endl;
+    }
+    friend int dogAgeCalc(Dog &amp;dog);
+    friend void goodDog(Dog dog);
+  };
+  //If not passed by reference the dog object will be copied
+  int dogAgeCalc(Dog &amp;dog)
+  {
+    cout &lt;&lt; "Pointer in friend funtion(passed by reference): " &lt;&lt; &amp;dog &lt;&lt; endl;//0x22fd30
+    return dog.age &lowast; 5;
+  }
+  void goodDog(Dog dog)
+  {
+    cout &lt;&lt; "Pointer in friend funtion(passed by value) : " &lt;&lt; &amp;dog &lt;&lt; endl;//0x22fd30
+    cout &lt;&lt; dog.getName() &lt;&lt; " is a good boy." &lt;&lt; endl;
+  }
+  main()
+  {
+    //Classes can also be initialized as
+    //Dog spike{"Spike", 5}; //giving the same effect as below
+    Dog spike("Spike", 5);//constructor.
+    spike.talk();//overrider parent abstract method.
+    spike.drink();//override parent method.
+    cout &lt;&lt; "Pointer in main 1 : " &lt;&lt; &amp;spike &lt;&lt; endl;//0x22fd30
+    //-- friend method
+    int spikesAgeInHumanYears = dogAgeCalc(spike);//passed by reference
+    goodDog(spike);//passed by value, Dog obj copied to function
+  
+  
+    /&lowast;
+    &lowast; When we call goodDog function the object spike is copied,
+    &lowast; so no constuctor is called.
+    &lowast; But once the function goes out of scope,
+    &lowast; the copy of the spike object for the function is destroied,
+    &lowast; and the destructor for that instance is called.
+    &lowast; Finally before main goes out of scope destructor for spike
+    &lowast; instance is called and object is destroied from memory. 
+    &lowast;/
+  
+  
+    cout 
+      &lt;&lt; spike.getName() 
+      &lt;&lt; " age in human years is " 
+      &lt;&lt; to_string(spikesAgeInHumanYears) 
+      &lt;&lt; endl;
+    cout &lt;&lt; "Pointer in main 2 : " &lt;&lt; &amp;spike &lt;&lt; endl;//0x22fd30
+  }
+  </code></pre>
+
+        <h2 id="h2-13">Template Classes</h2>
+        <p>
+          Template classes help us make generalized classes that can be used
+          with different data types.
+        </p>
+
+        <p>
+          We have already seen example of template class in the form of vectors
+          and templatized array. They take a type when we declare them and can
+          store that datatype within them while ensuring type safety in our
+          program.
+        </p>
+
+        <p>
+          Lets consider an example of a Stack. We want to create a Stack
+          implementation that can hold any datatype.
+        </p>
+
+        <h3 id="h3-19">Example Template class</h3>
+
+        <pre><code class="language-cpp">
+  #include &lt;iostream&gt;
+  #include &lt;string&gt; //for converting int to string.
+  #include &lt;vector&gt;
+  #include &lt;iterator&gt; //iterator for iterating over vector
+  
+  
+  using namespace std;
+  
+  
+  template &lt;class T&gt;
+  class Stack
+  {
+  private:
+    vector&lt;T&gt; stack;
+  public:
+    void push(T const &amp;);//pass by reference
+    void pop();
+    T peek() const
+    {
+      return stack.back();
+    }
+    bool isEmpty()
+    {
+      return stack.empty();
+    }
+    void print();
+  };
+  
+  
+  template &lt;class T&gt;
+  void Stack&lt;T&gt;::print()
+  {
+    cout &lt;&lt; " { ";
+    //type name is used to tell compiler that this is a type declaration
+    //as compiler will interpret it as function call.
+    typename vector&lt;T&gt;::iterator stackT;
+    for (stackT = stack.begin(); stackT &lt; stack.end(); stackT++)
+    {
+      cout &lt;&lt; to_string(&lowast;stackT) &lt;&lt; ", ";
+    }
+    cout &lt;&lt; "\b\b }" &lt;&lt; endl;
+  }
+  
+  
+  template &lt;class T&gt;
+  void Stack&lt;T&gt;::push(T const &amp;t)
+  {
+    stack.push_back(t);
+  }
+  
+  
+  template &lt;class T&gt;
+  void Stack&lt;T&gt;::pop()
+  {
+    if (stack.empty())
+    {
+      throw out_of_range("Empty stc");
+    }
+  
+  
+    stack.pop_back();
+  }
+  
+  
+  int main()
+  {
+  
+  
+    Stack&lt;int&gt; stack;
+  
+  
+    stack.push(7);
+    int a{9}, b{6}, c{8};
+    stack.push(a);
+    stack.push(b);
+    stack.push(c);
+    stack.print();
+    stack.pop();
+    cout &lt;&lt; "Pop" &lt;&lt; endl;
+    stack.pop();
+    cout &lt;&lt; "Pop" &lt;&lt; endl;
+    stack.print();
+  }
+  </code></pre>
+
+        <h2 id="h2-14">typename</h2>
+        <quote>
+          Only use the keyword typename in template declarations and
+          definitions.</quote
+        >
+        <p>
+          Let take an
+          <a
+            href="https://www.ibm.com/docs/en/i/7.3?topic=only-typename-keyword-c"
+            >example</a
+          >.
+        </p>
+
+        <pre><code class="language-cpp">
+  template&lt;class T&gt; class A
+  {
+    T::x(y);
+    typedef char C;
+    A::C d;
+  }
+  </code></pre>
+
+        <p>The statement <samp>T::x(y)</samp> is ambiguous.</p>
+
+        <p>
+          It could be a call to function <samp>x()</samp> with a nonlocal
+          argument <samp>y</samp>, or it could be a declaration of variable
+          <samp>y</samp> with type <samp>T::x</samp>. C++ will interpret this
+          statement as a function call.
+        </p>
+
+        <p>
+          In order for the compiler to interpret this statement as a
+          declaration, you would add the keyword typename to the beginning of
+          it.
+        </p>
+
+        <h2 id="h2-15">Template Function</h2>
+        <p>
+          Similar to template classes we have seen above we can also have
+          template functions.
+        </p>
+
+        <p>Lets consider the example of quicksort function below.</p>
+
+        <pre><code class="language-cpp">
+  #include &lt;iostream&gt;
+  #include &lt;cstdlib&gt;
+  using namespace std;
+  
+  
+  template&lt;class T&gt; void quicksort(T a[], const int&amp; leftarg, const int&amp; rightarg)
+  {
+    if (leftarg &lt; rightarg) {
+  
+  
+      T pivotvalue = a[leftarg];
+      int left = leftarg - 1;
+      int right = rightarg + 1;
+  
+  
+      for(;;) {
+  
+  
+        while (a[--right] &gt; pivotvalue);
+        while (a[++left] &lt; pivotvalue);
+  
+  
+        if (left &gt;= right) break;
+  
+  
+        T temp = a[right];
+        a[right] = a[left];
+        a[left] = temp;
+      }
+  
+  
+      int pivot = right;
+      quicksort(a, leftarg, pivot);
+      quicksort(a, pivot + 1, rightarg);
+    }
+  }
+  
+  
+  int main(void) {
+    int sortme[10];
+  
+  
+    for (int i = 0; i &lt; 10; i++) {
+      sortme[i] = rand();
+      cout &lt;&lt; sortme[i] &lt;&lt; " ";
+    };
+    cout &lt;&lt; endl;
+  
+  
+    quicksort&lt;int&gt;(sortme, 0, 10 - 1);
+  
+  
+    for (int i = 0; i &lt; 10; i++)
+      cout &lt;&lt; sortme[i] &lt;&lt; " ";
+    cout &lt;&lt; endl;
+    return 0;
+  }
+  </code></pre>
+
+        <h2 id="h2-16">Memory Management In C++</h2>
+        <p>
+          Before we try to understand pointer we need to understand how C++
+          manages memory.
+        </p>
+
+        <p>
+          When we run our c++ program it gets assigned a process by our
+          operating system, each process is allocated some memory.
+        </p>
+
+        <p>
+          Following are the segements that our program will divide the memory.
+        </p>
+
+        <ul>
+          <li>Code/Text :</li>
+        </ul>
+        <p>
+          This section holds our code as instructions that will be executed by
+          the process assigned to our program by our operating system.
+        </p>
+
+        <p>A function is divided into a set of contigious instructions.</p>
+
+        <p>The instuctions are read only and are shared by the program.</p>
+
+        <ul>
+          <li>Global/Static data :</li>
+        </ul>
+        <p>This segement holds the global and static data.</p>
+
+        <ul>
+          <li>Stack :</li>
+        </ul>
+        <p>
+          Memory is assigned on the stack to the function variable when they
+          come into scope and removed from stack when that function goes out of
+          scope.
+        </p>
+
+        <p>
+          So we can say that memory management in stack is automatic and we do
+          not need to clean memory for variables that are stored in stack.
+          Memory is reclaimed when function responisble for creating those
+          variables goes out of scope.
+        </p>
+
+        <ul>
+          <li>Heap :</li>
+        </ul>
+        <p>Heap is where dynamically created object are stored.</p>
+
+        <p>
+          When we create an object dynamically during runtime with new, malloc,
+          calloc or realloc, memory is reserved on the heap and the object are
+          created.
+        </p>
+
+        <p>
+          Any objects created on heap have to be managed by us and cleaned when
+          they are no longer needed. Not cleaning these objects can cause memory
+          leaks.
+        </p>
+
+        <h2 id="h2-17">Pointers</h2>
+        <p>
+          Pointers are variables that store the memory address of another
+          variable.
+        </p>
+
+        <pre><code class="language-cpp">
+  #include &lt;iostream&gt;
+  #include &lt;string&gt; //for converting int to string.
+  
+  
+  using namespace std;
+  
+  
+  int main()
+  {
+    int a{10};
+    cout &lt;&lt; "Initial value of a : " &lt;&lt; a &lt;&lt; endl;//10
+    int&lowast; ptr_a = &amp;a;//pointer to a;
+    &lowast;ptr_a = 5;
+    cout &lt;&lt; "Value of a changed with pointer dereferencing : " &lt;&lt; a &lt;&lt; endl;//5
+  }
+  </code></pre>
+
+        <quote>
+          Pointer variables are strongly typed. That means a pointer to int
+          variable should be of type int.</quote
+        >
+        <p>
+          Pointer variables are strongly typed as the compiler needs it to get
+          the value when we dereference the pointer.
+        </p>
+
+        <p>
+          Lets understand it with a pointer to a <samp>char</samp> and an
+          <samp>int</samp>. An <samp>int</samp> in c++ is of 4 bytes, where as a
+          <samp>char</samp> is 1 byte.
+        </p>
+
+        <p>
+          Thus c++ will use the type of the pointer to determine how many bytes
+          it needs to consume after the inital pointer to produce the required
+          data.
+        </p>
+
+        <p>
+          It also is necessary for performing arithematic operations on
+          pointers.
+        </p>
+
+        <p>
+          For example in the case on an <samp>int</samp> pointer, an increment
+          by 1 will increament the value of pointer by 4 as an int is stored as
+          4 bytes in the memory.
+        </p>
+
+        <p>
+          This is an important property of pointers as it is used when we are
+          dealing with array pointers to get to the next element in the array.
+        </p>
+
+        <h3 id="h3-20">Generic pointer</h3>
+        <p>Generic pointer is designated by <samp>void</samp>.</p>
+
+        <p>
+          They can then be type casted to convert the pointer into required type
+          pointer. As we have seen above it is necessary for c++ to know what
+          type of data the pointer point to, to dereference and get the value.
+        </p>
+
+        <pre><code class="language-cpp">
+  int a{10};
+  void&lowast; ptr = &amp;a;//pointer to a;
+  int&lowast; ptr_a = (int&lowast;) ptr;
+  &lowast;ptr_a = 8;
+  cout &lt;&lt; "Value of a changed with pointer dereferencing : " &lt;&lt; a &lt;&lt;endl;//8
+  </code></pre>
+
+        <h3 id="h3-21">Pointer to Pointer</h3>
+        <p>
+          We can also have a pointer to another pointer as they are also stored
+          in memory somewhere.
+        </p>
+
+        <quote> A typical pointer is stored in 4 bytes.</quote>
+
+        <pre><code class="language-cpp">
+  int a{10};
+  int&lowast; ptr = &amp;a;//pointer to a;
+  int&lowast;&lowast; ptr_ptr = &amp;ptr;//pointer to pointer of a
+  /&lowast;We increase the number of stars to the level of pointers&lowast;/
+  &lowast;&lowast;ptr_ptr = 8;//dereferencing to update value of a
+  cout &lt;&lt; "Value of a changed with pointer dereferencing : " &lt;&lt; a &lt;&lt;endl;//8
+  </code></pre>
+
+        <h3 id="h3-22">Pointer as Arguments</h3>
+        <p>
+          We have already seen passing a pointer to a function. It is called as
+          passing as reference to a function as we are not passing the actual
+          object but a pointer reference to the object.
+        </p>
+
+        <p>
+          This prevents the variable from getting copied to the local scope of
+          the function.
+        </p>
+
+        <h3 id="h3-23">Array and Pointer relation</h3>
+        <p>
+          Following example code shows how arrays and pointers work together and
+          how arithematic opeartions on pointers help in traversing the array.
+        </p>
+
+        <pre><code class="language-cpp">
+  int arr[5]{10, 20, 30, 40, 50};
+  
+  
+  int&lowast; ptr = arr;
+  std::cout &lt;&lt; "Pointer to arr : " &lt;&lt; ptr &lt;&lt; std::endl;//0x22fe30
+  std::cout &lt;&lt; "Pointer to first element in arr : " &lt;&lt; &amp;arr[0] &lt;&lt; std::endl;/0x22fe30
+  //We can perform arithematic operation in the array pointer.
+  std::cout &lt;&lt; "2nd element in array : " &lt;&lt; &lowast;(ptr+2) &lt;&lt; std::endl;//30
+  //or
+  std::cout &lt;&lt; "3rd element in array : " &lt;&lt; &lowast;(arr+3) &lt;&lt; std::endl;//40
+  //same as
+  std::cout &lt;&lt; "3rd element in array : " &lt;&lt; arr[3] &lt;&lt; std::endl;//40
+  </code></pre>
+
+        <p>
+          When arrays are passed as argument to a function they get downgraded
+          to just pointer to the first element of that array.
+        </p>
+
+        <quote>
+          Pointers to an array can be incremented to get the pointer to the next
+          element but the array variable cannot be incremented, it will have a
+          compilation error.</quote
+        >
+        <h3 id="h3-24">Function Pointers</h3>
+        <p>
+          Function are sets of instructions stored in the code/text section of
+          the memory managed by the c++ program.
+        </p>
+
+        <p>
+          We can get a pointer reference to function like we can for any other
+          variable and even pass them as argument to other functions.
+        </p>
+
+        <p>
+          This functions passed as arguement can be used as callback functions.
+        </p>
+
+        <pre><code class="language-cpp">
+  #include &lt;iostream&gt;
+  
+  
+  using namespace std;
+  
+  
+  void print()
+  {
+    cout &lt;&lt; "Printed." &lt;&lt; endl;
+  }
+  void doubleNum(int &amp;a)
+  {
+    a &lowast;= 2;
+    cout &lt;&lt; "Doubled number : " &lt;&lt; a &lt;&lt; endl;
+  }
+  
+  
+  void a(void (&lowast;p)())
+  {
+    p();
+  }
+  
+  
+  void b(void (&lowast;p)(int &amp;), int num)
+  {
+    p(num);
+  }
+  
+  
+  int main()
+  {
+    a(print);
+    b(doubleNum, 3);
+  }
+  </code></pre>
+
+        <h2 id="h2-18">Functions as arguments</h2>
+        <p>
+          Above example shows passing function to another function as argument.
+        </p>
+
+        <p>
+          In c++ we also have a support class <samp>functional</samp> that can
+          be used to pass functions as argument making it even easier and
+          cleaner.
+        </p>
+
+        <pre><code class="language-cpp">
+  //For Function As Argument To other Function.
+  #include &lt;functional&gt;
+  
+  
+  using namespace std;
+  
+  
+  //Passing Function to Another Function.
+  double addTwoNumbers(double num1, double num2)
+  {
+    return num1 + num2;
+  }
+  
+  
+  double addThreeNumbers(function&lt;double(double,double)&gt; func, double num3)
+  {
+    return func(1, 2) + num3;
+  }
+  
+  
+  int main()
+  {
+    //--- function as Argument to function
+    cout &lt;&lt; addThreeNumbers(addTwoNumbers, 3) &lt;&lt; endl;
+  }
+  </code></pre>
+
+        <h2 id="h2-19">Dynamic Memory</h2>
+        <p>
+          Dynamic memory or heap is where dynamically created variables are
+          stored.
+        </p>
+
+        <p>
+          We can create any number of variables in dynamic memory at runtime as
+          long as our computer has more memory to share.
+        </p>
+
+        <quote>
+          Compared to variables stored in stack and global variables, variables
+          stored on the heap are slower.</quote
+        >
+        <h3 id="h3-25">C and C++ ways</h3>
+        <p>
+          There are different ways in c and c++ by which we can allocate dynamic
+          memory to our objects.
+        </p>
+
+        <p>
+          C uses functions like <samp>malloc()</samp>, <samp>calloc()</samp> and
+          <samp>realloc()</samp> to assign/reserve memory and return a pointer,
+          and uses <samp>free()</samp> to destroy the variable and return the
+          memory to the system.
+        </p>
+
+        <p>
+          C++ introduced the <samp>new</samp> keyword to assign/reserve memory
+          for dynamic variable/objects and <samp>delete</samp> or
+          <samp>delete()</samp> to destroy the variable and return the memory to
+          the sytem for use.
+        </p>
+
+        <p>
+          There are fifference between c functions and c++ keywords in how they
+          work.
+        </p>
+
+        <p><samp>new</samp></p>
+
+        <ul>
+          <li>Calls constuctor.</li>
+          <li>is an Operator.</li>
+          <li>Returns exact data type.</li>
+          <li>on failure, throws bad_alloc exception.</li>
+          <li>Size is calcuated by compiler.</li>
+        </ul>
+        <p>
+          <samp>malloc()</samp>, <samp>calloc()</samp> and
+          <samp>realloc()</samp>
+        </p>
+
+        <ul>
+          <li>does not call constructors.</li>
+          <li>It is a function.</li>
+          <li>Returns void*.</li>
+          <li>On failure, returns NULL.</li>
+          <li>size is calculated manually.</li>
+        </ul>
+        <p><samp>delete()</samp></p>
+
+        <ul>
+          <li>It is an operator.</li>
+          <li>It deallocates memory dynamically.</li>
+          <li>Used for null pointers or memory assigned by new operator.</li>
+          <li>calls desturctor after destoring allocated memory.</li>
+          <li>Faster.</li>
+        </ul>
+        <p><samp>free()</samp></p>
+
+        <ul>
+          <li>It is library function.</li>
+          <li>destories memory at runtime.</li>
+          <li>
+            used with null pointers or memory allocated by using malloc().
+          </li>
+          <li>Only frees momory from the heap.</li>
+          <li>comparatively slower.</li>
+        </ul>
+
+        <pre><code class="language-cpp">
+  #include &lt;iostream&gt;
+  #include &lt;vector&gt;
+  #include &lt;string&gt;
+  
+  
+  using namespace std;
+  
+  
+  class Box 
+  {
+    int side;
+  
+  
+    public:
+      int&lowast; ptr;
+  
+  
+      //Constructor
+      Box()
+      {
+        cout &lt;&lt; "Construtor Called" &lt;&lt; endl;
+      }
+  
+  
+      ~Box() {
+        cout &lt;&lt; "Destructor Called" &lt;&lt; endl;
+      }
+  };
+  
+  
+  int main()
+  {
+  
+  
+    //Initializing primitive data types with new
+    int &lowast;num = new int{10};
+    cout &lt;&lt; &lowast;num &lt;&lt; endl;//10
+    delete num;
+    cout &lt;&lt; &lowast;num &lt;&lt; endl &lt;&lt; endl;//prints garbage value
+  
+  
+    //Create Object With new operator
+    Box&lowast; box = new Box;
+    //Destory Object using delete
+    delete(box); //also can use delete box;
+    cout &lt;&lt; "\n" &lt;&lt; endl;
+  
+  
+  
+  
+    cout &lt;&lt; "Using malloc() and free() : " &lt;&lt; endl;
+    //Create Object using malloc()
+    Box&lowast; box2 = (Box&lowast;)malloc(sizeof(Box));
+    //Free up memory using free()
+    free(box2);
+    cout &lt;&lt; "No Construtor or Destructor is called." &lt;&lt; endl;
+    cout &lt;&lt; "\n" &lt;&lt; endl;
+  
+  
+  
+  
+    //Create an object using Class name
+    cout &lt;&lt; "Using Class Name : " &lt;&lt; endl;
+    Box box3;//don't need to manage memory, scoped variable.
+    cout &lt;&lt; "\n" &lt;&lt; endl;
+  
+  
+    cout &lt;&lt; "End of main function. box3 will go out of scope now." &lt;&lt; endl;
+    return 0;
+  }
+  </code></pre>
+
+        <h2 id="h2-20">Reading and Writing Files</h2>
+
+        <pre><code class="language-cpp">
+  #include &lt;iostream&gt;
+  #include &lt;fstream&gt;
+  #include &lt;string&gt;
+  
+  
+  using namespace std;
+  
+  
+  int main()
+  {
+      ofstream file;
+      ifstream readFile;
+  
+  
+      file.open("hello.txt");
+      //The above could be done in one line
+      //ofsream file("hello.txt");
+  
+  
+      //We can use the file write as if it was cout.
+      if(file.is_open())
+      {
+          file &lt;&lt; "Hello There";
+          cout &lt;&lt; "File write Successful." &lt;&lt; endl;
+      }
+      //Files are closed automatically at the end, but we could be explicit.
+      file.close();
+      return 0;
+  }
+  </code></pre>
+
+        <h2 id="h2-21">Threads</h2>
+
+        <pre><code class="language-cpp">
+  #include &lt;iostream&gt;
+  //Time Libraries
+  #include &lt;chrono&gt;
+  #include &lt;mutex&gt;
+  #include &lt;ctime&gt;
+  //For Threads
+  #include &lt;thread&gt;
+  
+  
+  using namespace std;
+  
+  
+  void executeThread(int id)
+  {
+      auto nowTime = chrono::system_clock::now();
+      time_t sleepTime = chrono::system_clock::to_time_t(nowTime);
+      tm myLocalTime = &lowast;localtime(&amp;sleepTime);
+      cout &lt;&lt; "Thread" &lt;&lt; id &lt;&lt; " Sleep Time " &lt;&lt; ctime(&amp;sleepTime) &lt;&lt; endl;
+  
+  
+      //myLocalTime have varaibles like myLocalTime.tm_mon, tm_mday
+      //tm_year, tm_hour, tm_min, tm_sec
+  
+  
+      this_thread::sleep_for(chrono::seconds(3));
+  
+  
+      nowTime = chrono::system_clock::now();
+      sleepTime = chrono::system_clock::to_time_t(nowTime);
+  
+  
+      cout &lt;&lt; "Thread" &lt;&lt; id &lt;&lt; " Awake Time " &lt;&lt; ctime(&amp;sleepTime) &lt;&lt; endl;
+  }
+  
+  
+  int main()
+  {
+      //--- Create and execute thread
+      thread th1 (executeThread, 1);
+      thread th2 (executeThread, 2);
+      //Join the above threads to the main thread so that the main thread waits
+      //for them to complete.
+      //Once the threads are joined the code beyond this point will be executed
+      //synchronously.
+      th2.join();
+      th1.join();
+  
+      return 0;
+  }
+  </code></pre>
+
+        <h2 id="h2-22">Debugging</h2>
+        <h3 id="h3-26">Using std::cerr</h3>
+        <p>
+          Use <samp>std::cerr</samp> instead of <samp>std::cout</samp> to print
+          errors or while debugging as <samp>cerr</samp> is non buffered,
+          <samp>cout</samp> is buffered and when an error occurs it may or may
+          not be printed.
+        </p>
+
+        <p>
+          <samp>cerr</samp> is non buffered and hence has a performance cost but
+          we don't care about performance while debugging or when an error
+          actually occurs in our program.
+        </p>
+
+        <quote>
+          When adding temporary debug statements, it can be helpful to not
+          indent them. This makes them easier to find for removal later.</quote
+        >
+        <p>
+          Debugging cerrr statements if kept for the full development cycle can
+          clutter the code. To use them conditionally we can use preprocessors :
+        </p>
+
+        <pre><code class="language-cpp">
+  #define ENABLE_DEBUGGING //Comment out to disable debugging
+  #ifdef ENABLE_DEBUGGING
+  
+  
+  std::cerr &lt;&lt; "function called \n" &lt;&lt; endl;
+  
+  
+  #endif
+  </code></pre>
+
+        <h3 id="h3-27">Compiler Extensions</h3>
+        <quote>
+          In brief they are specific to used compilers and might prevent your
+          code from being compatible with other compilers.</quote
+        >
+        <p>
+          To set the comipiler to strict mode that is use no extensions specific
+          to the compiler, we use, GCC-G++ : Adding the
+          <samp>-pedantic-errors</samp> flag to the compile command line.
+        </p>
+
+        <h3 id="h3-28">Compilation Warning</h3>
+        <p>
+          <samp>-Wall</samp>, <samp>-Weffc++</samp>, <samp>-Wextra</samp>,
+          <samp>-Wsign-conversion</samp> are different warning level flags.
+        </p>
+
+        <p>
+          <samp>-Werror</samp> : This will treat warning as errors and code will
+          not compile.
+        </p>
+
+        <h3 id="h3-29">Language Standard</h3>
+        <p>For GCC/G++ :</p>
+
+        <p>
+          pass compiler flags <samp>-std=c++11</samp>, <samp>-std=c++14</samp>,
+          <samp>-std=c++17</samp>, or <samp>-std=c++2a</samp> to enable
+          C++11/14/17/2a support respectively.
+        </p>
+
+        <h2 id="h2-23">MakeFiles</h2>
+        <p>Makefile are named mas <samp>Makefile</samp> with no extension.</p>
+
+        <p><samp>#</samp> is used to write comments in a makefile.</p>
+
+        <p>Makefile for c++ clean, compile and run.</p>
+
+        <pre><code class="language-makefile">
+  functions: Functions_2.o
+    g++ Functions_2.o -o functions
+  
+  
+  Functions_2.o: Functions_2.cpp
+    g++ -c Functions_2.cpp 
+  
+  
+  clean:
+    rm &lowast;.o functions a
+  </code></pre>
+
+        <p>Makefile to be used with SDL</p>
+
+        <pre><code class="language-makefile">
+  #Make file Example
+  #OBJS specifies which files to compile as part of the project
+  OBJS = src/Main.cpp
+  
+  
+  #CC specifies which compiler we're using
+  CC = g++
+  
+  
+  #INCLUDE_PATHS specifies the additional include paths we'll need
+  INCLUDE_PATHS = -IG:\LectureExcersise\Cplus\Projects\SDL\Game\SDL2\include\SDL2
+  
+  
+  #LIBRARY_PATHS specifies the additional library paths we'll need
+  LIBRARY_PATHS = -LG:\LectureExcersise\Cplus\Projects\SDL\Game\SDL2\lib
+  
+  
+  #COMPILER_FLAGS specifies the additional compilation options we're using
+  # -w suppresses all warnings
+  # -Wl,-subsystem,windows gets rid of the console window
+  COMPILER_FLAGS = -w -Wl,-subsystem,windows
+  
+  
+  #LINKER_FLAGS specifies the libraries we're linking against
+  LINKER_FLAGS = -lmingw32 -lSDL2main -lSDL2
+  
+  
+  #OBJ_NAME specifies the name of our exectuable
+  OBJ_NAME = bin/Main
+  
+  
+  #After specifying the name of the target and its dependencies, the command to create the target is on the next line.
+  #The command to create the target must begin with a tab or Make will reject it.
+  #This is the target that compiles our executable
+  all : $(OBJS)
+    $(CC) $(OBJS) $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o $(OBJ_NAME)
+  </code></pre>
+      </div>
+    </div>
+  </body>
+
+  <!-- Format -->
+  <script src="../../highlight/highlight.min.js"></script>
+  <script src="../../library/format.js"></script>
+</html>
