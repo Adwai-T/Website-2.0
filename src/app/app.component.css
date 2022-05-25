@@ -13,6 +13,7 @@ h3{
 }
 
 #mobile-controls{
+  width: fit-content;
   position: absolute;
   left: 5px;
   right: 5px;
@@ -24,6 +25,10 @@ h3{
   flex-direction: column;
   height: 100%;
   padding: 10px 5px;
+}
+.dark-theme{
+  background-color: #282a36;
+  color: #f8f8f2;
 }
 
 #nav-title{

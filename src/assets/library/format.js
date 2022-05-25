@@ -4,6 +4,10 @@ const cssDir = '../../css/';
 const root = document.documentElement;
 const container = document.getElementById("container");
 
+//--- Origin for window messages
+const origin = "http://localhost:4200/";//dev
+// const origin = "https://adwait.in/";//prod
+
 // --- Add Formate css and highlighter.js
 const formatCss = document.createElement("link");
 formatCss.rel = "stylesheet";
@@ -110,14 +114,16 @@ function onThemeChange() {
     lightThemeCodeCss.remove();
     document.head.appendChild(darkThemeCodeCss);
     applyDarkThemeColors();
-    localStorage.setItem('theme', 'dark')
+    localStorage.setItem('theme', 'dark');
+    window.top.postMessage("iframe-dark-theme", origin);
   } else {
     themeMode = "light";
     themeSwitchToggle.style.left = boundingRectToggle[0].left - 25 + "px";
     darkThemeCodeCss.remove();
     document.head.appendChild(lightThemeCodeCss);
     applyLightThemeColors();
-    localStorage.setItem('theme', 'light')
+    localStorage.setItem('theme', 'light');
+    window.top.postMessage("iframe-light-theme", origin);
   }
 }
 onThemeChange();
@@ -125,18 +131,19 @@ themeSwitchToggle.style.left = 50 + 'px';
 
 function applyLightThemeColors() {
   root.style.setProperty("--color1", "#3c6e71");
-  root.style.setProperty("--color2", "#353535");
-  root.style.setProperty("--color3", "#284b63");
+  root.style.setProperty("--color2", "#353535"); //foreground
+  root.style.setProperty("--color3", "#284b63"); //h1, button
   root.style.setProperty("--color4", "#d9d9d9");
-  root.style.setProperty("--color5", "#ffffff");
+  root.style.setProperty("--color5", "#ffffff"); //background
 }
 
+
 function applyDarkThemeColors() {
-  root.style.setProperty("--color1", "#d9d9d9");
-  root.style.setProperty("--color2", "#ffffff");
-  root.style.setProperty("--color3", "#3c6e71");
+  root.style.setProperty("--color1", "#d9d9d9");  
+  root.style.setProperty("--color2", "#f8f8f2"); //Foreground
+  root.style.setProperty("--color3", "#ff79c6"); // h1, button
   root.style.setProperty("--color4", "#284b63");
-  root.style.setProperty("--color5", "#353535");
+  root.style.setProperty("--color5", "#282a36"); //background
 }
 
 
@@ -160,4 +167,8 @@ function copyToClipBoardAttachButtons () {
 }
 copyToClipBoardAttachButtons();
 
-
+//--- Resize the index on mobile devices
+if(screen.availWidth < 768) {
+  indexList.style.minHeight = window.innerHeight;
+  indexList.style.minWidth = window.innerWidth;
+}

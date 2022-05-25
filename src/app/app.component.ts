@@ -1,4 +1,4 @@
-import { Component, HostListener, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { MatDrawer, MatDrawerContainer } from '@angular/material/sidenav';
 import { Subscription } from 'rxjs';
 
@@ -13,34 +13,33 @@ import { WindowService } from './services/window.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent{
+export class AppComponent implements OnInit{
   @ViewChild('matDrawer') private matDrawer!: MatDrawer;
   @ViewChild('container') private container!: MatDrawerContainer;
-  
+  @ViewChild('sideNav', {static:true}) private sideNav!: ElementRef;
+
   public isDesktop: boolean = true;
   public title: string = '';
   public errors: Error[] = [];
-  public searchBarValue="";
-  public appContentOverflowY:string = "auto";
+  public searchBarValue = '';
+  public appContentOverflowY: string = 'auto';
 
   private windowSize: Vector = { x: 0, y: 0 };
 
   private titleEventSubscription: Subscription;
   private errorsEventSubscription: Subscription;
   private appContentOverflowYSubscription: Subscription;
-  private themeSubscription:Subscription;
 
   constructor(
     //Created Services
     private navBarService: NavBarService,
     private errorsService: ErrorsService,
     private windowService: WindowService,
-    private theme:ThemeService,
+    private theme: ThemeService
   ) {
     this.windowSize.x = window.innerWidth;
     this.windowSize.y = window.innerHeight;
     this.checkAndSetIfIsDesktop();
-  
 
     this.title = 'Home';
 
@@ -52,18 +51,17 @@ export class AppComponent{
       (errors: Error[]) => (this.errors = errors)
     );
 
-    this.appContentOverflowYSubscription = windowService.appContentOverflowYEvent
-    .subscribe(
-      (overflowType:string) => (this.appContentOverflowY=overflowType)
-    );
-
-    this.themeSubscription = theme.themeEvent.subscribe(
-      (themeName:string) => (console.log(themeName))
-    );
+    this.appContentOverflowYSubscription =
+      windowService.appContentOverflowYEvent.subscribe(
+        (overflowType: string) => (this.appContentOverflowY = overflowType)
+      );
+  }
+  ngOnInit(): void {
+    this.theme.setSideNavEl(this.sideNav);
   }
 
   @HostListener('window:resize')
-  private onWindowResize() {
+  private onWindowResize(): void {
     this.windowSize.x = window.innerWidth;
     this.windowSize.y = window.innerHeight;
     this.windowService.setWindowSize(this.windowSize);
@@ -73,5 +71,18 @@ export class AppComponent{
   private checkAndSetIfIsDesktop(): void {
     if (this.windowSize.x < 768) this.isDesktop = false;
     else this.isDesktop = true;
+  }
+
+  @HostListener('window:message', ["$event"])
+  onThemeChange(e:any): void {
+    if(e.origin === origin) {
+      if(typeof(e.data) !== "string") return;
+      
+      if(e.data === 'iframe-dark-theme') {
+        this.theme.setTheme(this.sideNav.nativeElement, this.theme.themes.dark);
+      }else if(e.data === 'iframe-light-theme') {
+        this.theme.setTheme(this.sideNav.nativeElement, this.theme.themes.light);
+      }
+    }
   }
 }
