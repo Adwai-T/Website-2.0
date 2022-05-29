@@ -1,3 +1,7 @@
+/*
+  Topics is information used to display cards in the articles and project pages.
+*/
+
 import { Page, Pages } from './pages';
 
 export interface Topic {
@@ -6,6 +10,7 @@ export interface Topic {
   imageSrc: string;
   description: string;
   page: Page;
+  github?: string; 
 }
 
 export const frontEndDev:Topic[] = [
@@ -15,14 +20,14 @@ export const frontEndDev:Topic[] = [
     imageSrc: 'assets/images/articles/languages/html.png',
     description:
       'Html is the Markup language used to format the pages of your website.',
-    page: Pages.angular,
+    page: Pages.html,
   },
   {
     title: 'CSS',
     subTitle: 'web-dev',
     imageSrc: 'assets/images/articles/languages/css.png',
     description: 'CSS is used to style the pages of your website.',
-    page: Pages.mdtohtml,
+    page: Pages.css,
   },
   {
     title: 'Javascript',
@@ -30,7 +35,7 @@ export const frontEndDev:Topic[] = [
     imageSrc: 'assets/images/articles/languages/javascript.png',
     description:
       'Javascript is the scripting language used to make webpages interactive.',
-    page: Pages.angular,
+    page: Pages.javascript,
   },
   {
     title: 'Angular',
@@ -46,6 +51,7 @@ export const frontEndDev:Topic[] = [
   //   imageSrc: 'assets/images/articles/languages/',
   //   description: '',
   //   page: Pages.,
+  //   github: '',
   // }
 ]
 
@@ -56,7 +62,7 @@ export const backEndDev:Topic[] = [
     imageSrc: 'assets/images/articles/languages/java.png',
     description:
       'Java is a popular programming language for backend development using the spring framework.',
-    page: Pages.cpp,
+    page: Pages.java,
   },
   {
     title: 'Spring',
@@ -64,7 +70,7 @@ export const backEndDev:Topic[] = [
     imageSrc: 'assets/images/articles/languages/spring.png',
     description:
       'The Spring Framework (Spring) is an open-source application framework that provides infrastructure support for developing Java applications.',
-    page: Pages.cpp,
+    page: Pages.javaspring,
   },
   {
     title: 'Spring Boot',
@@ -72,7 +78,15 @@ export const backEndDev:Topic[] = [
     imageSrc: 'assets/images/articles/languages/spring-boot.png',
     description:
       'Spring Boot is an open source, microservice-based Java web framework.',
-    page: Pages.cpp,
+    page: Pages.springboot,
+  },
+  {
+    title: 'Spring Security',
+    subTitle: 'web-dev',
+    imageSrc: 'assets/images/articles/languages/spring.png',
+    description:
+      'Spring Boot is an open source, microservice-based Java web framework.',
+    page: Pages.springsecurity,
   },
 ]
 
@@ -83,5 +97,6 @@ export const projects: Topic[] = [
     imageSrc: 'assets/images/articles/languages/javascript.png',
     description: 'Converts Markdown used on github or bit bucket pages to Html page.',
     page: Pages.mdtohtml,
+    github: 'https://github.com/Adwai-T/md-to-html',
   },
 ]

@@ -1,0 +1,458 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<title></title>
+</head>
+<body>
+<div id="container">
+
+<link rel="stylesheet" href="display-page.css" />
+<div id="index">
+<ul id="index-list">
+<li class="index-li-h2"><a href="#h2-0">JavaScript Objects</a></li>
+<li class="index-li-h2"><a href="#h2-1">Array</a></li>
+<li class="index-li-h3"><a href="#h3-0">Array Operations</a></li>
+<li class="index-li-h3"><a href="#h3-1">Array Functions</a></li>
+<li class="index-li-h2"><a href="#h2-2">Functions</a></li>
+<li class="index-li-h2"><a href="#h2-3">Object Oriented Programming in JavaScript</a></li>
+<li class="index-li-h2"><a href="#h2-4">Fetch</a></li>
+<li class="index-li-h3"><a href="#h3-2">[Response](https://developer.mozilla.org/en-US/docs/Web/API/Response)</a></li>
+<li class="index-li-h2"><a href="#h2-5">Working With HTMLElements</a></li>
+<li class="index-li-h3"><a href="#h3-3">Get position of an HTMLElement</a></li>
+<li class="index-li-h3"><a href="#h3-4">Communication with iframe</a></li>
+</ul>
+</div>
+
+<div id="content">
+<h1 id="h1-0">JavaScript</h1>
+<h2 id="h2-0">JavaScript Objects</h2>
+
+<pre><code class="language-javascript">
+//There are two basic ways to create an empty object:
+var obj = new Object();
+
+
+//Object literal syntax can be used to initialize an object in its entirety:
+var obj = {
+  name: 'Carrot',
+  for: 'Max', // 'for' is a reserved word, use '_for' instead.
+  details: {
+    color: 'orange',
+    size: 12
+  }
+};
+
+
+//Attribute access can be chained together:
+obj.details.color; // orange
+obj['details']['size']; // 12
+
+
+//Creates an object prototype(Person) and an instance of that prototype(you)
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+
+// Define an object
+var you = new Person('You', 24);
+// We are creating a new person named "You" aged 24.
+
+
+//Once Create and object can be access in simlar way as shown above
+var name = obj.name;
+var name = obj['name'];
+obj['name'] = 'Simon';
+</code></pre>
+
+<h2 id="h2-1">Array</h2>
+
+<pre><code class="language-javascript">
+//Method 1 :
+var a = new Array();
+a[0] = 'dog';
+a[1] = 'cat';
+a[2] = 'hen';
+a.length; // 3
+
+
+//Method 2 :
+var a = ['dog', 'cat', 'hen'];
+a[100] = 'fox';
+a.length; // 101
+
+
+
+
+//Query non existing array item will return undefined
+typeof a[90]; // undefined
+
+
+//Iterate over an array
+for (const currentValue of a) {
+  // Do something with currentValue
+}
+
+
+</code></pre>
+
+<h3 id="h3-0">Array Operations</h3>
+<table>
+<tr>
+	<th>Array Method</th>
+	<th>Description</th>
+</tr>
+
+<tr>
+	<td><samp>a.toString()</samp></td>
+	<td>Returns a string with the toString() of each element separated by commas.</td>
+</tr>
+<tr>
+	<td><samp>a.toLocaleString()</samp></td>
+	<td>Returns a string with the toLocaleString() of each element separated by commas.</td>
+</tr>
+<tr>
+	<td><samp>a.concat(item1[, item2[, ...[, itemN]]])</samp></td>
+	<td>Returns a new array with the items added on to it.</td>
+</tr>
+<tr>
+	<td><samp>a.join(sep)</samp></td>
+	<td>Converts the array to a string — with values delimited by the sep param</td>
+</tr>
+<tr>
+	<td><samp>a.pop()</samp></td>
+	<td>Removes and returns the last item.</td>
+</tr>
+<tr>
+	<td><samp>a.push(item1, ..., itemN)</samp></td>
+	<td>Appends items to the end of the array.</td>
+</tr>
+<tr>
+	<td><samp>a.shift()</samp></td>
+	<td>Removes and returns the first item.</td>
+</tr>
+<tr>
+	<td><samp>a.unshift(item1[, item2[, ...[, itemN]]])</samp></td>
+	<td>Prepends items to the start of the array.</td>
+</tr>
+<tr>
+	<td><samp>a.slice(start[, end])</samp></td>
+	<td>Returns a sub-array.</td>
+</tr>
+<tr>
+	<td><samp>a.sort([cmpfn])</samp></td>
+	<td>Takes an optional comparison function.</td>
+</tr>
+<tr>
+	<td><samp>a.splice(start, delcount[, item1[, ...[, itemN]]])</samp></td>
+	<td>Lets you modify an array by deleting a section a`nd</td>
+	<td>replacing it with more items.</td>
+</tr>
+<tr>
+	<td><samp>a.reverse()</samp></td>
+	<td>Reverses the array.</td>
+</tr>
+</table>
+<h3 id="h3-1">Array Functions</h3>
+
+<pre><code class="language-js">
+//Reduce allows to go through the array and returns an accumlated value from the whole operation
+const arr = [1, 2, 5, 8, 2, 3];
+const total  = arr.reduce((acc, num) =&gt; {
+  return acc + num;
+});
+//acc represents the accumalated value
+
+
+//map
+const squares = arr.map(num =&gt; num&lowast;num);
+//It will return a new array of the squares of the array elements.
+
+
+//filter - also returns a new array
+const greaterThan3 = arr.filter(num =&gt; num &gt; 3);
+</code></pre>
+
+<h2 id="h2-2">Functions</h2>
+
+<pre><code class="language-javascript">
+//The variable &lsquo;...args&lsquo; holds all the values that were passed into the function and can be accessed as an array.
+function avg(...args) {
+  var sum = 0;
+  for (let value of args) {
+    sum += value;
+  }
+  return sum / args.length;
+}
+
+
+avg(2, 3, 4, 5); // 3.5
+
+
+//Recursion In function
+function countChars(elm) {
+  if (elm.nodeType == 3) { // TEXT_NODE
+    return elm.nodeValue.length;
+  }
+  var count = 0;
+  for (var i = 0, child; child = elm.childNodes[i]; i++) {
+    count += countChars(child);
+  }
+  return count;
+}
+
+
+//Recursion with IIFEs : (Immediately Invoked Function Expressions)
+var charsInBody = (function counter(elm) {
+  if (elm.nodeType == 3) { // TEXT_NODE
+    return elm.nodeValue.length;
+  }
+  var count = 0;
+  for (var i = 0, child; child = elm.childNodes[i]; i++) {
+    count += counter(child);
+  }
+  return count;
+})(document.body);
+
+
+</code></pre>
+
+
+<pre><code class="language-javascript">
+//Ternary Operator with multiple conditions
+function findGreaterOrEqual(a, b) {
+  return (a === b) ? "a and b are equal" : (a &gt; b) ? "a is greater" : "b is greater";
+}
+</code></pre>
+
+<h2 id="h2-3">Object Oriented Programming in JavaScript</h2>
+
+<pre><code class="language-javascript">
+//--- Constructor function
+//By convention constructor functions are defined with capital
+function Bird(name, color) {
+  this.name = name;
+  this.color = color;
+  this.numLegs = 2;
+}
+//Create an object from the constructor
+let blueBird = new Bird("Albert", "Red");
+blueBird.color = "Blue";
+
+
+//Check to see which function created the given object.
+blueBird instanceof Bird; // =&gt; true
+
+
+//Also this can be done by directly checking which is the contructor for the instance
+console.log(blueBird.constructor === Bird);  //prints true
+
+
+//---Iterate Over all properties of an Object instance created.
+for (let property in duck) {
+  if(duck.hasOwnProperty(property)) { //hasOwnProperty
+    ownProps.push(property);
+  } else {
+    prototypeProps.push(property);
+  }
+}
+
+
+//--- Using Prototype to reduce duplication
+//Prototype properties of a constructor function work similar to static in other programming languages.
+//All instances share the same value.
+Bird.prototype.numLegs = 2; //Variable
+Bird.prototype.eat = function() { //Function
+  console.log("nom nom nom");
+}
+
+
+//Prototype of a constructor function can be direclty be set to a object
+//These are easy to manage.
+Bird.prototype = {
+  constructor: Bird, // define the constructor property
+  numLegs: 2,
+  eat: function() {
+    console.log("nom nom nom");
+  },
+  describe: function() {
+    console.log("My name is " + this.name);
+  }
+}
+
+
+//Sequence of inheritance
+//Object -&gt; Bird -&gt; blueBird
+Bird.prototype.isPrototypeOf(blueBird); //returns true.
+Object.prototype.isPrototypeOf(Bird.prototype); // returns true
+
+
+//Create Objects from Parent
+//Animal Object/Constructor function is not shown here. Lets assume Animal.prototype has a eat function
+Bird.prototype = Object.create(Animal.prototype);
+
+
+let duck = new Bird("Donald");
+duck.eat(); // prints "nom nom nom"
+//duck inherits all of Animal's properties, including the eat method.
+
+
+//Inheritance properties and functions can be overwritten in the the proptotype of the child object.
+
+
+//--- Mixins
+let flyMixin = function(obj) {
+  obj.fly = function() {
+    console.log("Flying, wooosh	%21");
+  }
+};
+
+
+flyMixin(bird);
+flyMixin(plane);
+
+
+bird.fly(); // prints "Flying, wooosh	%21"
+plane.fly(); // prints "Flying, wooosh	%21"
+
+
+//---Closures to make varible private
+function Bird() {
+  let hatchedEgg = 10; // private variable
+
+
+  /&lowast; publicly available method that a bird object can use &lowast;/
+  this.getHatchedEggCount = function() { 
+    return hatchedEgg;
+  };
+}
+let ducky = new Bird();
+ducky.getHatchedEggCount(); // returns 10
+</code></pre>
+
+<h2 id="h2-4">Fetch</h2>
+<p>Fetch function replaces the older XMLHttpRequest request methods and makes it easier.</p>
+
+<p>Following examples shows fetching a raw file data from server with XMLHttpRequest and with fetch.</p>
+
+
+<pre><code class="language-js">
+//--- With XMLHttpRequest
+function readTextFile(file)
+{
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                var allText = rawFile.responseText;
+                console.log(allText);//- logs text
+            }
+        }
+    }
+    rawFile.send(null);
+}
+
+
+readTextFile("path.txt");
+
+
+//--- With fetch
+function readTextFile(file) {
+  fetch(file)
+    .then(response =&gt; response.text()) //-- Details of response are described below
+    .then(text =&gt; console.log(text)) //- logs text
+} 
+
+
+</code></pre>
+
+<h3 id="h3-2"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Response">Response</a></h3>
+<p>Response has many <strong>properties</strong>, the important and often used are <samp>Response.body</samp> - is a <samp>ReadableStream</samp>, <samp>Response.headers</samp> - <samp>Headers</samp> object, <samp>Response.ok</samp> - Status of response whether it was sucessful (200-299), <samp>Response.status</samp> - gives response status code.</p>
+
+<p>Response also has <strong>methods</strong> that help us process it. The response can be converted into arrayBuffers, blob, json, text etc. We use them as <samp>Response.text()</samp> or <samp>Response.json()</samp> to process the value and covert it to the desired from. These methods all return a <strong>promise</strong>.</p>
+
+
+<pre><code class="language-js">
+//--- Fetch Image
+const image = document.querySelector('.my-image');
+fetch('flowers.jpg')
+.then(response =&gt; response.blob())
+.then(blob =&gt; {
+  const objectURL = URL.createObjectURL(blob);
+  image.src = objectURL;
+});
+</code></pre>
+
+<h2 id="h2-5">Working With HTMLElements</h2>
+<h3 id="h3-3">Get position of an HTMLElement</h3>
+
+<pre><code class="language-javascript">
+const el = document.getElementById('element-id');
+const rect = el.getBoundingClientRect();
+//we can then access the values for the rect 
+console.log(rect);
+console.log(rect.bottom, rect.top, rect.left, rect.right);
+</code></pre>
+
+<h3 id="h3-4">Communication with iframe</h3>
+<quote> Important the <samp>postMessage</samp> and <samp>onMessage</samp> are methods of the <samp>Window</samp> that means that they can be used with any window. Check the pages for details { <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage">mozilla</a>, <a href="https://javascript.info/cross-window-communication">javascript.info</a> }</quote>
+<p>I-frames are used to display a different page in our website, we can communicate with the javascript in the i-frames page.</p>
+
+<p><strong>Parent -> Iframe</strong> communication:</p>
+
+<p>We use the <samp>postMessage(message, targetOrigin, transfer)</samp> or <samp>postMessage(message, targetOrigin)</samp> property of the <samp>iframe.contentWindow</samp>.</p>
+
+<ul>
+	<li> message : can be string, object, or arrays. There are more that are <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm">supported</a>.</li>
+</ul>
+<ul>
+	<li> targetOrigin : <samp>"*"</samp> can be used for any origin, or a URL can be set specifically, if the target is not matched the event will not be dipatched.</li>
+</ul>
+<quote> Always provide a specific targetOrigin, not <samp>*</samp>, if you know where the other window's document should be located. Failing to provide a specific target discloses the data you send to any interested malicious site.</quote>
+<p>Ex. <samp>postMessage("message", "http://example.com");</samp> will only be sent if <samp>&lt;iframe src="http://example.com"&gt;</samp></p>
+
+<ul>
+	<li> target : (Optional) Is a sequence of transferable objects that are transferred with the message.</li>
+</ul>
+<p>Get message in the iframe:</p>
+
+<p>We can use the <samp>onmessage</samp> method to get the meesage sent.</p>
+
+<p>The <samp>event</samp> object has special properties:</p>
+
+<p><samp>data</samp> : The data from <samp>postMessage</samp>.</p>
+
+<p><samp>origin</samp> : The origin of the sender.</p>
+
+<p><samp>source</samp> : The reference to the sender window. We can immediately <samp>source.postMessage(...)</samp> back if we want.</p>
+
+
+<pre><code class="language-javascript">
+// --- parent -&gt; iframe
+
+
+//i-frame.contentWindow.postMessage(message, targetOrigin, [transfer]);
+i-frame.contentWindow.postMessage('message', '&lowast;');
+
+
+//in iframe
+window.onmessage = function(e) {
+  console.log(e);
+  console.log(e.data) //message
+}
+</code></pre>
+
+</div>
+</div>
+
+
+</body>
+  <!-- Format -->
+  <script src="../../highlight/highlight.min.js"></script>
+  <script src="../../library/format.js"></script>
+</html>

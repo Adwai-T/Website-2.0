@@ -1,0 +1,831 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<title></title>
+</head>
+<body>
+<div id="container">
+
+<link rel="stylesheet" href="display-page.css" />
+<div id="index">
+<ul id="index-list">
+<li class="index-li-h2"><a href="#h2-0">Spring Security Model</a></li>
+<li class="index-li-h2"><a href="#h2-1">Spring Security Concept</a></li>
+<li class="index-li-h3"><a href="#h3-0">Authentication</a></li>
+<li class="index-li-h3"><a href="#h3-1">Authorization</a></li>
+<li class="index-li-h3"><a href="#h3-2">Prinicipal</a></li>
+<li class="index-li-h3"><a href="#h3-3">Granted Authority</a></li>
+<li class="index-li-h3"><a href="#h3-4">Role</a></li>
+<li class="index-li-h3"><a href="#h3-5">Filters</a></li>
+<li class="index-li-h2"><a href="#h2-2">Getting Started</a></li>
+<li class="index-li-h2"><a href="#h2-3">Configuring Spring Security</a></li>
+<li class="index-li-h3"><a href="#h3-6">AuthenticationManager</a></li>
+<li class="index-li-h3"><a href="#h3-7">Configure InMemory Authentication</a></li>
+<li class="index-li-h3"><a href="#h3-8">Setup Authorization</a></li>
+<li class="index-li-h2"><a href="#h2-4">Working Of Spring Secuity Authentication</a></li>
+<li class="index-li-h3"><a href="#h3-9">Delegating Filter Proxy</a></li>
+<li class="index-li-h3"><a href="#h3-10">Authentication Process</a></li>
+<li class="index-li-h3"><a href="#h3-11">Providers</a></li>
+<li class="index-li-h3"><a href="#h3-12">ProviderManager</a></li>
+<li class="index-li-h3"><a href="#h3-13">After Authentication</a></li>
+<li class="index-li-h2"><a href="#h2-5">JDBC Authentication Configuration</a></li>
+<li class="index-li-h3"><a href="#h3-14">H2 Database</a></li>
+<li class="index-li-h3"><a href="#h3-15">SQL Database</a></li>
+<li class="index-li-h2"><a href="#h2-6">JPA Authentication Configuration</a></li>
+<li class="index-li-h3"><a href="#h3-16">General Implementation for any Datasource</a></li>
+<li class="index-li-h3"><a href="#h3-17">JPA specific Implementation</a></li>
+<li class="index-li-h2"><a href="#h2-7">Authentication With LDAP</a></li>
+<li class="index-li-h2"><a href="#h2-8">JWT</a></li>
+<li class="index-li-h3"><a href="#h3-18">Understanding Session</a></li>
+<li class="index-li-h3"><a href="#h3-19">Problems with Session</a></li>
+<li class="index-li-h3"><a href="#h3-20">JWT vs Session Tokens</a></li>
+<li class="index-li-h3"><a href="#h3-21">Structure Of JWT</a></li>
+<li class="index-li-h3"><a href="#h3-22">Drawbacks of JWT</a></li>
+<li class="index-li-h3"><a href="#h3-23">JWT Authorization With Spring Security</a></li>
+<li class="index-li-h2"><a href="#h2-9">OAuth</a></li>
+<li class="index-li-h3"><a href="#h3-24">Terminologies</a></li>
+<li class="index-li-h4"><a href="#h4-0">Resource</a></li>
+<li class="index-li-h4"><a href="#h4-1">Resource Owner</a></li>
+<li class="index-li-h4"><a href="#h4-2">Resource Server</a></li>
+<li class="index-li-h4"><a href="#h4-3">Client</a></li>
+<li class="index-li-h4"><a href="#h4-4">Authorization Server</a></li>
+</ul>
+</div>
+
+<div id="content">
+<h1 id="h1-0">Spring Security</h1>
+<p>We will understand the most common problems solved by spring security.</p>
+
+<p>Comprehensive guide to <a href="https://docs.spring.io/spring-security/reference/index.html">Spring Security</a>.</p>
+
+<h2 id="h2-0">Spring Security Model</h2>
+<p>Spring Secutity Defines a framework for security, implemented using servlet filters in the background.</p>
+
+<p>There are two methods of securing a web app one by using Declarative Security or by using Programmatic Security.</p>
+
+<ul>
+	<li> Spring Security With Serverlet Filters</li>
+</ul><p>  Serverlet Filters are used to pre-preocess and postprocess web requests.</p>
+
+<p>Servlet filters can reoute web requests based on security logic.</p>
+
+<p>Spring provides a bulk of secrity functionality using servlet.</p>
+
+<ul>
+	<li> Spring Security Concepts</li>
+</ul>
+<ol>
+	<li> Atuhentication : Check user id and password with crednetials stored in the app/db.</li>
+	<li> Authorization : Check to see if user has an authorized role.</li>
+</ol>
+<ul>
+	<li> Declarative Security</li>
+</ul>
+<p>Define application's security constraints in configuration with a class annotated with <samp>@Configuration</samp> or with a xml file configuration.</p>
+
+<p>This provides separation of concerns between security and Application code.</p>
+
+<ul>
+	<li> Programmatic Security</li>
+</ul>
+<p>Spring Security provides an API for custom application coding. Thus we can extend the basic security API provided by spring to write our own security logic.</p>
+
+<p>This provides greate customization for specific app requirements.</p>
+
+<h2 id="h2-1">Spring Security Concept</h2>
+<h3 id="h3-0">Authentication</h3>
+<p>It is proving to the system who the user is. This can be done providing something unique about the user, like an id, something that only that user can provide and no one else.</p>
+
+<p>So for example we have a gmail account, so we tell gmail that this is my gmail id, but we also have to prove that this id belongs to us, we do that by providing a password.</p>
+
+<p>The above type of authentication is called as <strong>Knoweledge Based Authentication</strong>. The proof in the case can be any unique identification like a password, pin, or an answer to a secret/personal question.</p>
+
+<p>The biggest disadvantage of Knoweledge based authentication is that if our unique secret is stolen any person can impersonate us.</p>
+
+<p>So there are other types of authentication like <strong>Possession Based Authentication</strong>. These include things like Phone/Text messages containing otp, of keycards and badges, or Access token device.</p>
+
+<p>Some Apps will make use of both, which is called as <strong>Multifactor Authentication</strong>.</p>
+
+<h3 id="h3-1">Authorization</h3>
+<p>This is the security provider examining if we have access to do what we are trying to do.</p>
+
+<p>For example access or update database entries, view certain pages, etc. This is mostly resolved in a binary yes or no operation, where either the user has permission to do what they want to do or they don't.</p>
+
+<p>This process of making decision of what a user is allowed or not allowed to do is called as Authorization.</p>
+
+<p>For Authorization we first need Authenication as this will tell who the user is and what are the privilages that the user has.</p>
+
+<h3 id="h3-2">Prinicipal</h3>
+<p>It is user that has been Authenticated or also can be said a user that is currently logged-in.</p>
+
+<p>Once logged in the App remembers the user as principal, so that the user does not have to login fo every request.</p>
+
+<h3 id="h3-3">Granted Authority</h3>
+<p>The list of actions or privilages that are granted to a Authorized Principal is the Granted Authority.</p>
+
+<p>For example a Normal user can view pages, that is his Granted Authority, and an admin can view pages as well as edit them, that will be his Granted Authority.</p>
+
+<p>So we can say that Granted Authority are fine grain permission that a Principal has. Any Authorities not specified granted explicity are automatically not permissed as the default permission is denied.</p>
+
+<h3 id="h3-4">Role</h3>
+<p>Role represents a group of Granted Authorities.</p>
+
+<p>Roles Are more coarse grain persmission then Granted Authority is.</p>
+
+<p>In many cases the concept of Authorities and Role are used interchangably.</p>
+
+<h3 id="h3-5">Filters</h3>
+<p>As we know Spring and Spring Boot application are Servlet Application and filters are a very basic concept of Servlets.</p>
+
+<p>Filters basically intercept every request that goes to different Servlets. Spring Secuity is using exactly this concept. It is itself a filter layer that accepts or denies requests.</p>
+
+<h2 id="h2-2">Getting Started</h2>
+<p>When we add Spring Security to the class path of the applicaiton Spring Security exibits some default behavious.</p>
+
+<ul>
+	<li> Adds manadatory authentication for all request Urls.</li>
+	<li> Adds Login form.</li>
+	<li> Handles Login errors.</li>
+	<li> Creates a user and sets a default password that is printed to console when app runs. The default user-name is user.</li>
+</ul>
+<p>When are using Spring Secuity with spring boot we can add a user and passowrd to the application properties file which will be loaded automaically.</p>
+
+
+<pre><code class="language-properties">
+spring.security.user.name=user
+spring.sercuity.user.password=password
+</code></pre>
+
+<h2 id="h2-3">Configuring Spring Security</h2>
+<h3 id="h3-6">AuthenticationManager</h3>
+<p>It manages the authentication in a Spring Security Application.</p>
+
+<p>It has a method <samp>authenticate()</samp> that either authenticates or throws an exception.</p>
+
+<p>We don't directly work with the <samp>AuthenticationManager</samp> but use a <samp>AuthenticationManagerBuilder</samp> to create the <samp>AuthenticationManager</samp> to configure what it should do.</p>
+
+<p>To get a hold of the <samp>AuthenticationManagerBuiler</samp> we extends the class <samp>WebSecurityConfigurerAdapter</samp> that has a <samp>configure(AuthenticationManagerBuilder)</samp> that Spring Security calls to configure Security.</p>
+
+<p>Once we extend the class Spring will call our configure method and pass the AuthentcaitonManagerBuilder that we can use to configure the AuthenticationManager.</p>
+
+<p><samp>@EnableWebSecurity</samp> Tells Spring Security that this is a Web Security configuration.</p>
+
+<p>Spring Security expects that our password is not stored as plain text and hence it will enforce password encoding.</p>
+
+<p>So we have to provide Spring Security with a bean of type <samp>PasswordEncoder</samp> that defines an encoder for our passwords.</p>
+
+<p>Spring Security will be looking for this bean and automatically use it to encode passwords, so we just have to define this bean.</p>
+
+<h3 id="h3-7">Configure InMemory Authentication</h3>
+
+<pre><code class="language-java">
+@EnableWebSecurity
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+  @Overrider
+  protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+    //super.configure(auth); -- we dont want to call the default
+    auth.inMemoryAuthentication()
+      .withUser("user")
+      .password("password")
+      .roles("USER")
+      .and() //And just returns the same object as we use the builder pattern here
+      .withUser("user2")
+      .password("password2")
+      .roles("ADMIN");
+  }
+
+
+  @Bean
+  public PasswordEncoder getPasswordEncoder() {
+    return NoOpPasswordEncoder.getInstance();
+  }
+  //The above password encoder the we returned does not encode the password at all and we still have plain password String.
+}
+</code></pre>
+
+<h3 id="h3-8">Setup Authorization</h3>
+<p>Let in the following example we have three paths <samp>/</samp> that is accessible by all users, <samp>/user</samp> That is only accessible by authenticated users and <samp>/admin</samp> accessible by authenticated user with ADMIN roles.</p>
+
+
+<pre><code class="language-java">
+//---Same SecurityConfiguration class that we created above, we just add the following code
+//WE have both the above configure method and this at the same time.
+@Override
+protected void configure(HttpSecurity http) throws Exception{
+  http.authorizeRequests()
+    .antMatcher("/admin").hasRole("ADMIN")
+    .antMatcher("/user").hasAnyRole("USER", "ADMIN") //If we specify only user then admin will not be able to access /user
+    .antMatcher("/").permitAll()
+    .and().formLogin();
+    //Use FormLogin to authenticate, default behaviour of Spring Security.
+}
+</code></pre>
+
+<p><samp>.antMatchers("/", "static/css", "static/js").permitAll</samp> : will permit access to the static resources and the home page as we might want to give permission to all to visit the home page and decorate it with css and javascript.</p>
+
+<p><samp>.antMatchers("/&lt;em&gt;&lt;/em&gt;")</samp> : will match all paths.</p>
+
+<quote> Note : We go from the most restricted to the least restricted url in Spring Security HttpSecurity Configuration using antMatchers.</quote>
+<p>If we put the least restrictive matchers at the top it is going to match all the requests and will never go to the more restrictive stuff defined.</p>
+
+<h2 id="h2-4">Working Of Spring Secuity Authentication</h2>
+<h3 id="h3-9">Delegating Filter Proxy</h3>
+<p>Spring Security use servlet filters to intercept all requests.</p>
+
+<p>These filters have the oportunity of manapulating all request and even stop certain request from reaching the servlet.</p>
+
+<p>There is usually a one to one mapping between a url and one servlet method.</p>
+
+<p>But filter can be applied to a wide range of urls.</p>
+
+<p>In the case of Web application Spring Security creates these filter by mapping the requests to its own filters called as Delegating filter proxy.</p>
+
+<p>Delegating Filter Proxy does not handle the filtering itself rather it delegates the specific task to specific filter created by Spring Security. One of these filters is for authentication, other for authorization. There are many such filter that are set by spring security.</p>
+
+<h3 id="h3-10">Authentication Process</h3>
+<p>For Authentication Spring Security takes credentials as input and  when done, the authentication return a <samp>Principal</samp>.</p>
+
+<p>When Spring Secuirty Perfroms authentication It keeps track of both the input credentials and returned Principal in an Object called <samp>Authentication</samp> which is an internal Spring Security Interface.</p>
+
+<p>We can think of Authentication as a DataTransfer object for authentication.</p>
+
+<h3 id="h3-11">Providers</h3>
+<p>An AuthenticationProvider is responsible for doing the actual Authentcation.</p>
+
+<p>It has a method called <samp>authenticate()</samp>.</p>
+
+<quote> Authentication Object containing Credentials -> AuthenticationProvider.authenticate() -> Authentication Object containing Principal.</quote>
+<p>A given App can have multiple AuthenticationProviders.</p>
+
+<p>Thus each Authentication Provider needs to specify what kind of authentication it can support. This is returned by the method <samp>supports()</samp> of the AuthenticationProvider.</p>
+
+<p>Given the credentials the provider needs to retrive the user from an identity store and the verify if user is valid. This is same for any type of provider.</p>
+
+<p>As the part of retrieving data about user is common for all types of providers, Spring Security has extracted this part and delegated it to a <samp>UserDetailsService</samp>. It has a method called as <samp>loadUserByUserName()</samp>.</p>
+
+<p>The UserDetailsService returns a <samp>UserDetails</samp> Object needed by the provider for authentication, once authenticated, mostly the same <samp>UserDetails</samp> object is returned as the Principal in the Authentication object.</p>
+
+<h3 id="h3-12">ProviderManager</h3>
+<p>Say we have authentication with Login form, also with google also with github. All of them will be AuthenticationProvider for our applicaiton.</p>
+
+<p>We can manage all these AuthenticationProviders with a ProviderManager.</p>
+
+<p>In Spring Security case the <samp>AuthenticationManager</samp> helps us with all the AuthenticationProvider.</p>
+
+<p>AuthenticationManager has its own <samp>authenticate()</samp> method that is called to check for appropriate AuthenticationProvider.</p>
+
+<p>The AuthenticationManager check which AuthenticationProvider can authenticate a request by checking the supported authentication type and deligates the authentication process to the provider by calling its <samp>authenticate()</samp> method.</p>
+
+<h3 id="h3-13">After Authentication</h3>
+<p>After a successful authentication the AuthenticationManager returns the Authentication with the principal to the filters and the Authentication is stored in the ThreadLocal.</p>
+
+<p>One of the other Delegating filter creates and manages a session for the Authenticaion with the Principal and thus we don't have to authenticate with every subsequent request.</p>
+
+<p>This filter will be responsible for the processing subsequest request and adding the Authenticate to ThreadLocal so that it is available for the framework.</p>
+
+<p>Underlying all authentication work the same which ever authenticaion type we use.</p>
+
+<h2 id="h2-5">JDBC Authentication Configuration</h2>
+<h3 id="h3-14">H2 Database</h3>
+<p>In the first example we will use an inmemory H2 database and let spring create a default shema for our database for the user. We will also populate the database with some user for testing.</p>
+
+
+<pre><code class="language-java">
+//As we have provided Spring Boot with a h2 dependency, it will automatically create a DataSource bean for H2 db and autowire it here.
+@Autowired
+private DataSource dataSource
+
+
+@Overrider
+protected void configurer(AuthenticationManagerBuilder auth) throws Exception{
+  auth.jdbcAuthentication().dataSource(dataSource)
+      .withDefaultSchema()
+      .withUser(
+        User.withuserName("user").password("pass").roles("USER")
+      )
+      .withUser(
+        User.withuserName("admin").password("pass").roles("ADMIN")
+      );
+}
+</code></pre>
+
+<p>The following configuration shows the default be behaviour of Spring Security when we use the default shema and use <samp>withDefaultSchema()</samp> to get the users, password and role.</p>
+
+<p>This is run automatically and we do not need to specify this code if we are using the default schema. We can however change this code if we are using a custom schema.</p>
+
+
+<pre><code class="language-java">
+auth.jdbcAuthentication()
+  .dataSource(dataSource)
+  .userByUserNameQuery("select username,password,enable from users where username=?")
+  .authoritiesByUsernameQuery("select username,authority from authorities where username=?");
+</code></pre>
+
+<h3 id="h3-15">SQL Database</h3>
+<p>The Datasource is configured and passed to the AuthenticationManagerBuilder.</p>
+
+<p>We configure the Datasource separatly and Autowire it, this gives us flexibility of changing database with minimum changes to the AuthenticationManager Configuration.</p>
+
+<p>The simplest way to configure a Datasource in a Spring Boot application is to add the details for connecting to our database in the application.properties file as Spring Boot while loading the file will also automatically configure the datasource for us and inject it into the Spring Security Configuration class.</p>
+
+<p>But if we are using Spring and Spring Security without Spring Boot we would have to configure the Datasoure manually.</p>
+
+<p>We have configured the Datasource in the Spring Part.</p>
+
+
+<pre><code class="language-properties">
+spring.datasource.url=
+spring.datsource.username=
+spring.datasource.password=
+</code></pre>
+
+<h2 id="h2-6">JPA Authentication Configuration</h2>
+<p>Spring Security does not provide a out of the box implementation for JPA as it did for for JDBC.</p>
+
+<p>So we provide the <samp>AuthenticationProvider</samp> with <samp>UserDetails</samp> by implementing a <samp>UserDetailsService</samp> ourself. The UserDetailsService returns a <samp>User</samp> Object that the AuthenticationProvider will authenticate. We have seen how this works in the working section.</p>
+
+<p>So our UserDetailsService implementation will use our JPA service to communicate with the database to get the user details by using the username provided by AuthenticationProvider.</p>
+
+<p>Once we have userdetails we create the UserDetails object from it and return it to the AuthenticationProvider.</p>
+
+<quote> Note : The UserDetailsService can be implemented needs to return the UserDetails Object, how it finds and creates the object is completely up to us. In the case we use JPA but we can find and get details from Any Source.</quote><quote> Spring Security will call the <samp>loadUserByUsername(String s)</samp> method to get the UserDetails, so we override it an code our implementation in it.</quote>
+
+<pre><code class="language-java">
+@Autowired
+private UserDetailsService userDetailsService;
+
+
+@Override
+protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+  auth.userDetailsService(userDetailsService)
+}
+</code></pre>
+
+<h3 id="h3-16">General Implementation for any Datasource</h3>
+
+<pre><code class="language-java">
+// --- This is a General Implemetation That we can use for any DataSource
+
+
+@Service
+public class MyUserDetailsService implements UserDetailsService {
+  @Override
+  public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException{
+    return new MyUserDetails(s);
+  }
+}
+
+
+public class MyUserDetails implements UserDetails{
+  //We implement all the method of the interface as needed.
+
+
+  //-- creating A Role with GrantedAuthority
+  @Override 
+  public Collection&lt;? extends GrantedAuthority&gt; getAuthorities() {
+    return Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
+  }
+}
+</code></pre>
+
+<h3 id="h3-17">JPA specific Implementation</h3>
+<p>For the Database we have a sql database with instance name springsecurity, having a table named users with column id, username, password, role, and active.</p>
+
+
+<pre><code class="language-java">
+//--- Create JPA Entity javax.persistence.Entity
+@Entity
+@Table(name="User")
+public class User{
+  @Id
+  @GeneratedValue(strategy=GenerationType.AUTO)
+  private String userName;
+  private String password;
+  private String active;
+  private String roles;
+
+
+  //Constructors, Getters and Setters
+}
+
+
+//--- Create Repository
+public interface UserRepository extends JpaRepository&lt;User, Integer&gt;{
+  //We just provide the interface and the methods are automatically implemeted by the framework.
+  Optional&lt;User&gt; findByUserName(String userName);
+}
+
+
+@Service
+public class MyUserDetailsService implements UserDetailsService{
+  @Autowired
+  private UserRepository repository;
+
+
+  @Overrider
+  public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
+    Optional&lt;User&gt; user = repository.findUserByUserName(userName);
+
+
+    user.orElseThrow(()-&gt; new UsernameNotFoundException("Not found: " + userName));
+
+
+    return user.map(MyUserDetails::new).get();
+  }
+}
+
+
+public class MyUserDetails implements UserDetails {
+  private String userName;
+  private String password;
+  private boolean active;
+  private List&lt;GrantedAuthority&gt; authorities;
+  public MyUserDetails(User user){
+    this.userName = user.getUserName();
+    this.password = user.getPassword();
+    this.active = user.isActive();
+    //Int the db we have ROLES string separated by ,
+    this.authorities = Arrays.stream(user.getRoles().split(","))
+      .map(SimpleGrantedAuthority::new)
+      .collect(Collector.toList());
+  }
+  //The we use the above values to override the methods in the UserDetails interface.
+}
+
+
+//--- Finally we have to also enable JpaRepostories
+@SpringBootApplication
+@EnableJpaRepositories(basePackageClasses=UserRepository.class)
+public class SpringSecurityJpaApplication {
+  //... main
+}
+</code></pre>
+
+<p>We also need to configure our Datasource. If we are using SpringBoot we can add the configure the datasource in the application.properties file and spring will auto configure the database for us.</p>
+
+
+<pre><code class="language-properties">
+spring.datasource.url=jdbc:mysql://localhost:3305/springsecurity
+spring.datsource.username=root
+spring.datasource.password=password
+# Tells hibernate to now wipe the database at start but just update and use the same.
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.properites.hibernate.dialect=org.hiberante.dialect.MySQL5Dialect
+</code></pre>
+
+<h2 id="h2-7">Authentication With LDAP</h2>
+<p>LDAP is Lightweight Directory Access Protocol.</p>
+
+<p>It is protocol for accessing and maintaining distributed directory information services over an Internet Protocol network.</p>
+
+<p>It is often used to store organizational information, often with a hierarchical structure.</p>
+
+<p>We need some dependencies that will help us use ldap with spring.</p>
+
+<ul>
+	<li> com.unboundedid - unboundedid-ldapsdk : Opensource in memory implementation of ldap used for testing.</li>
+	<li> org.springframework.ldap - spring-ldap-core : ldap interaction with spring.</li>
+	<li> org.springframework.security - spring-security-ldap : Help spring security with ldap.</li>
+</ul>
+<p>The full code for the <a href="https://spring.io/guides/gs/authenticating-ldap/">Authentication with LDAP</a>.</p>
+
+
+<pre><code class="language-java">
+@Override
+public void configure(AuthenticationManagerBuilder auth) throws Exception {
+  auth
+    .ldapAuthentication()
+      .userDnPatterns("uid={0},ou=people")
+      .groupSearchBase("ou=groups")
+      .contextSource()
+        .url("ldap://localhost:8389/dc=springframework,dc=org")
+        .and()
+      .passwordCompare()
+        .passwordEncoder(new BCryptPasswordEncoder())
+        .passwordAttribute("userPassword");
+}
+</code></pre>
+
+<h2 id="h2-8">JWT</h2>
+<p>JWT is mostly used for Authorization. It can be used in place of Session tokens.</p>
+
+<p>HTTP is a stateless protocol, hence to maintain a session we need Session tokens.</p>
+
+<h3 id="h3-18">Understanding Session</h3>
+<p>When we authenticate the server saves the Authenticated user in session store on the server and returns a reference token to this session back to the user. This is the session token.</p>
+
+<p>This reference token is send back every time with the requests that a authenticated user makes as cookies.</p>
+
+<p>The request containing the session token will be used by server to check authorization and thus there is not need to Authenticate again for the duration of session.</p>
+
+<p>The session store stores all the authenticated user with live sessions and use the session token reference to check Authorization.</p>
+
+<h3 id="h3-19">Problems with Session</h3>
+<p>Sessions assume that the whole web app is a monolit and runs on the same server.</p>
+
+<p>But Modern web apps are often split into several instance with a load balancer. This means that the subsequent request might not be send to the same server that initailly Authenticated the user and saved session information and returned session token.</p>
+
+<p>To solve this there are two techinque that are employed.</p>
+
+<ul>
+	<li> Sicky Sessions : The Load balancer will remember which client is handled by which server initailly and the route all subsequent request to the same server. But this has the obvious disadvantage that increases the work done by Load Balancer.</li>
+</ul>
+<ul>
+	<li> Shared Session Store : Shared Session store like redish can be used between all the web app instances to store the session. This has the disadvantage that it creates a single point of failure, if session store goes down, all session also go down.</li>
+</ul>
+<h3 id="h3-20">JWT vs Session Tokens</h3>
+<p>Session Tokens are Reference token as they are a reference to the Authenticated user stored in the session store on the server.</p>
+
+<p>JWT are Value Tokens that is they themselves contain all the information about the Authorization.</p>
+
+<p>As JWT contain all the information about the authorization, the server does not need to maintain any store of authenticated users.</p>
+
+<p>This makes the server stateless. The Application completely relies on the Client to maintain session.</p>
+
+<p>Stateful services have an important advantage over stateless service, they can react differently to the same input based on the history of the session.</p>
+
+<h3 id="h3-21">Structure Of JWT</h3>
+<p>JWT consist of three Parts <samp>Header.Payload.Signature</samp>.</p>
+
+<p>The Header contains details about encryption of the signature, the Payload containes authorization details about the Authenticated user and the secret key is a key that server calculates from a secret that is stored on the server and the payload.</p>
+
+<p>The Header and Payload are encoded with Base64 encoder and are visible directly as JSON when decoded with Base64 decoder.</p>
+
+<p>When a JWT is send to server for Authorization the server uses the payload and a secret key to calculate the Signature again and then matches them to check the validity of the Signature.</p>
+
+<p>Thus any changes to the payload will invalidate the signature.</p>
+
+<p>As playload is not encrypted, sensitive information about Authenticated user like password, birthday, etc must not be stored in it.</p>
+
+<h3 id="h3-22">Drawbacks of JWT</h3>
+<p>As the server does not hold any state regarding a authenticated user if the JWT is stolen the user can be impersonated for the time the JWT is valid.</p>
+
+<p>There is no way invalidate the key for the server as well by the user. The only way that a key can be invalidate is putting it into a blacklist. That is the server will have to maintain and check this blacklist for stolen key and block the request.</p>
+
+<p>In the case of session keys the server has control over the session and the key can be invalidated any time. Also session keys become invalid once that session ends.</p>
+
+<p>A Common way of using JWT authorization is through the process of using <strong>Oauth</strong>. Oauth has ways of protecting from JWT keys from being stolen.</p>
+
+<h3 id="h3-23">JWT Authorization With Spring Security</h3>
+<p>We Will use the <a href="https://github.com/auth0/java-jwt">auth0/java-jwt</a> to create and verify jwts, but this can be achieved with any library of your preference.</p>
+
+
+<pre><code class="language-xml">
+&lt;dependency&gt;
+    &lt;groupId&gt;com.auth0&lt;/groupId&gt;
+    &lt;artifactId&gt;java-jwt&lt;/artifactId&gt;
+    &lt;version&gt;3.19.1&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+
+<pre><code class="language-java">
+//---Implementation of below classes will depend on the source of users we use, that is the database.
+//It is not specific to JWT.
+//-UserRepository is the interface implmented automatically by Spring to retrive user from Database.
+//-User class that Models user from our database.
+//-SimpleUserDetailsService implements UserDetailsService
+//-SimpleUserDetials implements UserDetails
+
+
+//--- To provide and configure UserDetails for Spring Security to use please look at the sections. 
+
+
+//---Models and other Contoller methods
+//-AuthRequest [username, password] and AuthResponse [username, jwt] are models
+//-ErrorResponse [code, message] is model for general error response.
+
+
+//---First we create a utility class that will help us create and verify JWTs
+@Service
+public class JwtService {
+  //Externalize these variables by using properties file as we don't want them to be visible when we push code to remote repositories like github. It also makes it easier to manage them.
+  private String provider="Adwait";
+  private String secret="SecretForAlgorithm";
+
+
+  private Algorithm algorithm;
+
+
+  public String generate(User user) {
+    if(algorithm == null) algorithm = Algorithm.HMAC256(secret);
+    // We can add any number of custom claims to the map
+    Map&lt;String, Object&gt; payload = new HashMap&lt;&gt;();
+    
+    String token = JWT.create()
+            .withIssuer(provider)
+            .withIssuedAt(new Date())
+            .withExpiresAt(new Date(System.currentTimeMillis() + 36000000))//10hrs
+            .withSubject(user.getUsername())
+            .withAudience(user.getAuthority())
+            .withPayload(payload)
+            .sign(algorithm);
+    return token;
+  }
+
+
+  public DecodedJWT verify(String jwt) throws JWTVerificationException {
+    if(algorithm == null) algorithm = Algorithm.HMAC256(secret);
+
+
+    JWTVerifier verifier = JWT.require(algorithm).withIssuer(provider).build();
+    DecodedJWT decodedJWT = verifier.verify(jwt);
+    return decodedJWT;
+  }
+}
+
+
+//--- We then create a auth method in controller to handle creating and sending the jwt
+@Controller
+@RequestMapping(value = "auth")
+public class AuthenticationController {
+
+
+  @Autowired
+  private AuthenticationManager authenticationManager;
+  @Autowired
+  private JwtService jwtService;
+  @Autowired
+  private SimpleUserDetailsService userDetailsService;
+    
+  @PostMapping("")
+  public ResponseEntity&lt;AuthResponse&gt; auth(
+          @RequestBody AuthRequest requestBody)
+          throws BadCredentialsException {
+
+
+    //If Authentication fails throws BadCredentialsException which will be handled below.
+    authenticationManager.authenticate(
+            new UsernamePasswordAuthenticationToken(
+                    requestBody.getUsername(), requestBody.getPassword()
+            )
+    );
+
+
+    String jwt = jwtService.generate(userDetailsService.getUser());
+
+
+    return ResponseEntity
+              .status(HttpStatus.OK)
+              .body(new AuthResponse(requestBody.getUsername(), jwt));
+  }
+
+
+  @ExceptionHandler(BadCredentialsException.class)
+  public ResponseEntity&lt;ErrorResponse&gt; badCredentialsExceptionHandler() {
+      return ResponseEntity
+              .status(HttpStatus.NOT_FOUND)
+              .body(new ErrorResponse(404, "Username or Password incorrect."));
+  }
+}
+
+
+//--- We also need a filter that will process each request and check for authorization.
+
+
+//OncePerRequestFilter does exactly that it runs once for every request that the server recieves.
+@Component
+public class JwtFilter extends OncePerRequestFilter {
+
+
+  @Autowired
+  public SimpleUserDetailsService userService;
+  @Autowired
+  public JwtService jwtService;
+  @Override
+  protected void doFilterInternal(
+          HttpServletRequest request,
+          HttpServletResponse response,
+          FilterChain filterChain)
+          throws ServletException, IOException {
+
+
+    if (request.getHeader("Authorization") 	%21= null) {
+      try {
+        //If jwt verification fails it throws JWTVerificationException and no user is set in the SecurityContext.
+        DecodedJWT jwt = jwtService.verify(request.getHeader("Authorization"));
+
+
+        //-- We check if there is already a authenticated user in the context.
+        //If there is none we will do what Spring security would have done automatically for a authenticated user.
+        //We will set the authenticated user in the SpringSecrity context so that Spring can check its authorization.
+        if (SecurityContextHolder.getContext().getAuthentication() == null) {
+          UserDetails userDetails = userService.loadUserByUsername(jwt.getSubject());
+          UsernamePasswordAuthenticationToken authToken =
+                  new UsernamePasswordAuthenticationToken(
+                          userDetails, null, userDetails.getAuthorities());
+          authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+
+
+          SecurityContextHolder.getContext().setAuthentication(authToken);
+        }
+      } catch (JWTVerificationException exp) {
+        System.out.println("JWT Could not be verified while setting context in filter.");
+      }
+    }
+    //We will again hand over the filter chain back to Spring.
+    filterChain.doFilter(request, response);
+  }
+}
+
+
+//--- Finally We add the filter to the Security Configuration
+//--- We also tell Spring Security to not create and manage sessions
+//---
+@EnableWebSecurity
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+  @Autowired
+  private JwtFilter jwtFilter;
+  @Autowired
+  private SimpleUserDetailsService simpleUserDetailsService;
+
+
+  //The following configure method is an example of a log thing that can be configured in the HttpSecurity.
+  //We add the jwt filter that we created here. It is to be run before UsernamePasswordAuthenticationFilter.
+  //This lets us manually set the Authenticated user in Spring Secruity Context.
+  @Override
+  protected void configure(HttpSecurity http) throws Exception {
+      http.csrf().disable()
+            .authorizeRequests()
+            .antMatchers("/auth").permitAll()
+            .antMatchers("/admin").hasAnyAuthority("ADMIN")
+            .antMatchers("/member").hasAnyAuthority("ADMIN", "MEMBER")
+            .antMatchers("/user").hasAnyAuthority("ADMIN", "MEMBER", "USER")
+            .anyRequest().authenticated()
+            .and()
+            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+            .and()
+            .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+  }
+
+
+  @Override
+  protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+      auth.userDetailsService(simpleUserDetailsService);
+  }
+
+
+  //We make the AuthenticationManager from the above configure method available for use.
+  @Override
+  @Bean
+  public AuthenticationManager authenticationManagerBean() throws Exception {
+      return super.authenticationManagerBean();
+  }
+  //We create a bean that will be used for encrypting password.
+  //NoOpPasswordEncoder will not encrypt the password and keep it as plain text.
+  //Not to be used in production
+  @Bean
+  public PasswordEncoder getPasswordEncoder() {
+      return NoOpPasswordEncoder.getInstance();
+  }
+}
+</code></pre>
+
+<h2 id="h2-9">OAuth</h2>
+<p>OAuth was created for authorization between services. This is called as Access Delegation.</p>
+
+<p>The current Version is <samp>OAuth 2.0</samp>.</p>
+
+<p>The OAuth Flow is the steps taken by OAuth for authorization.</p>
+
+<h3 id="h3-24">Terminologies</h3>
+<p>Lets say we have a service that want to use a file stored by our user on his google drive.</p>
+
+<p>So we want our service to access another service that is googles drive.</p>
+
+<h4 id="h4-0">Resource</h4>
+<p>Also sometimes refered to as Portected Resource. This is the thing that is sought by our service from another service. This resource is protected by the other service</p>
+
+<p>In the above example the file on google drive of our user is the Resource and is protected by google drive so only the user has access to it.</p>
+
+<h4 id="h4-1">Resource Owner</h4>
+<p>The Owner of the protected resource that can give access to the resource is the Resource Owner.</p>
+
+<p>In the case of the example the user that owns the google drive will be able to control access to the files on the drive and hence he is the Resource Owner.</p>
+
+<h4 id="h4-2">Resource Server</h4>
+<p>The server that holds the protected resource.</p>
+
+<p>In the case of example the google drive is the resource server.</p>
+
+<p>The Resource server has the responsibilty for security, this is deligated by the resource server to the Authorization server.</p>
+
+<p>In the case of example above google is the Authorization service that google drive uses.</p>
+
+<h4 id="h4-3">Client</h4>
+<p>The Application making protected resource request on behalf of the resource owner with its authorization.</p>
+
+<p>In the case our service that want to access the file will be the client.</p>
+
+<h4 id="h4-4">Authorization Server</h4>
+<p>The server issuing access token to the client.</p>
+
+</div>
+</div>
+
+
+</body>
+  <!-- Format -->
+  <script src="../../highlight/highlight.min.js"></script>
+  <script src="../../library/format.js"></script>
+</html>

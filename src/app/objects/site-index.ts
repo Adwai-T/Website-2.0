@@ -1,3 +1,7 @@
+/*
+  Used for searching topics on the site.
+*/
+
 export interface SearchResult{
   link:string
   description?:string,

@@ -1,6 +1,8 @@
 #container {
   padding: 10px;
   text-align: justify;
+  max-width: 1000px;
+  margin: 0px auto;
 }
 
 .title-container {

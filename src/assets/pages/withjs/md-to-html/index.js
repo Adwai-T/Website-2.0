@@ -1,4 +1,5 @@
-const regexFileLink = "/regex.json";
+const regexFileLink = "regex.json";
+// const stack = new Stack();
 
 let fetchURL;
 let fetchRegex;
@@ -526,3 +527,14 @@ showHtmlButton.onclick = () => {
   iframeResultPage.style.display = "none";
   resultText.style.display = "block";
 };
+
+//-- Test
+const downloadButton = document.getElementById('download-page');
+downloadButton.onclick= () => {
+  const downloadLink= document.createElement('a');
+  downloadLink.setAttribute('href', 'data:text/plain;charset=utf-8, ' + encodeURIComponent(resultText.value));
+  downloadLink.setAttribute('download', 'index.html');
+  document.body.appendChild(downloadLink);
+  downloadLink.click();
+  document.body.removeChild(downloadLink);
+}

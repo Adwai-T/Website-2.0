@@ -1,0 +1,1027 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<title></title>
+</head>
+<body>
+<div id="container">
+
+<link rel="stylesheet" href="display-page.css" />
+<div id="index">
+<ul id="index-list">
+<li class="index-li-h2"><a href="#h2-0">Getting Started</a></li>
+<li class="index-li-h2"><a href="#h2-1">Jackson</a></li>
+<li class="index-li-h3"><a href="#h3-0">Seralization Annotations</a></li>
+<li class="index-li-h3"><a href="#h3-1">Deserialization Annotation</a></li>
+<li class="index-li-h3"><a href="#h3-2">Property Inclusion Annotations</a></li>
+<li class="index-li-h2"><a href="#h2-2">Spring Data JPA</a></li>
+<li class="index-li-h2"><a href="#h2-3">Using Environment Variables</a></li>
+<li class="index-li-h3"><a href="#h3-3">@Value</a></li>
+<li class="index-li-h2"><a href="#h2-4">Using Spring Profiles</a></li>
+<li class="index-li-h3"><a href="#h3-4">Active Profile</a></li>
+<li class="index-li-h2"><a href="#h2-5">Cross Origin Resource Sharing : CORS Support</a></li>
+<li class="index-li-h3"><a href="#h3-5">Global CORS configuration</a></li>
+<li class="index-li-h2"><a href="#h2-6">Swagger2</a></li>
+<li class="index-li-h2"><a href="#h2-7">Validation</a></li>
+<li class="index-li-h3"><a href="#h3-6">Validate Request Body</a></li>
+<li class="index-li-h3"><a href="#h3-7">Validating Request Parameter and Path Variables</a></li>
+<li class="index-li-h3"><a href="#h3-8">Validating Input to a Spring Service Method</a></li>
+<li class="index-li-h3"><a href="#h3-9">Validating JPA Entities</a></li>
+<li class="index-li-h3"><a href="#h3-10">Implementing a Custom Validator</a></li>
+<li class="index-li-h2"><a href="#h2-8">Exception Handling With Spring</a></li>
+<li class="index-li-h2"><a href="#h2-9">Cross Origin Requests</a></li>
+</ul>
+</div>
+
+<div id="content">
+<h1 id="h1-0">Spring Boot</h1>
+<p>Spring Boot takes an opinionated approach to developing application with the Spring framework. It provides starters that can be used to get us started and productive with very little to no setup.</p>
+
+<p>Spring Boot Auto configures our Spring Application based on the dependencies that we have added to our project.</p>
+
+<p>The entry point into a Spring Boot application is through a class annotated with <samp>@SpringBootApplication</samp>.</p>
+
+<p><samp>@SpringBootApplication</samp> is a combination of <samp>@EnableAutoConfiguration</samp>, <samp>@ComponentScan</samp> and <samp>@SpringBootConfiguration</samp>.</p>
+
+<ul>
+	<li> <samp>@EnableAutoConfiguration</samp> : Is the annotation of Spring Boot that as discused above is what tell Spring Boot to automatically configure the project according to the dependencies that are add to the project.</li>
+	<li> <samp>@ComponentScan</samp> : Enables component scanning so that beans can be create by Spring framework.</li>
+	<li> <samp>@SpringBootConfiguration</samp> : It indicates that the class provides application configuration. It is the primary source for configuration in the application.</li>
+</ul>
+<h2 id="h2-0">Getting Started</h2>
+<p>It is highly recommened to use the <a href="https://start.spring.io/">Spring Initializer</a> to create the project with the dependencies that are needed. More dependencies can be added later.</p>
+
+<p>The initializer will get us started with a build system like maven or gradle what ever we choose and a directory structure.</p>
+
+<p>We can then import the project into our ide and resolve the dependencies by downloading them with maven or gradle repositories.</p>
+
+<h2 id="h2-1">Jackson</h2>
+<p>Jackson is used by spring while we create a Rest Api. We see some useful short guide on using Jackson with SpringBoot.</p>
+
+<quote> Serialization : Convert a object to JSON String</quote><quote> Desrialization : Convert a json string into CustomObject</quote>
+<h3 id="h3-0">Seralization Annotations</h3>
+<ul>
+	<li> <samp>@JsonGetter</samp> : Marks a method as a getter method. Is an alternative to <samp>@JsonProperty</samp> for getters.</li>
+</ul>
+
+<pre><code class="language-java">
+public class Student {
+    public int id;
+    private String name;
+
+
+    @JsonGetter("name")
+    public String getName() {
+        return name;
+    }
+}
+</code></pre>
+
+<ul>
+	<li> <samp>@JsonAnyGetter</samp> : The @JsonAnyGetter annotation allows the flexibility of using a Map field as standard properties. Similar to <samp>@JsonAnySetter</samp>.</li>
+</ul>
+
+<pre><code class="language-java">
+//The Object definition :
+public class Student {
+    public String name;
+    private Map&lt;String, String&gt; studentDetails;
+   
+    @JsonAnyGetter
+    public Map&lt;String, String&gt; getStudentDetails() {
+        return studentDetails;
+    }
+}
+//All the key-value pairs in the map will be added to the Json String created.
+</code></pre>
+
+<ul>
+	<li> <samp>@JsonPropertyOrder</samp> : Orders the json as specified.</li>
+</ul>
+
+<pre><code class="language-java">
+@JsonPropertyOrder({ "name", "id" })
+public class MyBean {
+    public int id;
+    public String name;
+}
+</code></pre>
+
+<p><samp>@JsonPropertyOrder(alphabetic=true)</samp> could also be used to arrange alphabetically.</p>
+
+<ul>
+	<li> <samp>@JsonRawValue</samp> :  instruct Jackson to serialize a property exactly as is.</li>
+</ul>
+<ul>
+	<li> <samp>@JsonRootName</samp> : Wraps entire json created into the root that we specify.</li>
+</ul>
+
+<pre><code class="language-java">
+@JsonRootName(value = "user")
+public class UserWithRoot {
+    public int id;
+    public String name;
+}
+</code></pre>
+
+
+<pre><code class="language-json">
+{
+    "User": {
+        "id": 1,
+        "name": "John"
+    }
+}
+</code></pre>
+
+<h3 id="h3-1">Deserialization Annotation</h3>
+<ul>
+	<li> <samp>@JsonCreator</samp> : We can use the <samp>@JsonCreator</samp> annotation to tune the constructor/factory used in deserialization. It's very useful when we need to deserialize some JSON that doesn't exactly match the target entity we need to get.</li>
+</ul>
+
+<pre><code class="language-json">
+{
+    "id":1,
+    "name":"adwait"
+}
+</code></pre>
+
+
+<pre><code class="language-java">
+public class Student {
+    public int id;
+    public String studentName;
+
+
+    @JsonCreator
+    public Student(
+      @JsonProperty("id") int id, 
+      @JsonProperty("name") String studentName) {
+        this.id = id;
+        this.studentName = studentName;
+    }
+}
+</code></pre>
+
+<ul>
+	<li> <samp>@JsonAnySetter</samp> : On deserialization, the properties from JSON will simply be added to the map.</li>
+</ul>
+
+<pre><code class="language-json">
+{
+   "name" : "adwait",
+   "key1":"val1",
+   "key2":"val2"
+}
+</code></pre>
+
+
+<pre><code class="language-java">
+public class Student {
+    public String name;
+    private Map&lt;String, String&gt; details;
+
+
+    @JsonAnySetter
+    public void addDetails(String key, String value) {
+        details.put(key, value);
+    }
+}
+</code></pre>
+
+<ul>
+	<li> <samp>@JsonSetter</samp> : Marks the method as a setter method. Is similar to <samp>@JsonGetter</samp>.</li>
+</ul>
+<ul>
+	<li> <samp>@JsonAlias</samp> : defines one or more alternative names for a property during deserialization. <samp>@JsonAlias({ "fName", "f_name" })</samp> Marked over property.</li>
+</ul>
+<h3 id="h3-2">Property Inclusion Annotations</h3>
+<ul>
+	<li> <samp>@JsonIgnoreProperties</samp> : Is a class-level annotation that marks a property or a list of properties that Jackson will ignore.</li>
+</ul>
+
+<pre><code class="language-java">
+@JsonIgnoreProperties({ "id" })
+public class BeanWithIgnore {
+    public int id;
+    public String name;
+}
+</code></pre>
+
+<ul>
+	<li> <samp>@JsonIgnore</samp> : Is used to mark a property to be ignored at the field level.</li>
+</ul>
+<ul>
+	<li> <samp>@JsonIgnoreType</samp> : Marks all properties of an annotated type to be ignored.</li>
+</ul>
+<ul>
+	<li> <samp>@JsonInclude</samp> : To exclude properties with empty/null/default values.</li>
+</ul>
+
+<pre><code class="language-java">
+@JsonInclude(Include.NON_NULL)
+public class MyBean {
+    public int id;
+    public String name;
+}
+</code></pre>
+
+<ul>
+	<li> <samp>@JsonFormat(shape = JsonFormat.Shape.STRING)</samp> OR <samp>@JsonFormat(shape = JsonFormat.Shape.STRING, pattern= "yyyy-MM-dd")</samp></li>
+</ul>
+<ul>
+	<li> <samp>@JsonProperty("date")</samp> : Specify custom name for the property.</li>
+</ul>
+
+<pre><code class="language-java">
+@JsonProperty("date")
+@JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
+private Calendar someDate;
+</code></pre>
+
+
+<pre><code class="language-json">
+{
+  "fieldOne": "Some text",
+  "date": "2019-02-26"
+}
+</code></pre>
+
+<ul>
+	<li> <samp>@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)</samp></li>
+</ul>
+<ul>
+	<li> Or the above acan be achieved by <samp>@JsonIgnore</samp></li>
+</ul>
+
+<pre><code class="language-java">
+class User {
+
+
+    // More fields here
+    @JsonIgnore
+    private String password;
+
+
+    @JsonIgnore
+    public String getPassword() {
+        return password;
+    }
+
+
+    @JsonProperty
+    public void setPassword(final String password) {
+        this.password = password;
+    }
+}
+</code></pre>
+
+<ul>
+	<li> <samp>@JsonUnwrapped</samp> : unwrapped/flattened when serialized/deserialized.</li>
+</ul>
+
+<pre><code class="language-java">
+public class UnwrappedUser {
+    public int id;
+
+
+    @JsonUnwrapped
+    public Name name;
+
+
+    public static class Name {
+        public String firstName;
+        public String lastName;
+    }
+}
+</code></pre>
+
+
+<pre><code class="language-json">
+{
+    "id":1,
+    "firstName":"John",
+    "lastName":"Doe"
+}
+</code></pre>
+
+<p>Some Rules for Serialization and Deseralization</p>
+
+<ul>
+	<li> Restricting seralizing and deseralizing : (Does not work : The getter and setters are important for some reason to start the project)</li>
+	<li> If getters and setters are not set for the properties of a class, only the properties with public access modifiers are seralized and deseralized.</li>
+	<li> If getters are set, only those properties will be seralized and deseralized, when all properties are private. Or the above rule will apply for all properties that have public access modifier.</li>
+	<li> If a property is private and has a setter it will be considered for deseralizing and not seralizing.</li>
+</ul>
+<quote> For more : <a href="https://www.baeldung.com/jackson-annotations">Jackson-Annotations</a></quote>
+<h2 id="h2-2">Spring Data JPA</h2>
+<p>We will be using PostgreSql for this.</p>
+
+
+<pre><code class="language-properties">
+spring.datasource.url=jdbc:postgresql://localhost:5432/postgres
+spring.datasource.username=postgres
+spring.datasource.password=wait
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.hibernate.show-sql=true
+</code></pre>
+
+
+<pre><code class="language-java">
+//--- User Entity
+import javax.persistence.&lowast;;
+
+
+@Entity
+@Getter @Setter
+@NoArgsConstructor
+@ToString
+@Table(name = "users")
+public class User {
+
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
+
+    @Column(name = "username")
+    private String name;
+    @Column(name = "age")
+    private int age;
+    @Column(name = "active")
+    private boolean active;
+
+
+    public User(String name, int age, boolean active) {
+        this.name = name;
+        this.age = age;
+        this.active = active;
+    }
+}
+
+
+
+
+//--- Create a repository File
+//Spring data jap will automatically create a bean with implementations for the methods
+public interface UserRepository extends CrudRepository&lt;User, Integer&gt; {
+    List&lt;User&gt; findByName(String name);
+    User findById(long id);
+}
+
+
+//--- Use in Application
+@SpringBootApplication
+public class WebsiteApplication {
+
+
+  private static final Logger log = LoggerFactory.getLogger(WebsiteApplication.class);
+
+
+  @Autowired
+  private UserRepository repository;
+
+
+  public static void main(String[] args) {
+    SpringApplication.run(WebsiteApplication.class, args);
+  }
+
+
+  @Bean
+  public CommandLineRunner test() {
+    return (args -&gt; {
+      //--save new users
+      repository.save(new User("Adwait", 28, true));
+      repository.save(new User("Vikas", 23, true));
+      repository.save(new User("Sandipan", 24, true));
+
+
+      log.info("&lt;-----All users----&gt;");
+      for(User user : repository.findAll()){
+        log.info(user.getName());
+      }
+
+
+      //find and update existing user
+      User adwait = repository.findById(1);
+      adwait.setAge(28);
+      repository.save(adwait);
+
+
+    });
+  }
+}
+</code></pre>
+
+<h2 id="h2-3">Using Environment Variables</h2>
+<p>In the application.properties file we could use environment variables.</p>
+
+<p>Environment variables without default value : <samp>api.key=${API_KEY}</samp></p>
+
+<p>Environment variables with default value : <samp>api.key=${API_KEY:123abc}</samp></p>
+
+<p><samp>@Value("${message.default.welcome}")</samp></p>
+<p>Can be used in our java program to get the values of the set environment variable.</p>
+
+<p>It also helps us to set a default value if this variable was not found.</p>
+<p><samp>@Value("${message.default.welcome:SomeDefaultValue}")</samp></p>
+
+<p>If our properties have some common context like the same prefix, we can use the <samp>@ConfigurationProperties</samp> annotation which will map these properties to Java objects:</p>
+
+
+<pre><code class="language-java">
+/&lowast;
+&lowast; @Configuration will tell Spring to create a bean of this class.
+&lowast; @ConfigurationProperties will initialize the fields with corresponding property names.
+&lowast;/
+@Configuration
+@ConfigurationProperties(prefix = "message.default")
+public class MessageProperties {
+
+
+    private String welcome;
+    private String goodbye;
+
+
+    // Getters and Setters
+}
+
+
+//We can now use this bean anywhere in our project
+@Autowired
+private MessageProperties messageProperties;
+</code></pre>
+
+<h3 id="h3-3">@Value</h3>
+<p><samp>@Value</samp> annotation is used to read the environment in the java code.</p>
+
+<quote> @Value("${property_key_name}")</quote>
+
+<pre><code class="language-java">
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+
+@SpringBootApplication
+@RestController
+public class DemoApplication {
+   @Value("${spring.application.name}")
+   private String name;
+   public static void main(String[] args) {
+      SpringApplication.run(DemoApplication.class, args);
+   }
+   @RequestMapping(value = "/")
+   public String name() {
+      return name;
+   }
+}
+</code></pre>
+
+<h2 id="h2-4">Using Spring Profiles</h2>
+<p>Following files can be defined for different environments:</p>
+
+<ol>
+	<li> application-dev.properties</li>
+	<li> application-qa.properties</li>
+	<li> application-prod.properties</li>
+</ol>
+<p>To change between these environments we have to set the environment variable: <samp>--spring.profiles.active="dev"</samp> while we run the program like so : <samp>java -jar app.jar --name="Spring"</samp>.</p>
+
+<quote> Note : application.properties is always loaded, irrespective of the spring.profiles.active value. If there is the same key-value present both in application.properties and <samp>application-&lt;environment&gt;</samp>.properties, the latter will override the former.</quote><quote> While Using IntelliJ IDE we can set the environment variables in Run -> Edit Configuration -> EnvironmentVariables while we run the program with IntelliJ.</quote>
+<h3 id="h3-4">Active Profile</h3>
+<p>We could either use multiple application.properties file or one yaml file to store properties for different profiles.</p>
+
+<ul>
+	<li> Using application.properties file.</li>
+</ul>
+<p>To activate a given profile we could use :</p>
+
+<p><samp>--spring-profile-active=prod</samp></p>
+
+<ul>
+	<li> Use a single yaml file and add all properties to the file :</li>
+</ul>
+
+<pre><code class="language-yaml">
+spring:
+   application:
+      name: demoservice
+server:
+   port: 8080
+
+
+---
+spring:
+   profiles: dev
+   application:
+      name: demoservice
+server:
+   port: 9090
+
+
+---
+spring:
+   profiles: prod
+   application:
+      name: demoservice
+server:
+   port: 4431
+</code></pre>
+
+<p>The command to activate a given profile still remains the same :</p>
+
+<p><samp>--spring-profile-active=prod</samp></p>
+
+<h2 id="h2-5">Cross Origin Resource Sharing : CORS Support</h2>
+<p>Cross-Origin Resource Sharing (CORS) is a security concept that allows restricting the resources implemented in web browsers. It prevents the JavaScript code producing or consuming the requests against different origin.</p>
+
+<p>For example, your web application is running on 8080 port and by using JavaScript you are trying to consuming RESTful web services from 9090 port. Under such situations, you will face the Cross-Origin Resource Sharing security issue on your web browsers.</p>
+
+<p>Two requirements are needed to handle this issue −</p>
+
+<ul>
+	<li> RESTful web services should support the Cross-Origin Resource Sharing.</li>
+</ul>
+<ul>
+	<li> RESTful web service application should allow accessing the API(s) from the 8080 port.*</li>
+</ul>
+<h3 id="h3-5">Global CORS configuration</h3>
+
+<pre><code class="language-java">
+//other imports above, does not have all imports added only relevant imports.
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
+
+
+@EnableWebSecurity
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+ 
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.cors().and()
+            //other config
+    }
+ 
+    @Bean
+    CorsConfigurationSource corsConfigurationSource() {
+      CorsConfiguration config = new CorsConfiguration();
+      config.setAllowCredentials(true); //Not needed can be skipped
+      config.addAllowedOrigin("https://domain1.com");
+      config.addAllowedHeader("&lowast;"); //allows all headers
+      //If allowed methods are not added, the default methods allowed are "GET" and "HEAD".
+      config.addAllowedMethod("&lowast;"); //allow all methods eg "POST", "GET", "DELETE" ...
+      UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+      source.registerCorsConfiguration("/&lowast;&lowast;", config);//For all mappings
+      return source;
+   }
+}
+</code></pre>
+
+<p>For more info and other more specific configuration of CORS :</p>
+
+<quote> <a href="https://howtodoinjava.com/spring5/webmvc/spring-mvc-cors-configuration/#global-cors">CORS with Spring</a></quote><p>.</p>
+<quote> <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/cors/CorsConfiguration.html#addAllowedMethod-java.lang.String-">DOCUMENTATION</a></quote><p>.</p>
+<quote> <a href="https://docs.spring.io/spring-framework/docs/4.3.x/spring-framework-reference/html/cors.html">DOCS Example</a></quote>
+<h2 id="h2-6">Swagger2</h2>
+<p>Swagger2 is an open source project used to generate the REST API documents for RESTful web services. It provides a user interface to access our RESTful web services via the web browser.</p>
+
+
+<pre><code class="language-xml">
+&lt;dependency&gt;
+   &lt;groupId&gt;io.springfox&lt;/groupId&gt;
+   &lt;artifactId&gt;springfox-swagger2&lt;/artifactId&gt;
+   &lt;version&gt;2.7.0&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+   &lt;groupId&gt;io.springfox&lt;/groupId&gt;
+   &lt;artifactId&gt;springfox-swagger-ui&lt;/artifactId&gt;
+   &lt;version&gt;2.7.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+
+<pre><code class="language-java">
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+
+@SpringBootApplication
+@EnableSwagger2
+public class SwaggerDemoApplication {
+    public static void main(String[] args) {
+      SpringApplication.run(SwaggerDemoApplication.class, args);
+    }
+    @Bean
+    public Docket productApi() {
+      return new Docket(DocumentationType.SWAGGER_2).select()
+         .apis(RequestHandlerSelectors.basePackage("com.tutorialspoint.swaggerdemo")).build();
+   }
+
+
+}
+</code></pre>
+
+<quote> We can find the documentation at : <a href="http://localhost:8080/swagger-ui.html">Swagger generated Doc Url at port 8080</a></quote>
+<h2 id="h2-7">Validation</h2>
+<p>Validating domain objects in Spring boot</p>
+
+<p>Dependency : Starting from Spring Boot 2.3 we need to explicitly add the dependency.</p>
+
+
+<pre><code class="language-xml">
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-validation&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<p>For Gradle</p>
+<quote> implementation('org.springframework.boot:spring-boot-starter-validation')</quote>
+<p>Spring Boot supports seamless integration with custom validators, the de-facto standard for performing validation is Hibernate Validator, the Bean Validation framework's reference implementation.</p>
+
+<quote> List of all annotations : <a href="https://docs.jboss.org/hibernate/beanvalidation/spec/2.0/api/javax/validation/constraints/package-summary.html">Hibernate Validation all annotation List</a></quote>
+<h3 id="h3-6">Validate Request Body</h3>
+<p>In POST and PUT requests, it’s common to pass a JSON payload within the request body. Spring automatically maps the incoming JSON to a Java object. Now, we want to check if the incoming Java object meets our requirements.</p>
+
+<p>Object to map json to :</p>
+
+
+<pre><code class="language-java">
+class Input {
+
+
+  @Min(1)
+  @Max(10)
+  private int numberBetweenOneAndTen;
+
+
+  @Pattern(regexp = "^[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}$")
+  private String ipAddress;
+  
+  // ...
+}
+</code></pre>
+
+<p>Controller class:</p>
+
+
+<pre><code class="language-java">
+@RestController
+class ValidateRequestBodyController {
+
+
+  @PostMapping("/validateBody")
+  ResponseEntity&lt;String&gt; validateBody(@Valid @RequestBody Input input) {
+    return ResponseEntity.ok("valid");
+  }
+  
+}
+</code></pre>
+
+<p>If the validation fails, it will trigger a <samp>MethodArgumentNotValidException</samp>. By default, Spring will translate this exception to a HTTP status 400 (Bad Request).</p>
+
+<h3 id="h3-7">Validating Request Parameter and Path Variables</h3>
+<p>Validating path variables and request parameters works a little differently.</p>
+
+<p>We’re not validating complex Java objects in this case, since path variables and request parameters are primitive types like int or their counterpart objects like Integer or String.</p>
+
+<p>Instead of annotating a class field like above, we’re adding a constraint annotation (in this case <samp>@Min</samp>) directly to the method parameter in the Spring controller</p>
+
+
+<pre><code class="language-java">
+@RestController
+@Validated
+class ValidateParametersController {
+
+
+  @GetMapping("/validatePathVariable/{id}")
+  ResponseEntity&lt;String&gt; validatePathVariable(
+      @PathVariable("id") @Min(5) int id) {
+    return ResponseEntity.ok("valid");
+  }
+  
+  @GetMapping("/validateRequestParameter")
+  ResponseEntity&lt;String&gt; validateRequestParameter(
+      @RequestParam("param") @Min(5) int param) {
+    return ResponseEntity.ok("valid");
+  }
+
+
+   //If we want to return a HTTP status 400 instead we can add a custom exception handler to our contoller:
+   @ExceptionHandler(ConstraintViolationException.class)
+   @ResponseStatus(HttpStatus.BAD_REQUEST)
+   ResponseEntity&lt;String&gt; handleConstraintViolationException(ConstraintViolationException e) {
+    return new ResponseEntity&lt;&gt;("not valid due to validation error: " + e.getMessage(), HttpStatus.BAD_REQUEST);
+  }
+}
+</code></pre>
+
+<p>In contrast to request body validation a failed validation will trigger a <samp>ConstraintViolationException</samp>. Spring does not register a default exception handler for this exception, so it will by default cause a response with HTTP status 500 (Internal Server Error).</p>
+
+<h3 id="h3-8">Validating Input to a Spring Service Method</h3>
+<p>Instead of (or additionally to) validating input on the controller level, we can also validate the input to any Spring components. In order to to this, we use a combination of the @Validated and @Valid annotations:</p>
+
+
+<pre><code class="language-java">
+@Service
+@Validated
+class ValidatingService{
+    void validateInput(@Valid Input input){
+      // do something
+    }
+}
+</code></pre>
+
+<p>Again, the @Validated annotation is only evaluated on class level, so don’t put it on a method in this use case.</p>
+
+<h3 id="h3-9">Validating JPA Entities</h3>
+<p>The last line of defense for validation is the persistence layer. By default, Spring Data uses Hibernate underneath, which supports Bean Validation out of the box.</p>
+
+<quote> We usually don't want to do validation as late as in the persistence layer because it means that the business code above has worked with potentially invalid objects which may lead to unforeseen errors.</quote>
+
+<pre><code class="language-java">
+@Entity
+public class Input {
+
+
+  @Id
+  @GeneratedValue
+  private Long id;
+
+
+  @Min(1)
+  @Max(10)
+  private int numberBetweenOneAndTen;
+
+
+  @Pattern(regexp = "^[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}$")
+  private String ipAddress;
+  
+  // ...
+  
+}
+</code></pre>
+
+<p>We create a Spring Data repository that provides us with methods to persist and query for Input objects:</p>
+
+
+<pre><code class="language-java">
+public interface ValidatingRepository extends CrudRepository&lt;Input, Long&gt; {}
+</code></pre>
+
+<p>By default, any time we use the repository to store an Input object whose constraint annotations are violated, we’ll get a <samp>ConstraintViolationException</samp>.</p>
+
+
+<pre><code class="language-java">
+@ExtendWith(SpringExtension.class)
+@DataJpaTest
+class ValidatingRepositoryTest {
+
+
+  @Autowired
+  private ValidatingRepository repository;
+
+
+  @Autowired
+  private EntityManager entityManager;
+
+
+  @Test
+  void whenInputIsInvalid_thenThrowsException() {
+    Input input = invalidInput();
+
+
+    assertThrows(ConstraintViolationException.class, () -&gt; {
+      repository.save(input);
+      entityManager.flush();
+    });
+  }
+
+
+}
+</code></pre>
+
+<h3 id="h3-10">Implementing a Custom Validator</h3>
+<p>In the Input class from above, we used a regular expression to validate that a String is a valid IP address. However, the regular expression is not complete: it allows octets with values greater than 255 (i.e. “111.111.111.333” would be considered valid).</p>
+
+<p>Let’s fix this by implementing a validator that implements this check in Java instead of with a regular expression (yes, I know that we could just use a more complex regular expression to achieve the same result, but we like to implement validations in Java, don’t we?).</p>
+
+<p>We Create the custom constraint annotation IpAddress.</p>
+
+
+<pre><code class="language-java">
+@Target({ FIELD })
+@Retention(RUNTIME)
+@Constraint(validatedBy = IpAddressValidator.class)
+@Documented
+public @interface IpAddress {
+
+
+  String message() default "{IpAddress.invalid}";
+
+
+  Class&lt;?&gt;[] groups() default { };
+
+
+  Class&lt;? extends Payload&gt;[] payload() default { };
+
+
+}
+</code></pre>
+
+
+<pre><code class="language-java">
+class IpAddressValidator implements ConstraintValidator&lt;IpAddress, String&gt; {
+
+
+  @Override
+  public boolean isValid(String value, ConstraintValidatorContext context) {
+    Pattern pattern =
+      Pattern.compile("^([0-9]{1,3})\\.([0-9]{1,3})\\.([0-9]{1,3})\\.([0-9]{1,3})$");
+    Matcher matcher = pattern.matcher(value);
+    try {
+      if (	%21matcher.matches()) {
+        return false;
+      } else {
+        for (int i = 1; i &lt;= 4; i++) {
+          int octet = Integer.valueOf(matcher.group(i));
+          if (octet &gt; 255) {
+            return false;
+          }
+        }
+        return true;
+      }
+    } catch (Exception e) {
+      return false;
+    }
+  }
+}
+</code></pre>
+
+<p>We can now use the @IpAddress annotation just like any other constraint annotation:</p>
+
+
+<pre><code class="language-java">
+class InputWithCustomValidator {
+
+
+  @IpAddress
+  private String ipAddress;
+  
+  // ...
+
+
+}
+</code></pre>
+
+<quote> For even more much more on validators and validation : <a href="https://reflectoring.io/bean-validation-with-spring-boot/#using-validation-groups-to-validate-objects-differently-for-different-use-cases">Bean Validation with Spring-Boot</a></quote>
+<h2 id="h2-8">Exception Handling With Spring</h2>
+<ul>
+	<li> Handling a particular Type of Exception - Controller Level :</li>
+</ul>
+
+<pre><code class="language-java">
+private static final String NOT_FOUND_MESSAGE = "Flight not found for number";
+
+
+@ExceptionHandler(IndexOutOfBoundsException.class)
+@ResponseStatus(HttpStatus.NOT_FOUND, reason = NOT_FOUND_MESSAGE)
+public HashMap&lt;String, String&gt; handleIndexOutOfBoundsException(Exception e) {
+    HashMap&lt;String, String&gt; response = new HashMap&lt;&gt;();
+    response.put("message", NOT_FOUND_MESSAGE);
+    response.put("error", e.getClass().getSimpleName());
+    return response;
+}
+</code></pre>
+
+<p>In this the <samp>@ResponseStatus</samp> Sets the response status to be displayed.</p>
+
+<ul>
+	<li> Global Exception Handler</li>
+</ul>
+
+<pre><code class="language-java">
+@RestControllerAdvice//The annotation signifies that the class be used as the global exception handler class.
+@ResponseStatus(HttpStatus.NOT_FOUND, reason = NOT_FOUND_MESSAGE)//Sends the status code with the response entity.
+public class ControllerExceptionHandler {
+
+
+    private static final String NOT_FOUND_MESSAGE = "Information not found for number";
+
+
+    @ExceptionHandler(IndexOutOfBoundsException.class)
+    public HashMap&lt;String, String&gt; handleIndexOutOfBoundsException(Exception e) {
+        HashMap&lt;String, String&gt; response = new HashMap&lt;&gt;();
+        response.put("message", NOT_FOUND_MESSAGE);
+        response.put("error", e.getClass().getSimpleName());
+        return response;
+    }
+}
+</code></pre>
+
+<ul>
+	<li> Throw an Exception at any place :</li>
+</ul>
+
+<pre><code class="language-java">
+@RestController
+public class AirportController {
+
+
+    private List&lt;AirportInfo&gt; airportInfoList = new ArrayList&lt;&gt;();
+    private static final String SERVICE_WARNING_MESSAGE = "Berlin Schönefeld is closed for service today";
+
+
+    public AirportController() {
+        airportInfoList.add(new AirportInfo("Kilimanjaro Arusha", "ARK", "HTAR"));
+        airportInfoList.add(new AirportInfo("Berlin Schönefeld", "TXL", "EDDT"));
+        airportInfoList.add(new AirportInfo("Delhi Indira Gandhi", "DEL", "VIDP"));
+        airportInfoList.add(new AirportInfo("Tokio Haneda", "HND", "RJTT"));
+    }
+
+
+    @GetMapping("airports/{id}")
+    public AirportInfo getAirportInfo(@PathVariable int id) {
+        AirportInfo airportInfo = airportInfoList.get(id);
+        //For this case we respond with an exception.
+        if (Objects.equals(airportInfo.getName(), "Berlin Schönefeld")) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, SERVICE_WARNING_MESSAGE);
+        }
+        return airportInfo;
+    }
+
+
+}
+</code></pre>
+
+<ul>
+	<li> When we have a global and a Controller level we can give prefernece to which handles the exception by giving <samp>@Order(Ordered.HIGHEST_PRECEDENCE)</samp> to the handler that we want to handle the exception.</li>
+</ul>
+<ul>
+	<li> Creating Custom Exceptions :</li>
+</ul>
+<p>The exception class</p>
+
+
+<pre><code class="language-java">
+@ResponseStatus(code = HttpStatus.BAD_REQUEST)
+class FlightNotFoundException extends RuntimeException {}
+</code></pre>
+
+
+<pre><code class="language-java">
+@GetMapping("flights/{id}")
+public FlightInfo getFlightInfo(@PathVariable int id) {
+    if (id &gt; flightInfoList.size()) {
+        throw new FlightNotFoundException("Flight not found for id =" + id);
+    }
+    return flightInfoList.get(id);
+}
+</code></pre>
+
+<ul>
+	<li> Conclusion</li>
+</ul>
+<p>Here you have learned different ways of handling exceptions. You can make it:</p>
+
+<ul>
+	<li> Globally with @RestControllerAdvice;</li>
+	<li> On controller level with @ExceptionHandler;</li>
+	<li> In the most flexible way by throwing ResponseStatusException at any place you want.</li>
+	<li> You can also set the order of handlers with the @Order annotation to control the system of them.</li>
+</ul>
+<h2 id="h2-9">Cross Origin Requests</h2>
+<p>When our spring Application is hosted on a different domain than that of our frontend application, the browser will send a <a href="https://developer.mozilla.org/en-US/docs/Glossary/Preflight_request">PreFlightRequest</a> which our Spring Boot Backend rejects as it is a Cross Domain Request and we get an error in our Front End Project.</p>
+
+<p>Consider the following example where we use HttpClient in Angular application to send a request to our Spring Application.</p>
+
+
+<pre><code class="language-error">
+Access to XMLHttpRequest at 'https://spring.boot.backend.link/something' from origin 'http://localhost:4200' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+</code></pre>
+
+<p>We can solve this Problem by allowing request from particualar defined domain. We use the <samp>@CrossOrigin(origins = "http://FrontEndHostUrl.com")</samp> annotation over the <samp>@RequestMapping</samp> annotation that we have set for our controller.</p>
+
+<p><a href="https://spring.io/guides/gs/rest-service-cors/">Guide On spring.io Website</a></p>
+
+<p>If we want to temporarily allow our frontend to be able to connect with our backend locally we can set up a ProxyServer with our development server.</p>
+
+<p>For Angular we can solve it as show <a href="https://medium.com/better-programming/setup-a-proxy-for-api-calls-for-your-angular-cli-app-6566c02a8c4d">here</a>. Or for a short tutorial refer to the angular notes <a href="https://github.com/Adwai-T/Notes/blob/master/WebDevelopment/AngularCourceNotes.md">here</a> and search for Proxy Server.</p>
+
+<quote> Please note this is only for <samp>ng serve</samp>, you can't use proxy in <samp>ng build</samp>.</quote><quote> Note: the reason it's working via postman is postman doesn't send preflight requests while your browser does.</quote>
+</div>
+</div>
+
+
+</body>
+  <!-- Format -->
+  <script src="../../highlight/highlight.min.js"></script>
+  <script src="../../library/format.js"></script>
+</html>

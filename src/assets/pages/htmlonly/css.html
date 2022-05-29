@@ -1,0 +1,547 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<title></title>
+</head>
+<body>
+<div id="container">
+
+<link rel="stylesheet" href="display-page.css" />
+<div id="index">
+<ul id="index-list">
+<li class="index-li-h2"><a href="#h2-0">CSS Basics</a></li>
+<li class="index-li-h2"><a href="#h2-1">Unites that can be used to represent values</a></li>
+<li class="index-li-h3"><a href="#h3-0">Adding a class</a></li>
+<li class="index-li-h3"><a href="#h3-1">Styling things based on their location in a document</a></li>
+<li class="index-li-h3"><a href="#h3-2">Styling things based on state</a></li>
+<li class="index-li-h3"><a href="#h3-3">Combining selectors and combinators</a></li>
+<li class="index-li-h2"><a href="#h2-2">Intermediate CSS</a></li>
+<li class="index-li-h3"><a href="#h3-4">Functions</a></li>
+<li class="index-li-h3"><a href="#h3-5">@rules</a></li>
+<li class="index-li-h3"><a href="#h3-6">Shorthands</a></li>
+<li class="index-li-h3"><a href="#h3-7">Media Queries</a></li>
+<li class="index-li-h2"><a href="#h2-3">UI Component Traversy Media Examples</a></li>
+<li class="index-li-h2"><a href="#h2-4">Free code Camp Cheat Sheet</a></li>
+<li class="index-li-h2"><a href="#h2-5">CSS Flex Box</a></li>
+<li class="index-li-h2"><a href="#h2-6">CSS grid</a></li>
+<li class="index-li-h2"><a href="#h2-7">Pre Formated Text</a></li>
+<li class="index-li-h2"><a href="#h2-8">Variables</a></li>
+<li class="index-li-h2"><a href="#h2-9">Hide Scroll bars</a></li>
+<li class="index-li-h2"><a href="#h2-10">Responsive Web Design</a></li>
+<li class="index-li-h2"><a href="#h2-11">Translate and Translate3d</a></li>
+</ul>
+</div>
+
+<div id="content">
+<h1 id="h1-0">CSS</h1>
+<p><samp>&lt;link rel="stylesheet" href="styles.css"&gt;</samp></p>
+
+<h2 id="h2-0">CSS Basics</h2>
+
+<pre><code class="language-css">
+/&lowast;Select element and Add style to multiple elements.&lowast;/
+p, li {
+    color: green;
+}
+
+
+/&lowast;Change default behaviour of elements in html&lowast;/
+li {
+  list-style-type: none;
+}
+
+
+</code></pre>
+
+<h2 id="h2-1">Unites that can be used to represent values</h2>
+
+<pre><code class="language-css">
+
+
+/&lowast; Most common represents the number of pixels &lowast;/
+padding : 5px;
+
+
+/&lowast; % relative to the dimension of the parent element &lowast;/
+width : 10%;
+
+
+/&lowast; Replative to 1% of view port. It is percentage of the view width that the item will have &lowast;/
+width : 30vw;
+
+
+/&lowast; Similar to vw, vh Represents 1% of height of view port. &lowast;/
+height : 50vh;
+
+
+/&lowast; Above are the most widely used, there are other less commonly used like vmin, vmax relative to view port dimension, rem relating to relative font size of the root element  and many other absolute unites can also be used. &lowast;/ 
+</code></pre>
+
+<h3 id="h3-0">Adding a class</h3>
+<p>We use the <samp>.</samp> selector for selecting elements with their class name.</p>
+
+
+<pre><code class="language-html">
+&lt;ul&gt;
+  &lt;li&gt;Item one&lt;/li&gt;
+  &lt;li class="special"&gt;Item two&lt;/li&gt;
+  &lt;li&gt;Item &lt;em&gt;three&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+
+<pre><code class="language-css">
+/&lowast;Will be applied to all the classes with the name special&lowast;/
+.special {
+  color: orange;
+  font-weight: bold;
+}
+
+
+/&lowast;Will be added only to the elements that are li's or span's&lowast;/
+li.special,
+span.special {
+  color: orange;
+  font-weight: bold;
+}
+</code></pre>
+
+<h3 id="h3-1">Styling things based on their location in a document</h3>
+<ul>
+	<li> Descendant combinator : For nested element selection. In below example select <samp>&lt;em&gt;</samp> inside <samp>&lt;li&gt;</samp>.</li>
+</ul>
+
+<pre><code class="language-css">
+li em {
+  color: rebeccapurple;
+}
+</code></pre>
+
+<ul>
+	<li> Adjacent sibling combinator :</li>
+</ul>
+
+<pre><code class="language-css">
+h1 + p {
+  font-size: 200%;
+}
+</code></pre>
+
+<h3 id="h3-2">Styling things based on state</h3>
+
+<pre><code class="language-css">
+a:link {
+  color: pink;
+}
+
+
+a:visited {
+  color: green;
+}
+
+
+a:hover {
+  text-decoration: none;
+}
+</code></pre>
+
+<h3 id="h3-3">Combining selectors and combinators</h3>
+
+<pre><code class="language-css">
+/&lowast; selects any &lt;span&gt; that is inside a &lt;p&gt;, which is inside an &lt;article&gt;  &lowast;/
+article p span { ... }
+
+
+/&lowast; selects any &lt;p&gt; that comes directly after a &lt;ul&gt;, which comes directly after an &lt;h1&gt;  &lowast;/
+h1 + ul + p { ... }
+
+
+body h1 + p .special {
+  color: yellow;
+  background-color: black;
+  padding: 5px;
+}
+
+
+</code></pre>
+
+<h2 id="h2-2">Intermediate CSS</h2>
+<h3 id="h3-4">Functions</h3>
+
+<pre><code class="language-css">
+.outer {
+  border: 5px solid black;
+}
+
+
+.box {
+  padding: 10px;
+  width: calc(90% - 30px);
+  background-color: rebeccapurple;
+  color: white;
+}
+/&lowast;Or&lowast;/
+.box {
+  margin: 30px;
+  width: 100px;
+  height: 100px;
+  background-color: rebeccapurple;
+  transform: rotate(0.8turn)
+}
+</code></pre>
+
+<h3 id="h3-5">@rules</h3>
+<ul>
+	<li> <samp>@import 'styles2.css';</samp> Imports one css into another.</li>
+</ul>
+<ul>
+	<li> <samp>@media</samp> : Used to create media queries. Discussed later.</li>
+</ul>
+<h3 id="h3-6">Shorthands</h3>
+
+<pre><code class="language-css">
+padding: 10px 15px 15px 5px;
+
+
+padding-top: 10px;
+padding-right: 15px;
+padding-bottom: 15px;
+padding-left: 5px;
+
+
+background: red url(bg-graphic.png) 10px 10px repeat-x fixed;
+
+
+background-color: red;
+background-image: url(bg-graphic.png);
+background-position: 10px 10px;
+background-repeat: repeat-x;
+background-attachment: fixed;
+</code></pre>
+
+<h3 id="h3-7">Media Queries</h3>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries">Using_media_queries</a></p>
+
+<p>---</p>
+
+<h2 id="h2-3">UI Component Traversy Media Examples</h2>
+
+<pre><code class="language-css">
+
+
+&lowast; {
+  box-sizing: border-box;/&lowast;Set in most project main file to not be effected by margin and padding given by default by browser.&lowast;/
+}
+</code></pre>
+
+<ul>
+	<li> <samp>vh</samp> : is a unit like pixel and used to represent the view area.</li>
+</ul>
+<ul>
+	<li> object-fit:cover; (Is like background size for background images)</li>
+</ul>
+<ul>
+	<li> gap : px % ; set gap between elements in container.</li>
+</ul>
+<p>---</p>
+
+<h2 id="h2-4">Free code Camp Cheat Sheet</h2>
+<ul>
+	<li> Text :</li>
+</ul>
+<p>text-align : justify, right, center, left(default)</p>
+<p>text-decoration: underline, line-through</p>
+<p>font-style: italic</p>
+<p>background-color : rgba(), hsl(), linear-gradient(gradient_direction, color 1, color 2, color 3, ...), repeating-linear-gradient(), url()</p>
+
+<p>font-weight : bold</p>
+<p>Note:</p>
+<p>Set the font-weight of the h1 tag to 800.</p>
+<p>Set the font-weight of the h2 tag to 600.</p>
+<p>Set the font-weight of the h3 tag to 500.</p>
+<p>Set the font-weight of the h4 tag to 400.</p>
+<p>Set the font-weight of the h5 tag to 300.</p>
+<p>Set the font-weight of the h6 tag to 200.</p>
+
+<p>font-size : 27 pixels</p>
+<p>Note:</p>
+<p>Set the font-size of the h1 tag to 68px.</p>
+<p>Set the font-size of the h2 tag to 52px.</p>
+<p>Set the font-size of the h3 tag to 40px.</p>
+<p>Set the font-size of the h4 tag to 32px.</p>
+<p>Set the font-size of the h5 tag to 21px.</p>
+<p>Set the font-size of the h6 tag to 14px.</p>
+
+<p>text-transform : lowercase, uppercase, capitalize, initial, inherit, none</p>
+
+<p>line-height: 25px;</p>
+
+<ul>
+	<li> Containers :</li>
+</ul>
+<p>width, height,</p>
+
+<p>transform: scale()-(Transform/change size of element by scale), skewX(-32deg)-(makes the element tilt like \\ this at the given degree), same skewY(20 deg)</p>
+
+<p>box-shadow: offset-x, offset-y, blur-radius, spread-radius, color;</p>
+
+<p>border-radius: 50%-(This will make it a circle)</p>
+
+<p>position: relative(move element relative to its parent), absolute(fix the postion of the element relative to its parent),</p>
+<p>fixed(Fix the postion of an element relative to browser window, example nav bar), sticky;</p>
+
+<p>float: left, right;</p>
+
+<p>z-index: (Gives how the elements are stacked over one another, higher number will be stacked above lower numbers.)</p>
+
+<p>opacity : 1 to 0 values</p>
+
+<p>margin: auto,</p>
+
+<p>background-color:</p>
+
+<p>.className::after {}, .className::before{}</p>
+
+<ul>
+	<li> anchor :</li>
+</ul>
+<p>a:hover</p>
+
+<ul>
+	<li> Animations:</li>
+</ul>
+
+<pre><code class="language-css">
+#anim {
+  animation-name: colorful;
+  animation-duration: 3s;
+}
+
+
+@keyframes colorful {
+  0% {
+    background-color: blue;
+  }
+  100% {
+    background-color: yellow;
+  }
+}
+</code></pre>
+
+<p>animation-fill-mode: forwards; (If we use this with button:hover and some animation like shown above the animation will keep playing until we have our mouse is on the button that we keep hovering. It should be put with the hover and not in the @keyframes)</p>
+
+<p>animation-iteration-count: 3; (By default the animations will work continously for as much time as set, with this there will be limited amount of iterations)</p>
+
+<p>animation-duration: sec (Time in which one iteration of the animations in completed)</p>
+
+<p>animation-timing-function: linear, ease-out, cubic-bezier(0.25, 0.25, 0.75, 0.75); (determines in how how the animation cycle progresses) --> for a more natural and soft movement use => animation-timing-function: cubic-bezier(0.311, 0.441, 0.444, 1.649);</p>
+
+<h2 id="h2-5">CSS Flex Box</h2>
+<ul>
+	<li> Containers :</li>
+</ul>
+<p><em>display</em> : flex; (Sets the container to be a Flex box container)</p>
+
+<p><em>flex-direction</em> : (default)row, column-reverse, row-reverse, column;</p>
+
+<p><em>justify-content</em> : center, flex-start(default), flex-end, space-between, space-around, space-evenly; (Adjust elements in a horizontal space)</p>
+
+<p><em>align-items</em>: flex-start, flex-end, stretch, center, baseline; (Adjust elements in a vertical container)</p>
+
+<p><em>flex-wrap</em>: nowrap, wrap, wrap-reverse; (extra items move into a new row or column.)</p>
+
+<p><em>flex-shrink</em>: (px, em, %, auto, etc.) numeric value in the ratio at which the items should shrink. (Items shrink when the width of the parent container is smaller than the combined widths of all the flex items within it.)</p>
+<p>(The flex-shrink property takes numbers as values. The higher the number, the more it will shrink compared to the other items in the container. For example, if one item has a flex-shrink value of 1 and the other has a flex-shrink value of 3, the one with the value of 3 will shrink three times as much as the other.)</p>
+
+<p>flex-grow: controls the size of items when the parent container expands.(works with similar rule as above flex-shrink)</p>
+
+<p>flex-grow, flex-shrink, and flex-basis : flex: 1 0 10px(can be auto); (respectively)</p>
+
+<p>order : Takes number and can have negative values. Order elements according to numbers.</p>
+
+<p>align-self: Same properties as align-items. Set align of individual item then setting them all at once in the parent. Any alignment set in the parent will be overriden.</p>
+
+<h2 id="h2-6">CSS grid</h2>
+<p>display: grid;</p>
+
+<p>grid-template-columns: 50px 50px; set size of each of the element in the grid;</p>
+<p>grid-template-columns: auto 50px 10% 2fr 1fr;(Note that there is no comman separating the value just a whitespace)</p>
+
+<p>grid-column-gap: 10px;</p>
+
+<p>grid-row-gap: 10px;</p>
+
+<p>grid-gap: 10px 20px;</p>
+
+<p>grid-column: 1 / 3;(Is a shorthand property for grid-column-start and grid-column-end)</p>
+
+<p>grid-row: (works same as above grid-column)</p>
+
+<p>justify-self: start, center, end; (Align horizontally)</p>
+
+<p>align-self: start, center, end;(Align vertically)</p>
+
+<p>grid-template-areas:</p>
+<p>  "header header header"</p>
+<p>  "advert content content"</p>
+<p>  "footer footer footer";</p>
+
+<p>(.) Can be used to denote an empty space.</p>
+
+<p>grid-area: header, footer;</p>
+
+<p>item1 { grid-area: 1/1/2/4; }</p>
+
+<p>Use repeat function : grid-template-columns: repeat(2, 1fr 50px) 20px; =>same as => grid-template-columns: 1fr 50px 1fr 50px 20px;</p>
+
+<p>grid-template-columns: 100px minmax(50px, 200px);</p>
+
+<p>auto-fill: auto-fit;</p>
+
+
+<pre><code class="language-css">
+@media (min-width: 300px){
+  .container{
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      "advert header"
+      "advert content"
+      "advert footer";
+  }
+}
+</code></pre>
+
+<h2 id="h2-7">Pre Formated Text</h2>
+<p>It is used to insert text that is preformated. The formating of the text does not change and thus all the indenting and white spaces are kept as is.</p>
+
+<p>But sometimes we want the pre tag content to wrap for mobile content. We could use following code for this.</p>
+
+
+<pre><code class="language-css">
+pre {
+  overflow-x: auto;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+</code></pre>
+
+<h2 id="h2-8">Variables</h2>
+<p>Variables can be set in css so that they can be used repeatedly for consistency.</p>
+
+
+<pre><code class="language-css">
+/&lowast; Global varible &lowast;/
+:root {
+  --red-color : red;
+}
+
+
+&lowast; {
+  color : var(--red-color);
+}
+
+
+/&lowast; Local varibles &lowast;/ 
+.button-gradient {
+  background: linear-gradient(var(--gradientAngle), var(--gradientStart),var(--gradientStop));
+
+
+  --gradientAngle: 60deg;
+  --gradientStart: lightpink;
+  --gradientStop: lightyellow;
+}
+
+
+.button-gradient:hover {
+  --gradientAngle: 0deg;
+}
+
+
+</code></pre>
+
+<p>We can add a varible to css through javascript as <samp>document.documentElement.style.setProperty('--varName', 'propValue')</samp>.</p>
+
+<h2 id="h2-9">Hide Scroll bars</h2>
+
+<pre><code class="language-css">
+#parent{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+#child{
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    padding-right: 17px; /&lowast; Increase/decrease this value for cross-browser compatibility &lowast;/
+    box-sizing: content-box; /&lowast; So the width will be 100% + 17px &lowast;/
+}
+</code></pre>
+
+<p>Hide Scroll bar <a href="https://stackoverflow.com/questions/16670931/hide-scroll-bar-but-while-still-being-able-to-scroll">Stackoverflow post</a>.</p>
+
+<h2 id="h2-10">Responsive Web Design</h2>
+
+<pre><code class="language-css">
+/&lowast;For all cases&lowast;/
+header nav {
+  display: block;
+}
+
+
+/&lowast; Visible only on screens smaller than 768px &lowast;/
+@media screen and (max-width: 768px) {
+  header nav {
+    display: none;
+  }
+}
+/&lowast; For specific screen orientation &lowast;/
+@media screen and (orientation: landscape) {
+  header nav {
+    position: fixed;
+    left: 0;
+    width: 20vw;
+  }
+}
+</code></pre>
+
+
+<pre><code class="language-html">
+&lt;	%21-- Can also be used as specific element media query --&gt;
+  &lt;div &lowast;media="'(min-width: 768px)'"&gt;I am visible only on desktop&lt;/div&gt;
+  &lt;div &lowast;media="'(max-width: 767px)'"&gt;I am visible only on mobile&lt;/div&gt;
+</code></pre>
+
+<h2 id="h2-11">Translate and Translate3d</h2>
+<p>The use of translate3d pushes CSS animations into hardware acceleration.</p>
+
+<p>So Even when we are trying to use translate in just 2 dimension it will gives us better performance  to use translate3d.</p>
+
+<p><samp>translate3d( tx, ty, tz )</samp>.</p>
+
+
+<pre><code class="language-css">
+.translate3d_image {
+    transform: translate3d(100px, 0, 0);
+}
+
+
+.moved {
+  transform: perspective(500px) translate3d(10px, 0, 100px);
+  background-color: pink;
+}
+</code></pre>
+
+</div>
+</div>
+</body>
+  <!-- Format -->
+  <script src="../../highlight/highlight.min.js"></script>
+  <script src="../../library/format.js"></script>
+</html>
