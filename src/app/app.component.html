@@ -7,7 +7,7 @@
     #matDrawer
   >
     <div id="side-nav" #sideNav>
-      <div id="nav-title">
+      <div id="nav-title" routerLink="" style="cursor: pointer;">
         <img id="title-img" src="assets/navicon.ico" />
         <h1 id="title-text">dwait</h1>
       </div>
@@ -17,19 +17,35 @@
 
       <div class="side-nav-link">
         <mat-icon>newspaper</mat-icon>
-        <a routerLink="articles"><h3>Articles</h3></a>
+        <a routerLink="/notes"><h3>Notes</h3></a>
       </div>
 
       <div class="side-nav-link">
         <mat-icon>engineering</mat-icon>
-        <a routerLink=""><h3>Projects</h3></a>
+        <a routerLink="/projects"><h3>Projects</h3></a>
       </div>
 
       <div class="bottom">
         <mat-divider></mat-divider>
+
+        <div *ngIf="!userLoggedIn" class="side-nav-link">
+          <div class="side-nav-link">
+            <mat-icon>login</mat-icon>
+            <a routerLink="/account/login"><h3>Login</h3></a>
+          </div>
+          <div class="side-nav-link">
+            <mat-icon>connect_without_contact</mat-icon>
+            <a routerLink="/account/signup"><h3>Join</h3></a>
+          </div>
+        </div>
+        <div *ngIf="userLoggedIn" class="side-nav-link">
+          <mat-icon>logout</mat-icon>
+          <a (click)="logoutUser()" routerLink=""><h3>Logout</h3></a>
+        </div>
+
         <div class="side-nav-link">
           <mat-icon>manage_accounts</mat-icon>
-          <a routerLink="/account/dashboard"><h3>Account</h3></a>
+          <a routerLink="/account/dashboard"><h3>Account Dashboard</h3></a>
         </div>
       </div>
     </div>

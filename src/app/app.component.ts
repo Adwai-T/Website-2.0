@@ -23,6 +23,7 @@ export class AppComponent implements OnInit{
   public errors: Error[] = [];
   public searchBarValue = '';
   public appContentOverflowY: string = 'auto';
+  public userLoggedIn:boolean = false;
 
   private windowSize: Vector = { x: 0, y: 0 };
 
@@ -71,6 +72,10 @@ export class AppComponent implements OnInit{
   private checkAndSetIfIsDesktop(): void {
     if (this.windowSize.x < 768) this.isDesktop = false;
     else this.isDesktop = true;
+  }
+
+  public logoutUser() :void {
+    console.log("User logged Out");
   }
 
   @HostListener('window:message', ["$event"])

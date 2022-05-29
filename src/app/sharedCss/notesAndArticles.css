@@ -1,0 +1,38 @@
+#container {
+  padding: 10px;
+  text-align: justify;
+}
+
+.title-container {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.title {
+  padding: 12px;
+  font-size: x-large;
+}
+.sub-title {
+  font-size: large;
+}
+
+.sub-topic {
+  padding: 10px;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin: 5px;
+  max-width: 350px;
+  min-width: 350px;
+  max-height: 200px;
+  min-height: 200px;
+}
+
+.avatar {
+  max-width: 50px;
+}

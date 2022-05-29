@@ -13,21 +13,32 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatCardModule } from '@angular/material/card';
 
-import { IframeContainerComponent } from './components/iframe-container/iframe-container.component';
+import { SharedModule } from './shared/shared.module';
 import { SearchComponent } from './components/search/search.component';
+import { IframeContainerComponent } from './components/iframe-container/iframe-container.component';
+import { ArticlesComponent } from './components/articles/articles.component';
+import { ProjectsComponent } from './components/projects/projects.component';
+import { AboutComponent } from './components/about/about.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    IframeContainerComponent,
     SearchComponent,
+    IframeContainerComponent,
+    ArticlesComponent,
+    ProjectsComponent,
+    AboutComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    SharedModule,
 
     BrowserAnimationsModule, //Added for Angular Material
     //Angular material imports
@@ -37,6 +48,7 @@ import { SearchComponent } from './components/search/search.component';
     MatMenuModule,
     MatDividerModule,
     MatInputModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

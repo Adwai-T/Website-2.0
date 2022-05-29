@@ -22,7 +22,8 @@ import { SharedModule } from '../shared/shared.module';
     AccountComponent, 
     LoginComponent, 
     SignupComponent, 
-    DashboardComponent, NotesComponent
+    DashboardComponent,
+    NotesComponent
   ],
   imports: [
     CommonModule,

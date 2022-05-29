@@ -1,0 +1,66 @@
+<div id="container">
+  <div id="web-dev">
+    <div class="title-container">
+      <img class="avatar" src="assets/images/articles/languages/web.png" alt="language icon" aria-hidden="true">
+      <div class="title">Web Development</div>
+    </div>
+    <div id="title-description"></div>
+    <div class="sub-topic">
+      <div class="sub-title">Front or Client Side Development</div>
+      <div class="sub-title-description">
+        The front end or Client side is what the user of your website will
+        interact with when they visit your website.
+      </div>
+      <div class="cards-container">
+        <mat-card class="card" *ngFor="let topic of frontDev" (click)="onCardClick(topic.page)">
+          <mat-card-header>
+            <div mat-card-avatar>
+              <img class="avatar" [src]="topic.imageSrc" alt="language icon" aria-hidden="true">
+            </div>
+            <mat-card-title>{{ topic.title }}</mat-card-title>
+            <mat-card-subtitle>{{ topic.subTitle }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            {{ topic.description }}
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button>FAV</button>
+            <!-- <button mat-button>SHARE</button> -->
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="sub-topic">
+      <div class="sub-title">Back or Server Side Development</div>
+      <div class="sub-title-description">
+        The back end or server side is responsible for authentication and
+        authorization of users for your website. It controls the access to
+        resources that need authorization to be accessed such as data from
+        database. Not all WebSites need server side application, especially
+        those that are simple with no need to access restricted resources.
+      </div>
+      <div class="cards-container">
+        <mat-card class="card" *ngFor="let topic of backDev" (click)="onCardClick(topic.page)">
+          <mat-card-header>
+            <div mat-card-avatar>
+              <img class="avatar" [src]="topic.imageSrc" alt="language icon" aria-hidden="true">
+            </div>
+            <mat-card-title>{{ topic.title }}</mat-card-title>
+            <mat-card-subtitle>{{ topic.subTitle }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            {{ topic.description }}
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button>FAV</button>
+            <!-- <button mat-button>SHARE</button> -->
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  <div>
+    Language Avatar Images used on this page were downloaded from <strong><a target="_blank" href="https://icons8.com">icon8.com</a></strong>.
+  </div>
+</div>

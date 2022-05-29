@@ -1,12 +1,11 @@
 import {
   Component,
   ElementRef,
-  HostListener,
-  Input,
   OnDestroy,
   ViewChild,
 } from '@angular/core';
 import { SafeResourceUrl } from '@angular/platform-browser';
+import { PRIMARY_OUTLET, Router } from '@angular/router';
 import { Page } from 'src/app/objects/pages';
 import { FilesService } from 'src/app/services/files.service';
 import { IframePageService } from 'src/app/services/iframe-page.service';
@@ -20,6 +19,7 @@ import { WindowService } from 'src/app/services/window.service';
   styleUrls: ['./iframe-container.component.css'],
 })
 export class IframeContainerComponent implements OnDestroy {
+
   public url: SafeResourceUrl =
     this.loadFileService.getSanitizedResourceUrl('');
 
@@ -31,7 +31,8 @@ export class IframeContainerComponent implements OnDestroy {
     private navbarService: NavBarService,
     private windowService: WindowService,
     private pageService: IframePageService,
-    private themeService: ThemeService
+    private themeService: ThemeService,
+    private router:Router,
   ) {
     this.loadPage(pageService.getCurrentPage());
     this.windowService.setAppContentOverflowY('hidden');
@@ -43,8 +44,14 @@ export class IframeContainerComponent implements OnDestroy {
   loadPage(page: Page): void {
     this.url = this.loadFileService.getSanitizedResourceUrl(page.html);
     this.navbarService.changeTitle(page.title);
+
+    let navLinkStart = 'notes/';
+    if(page.navLinkStart) {
+      navLinkStart = `${page.navLinkStart}/`
+    }
+
     this.navbarService.setUrl(
-      'articles/' + page.title.toLowerCase().replace(' ', '')
+      navLinkStart + page.title.toLowerCase().replace(new RegExp(' ', 'g'), '')
     );
   }
 
