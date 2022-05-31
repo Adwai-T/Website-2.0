@@ -1,10 +1,14 @@
 import {
   Component,
+  ElementRef,
   HostListener,
   Input,
   OnInit,
+  ViewChild,
 } from '@angular/core';
+
 import { Vector } from 'src/app/interface/interfaces';
+import { ScratchPadService } from 'src/app/services/scratch-pad.service';
 
 @Component({
   selector: 'app-scratch-pad',
@@ -26,8 +30,13 @@ export class ScratchPadComponent implements OnInit {
   public date: Date = new Date();
   //getMonth() return value from 0-11(why javascript).
   //getDate() returns value from 1-31
-  public dateString: string = 
-      `${this.date.getDate()}-${this.date.getMonth()+1}-${this.date.getFullYear()}`;
+  public dateString: string = `${this.date.getDate()}-${
+    this.date.getMonth() + 1
+  }-${this.date.getFullYear()}`;
+
+  @ViewChild('content') private editableContent!: ElementRef;
+
+  public title: string = 'title';
 
   private mouseUp: boolean = true;
   private mouseDown: boolean = false;
@@ -41,18 +50,44 @@ export class ScratchPadComponent implements OnInit {
     y: 0,
   };
 
-  constructor() {}
+  constructor(private scratchPadService: ScratchPadService) {}
 
   ngOnInit(): void {}
 
-  private down(e:MouseEvent|Touch):void {
+  public clear(): void {
+    this.editableContent.nativeElement.innerText = '';
+  }
+
+  public save(): void {
+    if (this.title && this.title !== 'title') {
+
+      if(localStorage.getItem(this.title)) {
+        
+      }
+      localStorage.setItem(
+        this.title,
+        this.editableContent.nativeElement.innerText
+      );
+    }
+  }
+
+  public exit(): void {
+    this.scratchPadService.removeScratchPadById(this.scratchPadId);
+  }
+
+  public saveAndExit(): void {
+    this.save();
+    this.exit();
+  }
+
+  private down(e: MouseEvent | Touch): void {
     this.mouseUp = false;
     this.resizeElement = document.getElementById(`${this.scratchPadId}-resize`);
     if (e.target === this.resizeElement) {
       this.mouseDown = true;
     }
   }
-  private move(e:MouseEvent|Touch):void {
+  private move(e: MouseEvent | Touch): void {
     this.currentMousePosition.x = e.clientX;
     this.currentMousePosition.y = e.clientY;
     if (this.mouseDown && !this.mouseUp) {
@@ -67,7 +102,7 @@ export class ScratchPadComponent implements OnInit {
       this.dimensions.y = this.dimensions.y + dy;
     }
   }
-  private up(e:MouseEvent|Touch):void {
+  private up(e: MouseEvent | Touch): void {
     this.mouseUp = true;
     this.mouseDown = false;
   }
@@ -88,29 +123,29 @@ export class ScratchPadComponent implements OnInit {
   }
 
   @HostListener('touchstart', ['$event'])
-  private touchStartHandler(e: TouchEvent):void {
-    if(e.type === 'touchstart') {
+  private touchStartHandler(e: TouchEvent): void {
+    if (e.type === 'touchstart') {
       this.down(e.touches[0]);
     }
   }
 
   @HostListener('touchmove', ['$event'])
-  private touchMoveHandler(e: TouchEvent):void {
-    if(e.type === 'touchmove') {
+  private touchMoveHandler(e: TouchEvent): void {
+    if (e.type === 'touchmove') {
       this.move(e.touches[0]);
     }
   }
 
   @HostListener('touchend', ['$event'])
-  private touchEndHandler(e: TouchEvent):void {
-    if(e.type === 'touchend' || e.type === 'touchcancel') {
+  private touchEndHandler(e: TouchEvent): void {
+    if (e.type === 'touchend' || e.type === 'touchcancel') {
       this.up(e.touches[0]);
     }
   }
 
   @HostListener('touchcancel', ['$event'])
-  private touchCancelHandler(e: TouchEvent):void {
-    if(e.type === 'touchcancel') {
+  private touchCancelHandler(e: TouchEvent): void {
+    if (e.type === 'touchcancel') {
       this.up(e.touches[0]);
     }
   }

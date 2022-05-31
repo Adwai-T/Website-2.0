@@ -11,11 +11,11 @@
 >
   <div class="scratch-pad-head" cdkDragHandle>
     <div class="scratch-pad-title">
-      <div class="scratch-pad-title-editable">Note Title</div>
+      <div class="scratch-pad-title-editable">{{title}}</div>
       <div class="scratch-pad-topic">{{topic}}</div>
       <div class="scratch-pad-date">{{dateString}}</div>
     </div>
-    <button mat-icon-button>
+    <button mat-icon-button [matMenuTriggerFor]="noteMenu">
       <mat-icon
         class="scratch-pad-handle"
         color="primary"
@@ -23,9 +23,27 @@
         >more_vert</mat-icon
       >
     </button>
+    <mat-menu #noteMenu="matMenu">
+      <button mat-menu-item (click)="save()">
+        <mat-icon>save</mat-icon>
+        <span>Save</span>
+      </button>
+      <button mat-menu-item (click)="clear()">
+        <mat-icon>clear_all</mat-icon>
+        <span>Clear</span>
+      </button>
+      <button mat-menu-item (click)="exit()">
+        <mat-icon>close</mat-icon>
+        <span>Close</span>
+      </button>
+      <button mat-menu-item (click)="saveAndExit()">
+        <mat-icon>close</mat-icon>
+        <span>Save And Exit</span>
+      </button>
+    </mat-menu>
   </div>
 
-  <div class="scratch-pad-editable" contenteditable="true">Editable</div>
+  <div class="scratch-pad-editable" contenteditable="true" #content>Editable</div>
   <button
     mat-icon-button
     class="scratch-pad-copytoclipboard"

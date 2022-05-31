@@ -71,9 +71,19 @@ export const Pages:PagesI = {
     html: 'assets/pages/withjs/md-to-html/index.html',
     navLinkStart: 'projects',
   },
-  linkedList : {
+  linkedlist : {
     title: 'Linked List',
     html: 'assets/pages/withjs/linked-list/index.html',
     navLinkStart: 'projects',
   },
+  canvashelper : {
+    title : 'Canvas Helper',
+    html : 'assets/pages/withjs/canvas-helper/index.html',
+    navLinkStart: 'projects',
+  },
+  canvashelperexamples : {
+    title : 'Canvas Helper Examples',
+    html : 'assets/pages/withjs/canvas-helper/examplesjs/index.html',
+    navLinkStart: 'projects',
+  }
 }

@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Vector } from 'src/app/interface/interfaces';
-import { ScratchPadService } from 'src/app/services/scratch-pad.service';
+
+import {
+  ScratchPad,
+  ScratchPadService,
+} from 'src/app/services/scratch-pad.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,24 +12,15 @@ import { ScratchPadService } from 'src/app/services/scratch-pad.service';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
+  public scratchPads: ScratchPad[];
 
-  public scratchPads:ScratchPads[] = [];
+  constructor(private scratchPadService: ScratchPadService) {
+    this.scratchPads = this.scratchPadService.getAllActiveScratchPads();
+  }
 
-  constructor(private scratchPadService: ScratchPadService) {}
-
-  public addNewScratchPad(dimensions:Vector, position:Vector) {
-    this.scratchPads.push({
-      id: `scratch-pad-${ScratchPadService.generateScratchPadId()}`,
-      dimensions: dimensions,
-      position: position
-    });
+  public addNewScratchPad(dimensions: Vector, position: Vector): void {
+    this.scratchPadService.addNewScratchPad(dimensions, position);
   }
 
   ngOnInit(): void {}
-}
-
-interface ScratchPads{
-  id:string;
-  dimensions:Vector;
-  position:Vector;
 }
