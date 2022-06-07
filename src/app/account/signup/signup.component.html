@@ -1,34 +1,38 @@
 <div id="signup-form-container">
   <img src="./assets/images/account/books-2.jpg" id="signup-img"/>
-  <form id="signup-form">
+  <form id="signup-form" [formGroup]="signUp" (submit)="onSubmit()">
     <mat-form-field class="signup-input" appearance="fill">
       <mat-label>Name</mat-label>
-      <input matInput />
+      <input matInput formControlName="name"/>
     </mat-form-field>
 
     <mat-form-field class="signup-input" appearance="fill">
       <mat-label>Email</mat-label>
-      <input matInput />
+      <input matInput type="email" formControlName="email" />
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Password</mat-label>
-      <input matInput />
+      <input matInput type="password" formControlName="password" />
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Confirm Password</mat-label>
-      <input matInput />
+      <input matInput type="password" formControlName="confirmPassword"/>
     </mat-form-field>
 
     <mat-form-field appearance="fill" class="signup-input">
       <mat-label>Birthdate</mat-label>
-      <input matInput [matDatepicker]="picker" />
+      <input matInput [matDatepicker]="picker" formControlName="birthDate"/>
       <mat-hint>MM/DD/YYYY</mat-hint>
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 
-    <button mat-raised-button color="primary" class="login-input, button">Join</button>
+    <button 
+      mat-raised-button color="primary" 
+      class="login-input, button"
+      type="submit"
+      >Join</button>
 
     <div id="options"></div>
   </form>

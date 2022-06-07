@@ -7,7 +7,7 @@ import { IframePageService } from 'src/app/services/iframe-page.service';
 @Component({
   selector: 'app-articles',
   templateUrl: './articles.component.html',
-  styleUrls: ['./articles.component.css', '../../sharedCss/notesAndArticles.css'],
+  styleUrls: ['./articles.component.css', '../../sharedCss/articlesAndProjects.css'],
 })
 export class ArticlesComponent implements OnInit {
   public frontDev: Topic[] = frontEndDev;

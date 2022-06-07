@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Vector } from '../interface/interfaces';
@@ -16,7 +17,7 @@ export class ScratchPadService {
 
   private static scratchPadCount: number = 0;
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   public static generateScratchPadId(): number {
     return this.scratchPadCount++;

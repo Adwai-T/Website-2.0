@@ -1,7 +1,9 @@
 <div id="container">
   <div id="web-dev">
     <div class="title-container">
-      <img class="avatar" src="assets/images/articles/languages/web.png" alt="language icon" aria-hidden="true">
+      <img class="avatar" 
+        src="assets/images/articles/languages/web.png" 
+        alt="language icon" aria-hidden="true">
       <div class="title">Web Development</div>
     </div>
     <div id="title-description"></div>
@@ -15,7 +17,8 @@
         <mat-card class="card" *ngFor="let topic of frontDev">
           <mat-card-header (click)="onCardClick(topic.page)">
             <div mat-card-avatar>
-              <img class="avatar" [src]="topic.imageSrc" alt="language icon" aria-hidden="true">
+              <img class="avatar" 
+                [src]="topic.imageSrc" alt="language icon" aria-hidden="true">
             </div>
             <mat-card-title>{{ topic.title }}</mat-card-title>
             <mat-card-subtitle>{{ topic.subTitle }}</mat-card-subtitle>
@@ -61,6 +64,7 @@
     </div>
   </div>
   <div>
-    Language Avatar Images used on this page were downloaded from <strong><a target="_blank" href="https://icons8.com">icon8.com</a></strong>.
+    Language Avatar Images used on this page were downloaded from 
+    <strong><a target="_blank" href="https://icons8.com">icon8.com</a></strong>.
   </div>
 </div>

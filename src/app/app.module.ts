@@ -14,6 +14,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatCardModule } from '@angular/material/card';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { SharedModule } from './shared/shared.module';
 import { SearchComponent } from './components/search/search.component';
@@ -49,6 +50,7 @@ import { ContactComponent } from './components/contact/contact.component';
     MatDividerModule,
     MatInputModule,
     MatCardModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

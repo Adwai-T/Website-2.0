@@ -7,7 +7,7 @@ import { IframePageService } from 'src/app/services/iframe-page.service';
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.css', '../../sharedCss/notesAndArticles.css']
+  styleUrls: ['./projects.component.css', '../../sharedCss/articlesAndProjects.css']
 })
 export class ProjectsComponent implements OnInit {
 

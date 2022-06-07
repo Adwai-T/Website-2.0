@@ -51,6 +51,7 @@ h3{
   align-items: center;
   justify-content: flex-start;
   padding: 5px;
+  color: inherit;
 }
 .side-nav-link mat-icon{
   margin-right: 10px;

@@ -1,5 +1,14 @@
 import { EventEmitter, Injectable } from '@angular/core';
 
+export interface Error{
+  code:number;
+  message:string;
+  title?:string;
+  source?:string;
+  icon?:string;
+  timeActive?:number;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -21,17 +30,14 @@ export class ErrorsService {
 
   public removeFirstError(): Error | undefined {
     let returnString: Error | undefined = this.errors.shift();
-    this.errorsEvent.emit(this.errors);
     return returnString;
   }
 
   public clearAllErrors(): void {
-    this.errorsEvent.emit(this.errors);
     this.errors = [];
   }
 
-  public clearErrorAtIndex(index: number): void {
+  public removeErrorAtIndex(index: number): void {
     this.errors = this.errors.filter((value, i) => i !== index);
-    this.errorsEvent.emit(this.errors);
   }
 }
