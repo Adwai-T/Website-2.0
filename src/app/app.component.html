@@ -7,7 +7,7 @@
     #matDrawer
   >
     <div id="side-nav" #sideNav>
-      <div id="nav-title" routerLink="" style="cursor: pointer;">
+      <div id="nav-title" routerLink="" style="cursor: pointer">
         <img id="title-img" src="assets/navicon.ico" />
         <h1 id="title-text">dwait</h1>
       </div>
@@ -15,37 +15,43 @@
 
       <app-search id="search-box"></app-search>
 
-      <div class="side-nav-link">
-        <mat-icon>newspaper</mat-icon>
-        <a routerLink="/notes"><h3>Notes</h3></a>
+      <div id="top">
+        <a routerLink="/notes" class="side-nav-link">
+          <mat-icon>newspaper</mat-icon>
+          <h3>Notes</h3></a
+        >
+
+        <a routerLink="/projects" class="side-nav-link">
+          <mat-icon>engineering</mat-icon>
+          <h3>Projects</h3></a
+        >
       </div>
 
-      <div class="side-nav-link">
-        <mat-icon>engineering</mat-icon>
-        <a routerLink="/projects"><h3>Projects</h3></a>
-      </div>
-
-      <div class="bottom">
+      <div id="bottom">
         <mat-divider></mat-divider>
 
         <div *ngIf="!userLoggedIn" class="side-nav-link">
-          <div class="side-nav-link">
+          <a routerLink="/account/login" class="side-nav-link">
             <mat-icon>login</mat-icon>
-            <a routerLink="/account/login"><h3>Login</h3></a>
-          </div>
-          <div class="side-nav-link">
+            <h3>Login</h3></a
+          >
+
+          <a routerLink="/account/signup" class="side-nav-link">
             <mat-icon>connect_without_contact</mat-icon>
-            <a routerLink="/account/signup"><h3>Join</h3></a>
-          </div>
-        </div>
-        <div *ngIf="userLoggedIn" class="side-nav-link">
-          <mat-icon>logout</mat-icon>
-          <a (click)="logoutUser()" routerLink=""><h3>Logout</h3></a>
+            <h3>Join</h3></a
+          >
         </div>
 
-        <div class="side-nav-link">
-          <mat-icon>manage_accounts</mat-icon>
-          <a routerLink="/account/dashboard"><h3>Dashboard</h3></a>
+        <div><!-- *ngIf="userLoggedIn" -->
+          <a (click)="logoutUser()" routerLink="" class="side-nav-link">
+            <mat-icon>logout</mat-icon>
+            <h3>Logout</h3></a
+          >
+
+          <a routerLink="/account/dashboard" class="side-nav-link">
+            <mat-icon>manage_accounts</mat-icon>
+            <h3>Dashboard</h3></a
+          >
         </div>
       </div>
     </div>

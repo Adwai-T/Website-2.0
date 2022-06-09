@@ -4,10 +4,19 @@ import {
   HostListener,
   Input,
   OnInit,
+  Renderer2,
   ViewChild,
 } from '@angular/core';
 
+export interface Note {
+  title: string;
+  content: string;
+  backgroundColor: string;
+  folder: string;
+}
+
 import { Vector } from 'src/app/interface/interfaces';
+import { ErrorsService } from 'src/app/services/errors.service';
 import { ScratchPadService } from 'src/app/services/scratch-pad.service';
 
 @Component({
@@ -24,8 +33,6 @@ export class ScratchPadComponent implements OnInit {
   public dimensions: Vector = { x: 200, y: 200 };
   @Input('z-index')
   public zIndex: number = 5;
-  @Input('topic')
-  public topic: string = 'Topic';
   @Input('date')
   public date: Date = new Date();
   //getMonth() return value from 0-11(why javascript).
@@ -34,7 +41,9 @@ export class ScratchPadComponent implements OnInit {
     this.date.getMonth() + 1
   }-${this.date.getFullYear()}`;
 
-  @ViewChild('content') private editableContent!: ElementRef;
+  @ViewChild('scratchPad') private scratchPadElement!: ElementRef;
+  @ViewChild('scratchPadTitle') private titleElement!: ElementRef;
+  @ViewChild('content') private editableContentElement!: ElementRef;
 
   public title: string = 'title';
 
@@ -50,34 +59,93 @@ export class ScratchPadComponent implements OnInit {
     y: 0,
   };
 
-  constructor(private scratchPadService: ScratchPadService) {}
+  constructor(
+    private scratchPadService: ScratchPadService,
+    private renderer: Renderer2,
+    private errorService: ErrorsService
+  ) {}
 
   ngOnInit(): void {}
 
   public clear(): void {
-    this.editableContent.nativeElement.innerText = '';
+    this.editableContentElement.nativeElement.innerText = '';
   }
 
-  public save(): void {
-    if (this.title && this.title !== 'title') {
+  public save(update: boolean): void {
+    const note: Note = {
+      title: this.titleElement.nativeElement.innerText,
+      content: this.editableContentElement.nativeElement.innerText,
+      backgroundColor:
+        this.scratchPadElement.nativeElement.style.backgroundColor,
+      folder: 'other',
+    };
 
-      if(localStorage.getItem(this.title)) {
-        
+    if (note.backgroundColor === '' || note.backgroundColor === undefined)
+      note.backgroundColor = 'white';
+
+    if (note.title && note.title !== 'title') {
+
+      if (
+        localStorage.getItem(this.titleElement.nativeElement.innerText) &&
+        !update
+      ) {
+        this.errorService.addError({
+          code: 0,
+          message:
+            'The note with this title already exists. Please use Update.',
+        });
+        return;
       }
-      localStorage.setItem(
-        this.title,
-        this.editableContent.nativeElement.innerText
-      );
+
+      localStorage.setItem(note.title, JSON.stringify(note));
+      this.errorService.addError({code:0, message:`Note ${note.title} saved successfully.`});
+    }
+    else {
+      this.errorService.addError({ code: 0, message: 'Please add a title.' });
     }
   }
 
-  public exit(): void {
+  public close(): void {
     this.scratchPadService.removeScratchPadById(this.scratchPadId);
   }
 
-  public saveAndExit(): void {
-    this.save();
-    this.exit();
+  public saveAndClose(): void {
+    this.save(false);
+    this.close();
+  }
+
+  public updateAndClose(): void {
+    this.save(true);
+    this.close();
+  }
+
+  public changeColor(color: string): void {
+    this.renderer.setStyle(
+      this.scratchPadElement.nativeElement,
+      'background-color',
+      color
+    );
+    this.renderer.setStyle(
+      this.editableContentElement.nativeElement,
+      'background-color',
+      color
+    );
+    if (color !== 'white' && color !== 'lightyellow')
+      this.renderer.setStyle(
+        this.scratchPadElement.nativeElement,
+        'color',
+        'white'
+      );
+    else
+      this.renderer.setStyle(
+        this.scratchPadElement.nativeElement,
+        'color',
+        'black'
+      );
+  }
+
+  public copyContentToClipboard() :void {
+    navigator.clipboard.writeText(this.editableContentElement.nativeElement.innerText);
   }
 
   private down(e: MouseEvent | Touch): void {

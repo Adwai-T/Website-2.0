@@ -1,5 +1,4 @@
 import {
-  AfterContentInit,
   Component,
   ElementRef,
   HostListener,
@@ -128,6 +127,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.userLoggedIn = false;
   }
 
+  // ---- When theme in articles is changed the side nav reacts accordingly
   @HostListener('window:message', ['$event'])
   onThemeChange(e: any): void {
     if (e.origin === origin) {

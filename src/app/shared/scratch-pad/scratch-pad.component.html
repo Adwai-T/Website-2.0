@@ -1,5 +1,5 @@
 <div
-  [id] = "scratchPadId"
+  [id]="scratchPadId"
   class="scratch-pad"
   cdkDrag
   [style.width.px]="dimensions.x"
@@ -7,13 +7,19 @@
   [style.top.px]="position.y"
   [style.left.px]="position.x"
   [style.z-index]="zIndex"
-  cdkDragBoundary="#app-container"
+  cdkDragBoundary="#app-content"
+  #scratchPad
 >
   <div class="scratch-pad-head" cdkDragHandle>
     <div class="scratch-pad-title">
-      <div class="scratch-pad-title-editable">{{title}}</div>
-      <div class="scratch-pad-topic">{{topic}}</div>
-      <div class="scratch-pad-date">{{dateString}}</div>
+      <div
+        class="scratch-pad-title-editable"
+        contenteditable="true"
+        #scratchPadTitle
+      >
+        {{ title }}
+      </div>
+      <div class="scratch-pad-date">{{ dateString }}</div>
     </div>
     <button mat-icon-button [matMenuTriggerFor]="noteMenu">
       <mat-icon
@@ -24,32 +30,61 @@
       >
     </button>
     <mat-menu #noteMenu="matMenu">
-      <button mat-menu-item (click)="save()">
+      <div mat-menu-item class="color-selector">
+        <div
+          (click)="changeColor('white')"
+          style="background-color: white; min-width: 30px; width: 25%"
+        ></div>
+        <div
+          (click)="changeColor('lightyellow')"
+          style="background-color: lightyellow; min-width: 30px; width: 25%"
+        ></div>
+        <div
+          (click)="changeColor('darkgoldenrod')"
+          style="background-color: darkgoldenrod; min-width: 30px; width: 25%"
+        ></div>
+        <div
+          (click)="changeColor('darkcyan')"
+          style="background-color: darkcyan; min-width: 30px; width: 25%"
+        ></div>
+        <div
+          (click)="changeColor('lightcoral')"
+          style="background-color: lightcoral; min-width: 30px; width: 25%"
+        ></div>
+        <div
+          (click)="changeColor('lightseagreen')"
+          style="background-color: lightseagreen; min-width: 30px; width: 25%"
+        ></div>
+      </div>
+      <button mat-menu-item (click)="save(false)">
         <mat-icon>save</mat-icon>
         <span>Save</span>
+      </button>
+      <button mat-menu-item (click)="save(true)">
+        <mat-icon>save</mat-icon>
+        <span>Update</span>
       </button>
       <button mat-menu-item (click)="clear()">
         <mat-icon>clear_all</mat-icon>
         <span>Clear</span>
       </button>
-      <button mat-menu-item (click)="exit()">
+      <button mat-menu-item (click)="close()">
         <mat-icon>close</mat-icon>
         <span>Close</span>
-      </button>
-      <button mat-menu-item (click)="saveAndExit()">
-        <mat-icon>close</mat-icon>
-        <span>Save And Exit</span>
       </button>
     </mat-menu>
   </div>
 
-  <div class="scratch-pad-editable" contenteditable="true" #content>Editable</div>
+  <div class="scratch-pad-editable" contenteditable="true" #content>
+    Editable
+  </div>
   <button
     mat-icon-button
     class="scratch-pad-copytoclipboard"
     aria-label="copy to clipboard"
+    (click)="copyContentToClipboard()"
   >
     <mat-icon>copy_all</mat-icon>
   </button>
-  <span class="scratch-pad-resize" [id]="scratchPadId+'-resize'"></span>
+  <span class="scratch-pad-resize" [id]="scratchPadId + '-resize'"></span>
 </div>
