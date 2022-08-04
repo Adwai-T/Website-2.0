@@ -1,1 +1,18 @@
-<p>contact works!</p>
+<form id="container" (ngSubmit)="onSubmit()" #contactForm="ngForm">
+  <mat-label>If you would like to contact me please use the form.</mat-label>
+
+  <mat-form-field class="input" appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput name="name" ngModel />
+  </mat-form-field>
+  <mat-form-field class="input" appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput name="email" ngModel />
+  </mat-form-field>
+  <mat-form-field class="input big" appearance="fill">
+    <mat-label>Message</mat-label>
+    <textarea matInput name="message" ngModel></textarea>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Send</button>
+</form>

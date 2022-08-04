@@ -31,38 +31,47 @@ export const Pages:PagesI = {
   cpp : {
     title: 'Cpp',
     html: 'assets/pages/htmlonly/cpp.html',
+    navLinkStart: 'notes',
   },
   html : {
     title: 'HTML',
-    html: 'assets/pages/htmlonly/html.html'
+    html: 'assets/pages/htmlonly/html.html',
+    navLinkStart: 'notes',
   },
   css : {
     title: 'CSS',
-    html: 'assets/pages/htmlonly/css.html'
+    html: 'assets/pages/htmlonly/css.html',
+    navLinkStart: 'notes',
   },
   javascript : {
     title: 'Javascript',
-    html: 'assets/pages/htmlonly/javascript.html'
+    html: 'assets/pages/htmlonly/javascript.html',
+    navLinkStart: 'notes',
   },
   angular : {
     title: 'Angular',
     html: 'assets/pages/htmlonly/angular.html',
+    navLinkStart: 'notes',
   },
   java : {
     title: 'Java',
-    html: 'assets/pages/htmlonly/java.html'
+    html: 'assets/pages/htmlonly/java.html',
+    navLinkStart: 'notes',
   },
   javaspring : {
     title: 'Java Spring',
-    html: 'assets/pages/htmlonly/spring.html'
+    html: 'assets/pages/htmlonly/spring.html',
+    navLinkStart: 'notes',
   },
   springboot : {
     title : 'Spring Boot',
-    html: 'assets/pages/htmlonly/springBoot.html'
+    html: 'assets/pages/htmlonly/springBoot.html',
+    navLinkStart: 'notes',
   },
   springsecurity : {
     title : 'Spring Security',
-    html: 'assets/pages/htmlonly/springSecurity.html'
+    html: 'assets/pages/htmlonly/springSecurity.html',
+    navLinkStart: 'notes',
   },
 
   //--- Projects

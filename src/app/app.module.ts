@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -39,6 +39,7 @@ import { ContactComponent } from './components/contact/contact.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    // ReactiveFormsModule,
     SharedModule,
 
     BrowserAnimationsModule, //Added for Angular Material

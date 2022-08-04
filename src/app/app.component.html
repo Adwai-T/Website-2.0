@@ -7,7 +7,11 @@
     #matDrawer
   >
     <div id="side-nav" #sideNav>
-      <div id="nav-title" routerLink="" style="cursor: pointer">
+      <div
+        id="nav-title"
+        routerLink=""
+        style="cursor: pointer"
+      >
         <img id="title-img" src="assets/navicon.ico" />
         <h1 id="title-text">dwait</h1>
       </div>
@@ -25,12 +29,17 @@
           <mat-icon>engineering</mat-icon>
           <h3>Projects</h3></a
         >
+
+        <a routerLink="/about" class="side-nav-link">
+          <mat-icon>lens_blur</mat-icon>
+          <h3>About</h3></a
+        >
       </div>
 
       <div id="bottom">
         <mat-divider></mat-divider>
 
-        <div *ngIf="!userLoggedIn" class="side-nav-link">
+        <div *ngIf="!userLoggedIn">
           <a routerLink="/account/login" class="side-nav-link">
             <mat-icon>login</mat-icon>
             <h3>Login</h3></a
@@ -42,7 +51,7 @@
           >
         </div>
 
-        <div><!-- *ngIf="userLoggedIn" -->
+        <div *ngIf="userLoggedIn" >
           <a (click)="logoutUser()" routerLink="" class="side-nav-link">
             <mat-icon>logout</mat-icon>
             <h3>Logout</h3></a
@@ -68,7 +77,7 @@
         (click)="matDrawer.toggle()"
       >
         <mat-icon *ngIf="!matDrawer.opened" aria-label="open menu"
-          >more_vert</mat-icon
+          >apps</mat-icon
         >
         <mat-icon *ngIf="matDrawer.opened" aria-label="close menu"
           >cancel</mat-icon

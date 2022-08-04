@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class NavBarService {
   private title: string = '';
+  private currentParentUrl: string = '';
   public titleEvent: EventEmitter<string> = new EventEmitter();
 
   constructor(
@@ -26,13 +27,29 @@ export class NavBarService {
     }
     return false;
   }
+  
+  public locationService(): Location {
+    return this.location;
+  }
 
+  public routerService(): Router {
+    return this.router;
+  }
+ 
   public getTitle(): string {
     return this.title;
   }
 
-  public getCurrentUrl():string{
+  public getCurrentParentUrl() :string {
+    return this.currentParentUrl;
+  }
+
+  public getCurrentUrl():string {
     return this.router.url;
+  }
+
+  public setCurrentParentUrl(parent: string) {
+    this.currentParentUrl = parent;
   }
 
   public setUrl(url:string):void{

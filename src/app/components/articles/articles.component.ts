@@ -11,7 +11,6 @@ import { IframePageService } from 'src/app/services/iframe-page.service';
 })
 export class ArticlesComponent implements OnInit {
   public frontDev: Topic[] = frontEndDev;
-
   public backDev: Topic[] = backEndDev;
 
   constructor(

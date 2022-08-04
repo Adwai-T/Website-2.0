@@ -29,6 +29,7 @@ import { WindowService } from './services/window.service';
 })
 export class AppComponent implements OnInit, OnDestroy {
   @ViewChild('matDrawer') private matDrawer!: MatDrawer;
+  @ViewChild('sideNav') private sideNavElement!: ElementRef;
   @ViewChild('container') private container!: MatDrawerContainer;
   @ViewChild('sideNav', { static: true }) private sideNav!: ElementRef;
 
@@ -62,7 +63,7 @@ export class AppComponent implements OnInit, OnDestroy {
   ) {
     this.windowSize.x = window.innerWidth;
     this.windowSize.y = window.innerHeight;
-    this.checkAndSetIfIsDesktop();
+    this.checkAndSetNavBarSize();
 
     this.title = 'Home';
 
@@ -114,12 +115,16 @@ export class AppComponent implements OnInit, OnDestroy {
     this.windowSize.x = window.innerWidth;
     this.windowSize.y = window.innerHeight;
     this.windowService.setWindowSize(this.windowSize);
-    this.checkAndSetIfIsDesktop();
+    this.checkAndSetNavBarSize();
   }
 
-  private checkAndSetIfIsDesktop(): void {
-    if (this.windowSize.x < this.mobileScreenSize) this.isDesktop = false;
-    else this.isDesktop = true;
+  private checkAndSetNavBarSize(): void {
+    if (this.windowSize.x < this.mobileScreenSize) {
+      this.isDesktop = false;
+    }
+    else {
+      this.isDesktop = true;
+    } 
   }
 
   public logoutUser(): void {
@@ -130,6 +135,8 @@ export class AppComponent implements OnInit, OnDestroy {
   // ---- When theme in articles is changed the side nav reacts accordingly
   @HostListener('window:message', ['$event'])
   onThemeChange(e: any): void {
+    //-- origin gives the domain the message comes from. 
+    // Eg in test origin === http://localhost:4200
     if (e.origin === origin) {
       if (typeof e.data !== 'string') return;
 

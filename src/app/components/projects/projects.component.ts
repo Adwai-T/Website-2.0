@@ -14,7 +14,7 @@ export class ProjectsComponent implements OnInit {
   public projects: Topic[] = projects;
 
   constructor(
-    private iframe: IframePageService, 
+    private iframe: IframePageService,
     private router: Router
   ) {}
 

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AboutComponent } from './components/about/about.component';
 import { ArticlesComponent } from './components/articles/articles.component';
-import { ContactComponent } from './components/contact/contact.component';
 import { IframeContainerComponent } from './components/iframe-container/iframe-container.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 
@@ -35,13 +34,13 @@ const routes: Routes = [
     path: 'about', 
     component: AboutComponent 
   },
-  { 
-    path: 'contact', 
-    component: ContactComponent 
-  },
   {
     path: 'iframe',
-    component: IframeContainerComponent
+    component: IframeContainerComponent,
+  },
+  {
+    path: '**',
+    redirectTo: 'notes', 
   }
 ];
 

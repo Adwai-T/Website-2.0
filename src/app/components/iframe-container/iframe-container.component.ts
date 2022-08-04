@@ -1,11 +1,12 @@
 import {
   Component,
   ElementRef,
+  HostListener,
   OnDestroy,
   ViewChild,
 } from '@angular/core';
 import { SafeResourceUrl } from '@angular/platform-browser';
-import { PRIMARY_OUTLET, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Page } from 'src/app/objects/pages';
 import { FilesService } from 'src/app/services/files.service';
 import { IframePageService } from 'src/app/services/iframe-page.service';
@@ -23,6 +24,8 @@ export class IframeContainerComponent implements OnDestroy {
   public url: SafeResourceUrl =
     this.loadFileService.getSanitizedResourceUrl('');
 
+  private pageEventSubscription: Subscription;
+
   @ViewChild('containerIframe') private iframe!: ElementRef;
   private currentPageTitle: string = '';
 
@@ -32,11 +35,10 @@ export class IframeContainerComponent implements OnDestroy {
     private windowService: WindowService,
     private pageService: IframePageService,
     private themeService: ThemeService,
-    private router:Router,
   ) {
     this.loadPage(pageService.getCurrentPage());
     this.windowService.setAppContentOverflowY('hidden');
-    pageService.getPageUrlEvent.subscribe((page: Page) => {
+    this.pageEventSubscription = pageService.getPageUrlEvent.subscribe((page: Page) => {
       this.loadPage(page);
     });
   }
@@ -45,14 +47,28 @@ export class IframeContainerComponent implements OnDestroy {
     this.url = this.loadFileService.getSanitizedResourceUrl(page.html);
     this.navbarService.changeTitle(page.title);
 
-    let navLinkStart = 'notes/';
+    let navLinkStart = '';
     if(page.navLinkStart) {
       navLinkStart = `${page.navLinkStart}/`
+      this.navbarService.setCurrentParentUrl('/' + navLinkStart.slice(0, -1));//remove last `/` and add at start
     }
 
     this.navbarService.setUrl(
       navLinkStart + page.title.toLowerCase().replace(new RegExp(' ', 'g'), '')
     );
+  }
+
+  @HostListener('window:popstate', ['$event'])
+  onPopState(event:Event) {
+    //console.log('Back button pressed');
+
+    let currentUrl = this.navbarService.getCurrentUrl();
+    if(currentUrl === '/iframe') {
+      console.log(this.navbarService.getCurrentParentUrl());
+      this.navbarService.routerService().navigateByUrl(
+        '/'
+        );
+    }
   }
 
   ngOnDestroy(): void {
@@ -61,5 +77,8 @@ export class IframeContainerComponent implements OnDestroy {
       this.themeService.getSideNavEl()?.nativeElement,
       this.themeService.themes.light
     );
+
+    //--- Unsubscriptions
+    this.pageEventSubscription.unsubscribe();
   }
 }
