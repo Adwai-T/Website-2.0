@@ -1,0 +1,13 @@
+<div id="container">
+  <h1>Notes</h1>
+
+	<button mat-button (click)="addNewScratchPad({x:300, y:300}, {x:100, y:100})">New</button>
+
+  <div id="openScratchPads" *ngIf="noteOpen">
+    <app-scratch-pad 
+      [dimensions]="openScratchPad.dimensions",
+      [position]="openScratchPad.position"
+    ></app-scratch-pad>
+  </div>
+
+</div>

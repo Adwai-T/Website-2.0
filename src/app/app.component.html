@@ -34,6 +34,11 @@
           <mat-icon>lens_blur</mat-icon>
           <h3>About</h3></a
         >
+
+        <div (click)="onOpenNotesDialog()" class="side-nav-link">
+          <mat-icon>description</mat-icon>
+          <h3>Scratch Pad</h3></div
+        >
       </div>
 
       <div id="bottom">
@@ -49,17 +54,17 @@
             <mat-icon>connect_without_contact</mat-icon>
             <h3>Join</h3></a
           >
+
+          <a routerLink="/account/dashboard" class="side-nav-link">
+            <mat-icon>manage_accounts</mat-icon>
+            <h3>Dashboard</h3></a
+          >
         </div>
 
         <div *ngIf="userLoggedIn" >
           <a (click)="logoutUser()" routerLink="" class="side-nav-link">
             <mat-icon>logout</mat-icon>
             <h3>Logout</h3></a
-          >
-
-          <a routerLink="/account/dashboard" class="side-nav-link">
-            <mat-icon>manage_accounts</mat-icon>
-            <h3>Dashboard</h3></a
           >
         </div>
       </div>

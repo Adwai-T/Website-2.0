@@ -7,10 +7,12 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatMenuModule } from '@angular/material/menu';
 
 import { ScratchPadComponent } from './scratch-pad/scratch-pad.component';
+import { ScratchpadDialogBoxComponent } from './scratchpad-dialog-box/scratchpad-dialog-box.component';
 
 @NgModule({
   declarations: [
     ScratchPadComponent,
+    ScratchpadDialogBoxComponent,
   ],
   imports: [
     CommonModule,

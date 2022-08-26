@@ -6,6 +6,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatDrawer, MatDrawerContainer } from '@angular/material/sidenav';
 import {
   MatSnackBar,
@@ -21,6 +22,7 @@ import { ErrorsService, Error } from './services/errors.service';
 import { NavBarService } from './services/nav-bar.service';
 import { ThemeService } from './services/theme.service';
 import { WindowService } from './services/window.service';
+import { ScratchpadDialogBoxComponent } from './shared/scratchpad-dialog-box/scratchpad-dialog-box.component';
 
 @Component({
   selector: 'app-root',
@@ -60,6 +62,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private matSnackBarError: MatSnackBar,
     private cookiesService: CookiesService,
     private accountService: AccountService,
+    private notesDialog: MatDialog,
   ) {
     this.windowSize.x = window.innerWidth;
     this.windowSize.y = window.innerHeight;
@@ -108,6 +111,21 @@ export class AppComponent implements OnInit, OnDestroy {
     if(this.cookiesService.getCookie('jwt')) {
       this.userLoggedIn = true;
     }
+  }
+
+  public onOpenNotesDialog() {
+    const notesDialogRef = this.notesDialog.open(ScratchpadDialogBoxComponent, 
+      {
+        minHeight: '400px',
+        minWidth: '400px',
+        // disableClose: true,
+      });
+    // const notesDialogReturnSubscription = notesDialogRef.afterClosed()
+    //   .subscribe(noteName => {
+    //     console.log('Name returned from dialog : ' + noteName);
+    //   });
+
+    // notesDialogReturnSubscription.unsubscribe();
   }
 
   @HostListener('window:resize')
