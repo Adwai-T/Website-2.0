@@ -1,28 +1,23 @@
-const cssDir = '../../css/';
-
 //Formate Html add to all html
 const root = document.documentElement;
 const container = document.getElementById("container");
+const content = document.getElementById("content");
 
 //--- Origin for window messages
-const origin = "http://localhost:4200/";//dev
-// const origin = "https://adwait.in/";//prod
+const productionOrigin = "https://adwait.in/";//prod
 
 // --- Add Formate css and highlighter.js
 const formatCss = document.createElement("link");
 formatCss.rel = "stylesheet";
-formatCss.href = cssDir + "format.css";
+formatCss.href = "../../css/format.css";
 document.head.appendChild(formatCss);
 
-// const highlighter = document.createElement("script");
-// highlighter.src = "highlight.min.js";
-// document.head.appendChild(highlighter);
 hljs.highlightAll();
 
 // -- Move index to right
 const index = document.getElementById("index");
-// - set initial value to hidden
-index.style.visibility = "hidden";
+// - set initial value to visible
+index.style.visibility = "visible";
 
 const indexToggle = document.createElement("button");
 indexToggle.id = "index-toggle";
@@ -43,36 +38,113 @@ indexDownButton.innerHTML =
 index.appendChild(indexUpButton);
 index.appendChild(indexDownButton);
 
-let indexList = document.getElementById("index-list");
+const indexList = document.getElementById("index-list");
 let indexBoundingBox = indexList.getClientRects();
 
-const indexScrollSpeed = 100; //in px
-let indexListTop = 0;
-
 // -- Index visibility
-indexToggle.onclick = function (e) {
-  if (index.style.visibility === "hidden") {
-    index.style.visibility = "visible";
+const elementVisibilityToggle = function (element) {
+  if (element.style.visibility === "hidden") {
+    element.style.visibility = "visible";
   } else {
-    index.style.visibility = "hidden";
+    element.style.visibility = "hidden";
   }
+}
+const hideIndex = function () {
+  index.style.visibility = "hidden";
+}
+indexToggle.onclick = function (e) {
+  elementVisibilityToggle(index);
 };
+// -- hide index on click on content or container
+content.onclick = function (e) {
+  hideIndex();
+}
 
-indexUpButton.onclick = function (e) {
-  if (indexList.getClientRects()[0].y < 0) {
-    indexListTop += indexScrollSpeed;
+//--- Index Scroll ScrollWheel And Buttons
+const indexButtonScrollSpeed = 100; //in px
+let indexScrollSpeed = 50;
+let indexListTop = 0; //Track total scroll
+let indexScrolledPercentage=0;
+
+const checkIfElementHasVerticalScroll = function (element) {
+  return element.scrollHeight > element.clientHeight;
+}
+const checkIfElementHasHorizontalScroll = function (element) {
+  return element.scrollWidth > element.clientWidth;
+}
+
+const getIndexScrollPercentage = function () {
+  indexScrolledPercentage= (indexList.getClientRects()[0].y / root.clientHeight);
+  return indexScrolledPercentage;
+}
+
+const disableScrollingForElement = function (element) {
+  // Get the current page scroll position
+  scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+  
+  // if any scroll is attempted,
+  // set this to the previous value
+  window.onscroll = function() {
+      window.scrollTo(scrollLeft, scrollTop);
+  };
+}
+const enableScrollingForElement = function (element) {
+  window.onscroll = function() {};
+}
+
+const indexScrollUp = function (speed) {
+  if(indexList.getClientRects()[0].y < 0) {
+    indexListTop += speed;
     indexList.style.top = indexListTop + "px";
+    // console.log(getIndexScrollPercentage());
   }
+}
+
+const indexScrollDown = function (speed) {
+  if (
+    indexList.getClientRects()[0].bottom > root.clientHeight
+  ) {
+    indexListTop -= speed;
+    indexList.style.top = indexListTop + "px";
+    // console.log(getIndexScrollPercentage());
+  }
+}
+
+//-- Button Scroll
+indexUpButton.onclick = function (e) {
+  indexScrollUp(indexButtonScrollSpeed);
 };
 
 indexDownButton.onclick = function (e) {
-  if (
-    indexList.getClientRects()[0].bottom > document.documentElement.clientHeight
-  ) {
-    indexListTop -= indexScrollSpeed;
-    indexList.style.top = indexListTop + "px";
-  }
+  indexScrollDown(indexButtonScrollSpeed);
 };
+
+// -- Wheel Scroll
+let isMouseOverIndex = false;
+
+indexList.onmouseover = function (e) {
+  isMouseOverIndex = true;
+}
+indexList.onmouseleave = function (e) {
+  isMouseOverIndex = false;
+}
+
+index.onwheel = function (e) {
+  disableScrollingForElement(content);
+  if(isMouseOverIndex && e.deltaY == 100) {
+    indexScrollDown(indexScrollSpeed);
+  }
+  else {
+    indexScrollUp(indexScrollSpeed);
+  }
+  enableScrollingForElement(content);
+}
+
+//-- Add index scrollbar
+// const indexScroll = document.createElement("div");
+// indexScroll.id = "index-scroll";
+// index.appendChild(indexScroll);
 
 // --- Light and Dark Mode Switch ---
 
@@ -82,10 +154,10 @@ const daySvg = '<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0
 // - css sheets
 const lightThemeCodeCss = document.createElement("link");
 lightThemeCodeCss.rel = "stylesheet";
-lightThemeCodeCss.href = cssDir + "harmonic16-light.min.css";
+lightThemeCodeCss.href = "../../css/harmonic16-light.min.css";
 const darkThemeCodeCss = document.createElement("link");
 darkThemeCodeCss.rel = "stylesheet";
-darkThemeCodeCss.href = cssDir + "harmonic16-dark.min.css";
+darkThemeCodeCss.href = "../../css/harmonic16-dark.min.css";
 
 const themeSwitch = document.createElement("div");
 themeSwitch.id = "theme-switch";
@@ -115,7 +187,7 @@ function onThemeChange() {
     document.head.appendChild(darkThemeCodeCss);
     applyDarkThemeColors();
     localStorage.setItem('theme', 'dark');
-    window.top.postMessage("iframe-dark-theme", origin);
+    window.top.postMessage("iframe-dark-theme", productionOrigin)
   } else {
     themeMode = "light";
     themeSwitchToggle.style.left = boundingRectToggle[0].left - 25 + "px";
@@ -123,27 +195,27 @@ function onThemeChange() {
     document.head.appendChild(lightThemeCodeCss);
     applyLightThemeColors();
     localStorage.setItem('theme', 'light');
-    window.top.postMessage("iframe-light-theme", origin);
+    window.top.postMessage("iframe-light-theme", productionOrigin);
   }
 }
 onThemeChange();
 themeSwitchToggle.style.left = 50 + 'px';
 
 function applyLightThemeColors() {
-  root.style.setProperty("--color1", "#3c6e71");
+  root.style.setProperty("--color1", "#7284A8");//quotes-bg, samp
   root.style.setProperty("--color2", "#353535"); //foreground
   root.style.setProperty("--color3", "#284b63"); //h1, button
-  root.style.setProperty("--color4", "#d9d9d9");
-  root.style.setProperty("--color5", "#ffffff"); //background
+  root.style.setProperty("--color4", "#d9d9d9"); //samp-bg
+  root.style.setProperty("--color5", "#ffffff"); //
 }
 
 
 function applyDarkThemeColors() {
-  root.style.setProperty("--color1", "#d9d9d9");  
+  root.style.setProperty("--color1", "#d9d9d9"); //quotes-bg, samp
   root.style.setProperty("--color2", "#f8f8f2"); //Foreground
   root.style.setProperty("--color3", "#ff79c6"); // h1, button
-  root.style.setProperty("--color4", "#284b63");
-  root.style.setProperty("--color5", "#282a36"); //background
+  root.style.setProperty("--color4", "#284b63"); //samp-bg
+  root.style.setProperty("--color5", "#282a36"); //content-bg
 }
 
 
@@ -172,3 +244,15 @@ if(screen.availWidth < 768) {
   indexList.style.minHeight = window.innerHeight;
   indexList.style.minWidth = window.innerWidth;
 }
+
+// --- Notification
+const activeNotifications = [];
+const notificationContainer = document.createElement("div");
+notificationContainer.id = "notification-container";
+container.appendChild(notificationContainer);
+
+const addNotification = function (message, time) {
+  
+}
+
+
