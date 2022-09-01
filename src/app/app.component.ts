@@ -120,12 +120,6 @@ export class AppComponent implements OnInit, OnDestroy {
         minWidth: '400px',
         // disableClose: true,
       });
-    // const notesDialogReturnSubscription = notesDialogRef.afterClosed()
-    //   .subscribe(noteName => {
-    //     console.log('Name returned from dialog : ' + noteName);
-    //   });
-
-    // notesDialogReturnSubscription.unsubscribe();
   }
 
   @HostListener('window:resize')

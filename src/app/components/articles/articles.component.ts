@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PRIMARY_OUTLET, Router } from '@angular/router';
 import { Page, Pages } from 'src/app/objects/pages';
-import { backEndDev, frontEndDev, Topic } from 'src/app/objects/topics';
+import { backEndDev, databases, frontEndDev, languages, salesforce, Topic, utilities } from 'src/app/objects/topics';
 import { IframePageService } from 'src/app/services/iframe-page.service';
 
 @Component({
@@ -12,6 +12,10 @@ import { IframePageService } from 'src/app/services/iframe-page.service';
 export class ArticlesComponent implements OnInit {
   public frontDev: Topic[] = frontEndDev;
   public backDev: Topic[] = backEndDev;
+  public salesforce: Topic[] = salesforce;
+  public languages: Topic[] = languages;
+  public databases: Topic[] = databases
+  public utilities: Topic[] = utilities;
 
   constructor(
     private iframe: IframePageService, 

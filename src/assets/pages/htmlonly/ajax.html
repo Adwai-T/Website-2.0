@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <div id="container">
+      <div id="index">
+        <ul id="index-list">
+          <li class="index-li-h2"><a href="#h2-0">Callbacks</a></li>
+          <li class="index-li-h2"><a href="#h2-1">Promises</a></li>
+          <li class="index-li-h2"><a href="#h2-2">Async Await</a></li>
+        </ul>
+      </div>
+
+      <div id="content">
+        <h1 id="h1-0">Asycnhronous Programming</h1>
+        <h2 id="h2-0">Callbacks</h2>
+
+        <pre><code class="language-js">
+//Example without async programming
+const posts = [
+    {title: 'Post One', body: 'This is post one' },
+    {title: 'Post Two', body: 'This is post two' }
+];
+
+
+function getPosts(){
+    //As fetching from server might time we use setTimeout to imulate that time delay.
+    setTimeout(()=&gt;{
+        posts.forEach((post, index)=&gt;{
+            output += &lsquo;&lt;li&gt;${post.title}&lt;/li&gt;&lsquo;;
+        });
+        //We output it ot the DOM
+        document.body.innerHTML = output;
+    }, 1000)
+}
+
+
+function createPost(post){
+    setTimeout(()=&gt;{
+        posts.push(post);
+    }, 2000);
+}
+
+
+getPosts();
+
+
+createPost({title: 'Post Three', body: 'This is post three' });
+</code></pre>
+
+        <p>
+          In the above example DOM will be painted as soon as getPosts is done
+          as we have a method that changes the DOM in the getPosts method.
+        </p>
+
+        <p>
+          By that time our createPost method will not have completed as it takes
+          2 sec. Thus the thrid post will not be displayed on the DOM.
+        </p>
+
+        <p>Aysnchronous programming can help us with this problem.</p>
+
+        <ul>
+          <li>
+            In the below code that is the modification of the above code we will
+            use <strong>Callback Functions</strong> to achive asychronous
+            programming.
+          </li>
+        </ul>
+
+        <pre><code class="language-js">
+const posts = [
+    {title: 'Post One', body: 'This is post one' },
+    {title: 'Post Two', body: 'This is post two' }
+];
+
+
+function getPosts(){
+
+
+    setTimeout(()=&gt;{
+        posts.forEach((post, index)=&gt;{
+            output += &lsquo;&lt;li&gt;${post.title}&lt;/li&gt;&lsquo;;
+        });
+
+
+        document.body.innerHTML = output;
+    }, 1000)
+}
+
+
+function createPost(post, callback){
+    setTimeout(()=&gt;{
+        posts.push(post);
+        callback();
+    }, 2000);
+}
+
+
+createPost({title: 'Post Three', body: 'This is post three' }, getPosts);
+</code></pre>
+
+        <h2 id="h2-1">Promises</h2>
+        <p>We will use the same above example to see the use of Promises.</p>
+
+        <pre><code class="language-js">
+const posts = [
+    {title: 'Post One', body: 'This is post one' },
+    {title: 'Post Two', body: 'This is post two' }
+];
+
+
+function getPosts(){
+
+
+    setTimeout(()=&gt;{
+        posts.forEach((post, index)=&gt;{
+            output += &lsquo;&lt;li&gt;${post.title}&lt;/li&gt;&lsquo;;
+        });
+
+
+        document.body.innerHTML = output;
+    }, 1000);
+}
+
+
+function createPost(post){
+
+
+    return new Promise((resolve, reject) =&gt; {
+        setTimeout(()=&gt;{
+            posts.push(post);
+
+
+            const error = false;
+
+
+            //Before we resolve or reject our promise we need to check whether there was any error while we ran our code.
+            if(!error){
+                resolve();
+            }else{
+                reject('There was Some error');
+            }
+        }, 2000);
+    });
+}
+
+
+createPost({title: 'Post Three', body: 'This is post three' })
+    .then(getPosts) //Function to execute when the poromise is resolved is passed as argument
+    .catch(err =&gt; console.log(err)); //Function to execute when the pomise is reject is passed with catch.
+}
+
+
+//There can be any number of 'then' statements attached to each other to resove any number of promises that there are. But we will only have one catch to catch the error.
+
+
+//But there are times where we do not want to use .then many time. In those cases when we want our promises one by one we can do Promise.all and then use one .then and .catch act on the data that is returned by all the promises and catch any error that might occur while resolving any of the promises.
+
+
+//If there is an error while having multiple promises, the later promises are skipped and directly catch block is executed.
+
+
+const promise1 = Promise.resolve('Hello World');
+const promise2 = 10;
+const promise3 = new Promise((resolve, reject)=&gt;{
+    setTimeout(resolve, 2000, 'Goodbye')
+});
+
+
+//fetch works differently as it returns two promises. The first promise gives us the raw resoponse data, which we can convert to json in the first promise and the second promise gives us the processed data(In this case we get a json response and we convert the data to json object).
+const promise4 = fetch('https://jsonplaceholder.typicode.com/users').then(res =&gt; res.json());
+
+
+Promise.all([promise1, promise2, promise3, promise4]).then(value=&gt;{
+    console.log(values);
+})
+</code></pre>
+
+        <h2 id="h2-2">Async Await</h2>
+        <p>Simple and Short on <strong>Async</strong></p>
+
+        <pre><code class="language-js">
+async function foo() {
+   return 1
+}
+// Above behaves similar to below 
+function foo() {
+   return Promise.resolve(1)
+}
+
+
+// Even saying that they behave the similar to each other
+//They are not the same, consider the following
+const p = new Promise((res, rej) =&gt; {
+  res(1);
+})
+
+
+async function asyncReturn() {
+  return p;
+}
+
+
+function basicReturn() {
+  return Promise.resolve(p);
+}
+
+
+console.log(p === basicReturn()); // true
+console.log(p === asyncReturn()); // false 
+
+
+//-- Using Await
+//- In await every next await code will run after the inital is resolved. 
+async function foo() {
+   const result1 = await new Promise((resolve) =&gt; setTimeout(() =&gt; resolve('1')))
+   const result2 = await new Promise((resolve) =&gt; setTimeout(() =&gt; resolve('2')))
+}
+foo()
+</code></pre>
+
+        <p>We extend on the above code and dont change it.</p>
+
+        <p>
+          The Promise.all code has no effect on this code. We are only concerned
+          with the code above it.
+        </p>
+
+        <pre><code class="language-js">
+async function init(){
+
+
+    await createPost({ title: 'Post Three', body: 'this is body of post three' });
+
+
+    getPosts();
+}
+
+
+init();
+</code></pre>
+
+        <ul>
+          <li>
+            We could also use it with fetch that is build in functions that
+            return promises.
+          </li>
+        </ul>
+
+        <pre><code class="language-js">
+async function fetchUsers(){
+    const res = await fetch('http://jsonplaceholder.typicode.com/users');
+
+
+    const data = await res.json();
+
+
+    console.log(data);
+}
+
+
+fetchUsers();
+</code></pre>
+
+        <quote>
+          Note : Promises are different that rxjs Observables in the sence that
+          they are eager function that is they will fetch data as soon as
+          possible, on the other hand Observables only fetch data when they are
+          subscribed to.</quote
+        >
+        <p>
+          This becomes important when using frameworks like Angular. Also
+          Promises work on fetch data only once where as an Observable will keep
+          getting data over time.
+        </p>
+      </div>
+    </div>
+
+    <!-- Format -->
+    <script src="../../highlight/highlight.min.js"></script>
+    <script src="../../library/format.js"></script>
+  </body>
+</html>

@@ -1,0 +1,225 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<title></title>
+</head>
+<body>
+<div id="container">
+<div id="index">
+<ul id="index-list">
+<li class="index-li-h2"><a href="#h2-0">Adding Swagger To Spring Boot</a></li>
+<li class="index-li-h3"><a href="#h3-0">Get the swagger 2 Spring dependency</a></li>
+<li class="index-li-h3"><a href="#h3-1">Enabling Swagger in our code</a></li>
+<li class="index-li-h3"><a href="#h3-2">Trouble Shooting documentationPluginsBootstrapper</a></li>
+<li class="index-li-h4"><a href="#h4-0">Spring Security Access</a></li>
+<li class="index-li-h4"><a href="#h4-1">InternalResourceViewResolver Issue</a></li>
+<li class="index-li-h3"><a href="#h3-3">Configure Swagger</a></li>
+<li class="index-li-h3"><a href="#h3-4">Adding details as annotations to APIs</a></li>
+<li class="index-li-h2"><a href="#h2-1">Spring REST Docs</a></li>
+</ul>
+</div>
+
+<div id="content">
+<h1 id="h1-0">Swagger</h1>
+<p>Swagger provides tools to :</p>
+
+<ol>
+	<li> Develop APIs</li>
+	<li> Interact with APIs</li>
+	<li> Document APIs</li>
+</ol>
+<p>Why use swagger for documentation?</p>
+
+<p>If the API is constantly updated, we will also keep up with updating the documentation for our user. This means that we will have to spend time every time to update the documentation. To automate this process we use swagger.</p>
+
+<p>API documentation is the most popular use of swagger, although it has tools to help us develop and interact with our API.</p>
+
+<h2 id="h2-0">Adding Swagger To Spring Boot</h2>
+<quote> Before you add Swagger to your project, it has not been updated for a while and might not be updated further. So to future proof your project it is recommended to add a different documentation tools as <a href="https://springdoc.org/" target="_blank">springdoc-openapi</a>. I tried to recently add Swagger to my project and it is filled with unexpected problems that arise as it has not been updated as Spring Boot has developed.</quote><quote> Swagger Still works fine if you want to use it.</quote>
+<h3 id="h3-0">Get the swagger 2 Spring dependency</h3>
+<p>We can add the maven dependency for SpringFox Swagger2 which will give us our documentation in the JSON format and then we can create a UI for it or we can add Springfox Swagger UI which will provide documentation with the UI.</p>
+
+<quote> Swagger UI need both the dependencies to be added.</quote>
+
+<pre><code class="language-xml">
+&lt;!-- JSON documentation --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;io.springfox&lt;/groupId&gt;
+    &lt;artifactId&gt;springfox-swagger2&lt;/artifactId&gt;
+    &lt;version&gt;3.0.0&lt;/version&gt;
+&lt;/dependency&gt;
+
+
+&lt;!-- UI documentation --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;io.springfox&lt;/groupId&gt;
+    &lt;artifactId&gt;springfox-swagger-ui&lt;/artifactId&gt;
+    &lt;version&gt;3.0.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<quote> <a href="https://mvnrepository.com/artifact/io.springfox/springfox-swagger2/3.0.0" target="_blank">Springfox Swagger2 MVNRepository</a>.</quote><quote> <a href="https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui" target="_blank">Springfox Swagger2 UI MVNRepository</a>.</quote>
+<h3 id="h3-1">Enabling Swagger in our code</h3>
+<p>The Following will enable swagger in its most basic form without configuration.</p>
+
+
+<pre><code class="language-java">
+@SpringBootApplication
+@EnableSwagger2 //-- This will enable swagger in our project
+public class SpringbootSwaggerApplication {
+    //-- main method
+    //-- Other code.
+}
+</code></pre>
+
+<p>Now we can go to <samp>http://localhost:8080/v2/api-docs</samp> or send a get request with a tool like postman to get the JSON base documentation result.</p>
+
+<p>Using swagger without configuration is not recommended thought as it contains all the endpoints that might not be useful to the user.</p>
+
+<p>Configuring swagger gives users of our api a better experience with our documentation and give them information that they need in a format that we want.</p>
+
+<p>If we have swagger UI enabled we can access it at <samp>http://localhost:8080/swagger-ui.html</samp>.</p>
+
+<quote> When we have Swagger UI enabled we cannot have an API endpoint controller directly at the root as it might not allow swagger link to be accessed.</quote>
+<h3 id="h3-2">Trouble Shooting documentationPluginsBootstrapper</h3>
+<p>This issue is caused by Spring Fox 3.0.0 not supporting new PathPattern Based Path Matching Strategy for Spring MVC which is now the new default from spring-boot 2.6.0.</p>
+
+<p>Spring is using mvcmatchers by default which conflicts with swagger because it uses the antmatchers so we can solve this by the following methods.</p>
+
+<ul>
+	<li> Downgrading Spring-Version will solve the issue but should not be done just to use swagger.</li>
+</ul><p>  * Changing PathPattern matching back to AntPatternMatching in properites/yml file.</p>
+
+
+<pre><code class="language-properites">
+# In application.properties
+spring.mvc.pathmatch.matching-strategy=ant_path_matcher
+</code></pre>
+
+<ul>
+	<li> Enable MVCmatchers in spring creating a configuration file for swagger to use.</li>
+</ul>
+
+<pre><code class="language-java">
+@EnableWebMvc
+@EnableSwagger2
+@Component
+public class SwaggersConfigs {
+}
+</code></pre>
+
+<ul>
+	<li> Migrate to <a href="https://springdoc.org/#migrating-from-springfox" target="_blank">Spring Doc</a> as swagger did not have any updates for a long time.</li>
+</ul>
+<h4 id="h4-0">Spring Security Access</h4>
+<p>Make sure that all the following paths are accessible while using swagger.</p>
+
+<p><samp>( "/v2/api-docs", "/swagger-ui/&lt;strong&gt;", "/swagger-resources/&lt;/strong&gt;")</samp> if using swagger2.</p>
+
+<p><samp>( "/v3/api-docs&lt;strong&gt;", "/v3/api-docs/&lt;/strong&gt;","/swagger-ui&lt;strong&gt;", "/swagger-ui/&lt;/strong&gt;", "/swagger-resources/&lt;em&gt;&lt;/em&gt;")</samp></p>
+
+<p>if using <a href="https://springdoc.org/" target="_blank">SpringDoc</a></p>
+
+<p>When spring security is enabled it will block all paths by default. Configure spring security to enable these Paths.</p>
+
+<h4 id="h4-1">InternalResourceViewResolver Issue</h4>
+<p>If there are view resolution issues there might be a need to manually create a bean for the View Resolver in our Swagger Configuration.</p>
+
+
+<pre><code class="language-java">
+@Bean
+public InternalResourceViewResolver defaultViewResolver() {
+    return new InternalResourceViewResolver();
+}
+</code></pre>
+
+<h3 id="h3-3">Configure Swagger</h3>
+<p>Swagger by default provides a lot of unnecessary information like error endpoints, all the models even those that are provided by spring, etc when it is not configured. Configuring swagger for our project will help us provide users with the documnentation that they need and abstract what not needed.</p>
+
+<p>Swagger is configured in spring by using a bean of type <samp>Docket</samp>.</p>
+
+
+<pre><code class="language-java">
+//Docket Bean
+@Bean
+public Docket swaggerConfiguration() {
+    //Return a Docket instance
+    return new Docket(DocuementationType.SWAGGER_2)
+        .select()
+        .path(PathSelectors.ant("/api/&lowast;"))//Endpoints to include on path.
+        .apis(RequesthandlerSelectors.basePackage("in.adwait"))//only include documentation for this package.
+        .build()
+        .apiInfo(apiDetails());
+}
+
+
+//Add API information shown at the top
+private ApiInfo apiDetails() {
+    return new ApiInfo(
+        "Website API",//name
+        "Api used in the webiste adwait.in",//detail
+        "2.0",//version
+        "Restricted Use",
+        new springfox.documentation.service.Contact("Adwait", "https://adwait.in", "adwait@adwait.in"),
+        "API Licence",
+        "https://adwait.in",
+        Collections.emptyList());
+}
+</code></pre>
+
+<p>The <samp>Docket</samp> instance is configured by using the builder pattern. We call methods on the instance that we need to configure and then we call <samp>build()</samp> method to finally build the instance.</p>
+
+<h3 id="h3-4">Adding details as annotations to APIs</h3>
+<p>Swagger will infer a lot of information about our API and endpoints. We can add more information by annotating our methods/endpoint controllers.</p>
+
+
+<pre><code class="language-java">
+@GetMapping("/{id}")
+@ApiOperation(
+    value="Find Contacts by ID",
+    notes = " Provide an id to look up a specific contact",
+    response = "Contact.class"
+    )
+public Contact getContact(
+    @ApiParam(value="ID value for contact", required=true) @PathVariable String id
+    ) {
+    return contacts.get(id);
+    
+}
+
+
+
+
+//For model
+@ApiModel(description="Details about the contact")
+public class Contact {
+    
+    @ApiModelProperty(notes="The unique id of the contact")
+    private String id;
+
+
+    @ApiModelProperty(notes="The person's name")
+    private String name;
+
+
+    @ApiModelProperty(notes="The person's phone number")
+    private String phone;
+}
+</code></pre>
+
+<h2 id="h2-1">Spring REST Docs</h2>
+<p>There is an Alternative to Swagger specifically being designed for spring.</p>
+
+<p>Swagger is great when we use it in moderation. When every model and every endpoint is being annotated with the swagger configuration annotations, it becomes very cluttered and the unreadable.</p>
+
+<p>To solve this problem where in some cases the swagger annotations can have greater code than the logic/buisness code itself we might want to look towards Spring REST Docs as it takes the documentation part out of the actual code and into test code.</p>
+
+<quote> <a href="https://springdoc.org/" target="_blank">springdoc-openapi</a>.</quote>
+</div>
+</div>
+
+  <!-- Format -->
+  <script src="../../highlight/highlight.min.js"></script>
+  <script src="../../library/format.js"></script>
+</body>
+</html>

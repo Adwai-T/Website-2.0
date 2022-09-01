@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <div id="container">
+      <div id="index">
+        <ul id="index-list">
+          <li class="index-li-h2"><a href="#h2-0">Setting up</a></li>
+          <li class="index-li-h2"><a href="#h2-1">Installing packages</a></li>
+          <li class="index-li-h2">
+            <a href="#h2-2">List of installed packages</a>
+          </li>
+        </ul>
+      </div>
+
+      <div id="content">
+        <h1 id="h1-0">Node package Manager</h1>
+        <h2 id="h2-0">Setting up</h2>
+        <p>
+          <samp>npm init</samp> : This will create the
+          <samp>package.json</samp> and <samp>package-lock.json</samp> in the
+          project folder. Now we can install packages from npm in the
+          Directory/Project. It will walk us through basic inforamtion about the
+          project that we can fill or skip.
+        </p>
+
+        <p>
+          <samp>npm init --yes</samp> : Skips all the inforamtion for
+          initialization of npm, we can later update it in
+          <samp>package.json</samp>
+        </p>
+
+        <h2 id="h2-1">Installing packages</h2>
+        <p><samp>npm install package-name</samp> : Intall packages locally.</p>
+
+        <p>
+          <samp>npm uninstall package-name</samp> : Uninstalls local package.
+        </p>
+
+        <p>
+          <samp>npm install --save-dev package-name</samp> : Install package as
+          developer dependency and will not be needed for running the
+          application/program in production. Utility packages like webpack or
+          developer server should be installed as developer dependencies.
+        </p>
+
+        <p>
+          <samp>npm install -g package-name</samp> : The package will be
+          installed globally and can be used anywhere with npm. We want to only
+          install packages that we want to use with multiple projects like clis,
+          or project setups for react or angular globally.
+        </p>
+
+        <h2 id="h2-2">List of installed packages</h2>
+        <p>
+          We can look at the installed packages in <samp>package.json</samp>. We
+          can look at all the packages with their dependencies in
+          <samp>package-lock.json</samp>. But we can look at all the packages
+          intalled in the current project directory by using
+          <samp>npm list</samp> or <samp>npm ls</samp>.
+        </p>
+
+        <p>
+          <samp>npm list --depth=0</samp> : Shows all the installed packages in
+          the current project without their dependecncies.
+        </p>
+
+        <p>
+          <samp>npm list -g</samp> : Shows all the packages installed globally
+          with their dependencies.
+        </p>
+
+        <p>
+          <samp>npm list -g --depth=0</samp> : Shows all packages installed
+          globally without thier dependencies.
+        </p>
+
+        <p>
+          <samp>npm list --prod</samp> : List of production packages installed.
+        </p>
+
+        <p>
+          <samp>npm list --dev</samp> : List of development packages installed
+          with <samp>--save-dev</samp>.
+        </p>
+
+        <p>
+          <samp>npm list --depth=0 --json</samp> : Format the dependencies list
+          with <samp>--json</samp> flag.
+        </p>
+      </div>
+    </div>
+    <!-- Format -->
+    <script src="../../highlight/highlight.min.js"></script>
+    <script src="../../library/format.js"></script>
+  </body>
+</html>

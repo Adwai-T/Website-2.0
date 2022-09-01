@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <div id="container">
+      <div id="index">
+        <ul id="index-list">
+          <li class="index-li-h2"><a href="#h2-0">Dependency</a></li>
+          <li class="index-li-h2"><a href="#h2-1">Configuration</a></li>
+          <li class="index-li-h3">
+            <a href="#h3-0">Properties Configuration</a>
+          </li>
+          <li class="index-li-h2"><a href="#h2-2">JavaDoc Support</a></li>
+        </ul>
+      </div>
+
+      <div id="content">
+        <h1 id="h1-0">SpringDoc</h1>
+        <quote>
+          Refer
+          <a href="https://springdoc.org/" target="_blank">SpringDoc</a> for
+          detailed getting started and setup.</quote
+        >
+        <p>
+          Link Swagger UI :
+          <samp>http://server:port/context-path/swagger-ui.html</samp>.
+        </p>
+
+        <p>
+          Link Api Documentation Request :
+          <samp>http://server:port/context-path/v3/api-docs</samp>.
+        </p>
+
+        <h2 id="h2-0">Dependency</h2>
+
+        <pre><code class="language-xml">
+&lt;dependency&gt;
+   &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
+   &lt;artifactId&gt;springdoc-openapi-ui&lt;/artifactId&gt;
+   &lt;version&gt;1.6.11&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+        <quote>
+          It is important that <samp>@RestController</samp> is used as SpringDoc
+          will not account <samp>@Controller</samp> to create documentation.
+          Also <samp>@RequestMapping</samp> needs to be given a method, or use
+          <samp>GetMapping()</samp>, <samp>PostMapping()</samp> like methods as
+          there should not be ambiguity in the method being used for the
+          request.</quote
+        >
+        <h2 id="h2-1">Configuration</h2>
+        <p>
+          Require
+          <samp
+            >( "/v3/api-docs&lt;strong&gt;",
+            "/v3/api-docs/&lt;/strong&gt;","/swagger-ui&lt;strong&gt;",
+            "/swagger-ui/&lt;/strong&gt;",
+            "/swagger-resources/&lt;em&gt;&lt;/em&gt;")</samp
+          >
+          paths to be withlisted in Spring Security.
+        </p>
+
+        <pre><code class="language-java">
+@Bean
+public OpenAPI adwaitApiDoc() {
+    return new OpenAPI()
+            .info(new Info().title("adwait.in API")
+                    .description("Api used by website adwait.in")
+                    .version("1.0.0")
+                    .license(new License().name("Apache 2.0").url("http://adwait.in")))
+            .externalDocs(new ExternalDocumentation()
+                    .description("Adwait Github Documentation")
+                    .url("https://github.com/Adwai-T/Website-2.0-Spring"));
+}
+
+
+@Bean
+public GroupedOpenApi publicApi() {
+    return GroupedOpenApi.builder()
+            .packagesToScan("in.adwait.website")
+            .group("Public")
+            .pathsToMatch("/&lowast;&lowast;")
+            .build();
+}
+
+
+@Bean
+public GroupedOpenApi adminApi() {
+    return GroupedOpenApi.builder()
+            .group("Admin")
+            .pathsToMatch("/admin/&lowast;&lowast;")
+            .build();
+}
+</code></pre>
+
+        <quote>
+          <samp>GroupedOpenApi</samp> are shown in the top right drop down on
+          documentation page and will group the request according to
+          configuration.</quote
+        >
+        <h3 id="h3-0">Properties Configuration</h3>
+
+        <pre><code class="language-properties">
+# swagger-ui custom path
+springdoc.swagger-ui.path=/swagger-ui.html
+
+
+# /api-docs endpoint custom path
+springdoc.api-docs.path=/api-docs
+
+
+# Disabling the swagger-ui
+springdoc.swagger-ui.enabled=false
+
+
+# Disabling the /v3/api-docs endpoint
+springdoc.api-docs.enabled=false
+</code></pre>
+
+        <h2 id="h2-2">JavaDoc Support</h2>
+        <p>
+          For Details Check
+          <a href="https://springdoc.org/#javadoc-support" target="_blank"
+            >Set up JavaDocs</a
+          >
+        </p>
+
+        <pre><code class="language-xml">
+ &lt;!-- In combination with the springdoc-openapi-ui dependency --&gt;
+&lt;dependency&gt;
+   &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
+   &lt;artifactId&gt;springdoc-openapi-javadoc&lt;/artifactId&gt;
+   &lt;version&gt;1.6.11&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+      </div>
+    </div>
+    <!-- Format -->
+    <script src="../../highlight/highlight.min.js"></script>
+    <script src="../../library/format.js"></script>
+  </body>
+</html>

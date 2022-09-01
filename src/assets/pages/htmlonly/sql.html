@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <div id="container">
+      <div id="index">
+        <ul id="index-list">
+          <li class="index-li-h2"><a href="#h2-0">Commands</a></li>
+          <li class="index-li-h2">
+            <a href="#h2-1">Interacting with DataBase</a>
+          </li>
+          <li class="index-li-h2"><a href="#h2-2">Joins</a></li>
+          <li class="index-li-h2"><a href="#h2-3">Views</a></li>
+          <li class="index-li-h2"><a href="#h2-4">Create Index</a></li>
+        </ul>
+      </div>
+
+      <div id="content">
+        <h1 id="h1-0">SQL</h1>
+        <p>Structured Query Language</p>
+
+        <p>Made for CRUD : Create Read Update Delete</p>
+
+        <p>Relational Database :</p>
+
+        <p>
+          <strong>Database</strong> <em>is</em> ->
+          <strong>Collection</strong> of tables <em>has</em>-> Rows and Columns
+          -> Each row is called as a <strong>Record</strong>
+        </p>
+
+        <p>
+          Data in tables can be related to each other, that is why they are
+          called as relational database.
+        </p>
+
+        <p>
+          Taken together the collection of tables in a database is called as
+          <strong>Schema</strong>.
+        </p>
+
+        <h2 id="h2-0">Commands</h2>
+
+        <pre><code class="language-sql">
+/&lowast;Create a new database with name name_table&lowast;/
+CREATE DATABASE name_table;
+/&lowast;Create a new table in the database with name name_table and define its columns&lowast;/
+CREATE TABLE users(
+    user_id int,
+    first_name VARCHAR(100),
+    last_name VARCHAR(100),
+    email VARCHAR(255)
+);
+
+
+/&lowast;Update the database with name name_table and add a new column with name encrypted_password. It does not actually encrypt password, the name of the column is encrypted password &lowast;/
+ALTER TABLE users ADD encrypted_password VARCHAR(1000);
+
+
+/&lowast;delete/remove column email from name_table&lowast;/
+ALTER TABLE user DROP COLUMN email;
+
+
+/&lowast;delete/remove table from database&lowast;/
+DROP TABLE user;
+
+
+/&lowast;Remove/Delete Complete database with all its tables and entries.&lowast;/
+DROP DATABASE name_table;
+</code></pre>
+
+        <h2 id="h2-1">Interacting with DataBase</h2>
+
+        <pre><code class="language-sql">
+/&lowast;Insert a record/row to the movies table&lowast;/
+INSERT INTO movies (movies_id, title, description, price) VALUES(1, 'Gattaca', 'Movie or documentary', 4.99);
+/&lowast;View All entries of movies table&lowast;/
+SELECT &lowast; FROM movies;
+/&lowast;select a particular column to be viewed, they are in no praticular order. FROM selects tables and SELECT for columns&lowast;/
+SELECT title, price FROM movies;
+/&lowast;Select table by desc order&lowast;/
+SELECT title, price FROM movies ORDER BY price DESC;
+/&lowast;rows are selected with WHERE&lowast;/
+UPDATE movies SET price = 0.99 WHERE title = 'Jaws';
+/&lowast;&lowast;/
+DELETE FROM movies WHERE title = 'Star Wars'
+/&lowast;Gives us the number of rows in the tables&lowast;/
+SELECT COUNT(&lowast;) FROM movies
+/&lowast;Select by price range&lowast;/
+SELECT &lowast; FROM movies WHERE price &gt;= 1 AND price &lt;= 5;
+/&lowast;Use the number of rows that are given&lowast;/
+LIMIT 10;
+</code></pre>
+
+        <pre><code class="language-sql">
+SELECT &lowast;
+FROM table_name
+WHERE condition1 OR condition2
+ORDER BY column_name ASC
+LIMIT 10;
+
+
+/&lowast;Gives min and max value in the table column&lowast;/
+SELECT MIN(column_name), MAX(column_name)
+
+
+/&lowast;Only show distinct entries&lowast;/
+SELECT DISTINCT column_name FROM table_name
+</code></pre>
+
+        <ul>
+          <li>
+            In the above <samp>INSERT</samp> we specified an ID(movies_id),
+            these are used as unique identifiers for that entry. Most database
+            softwares will generate an ID automatically and will not have to
+            provide an id manually.
+          </li>
+        </ul>
+        <h2 id="h2-2">Joins</h2>
+
+        <pre><code class="language-sql">
+SELECT &lowast; FROM table1
+INNER JOIN table2
+ON table1.base_id = table2.base_id
+</code></pre>
+
+        <p>JOIN type :</p>
+
+        <ol>
+          <li>
+            <samp>INNER JOIN</samp> : Only joins the rows that have a match in
+            both the tables.
+          </li>
+          <li>
+            <samp>FULL JOIN</samp> : Joins table irrespective if whether or not
+            there is a matching id and puts null for the values that are not
+            matched.
+          </li>
+          <li>
+            <samp>LEFT JOIN</samp> and <samp>RIGHT JOIN</samp> : Shows all the
+            record from one of the tables whether there is a common id or not,
+            but leaves the other tables entries that dont have a matching id
+            with the other table.
+          </li>
+        </ol>
+        <p>
+          Note : Not all database support all the four types of joins. For
+          example MySQL does not support full join.
+        </p>
+
+        <h2 id="h2-3">Views</h2>
+        <p>
+          When we create Views it Give permission to a view instead of the whole
+          table and can hide sensitive data. A view also returns a table but
+          without the sensitive data.
+        </p>
+
+        <pre><code class="language-sql">
+CREATE VIEW people_on_mars AS
+SELECT CONCAT('m',martian_id), first_name, last_name, 'Martian' AS status
+FROM martian_public
+UNION
+SELECT CONCAT('v',visitor_id), first_name, last_name, 'Visitor' AS status
+FROM visitor;
+
+
+/&lowast;&lowast;/
+SELECT &lowast;
+FROM people_on_mars
+ORDER BY last_name;
+</code></pre>
+
+        <h2 id="h2-4">Create Index</h2>
+
+        <pre><code class="language-sql">
+CREATE INDEX person_first_name_idx
+ON person (fist_name);
+</code></pre>
+      </div>
+    </div>
+    <!-- Format -->
+    <script src="../../highlight/highlight.min.js"></script>
+    <script src="../../library/format.js"></script>
+  </body>
+</html>

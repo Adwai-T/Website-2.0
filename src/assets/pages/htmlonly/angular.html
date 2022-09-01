@@ -75,38 +75,42 @@
           <li class="index-li-h2"><a href="#h2-10">Observable</a></li>
           <li class="index-li-h2"><a href="#h2-11">Forms</a></li>
           <li class="index-li-h3">
-            <a href="#h3-25">Template Driven Forms</a>
+            <a href="#h3-25">Common From Foundation Classes</a>
           </li>
-          <li class="index-li-h3"><a href="#h3-26">Reactive Approach</a></li>
+          <li class="index-li-h3">
+            <a href="#h3-26">Template Driven Forms</a>
+          </li>
+          <li class="index-li-h3"><a href="#h3-27">Validation</a></li>
+          <li class="index-li-h3"><a href="#h3-28">Reactive Approach</a></li>
           <li class="index-li-h2"><a href="#h2-12">Pipes</a></li>
           <li class="index-li-h2"><a href="#h2-13">HTTP Requests</a></li>
-          <li class="index-li-h3"><a href="#h3-27">Post Requests</a></li>
-          <li class="index-li-h3"><a href="#h3-28">Get Requests</a></li>
+          <li class="index-li-h3"><a href="#h3-29">Post Requests</a></li>
+          <li class="index-li-h3"><a href="#h3-30">Get Requests</a></li>
           <li class="index-li-h3">
-            <a href="#h3-29">Transfroming data with Observables</a>
+            <a href="#h3-31">Transfroming data with Observables</a>
           </li>
-          <li class="index-li-h3"><a href="#h3-30">Handling Errors</a></li>
-          <li class="index-li-h3"><a href="#h3-31">Interceptors</a></li>
+          <li class="index-li-h3"><a href="#h3-32">Handling Errors</a></li>
+          <li class="index-li-h3"><a href="#h3-33">Interceptors</a></li>
           <li class="index-li-h2"><a href="#h2-14">Angular Modules</a></li>
           <li class="index-li-h3">
-            <a href="#h3-32">Separating Modules and it Routes</a>
+            <a href="#h3-34">Separating Modules and it Routes</a>
           </li>
-          <li class="index-li-h3"><a href="#h3-33">Shared Modules</a></li>
-          <li class="index-li-h3"><a href="#h3-34">Core Module</a></li>
+          <li class="index-li-h3"><a href="#h3-35">Shared Modules</a></li>
+          <li class="index-li-h3"><a href="#h3-36">Core Module</a></li>
           <li class="index-li-h2">
             <a href="#h2-15">Lazy Loading And other Optimizations</a>
           </li>
           <li class="index-li-h3">
-            <a href="#h3-35">Pre-Load LazyLoaded Modules</a>
+            <a href="#h3-37">Pre-Load LazyLoaded Modules</a>
           </li>
           <li class="index-li-h3">
-            <a href="#h3-36">Services and Modules Relations</a>
+            <a href="#h3-38">Services and Modules Relations</a>
           </li>
           <li class="index-li-h2">
             <a href="#h2-16">Prepare Angular project For deployment</a>
           </li>
           <li class="index-li-h3">
-            <a href="#h3-37">Ahead of time compilation</a>
+            <a href="#h3-39">Ahead of time compilation</a>
           </li>
           <li class="index-li-h2">
             <a href="#h2-17">Setting Up Proxy Server</a>
@@ -114,17 +118,13 @@
           <li class="index-li-h2"><a href="#h2-18">`ng-eject`</a></li>
           <li class="index-li-h2"><a href="#h2-19">Display code</a></li>
           <li class="index-li-h3">
-            <a href="#h3-38">Sanitizing content before adding it to the DOM</a>
+            <a href="#h3-40">Sanitizing content before adding it to the DOM</a>
           </li>
         </ul>
       </div>
 
       <div id="content">
         <h1 id="h1-0">Angular</h1>
-        <quote>
-          Note all these notes are base on Maximilian Schwarzmüller course on
-          Udemy.</quote
-        >
         <h2 id="h2-0">Install</h2>
         <p>
           Requires Node for packing and optimize the project. Also npm will be
@@ -430,18 +430,18 @@ onUpdateServerName(event: Event){
         </p>
 
         <pre><code class="language-html">
-&lt;div &lowast;ngIf="	%21onlyOdd"&gt;
+&lt;div &lowast;ngIf="!onlyOdd"&gt;
     &lt;li &lowast;ngFor="let even of evenNumbers"&gt;{{even}}&lt;/li&gt;
 &lt;/div&gt;
 
 
-&lt;	%21--The above code will be converted to the following code and similar for the ngFor inisde the existing code.--&gt;
-&lt;ng-template [ngIf]= "	%21onlyOdd"&gt;
+&lt;!--The above code will be converted to the following code and similar for the ngFor inisde the existing code.--&gt;
+&lt;ng-template [ngIf]= "!onlyOdd"&gt;
     &lt;li &lowast;ngFor="let even of evenNumbers"&gt;{{even}}&lt;/li&gt;
 &lt;/ng-template&gt;
 
 
-&lt;	%21--Now we see that we dont have the star and the ngIf is bound as a property instead--&gt;
+&lt;!--Now we see that we dont have the star and the ngIf is bound as a property instead--&gt;
 </code></pre>
 
         <p>
@@ -508,7 +508,7 @@ export class UnlessDirective{
     //set looks like a method but is just defines how or what value is set to the property it is used with. This does not converty the property by itself into a method, but will be executed when the value of the property changes outside to check the condition for setting the value of the property.
     //The name of the property and the selector of the directive need to match as we use the &lowast; and rely on angular to create the template for us. And as we saw above when angular create the template it will bind to the selector and this property if it has some other name. So we use the same name as that of the selector for the property to be bound correctly.
     @Input() set appUnless(condition: boolean){
-        if(	%21condition){
+        if(!condition){
             this.vcRef.createEmbeddedView(this.templateRef);
         }else{
             this.vcRef.clear();
@@ -537,8 +537,8 @@ export class UnlessDirective{
 
         <pre><code class="language-html">
 &lt;p [ngStyle]="{backgroundColor: getColor()}"&gt;This is a line&lt;/p&gt;
-&lt;	%21--We could also have conditional styling like in the below example--&gt;
-&lt;p [ngStyle]="{backgroundColor: odd%2 	%21== 0 ? 'grey': 'yellow'}"&gt;
+&lt;!--We could also have conditional styling like in the below example--&gt;
+&lt;p [ngStyle]="{backgroundColor: odd%2 !== 0 ? 'grey': 'yellow'}"&gt;
 </code></pre>
 
         <p>
@@ -584,7 +584,7 @@ export class BasicHighlightDirective implements OnInit {
         </p>
 
         <pre><code class="language-html">
-&lt;p appBasicHighlight&gt;Style me with bacic directive	%21&lt;/p&gt;
+&lt;p appBasicHighlight&gt;Style me with bacic directive!&lt;/p&gt;
 </code></pre>
 
         <p>
@@ -734,7 +734,9 @@ export class BetterHighlighterDirective implements OnInit{
         <p>
           A lot more can be done with the renderer than just change the style of
           the element. All the methods of the Renderer can be refered to
-          <a href="https://angular.io/api/core/Renderer2">here : Renderer2</a>.
+          <a href="https://angular.io/api/core/Renderer2" target="_blank"
+            >here : Renderer2</a
+          >.
         </p>
 
         <h3 id="h3-9">@HostBinding and @HostListener</h3>
@@ -961,15 +963,15 @@ onAddServer(){
 </code></pre>
 
         <pre><code class="language-ts">
-//Very particularly while selecting an element from angular material there might be a problem So we add a 	%21 after the variable name
-@ViewChild('matDrawer') private matDrawer	%21:ElementRef; //In regular cases we do not need &lsquo;	%21&lsquo; after cariable name;
+//Very particularly while selecting an element from angular material there might be a problem So we add a ! after the variable name
+@ViewChild('matDrawer') private matDrawer!:ElementRef; //In regular cases we do not need &lsquo;!&lsquo; after cariable name;
 
 
 //the access could be public or private
 
 
 //as the element in the example we select is Materail drawer we could use
-@ViewChild('matDrawer') private matDrawer	%21:MatDrawer;
+@ViewChild('matDrawer') private matDrawer!:MatDrawer;
 
 
 </code></pre>
@@ -1096,18 +1098,18 @@ const appRoutes: Routes = [
         </ul>
 
         <pre><code class="language-html">
-&lt;	%21--In the below we pass directly the route to the router link--&gt;
+&lt;!--In the below we pass directly the route to the router link--&gt;
 &lt;a routerLink="/servers"&gt;Servers&lt;/a&gt;
-&lt;	%21--In the below example we bind to the routerLink and pass a string in '', otherwise the routerLink will try to find a property with that name.--&gt;
+&lt;!--In the below example we bind to the routerLink and pass a string in '', otherwise the routerLink will try to find a property with that name.--&gt;
 &lt;a [routerLink]="'/servers'"&gt;Servers&lt;/a&gt;
-&lt;	%21--In the below example we pass in an array to the routerLink. It will help us create complicated routes. In the below exaple it will resolve to a link of /server/something--&gt;
+&lt;!--In the below example we pass in an array to the routerLink. It will help us create complicated routes. In the below exaple it will resolve to a link of /server/something--&gt;
 &lt;a [routerLink]="['/server','/something']"&gt;special Server&lt;/a&gt;
 </code></pre>
 
         <p>
           Note: Using <samp>routerLink</samp> in the anchor tag and not using a
-          relative link direclty with <samp>href</samp> will prevent the default
-          behaviour of the browser form reloading the complete page.
+          relative link directly with <samp>href</samp> will prevent the default
+          behaviour of the browser from reloading the complete page.
         </p>
 
         <p>
@@ -1533,7 +1535,9 @@ canActivateChild(route: ActivateRouteSnapshot. state: RouterStateSnapshot):Obser
 
         <p>
           There are lot of useful function of the class
-          <a href="https://angular.io/api/router/Router">Router</a>
+          <a href="https://angular.io/api/router/Router" target="_blank"
+            >Router</a
+          >
         </p>
 
         <pre><code class="language-ts">
@@ -1550,7 +1554,7 @@ this.router.navigate(['articles']);
         <h3 id="h3-24">Show Url with Location</h3>
         <p>
           The
-          <a href="https://angular.io/api/common/Location"
+          <a href="https://angular.io/api/common/Location" target="_blank"
             ><samp>Location</samp></a
           >
           class can be imported into the constructor to get a lot of functions
@@ -1689,10 +1693,69 @@ ngOnInit(){
             the DOM.
           </li>
         </ol>
-        <h3 id="h3-25">Template Driven Forms</h3>
+        <p>
+          Template Driven forms are suitable for small, simple forms, while
+          reactive forms are used for complex forms due to its scalability.
+        </p>
+
+        <table>
+          <tr>
+            <th>REACTIVE</th>
+            <th>TEMPLATE-DRIVEN</th>
+          </tr>
+
+          <tr>
+            <td>Setup of form model Explicit, created in component class</td>
+            <td>Implicit, created by directives</td>
+          </tr>
+          <tr>
+            <td>Data model Structured and immutable</td>
+            <td>Unstructured and mutable</td>
+          </tr>
+          <tr>
+            <td>Data flow Synchronous</td>
+            <td>Asynchronous</td>
+          </tr>
+          <tr>
+            <td>Form validation</td>
+            <td>Functions Directives</td>
+          </tr>
+        </table>
+        <h3 id="h3-25">Common From Foundation Classes</h3>
+        <ul>
+          <li>
+            FormControl : Track the value and validation status of an individual
+            form control.
+          </li>
+        </ul>
+        <ul>
+          <li>
+            FromGroup : Track the same value and status for a group of form
+            controls.
+          </li>
+        </ul>
+        <ul>
+          <li>
+            FormArray : Track the same value and status for an array of form
+            controls.
+          </li>
+        </ul>
+        <ul>
+          <li>
+            ControlValueAccessor : Creates a bridge between the angular
+            FormControl and the inbuild DOM elements.
+          </li>
+        </ul>
+        <h3 id="h3-26">Template Driven Forms</h3>
         <p>
           Import FormsModule in the NgModule -> imports[] -> FormsModule in the
           app.module.ts file to use the approach.
+        </p>
+
+        <p>
+          Angulars template driven use <strong>Two way Data binding</strong> to
+          update the data model component and changes are made in the template
+          and visa versa.
         </p>
 
         <p>
@@ -1701,82 +1764,122 @@ ngOnInit(){
           <samp>ngModel</samp> which is a part of FormsModule.
         </p>
 
-        <pre><code class="language-html">
-&lt;input type="text" id="username" class="form-control" ngModel name="username"&gt;
+        <p>
+          The <samp>NgModel</samp> creates and manages a instance of
+          <samp>FormControl</samp> for the given element that it is put on.
+        </p>
+
+        <p>There are two ways we can use use template driven forms.</p>
+
+        <p>
+          First way we can direclty use <samp>ngModel</samp> and with a varible
+          in our script component that will track the value of the FormControl.
+        </p>
+
+        <p>
+          This ways can mostly be used for 1 or 2 input fields and to directly
+          capture their values without complexity.
+        </p>
+
+        <quote>
+          Don't Forget to add <samp>FormsModule</samp> from
+          <samp>'@angular/forms'</samp> in <samp>app.module.ts</samp> while
+          using the template driven forms.</quote
+        >
+
+        <pre><code class="language-ts">
+import { Component } from '@angular/core';
+
+
+@Component({
+  selector: 'app-template-form',
+  template: 
+  &lsquo;
+    Name : &lt;input type="text" [(ngModel)]="name"&gt;
+  &lsquo;
+})
+export class TemplateForm {
+  public name = '';
+}
 </code></pre>
 
         <p>
-          <samp>name</samp> is a property of the html element and not of
-          angular. It will be used by angular to identify the element. ngModel
-          will tell angular that this is a form control.
+          The second way involves using the ngModel to mark FormControl and
+          creating a form with a submit button.
+        </p>
+
+        <quote>
+          To mark the form for template driven approach we use the
+          <samp>ngForm</samp> directive and it needs to be set as the value for
+          our form's local reference.</quote
+        >
+        <p>
+          Lets take an example of a contact form. We have three fields Name,
+          Email and Message.
         </p>
 
         <pre><code class="language-html">
-&lt;form (ngSubmit)= "onSubmit(f)" #f= "ngForm"&gt;
-    &lt;	%21--Our html form here as shown above--&gt;
+&lt;!-- Template --&gt;
+&lt;form id="container" (ngSubmit)="onSubmit()" #contactForm="ngForm"&gt;
+  &lt;label&gt;If you would like to contact me please use the form.&lt;/label&gt;
+
+
+    &lt;label&gt;Name&lt;/label&gt;
+    &lt;input name="name" ngModel /&gt;
+    &lt;label&gt;Email&lt;/label&gt;
+    &lt;input name="email" ngModel /&gt;
+    &lt;br&gt;
+    &lt;label&gt;Message&lt;/label&gt;
+    &lt;textarea name="message" ngModel&gt;&lt;/textarea&gt;
+    &lt;br&gt;
+  &lt;button type="submit"&gt;Send&lt;/button&gt;
 &lt;/form&gt;
 </code></pre>
 
-        <p>Submitting a Form.</p>
-
-        <p>
-          The <samp>ngSubmit</samp> takes over the submit functionality of the
-          HTML form, which is present by default, and gives us the control to
-          submit the from as we want from our script. We pass in the local
-          reference of the form to the submit method to use it to get the values
-          that angular parsed for us.
-        </p>
-
-        <p>
-          We put a <em>local Reference</em> to the from above and assign it to
-          the <samp>ngForm</samp> which will give us the access to the from
-          object that angular created for us and makes it easy for us to access
-          the values of the form.
-        </p>
+        <quote>
+          Note the button used to submit the form, should be marked with
+          <samp>type="sumbit"</samp>.</quote
+        >
 
         <pre><code class="language-ts">
-import { NgFrom } from '@angular/froms';
+export class ContactComponent implements OnInit {
+  @ViewChild('contactForm') public contactForm!: NgForm;
 
 
-export class AppComponent{
+  constructor() {}
+  ngOnInit(): void {}
 
 
-    //Other code here
-
-
-    onSubmit(from: NgFrom){
-        //This will print the the form object to the console and we can see all its properties.
-        console.log(form);
-    }
+  public onSubmit(): void {
+    console.log(this.contactForm.form.value);
+    //will print to console the values object.
+  }
 }
 </code></pre>
 
-        <ul>
-          <li>
-            Accessing from with <samp>@ViewChild</samp> as we have see before to
-            access the <em>Local Reference</em> on the form.
-          </li>
-        </ul>
         <p>
-          This method of getting the form objects helps us access the data that
-          the form contains at any time
-          <strong>before the from is submitted</strong>.
+          In the above example we are using <samp>@ViewChild</samp> to get the
+          value for the form, but we could also pass the value as an argument to
+          the <samp>onSubmit()</samp> method.
         </p>
 
-        <pre><code class="language-ts">
-export class AppComponent{
-    @ViewChild('f') signupForm: NgFrom;
+        <p>
+          We just need to pass the local reference (<samp>contactForm</samp> in
+          the above example) to the method and have our
+          <samp>onSubmit(contactForm: NgForm)</samp> with NgForm as its
+          parameter.
+        </p>
 
+        <p>
+          The we can access the value of each of the fields in our form with
+          <samp>formName.form.value</samp>.
+        </p>
 
-    onSubmit(){
-        console.log(this.signupForm);
-    }
-}
-</code></pre>
-
-        <ul>
-          <li><strong>Validation</strong></li>
-        </ul>
+        <quote>
+          Note that <samp>ngForm</samp> can only be used with a form element and
+          not with a div, if we use a div to wrap our FormControls.</quote
+        >
+        <h3 id="h3-27">Validation</h3>
         <p>
           Some Build in properties of the HTML like required can be used to
           validate the form.
@@ -1795,7 +1898,7 @@ export class AppComponent{
 
         <ul>
           <li>
-            <a href="https://angular.io/api/forms/Validators"
+            <a href="https://angular.io/api/forms/Validators" target="_blank"
               >Build in validators</a
             >
             : These are all built-in validators, though that are the methods
@@ -1805,7 +1908,7 @@ export class AppComponent{
         </ul>
         <ul>
           <li>
-            <a href="https://angular.io/api?type=directive"
+            <a href="https://angular.io/api?type=directive" target="_blank"
               >Build in directives</a
             >
             : Everything marked with "D" is a directive and can be added to your
@@ -1828,7 +1931,7 @@ export class AppComponent{
           <samp>&lt;Select&gt;</samp> as shown below.
         </p>
 
-        <p><samp>[NgModel]="pet"</samp></p>
+        <p><samp>[ngModel]="pet"</samp></p>
 
         <p>
           The above example above shows one way binding and we can also use
@@ -1874,20 +1977,18 @@ export class AppComponent{
         </p>
 
         <pre><code class="language-ts">
-
-
 const suggestedName = 'SuperUser';
 
 
 this.signupForm.form.patchValue({
-    userData: {
-        username: suggestedName
-    }
+  userData: {
+    username: suggestedName
+  }
 });
 </code></pre>
 
         <p>
-          The above approach to set the value for the form on a event will not
+          The above approach to set the value for the form on an event will not
           reset the whole form, just set the value of the form element that we
           want to target.
         </p>
@@ -1915,7 +2016,7 @@ this.signupForm.form.patchValue({
           setValues property after the form is reset.
         </p>
 
-        <h3 id="h3-26">Reactive Approach</h3>
+        <h3 id="h3-28">Reactive Approach</h3>
         <p>In the reactive approach we create the from programatically.</p>
 
         <p>
@@ -1943,31 +2044,31 @@ export class AppComponent implement onInit{
         this.signupForm = new FormGroup({
             'username': new FromControl(null),
             'email' : new FormControl(null),
-            'gender': new FormControl('male') //Here we set a default initialization value for our form control.
+            'gender': new FormControl('male') 
+            //Here we set a default initialization value for our form control.
         });
     }
 }
 </code></pre>
 
-        <p>
-          Synchronize our script from with the HTML from in our html template.
-        </p>
+        <p>Synchronize our script form with the HTML form in our template.</p>
 
         <pre><code class="language-html">
 &lt;form [formGroup="signupFrom"] (ngSumbit)="onSubmit()"&gt;
-    &lt;div&gt;
-        &lt;label for="username"&gt;UserName&lt;/label&gt;
-        &lt;input type="text" id=" username" formControlName="username" class="form-control"&gt;
-    &lt;/div&gt;
-     &lt;div&gt;
-        &lt;label for="email"&gt;Email&lt;/label&gt;
-        &lt;input type="text" id=" email" formControlName="email" class="form-control"&gt;
-    &lt;/div&gt;
-    &lt;div ckass="radio" &lowast;ngFor="let gender of genders"&gt;
-        &lt;label&gt;
-            &lt;input type="radio" [value]="gender" fromControlName="gender"&gt;{{gender}}
-        &lt;/label&gt;
-    &lt;div&gt;
+  &lt;div&gt;
+    &lt;label for="username"&gt;UserName&lt;/label&gt;
+    &lt;input type="text" id=" username" formControlName="username" class="form-control"&gt;
+  &lt;/div&gt;
+   &lt;div&gt;
+    &lt;label for="email"&gt;Email&lt;/label&gt;
+    &lt;input type="text" id=" email" formControlName="email" class="form-control"&gt;
+  &lt;/div&gt;
+  &lt;div ckass="radio" &lowast;ngFor="let gender of genders"&gt;
+    &lt;label&gt;
+      &lt;input type="radio" [value]="gender" fromControlName="gender"&gt;
+      {{gender}}
+    &lt;/label&gt;
+  &lt;div&gt;
 &lt;/form&gt;
 </code></pre>
 
@@ -2038,7 +2139,7 @@ onSubmit(){
         </ul>
 
         <pre><code class="language-html">
-&lt;span &lowast;ngIf="	%21signupFrom.get('email').valid &amp;&amp; signupForm.get('email').touched" class="help-block"&gt;Please Enter a valid Email Address
+&lt;span &lowast;ngIf="!signupFrom.get('email').valid &amp;&amp; signupForm.get('email').touched" class="help-block"&gt;Please Enter a valid Email Address
 &lt;/span&gt;
 </code></pre>
 
@@ -2095,7 +2196,7 @@ const forbiddenUserName = ["Adwait", "Abhi"];
 
 
 forbiddenNames(control: FormControl):{[s: string]: boolean}{
-    if(this.forbiddenUsernames.indexOf(control.value) 	%21== -1){ //The value will return a -1 and -1 will be interpreted as true as a value exist by javascript. So we explicitly tell it to check if it is -1 then we want it to be false
+    if(this.forbiddenUsernames.indexOf(control.value) !== -1){ //The value will return a -1 and -1 will be interpreted as true as a value exist by javascript. So we explicitly tell it to check if it is -1 then we want it to be false
         return{'nameIsForbidden': true};
     }
     //We have to return null or empty if the validation fails. We dont wnat to pass the object above with a false value.
@@ -2225,7 +2326,7 @@ this.signupForm.patchValue({
           name of the pipe.
         </p>
 
-        <p><samp>{{ server.started | date:'fullDate' }}</samp></p>
+        <p><samp>{{ server.started | date:'fullDate" }}</samp></p>
 
         <ul>
           <li>Chaining Multile pipes :</li>
@@ -2235,7 +2336,7 @@ this.signupForm.patchValue({
           right.
         </p>
 
-        <p><samp>{{ server.started | date:'fullDate | uppercase' }}</samp></p>
+        <p><samp>{{ server.started | date:'fullDate | uppercase }}</samp></p>
 
         <ul>
           <li>Create Custom pipes</li>
@@ -2300,7 +2401,7 @@ appStatus = new Promise((resolve)=&gt;{
 
         <h2 id="h2-13">HTTP Requests</h2>
         <p>
-          <a href="https://angular.io/guide/http"
+          <a href="https://angular.io/guide/http" target="_blank"
             >Official Documents HTTP requests</a
           >
         </p>
@@ -2308,7 +2409,7 @@ appStatus = new Promise((resolve)=&gt;{
         <ul>
           <li>We can set up BackEnd with Firebase.</li>
         </ul>
-        <h3 id="h3-27">Post Requests</h3>
+        <h3 id="h3-29">Post Requests</h3>
         <quote>
           Note : Add <samp>HttpClientModule</samp> to <samp>imports[]</samp> of
           <samp>@NgModule</samp> in the file <samp>app.module.ts</samp> by
@@ -2373,7 +2474,7 @@ onCreatePost(postData: Post) {
 }
 </code></pre>
 
-        <h3 id="h3-28">Get Requests</h3>
+        <h3 id="h3-30">Get Requests</h3>
 
         <pre><code class="language-ts">
 private fetchPosts(){
@@ -2452,7 +2553,7 @@ onFetchPosts() {
 }
 </code></pre>
 
-        <h3 id="h3-29">Transfroming data with Observables</h3>
+        <h3 id="h3-31">Transfroming data with Observables</h3>
 
         <pre><code class="language-ts">
 import { map } from 'rxjs/operators';
@@ -2511,7 +2612,7 @@ onClearPosts(){
 }
 </code></pre>
 
-        <h3 id="h3-30">Handling Errors</h3>
+        <h3 id="h3-32">Handling Errors</h3>
         <ul>
           <li>Directly handling error when we subscibe in the component.</li>
         </ul>
@@ -2585,7 +2686,7 @@ onClearPosts(){
             data we get in response.
           </li>
         </ul>
-        <h3 id="h3-31">Interceptors</h3>
+        <h3 id="h3-33">Interceptors</h3>
         <p>
           They can be used to change or modify a request before it is send. So
           for example we can change the request headers before any request is
@@ -2662,9 +2763,17 @@ export class LoggingInterceptorService implements HttpInterceptor {
 </code></pre>
 
         <h2 id="h2-14">Angular Modules</h2>
-        <p><a href="https://angular.io/guide/ngmodules">Official Docs</a></p>
+        <p>
+          <a href="https://angular.io/guide/ngmodules" target="_blank"
+            >Official Docs</a
+          >
+        </p>
 
-        <p><a href="https://angular.io/guide/ngmodule-faq">NgModules FAQ</a></p>
+        <p>
+          <a href="https://angular.io/guide/ngmodule-faq" target="_blank"
+            >NgModules FAQ</a
+          >
+        </p>
 
         <p>
           We can split our angular app into different Angular modules to make
@@ -2682,7 +2791,7 @@ export class LoggingInterceptorService implements HttpInterceptor {
           they are avaible app wide, that is they are all setup at the
           root.</quote
         >
-        <h3 id="h3-32">Separating Modules and it Routes</h3>
+        <h3 id="h3-34">Separating Modules and it Routes</h3>
 
         <pre><code class="language-ts">
 //Create a module.ts file for the part of the app that need to be separated. Here we take the example of recipies.
@@ -2884,7 +2993,7 @@ export class AppRoutingModule {}
 
 </code></pre>
 
-        <h3 id="h3-33">Shared Modules</h3>
+        <h3 id="h3-35">Shared Modules</h3>
         <p>
           Shared modules are just modules as we declared above but containing
           the parts that are being shared by multiple modules in our project.
@@ -2953,7 +3062,7 @@ providers: []
 export class AppModule{}
 </code></pre>
 
-        <h3 id="h3-34">Core Module</h3>
+        <h3 id="h3-36">Core Module</h3>
         <p>
           This is used to make our main app.module.ts file leaner by declaring
           the providers in a different file that is the Core Modules file and
@@ -3019,7 +3128,7 @@ export class AppModule{}
             as we have added that route to our main routes file as shown above.
           </li>
         </ul>
-        <h3 id="h3-35">Pre-Load LazyLoaded Modules</h3>
+        <h3 id="h3-37">Pre-Load LazyLoaded Modules</h3>
         <p>
           In app=routing.module.ts file where we declare our root routing we can
           declare a strategy on how and which modules are preloaded.
@@ -3031,7 +3140,7 @@ imports:[
 ]
 </code></pre>
 
-        <h3 id="h3-36">Services and Modules Relations</h3>
+        <h3 id="h3-38">Services and Modules Relations</h3>
         <p>Service can be declared in the following scopes and places :</p>
 
         <table>
@@ -3081,7 +3190,7 @@ imports:[
           ready.
         </p>
 
-        <h3 id="h3-37">Ahead of time compilation</h3>
+        <h3 id="h3-39">Ahead of time compilation</h3>
         <p>Just-In-Time Compilation :</p>
 
         <p>
@@ -3149,6 +3258,7 @@ imports:[
           For an Indetail explanation on creating proxy Servers
           <a
             href="https://medium.com/better-programming/setup-a-proxy-for-api-calls-for-your-angular-cli-app-6566c02a8c4d"
+            target="_blank"
             >visit</a
           >.
         </p>
@@ -3192,6 +3302,7 @@ imports:[
           From :
           <a
             href="https://stackoverflow.com/questions/44110064/what-is-the-purpose-of-ng-eject"
+            target="_blank"
             >stackoverflow</a
           >.</quote
         >
@@ -3257,7 +3368,7 @@ imports:[
 div.textContent = '&lt;img src=x onerror="alert(\'XSS Attack\')"&gt;';
 </code></pre>
 
-        <h3 id="h3-38">Sanitizing content before adding it to the DOM</h3>
+        <h3 id="h3-40">Sanitizing content before adding it to the DOM</h3>
         <p>
           Angular removes any content from the innerHtml that might leave our
           application vunnerable to arracks due to scripts executing from
@@ -3266,7 +3377,9 @@ div.textContent = '&lt;img src=x onerror="alert(\'XSS Attack\')"&gt;';
 
         <p>
           We can modify the DomSanatization strategy by using the
-          <a href="https://angular.io/api/platform-browser/DomSanitizer"
+          <a
+            href="https://angular.io/api/platform-browser/DomSanitizer"
+            target="_blank"
             >DomSanatizer</a
           >
           Service provided by angular.
@@ -3342,8 +3455,9 @@ document.getElementById("target").setHTML(unsanitized_string, sanitizer);
 </code></pre>
       </div>
     </div>
+
+    <!-- Format -->
+    <script src="../../highlight/highlight.min.js"></script>
+    <script src="../../library/format.js"></script>
   </body>
-  <!-- Format -->
-  <script src="../../highlight/highlight.min.js"></script>
-  <script src="../../library/format.js"></script>
 </html>

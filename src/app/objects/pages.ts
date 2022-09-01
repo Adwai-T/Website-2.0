@@ -28,11 +28,8 @@ export interface PagesI{
 
 export const Pages:PagesI = {
   //--- Notes
-  cpp : {
-    title: 'Cpp',
-    html: 'assets/pages/htmlonly/cpp.html',
-    navLinkStart: 'notes',
-  },
+
+  //- webdev
   html : {
     title: 'HTML',
     html: 'assets/pages/htmlonly/html.html',
@@ -48,11 +45,20 @@ export const Pages:PagesI = {
     html: 'assets/pages/htmlonly/javascript.html',
     navLinkStart: 'notes',
   },
+  ajax : {
+    title: 'Async Javascript',
+    html: 'assets/pages/htmlonly/ajax.html',
+    navLinkStart: 'notes',
+  },
+
+  //- webdev frameworks
   angular : {
     title: 'Angular',
     html: 'assets/pages/htmlonly/angular.html',
     navLinkStart: 'notes',
   },
+
+  //- java
   java : {
     title: 'Java',
     html: 'assets/pages/htmlonly/java.html',
@@ -68,11 +74,88 @@ export const Pages:PagesI = {
     html: 'assets/pages/htmlonly/springBoot.html',
     navLinkStart: 'notes',
   },
+  swagger : {
+    title : 'Swagger',
+    html: 'assets/pages/htmlonly/swagger.html',
+    navLinkStart: 'notes',
+  },
+  javadoc : {
+    title : 'JavaDoc',
+    html: 'assets/pages/htmlonly/javadoc.html',
+    navLinkStart: 'notes',
+  },
   springsecurity : {
     title : 'Spring Security',
     html: 'assets/pages/htmlonly/springSecurity.html',
     navLinkStart: 'notes',
   },
+
+  //- salesforce
+  salesforceAdmin : {
+    title : 'Spring Security',
+    html: 'assets/pages/htmlonly/salesforceAdmin.html',
+    navLinkStart: 'notes',
+  },
+  salesforceDev : {
+    title : 'Spring Security',
+    html: 'assets/pages/htmlonly/salesforceDev.html',
+    navLinkStart: 'notes',
+  },
+
+  //- cpp 
+  cpp : {
+    title: 'C++',
+    html: 'assets/pages/htmlonly/cpp.html',
+    navLinkStart: 'notes',
+  },
+
+  //- lua
+  lua : {
+    title: 'Lua',
+    html: 'assets/pages/htmlonly/lua.html',
+    navLinkStart: 'notes',
+  },
+
+  //- vba
+  vba : {
+    title: 'VBA',
+    html: 'assets/pages/htmlonly/vba.html',
+    navLinkStart: 'notes',
+  },
+
+  //- utitilities
+  git : {
+    title: 'Git',
+    html: 'assets/pages/htmlonly/git.html',
+    navLinkStart: 'notes',
+  },
+  maven : {
+    title: 'Maven',
+    html: 'assets/pages/htmlonly/maven.html',
+    navLinkStart: 'notes',
+  },
+  npm : {
+    title: 'Node Package Manager',
+    html: 'assets/pages/htmlonly/npm.html',
+    navLinkStart: 'notes',
+  },
+
+  //- databases
+  sql : {
+    title: 'SQL',
+    html: 'assets/pages/htmlonly/sql.html',
+    navLinkStart: 'notes',
+  },
+  mongodb : {
+    title: 'MongDB',
+    html: 'assets/pages/htmlonly/mongodb.html',
+    navLinkStart: 'notes',
+  },
+  // postgre : {
+  //   title: 'Postgre',
+  //   html: 'assets/pages/htmlonly/postgre.html',
+  //   navLinkStart: 'notes',
+  // },
 
   //--- Projects
   mdtohtml : {

@@ -1,0 +1,189 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<title></title>
+</head>
+<body>
+<div id="container">
+<div id="index">
+<ul id="index-list">
+<li class="index-li-h2"><a href="#h2-0">Apache Maven helps to manage</a></li>
+<li class="index-li-h2"><a href="#h2-1">Maven Repositories</a></li>
+<li class="index-li-h3"><a href="#h3-0">Local Repository</a></li>
+<li class="index-li-h3"><a href="#h3-1">Central Repository</a></li>
+<li class="index-li-h3"><a href="#h3-2">Remote Repository</a></li>
+<li class="index-li-h2"><a href="#h2-2">Maven pom.xml</a></li>
+<li class="index-li-h3"><a href="#h3-3">Elements of Maven pom.xml</a></li>
+<li class="index-li-h3"><a href="#h3-4">Additional properties of pom.xml</a></li>
+<li class="index-li-h3"><a href="#h3-5">Example of pom.xml</a></li>
+<li class="index-li-h2"><a href="#h2-3">Maven Archetypes</a></li>
+</ul>
+</div>
+
+<div id="content">
+<h1 id="h1-0">Maven</h1>
+<h2 id="h2-0">Apache Maven helps to manage</h2>
+<ol>
+	<li> Builds</li>
+	<li> Documentation</li>
+	<li> Reporing</li>
+	<li> SCMs</li>
+	<li> Releases</li>
+	<li> Distribution</li>
+</ol>
+<h2 id="h2-1">Maven Repositories</h2>
+<h3 id="h3-0">Local Repository</h3>
+<p>Stored in local computer at %USER_HOME%/.m2</p>
+
+<p>This is the default code of the setting.xml located <samp>MAVEN_HOME/conf/settings.xml</samp></p>
+
+<p>To change the default directory of the local repository from <samp>${user.home}/.m2/repository</samp>  to <samp>E:\mavenlocalrepository</samp> we change the maven config file <samp>MAVEN_HOME/conf/settings.xml</samp>.</p>
+
+
+<pre><code class="language-xml">
+
+
+    &lt;settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"   
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
+    xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd"&gt;  
+    &lt;localRepository&gt;e:/mavenlocalrepository&lt;/localRepository&gt;  
+  
+    &lt;/settings&gt; 
+</code></pre>
+
+<h3 id="h3-1">Central Repository</h3>
+<p>Path to the central repository : <a href="http://repo1.maven.org/maven2/" target="_blank">Central Repository</a>.</p>
+
+<p>Libraries that are stored on the Central repository can be searched at : <a href="http://search.maven.org/#browse" target="_blank">Maven Repository</a>.</p>
+
+<h3 id="h3-2">Remote Repository</h3>
+<p>Some libraries might be missing from the central repository.</p>
+
+<p>We can find these libraries at other remote maven repositories like the <a href="mvnrepository.com" target="_blank">MVN Repostory</a>. The search and index more repositories than the maven central repository.</p>
+
+<h2 id="h2-2">Maven pom.xml</h2>
+<p>POM is an acronym for Project Object Model. The pom.xml file contains information of project and configuration information for the maven to build the project such as dependencies, build directory, source directory, test source directory, plugin, goals etc.</p>
+
+<h3 id="h3-3">Elements of Maven pom.xml</h3>
+<table>
+<tr>
+	<th>Element</th>
+	<th>Descriptions</th>
+</tr>
+
+<tr>
+	<td>Project</td>
+	<td>It is the root element of maven</td>
+</tr>
+<tr>
+	<td>modelVersion</td>
+	<td>It is the sub element of project. It specifies the modelVersion. It should be set to 4.0.0.</td>
+</tr>
+<tr>
+	<td>groupId</td>
+	<td>It is the sub element of project. It specifies the id for the project group.</td>
+</tr>
+<tr>
+	<td>artifactId</td>
+	<td>It is the sub element of project. It specifies the id for the artifact (project). An artifact is something that is either produced or used by a project. Examples of artifacts produced by Maven for a project include: JARs, source and binary distributions, and WARs.</td>
+</tr>
+<tr>
+	<td>version</td>
+	<td>It is the sub element of project. It specifies the version of the artifact under given group.</td>
+</tr>
+</table>
+<h3 id="h3-4">Additional properties of pom.xml</h3>
+<table>
+<tr>
+	<th>Element</th>
+	<th>Descriptions</th>
+</tr>
+
+<tr>
+	<td>packaging</td>
+	<td>defines packaging type such as jar, war etc.</td>
+</tr>
+<tr>
+	<td>name</td>
+	<td>defines name of the maven project.</td>
+</tr>
+<tr>
+	<td>url</td>
+	<td>defines url of the project.</td>
+</tr>
+<tr>
+	<td>dependencies</td>
+	<td>defines dependencies for this project.</td>
+</tr>
+<tr>
+	<td>dependency</td>
+	<td>defines a dependency. It is used inside dependencies.</td>
+</tr>
+<tr>
+	<td>scope</td>
+	<td>defines scope for this maven project. It can be compile, provided, runtime, test and system.</td>
+</tr>
+</table>
+<h3 id="h3-5">Example of pom.xml</h3>
+
+<pre><code class="language-xml">
+&lt;project xmlns="http://maven.apache.org/POM/4.0.0"   
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0   
+http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;  
+  
+  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;  
+  
+  &lt;!-- Project Coordinates --&gt;
+  &lt;groupId&gt;in.adwait&lt;/groupId&gt;&lt;!--Name of the company/Organization--&gt;
+  &lt;artifactId&gt;website&lt;/artifactId&gt;&lt;!--Name of the project--&gt;  
+  &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;&lt;!--SNAPSHOT meaning the project is under active development--&gt;
+  &lt;packaging&gt;jar&lt;/packaging&gt;  
+  
+  &lt;name&gt;spring-website&lt;/name&gt;
+  &lt;url&gt;http://maven.apache.org&lt;/url&gt;  
+
+
+  &lt;properties&gt;
+    &lt;!-- Set the compiler to compile with Java 8 as target --&gt;
+    &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;
+    &lt;!-- Set the accepted level of Java for the source  --&gt;
+    &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;
+  &lt;/properties&gt;
+  
+  &lt;dependencies&gt;  
+    &lt;dependency&gt;  
+      &lt;groupId&gt;junit&lt;/groupId&gt;  
+      &lt;artifactId&gt;junit&lt;/artifactId&gt;  
+      &lt;version&gt;4.8.2&lt;/version&gt;  
+      &lt;scope&gt;test&lt;/scope&gt;  
+    &lt;/dependency&gt; 
+    &lt;!--We can have any number of dependencies--&gt; 
+  &lt;/dependencies&gt;  
+  
+&lt;/project&gt;   
+</code></pre>
+
+<h2 id="h2-3">Maven Archetypes</h2>
+<p>Archetypes can be used to create new Maven projects.</p>
+
+<p>They contain template files for a given Maven project to get us started.</p>
+
+<p>We can think of maven Archetypes like a collection of starter files for a project such as Java Project or Web Project, etc.</p>
+
+<p>Commonly Used Archetypes</p>
+
+<ul>
+	<li> maven-archetype-quickstart : Genereate a sample maven project. Good for standalone projects.</li>
+	<li> maven-archetype-webapp : An archetype to generate a sample Maven Web Project.</li>
+	<li> We can find more <a href="http://maven.apache.org/archetypes" target="_blank">archetype here</a>.</li>
+</ul>
+<p>Let take maven-archetype-webapp for example. When we generate a project with maven using this archetype, it will get us started with a file structure suited for web-app development and also add the common files need in the project.</p>
+
+</div>
+</div>
+    <!-- Format -->
+    <script src="../../highlight/highlight.min.js"></script>
+    <script src="../../library/format.js"></script>
+</body>
+</html>

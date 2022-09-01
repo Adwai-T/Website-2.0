@@ -1,14 +1,18 @@
 <div id="container">
+  <!-- Web Development -->
   <div id="web-dev">
     <div class="title-container">
-      <img class="avatar" 
-        src="assets/images/articles/languages/web.png" 
-        alt="language icon" aria-hidden="true">
+      <img
+        class="avatar"
+        src="assets/images/articles/languages/web.png"
+        alt="language icon"
+        aria-hidden="true"
+      />
       <div class="title">Web Development</div>
     </div>
     <div id="title-description"></div>
     <div class="sub-topic">
-      <div class="sub-title">Front or Client Side Development</div>
+      <div class="sub-title">Client Side Development</div>
       <div class="sub-title-description">
         The front end or Client side is what the user of your website will
         interact with when they visit your website.
@@ -17,8 +21,12 @@
         <mat-card class="card" *ngFor="let topic of frontDev">
           <mat-card-header (click)="onCardClick(topic.page)">
             <div mat-card-avatar>
-              <img class="avatar" 
-                [src]="topic.imageSrc" alt="language icon" aria-hidden="true">
+              <img
+                class="avatar"
+                [src]="topic.imageSrc"
+                alt="language icon"
+                aria-hidden="true"
+              />
             </div>
             <mat-card-title>{{ topic.title }}</mat-card-title>
             <mat-card-subtitle>{{ topic.subTitle }}</mat-card-subtitle>
@@ -27,15 +35,20 @@
             {{ topic.description }}
           </mat-card-content>
           <mat-card-actions>
-            <button mat-button>FAV</button>
-            <button mat-button><a target="_blank" [href]="topic.github">GITHUB</a></button>
+            <!-- <button mat-button>FAV</button> -->
+            <button mat-button>
+              <a target="_blank" [href]="topic.github">GITHUB</a>
+            </button>
           </mat-card-actions>
         </mat-card>
       </div>
     </div>
+
     <mat-divider></mat-divider>
+
+    <!-- Java Development -->
     <div class="sub-topic">
-      <div class="sub-title">Back or Server Side Development</div>
+      <div class="sub-title">Server Side Development</div>
       <div class="sub-title-description">
         The back end or server side is responsible for authentication and
         authorization of users for your website. It controls the access to
@@ -45,6 +58,43 @@
       </div>
       <div class="cards-container">
         <mat-card class="card" *ngFor="let topic of backDev">
+          <mat-card-header (click)="onCardClick(topic.page)">
+            <div mat-card-avatar>
+              <img
+                class="avatar"
+                [src]="topic.imageSrc"
+                alt="language icon"
+                aria-hidden="true"
+              />
+            </div>
+            <mat-card-title>{{ topic.title }}</mat-card-title>
+            <mat-card-subtitle>{{ topic.subTitle }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content (click)="onCardClick(topic.page)">
+            {{ topic.description }}
+          </mat-card-content>
+          <mat-card-actions>
+            <!-- <button mat-button>FAV</button> -->
+            <button mat-button>
+              <a target="_blank" [href]="topic.github">GITHUB</a>
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <!-- Salesforce -->
+    <!-- <div class="sub-topic">
+      <div class="sub-title">Salesforce</div>
+      <div class="sub-title-description">
+        Salesforce is a popular CRM tool for support, sales, and marketing teams. 
+        Salesforce services allow businesses to use cloud technology to better 
+        connect with partners, customers, and potential customers.
+      </div>
+      <div class="cards-container">
+        <mat-card class="card" *ngFor="let topic of salesforce">
           <mat-card-header (click)="onCardClick(topic.page)">
             <div mat-card-avatar>
               <img class="avatar" [src]="topic.imageSrc" alt="language icon" aria-hidden="true">
@@ -61,10 +111,111 @@
           </mat-card-actions>
         </mat-card>
       </div>
+    </div> -->
+
+    <!-- Languages -->
+    <div class="sub-topic">
+      <div class="sub-title">Languages</div>
+      <div class="sub-title-description">Programming Languages</div>
+      <div class="cards-container">
+        <mat-card class="card" *ngFor="let topic of languages">
+          <mat-card-header (click)="onCardClick(topic.page)">
+            <div mat-card-avatar>
+              <img
+                class="avatar"
+                [src]="topic.imageSrc"
+                alt="language icon"
+                aria-hidden="true"
+              />
+            </div>
+            <mat-card-title>{{ topic.title }}</mat-card-title>
+            <mat-card-subtitle>{{ topic.subTitle }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content (click)="onCardClick(topic.page)">
+            {{ topic.description }}
+          </mat-card-content>
+          <mat-card-actions>
+            <!-- <button mat-button>FAV</button> -->
+            <button mat-button><a target="_blank" [href]="topic.github">GITHUB</a></button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
     </div>
+    <mat-divider></mat-divider>
+
+    <!-- Databases -->
+    <div class="sub-topic">
+      <div class="sub-title">Databases</div>
+      <div class="sub-title-description">
+        A database is an organized collection of structured information, or
+        data, typically stored electronically in a computer system.
+      </div>
+      <div class="cards-container">
+        <mat-card class="card" *ngFor="let topic of databases">
+          <mat-card-header (click)="onCardClick(topic.page)">
+            <div mat-card-avatar>
+              <img
+                class="avatar"
+                [src]="topic.imageSrc"
+                alt="language icon"
+                aria-hidden="true"
+              />
+            </div>
+            <mat-card-title>{{ topic.title }}</mat-card-title>
+            <mat-card-subtitle>{{ topic.subTitle }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content (click)="onCardClick(topic.page)">
+            {{ topic.description }}
+          </mat-card-content>
+          <mat-card-actions>
+            <!-- <button mat-button>FAV</button> -->
+            <button mat-button><a target="_blank" [href]="topic.github">GITHUB</a></button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+
+    <!-- Utilities -->
+    <div class="sub-topic">
+      <div class="sub-title">Utilities</div>
+      <div class="sub-title-description">
+        Utilities that help maintain code and make programming convenient.
+      </div>
+      <div class="cards-container">
+        <mat-card class="card" *ngFor="let topic of utilities">
+          <mat-card-header (click)="onCardClick(topic.page)">
+            <div mat-card-avatar>
+              <img
+                class="avatar"
+                [src]="topic.imageSrc"
+                alt="language icon"
+                aria-hidden="true"
+              />
+            </div>
+            <mat-card-title>{{ topic.title }}</mat-card-title>
+            <mat-card-subtitle>{{ topic.subTitle }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content (click)="onCardClick(topic.page)">
+            {{ topic.description }}
+          </mat-card-content>
+          <mat-card-actions>
+            <!-- <button mat-button>FAV</button> -->
+            <button mat-button><a target="_blank" [href]="topic.github">GITHUB</a></button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+
+    <!-- Topic container end -->
   </div>
+
+  <mat-divider></mat-divider>
+  <!-- Icons Credit -->
+  <br />
   <div>
-    Language Avatar Images used on this page were downloaded from 
-    <strong><a target="_blank" href="https://icons8.com">icon8.com</a></strong>.
+    Language Avatar Images used on this page were downloaded from
+    <strong><a target="_blank" href="https://icons8.com">icon8.com</a></strong
+    >.
   </div>
 </div>
