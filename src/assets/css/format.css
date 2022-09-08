@@ -186,7 +186,7 @@ svg{
   z-index: 10;
 }
 
-/* .disable-element-scroll-y {
+.disable-element-scroll-y {
   height: 100%;
   overflow-y: hidden;
   background-color: brown;
@@ -195,4 +195,4 @@ svg{
 .disable-element-scroll-x {
   width: 100%;
   overflow-x: hidden;
-} */
+}

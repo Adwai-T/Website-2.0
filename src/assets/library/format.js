@@ -1,9 +1,15 @@
-//Formate Html add to all html
+//Format Html add to all html
+
+//Select Elements
 const root = document.documentElement;
+const body = document.getElementsByTagName('body')[0];
 const container = document.getElementById("container");
 const content = document.getElementById("content");
+const index = document.getElementById("index");
+const indexList = document.getElementById("index-list");
 
 //--- Origin for window messages
+const localOrigin = "http://localhost:4200/";//dev
 const productionOrigin = "https://adwait.in/";//prod
 
 // --- Add Formate css and highlighter.js
@@ -14,8 +20,6 @@ document.head.appendChild(formatCss);
 
 hljs.highlightAll();
 
-// -- Move index to right
-const index = document.getElementById("index");
 // - set initial value to visible
 index.style.visibility = "visible";
 
@@ -38,7 +42,6 @@ indexDownButton.innerHTML =
 index.appendChild(indexUpButton);
 index.appendChild(indexDownButton);
 
-const indexList = document.getElementById("index-list");
 let indexBoundingBox = indexList.getClientRects();
 
 // -- Index visibility
@@ -78,19 +81,11 @@ const getIndexScrollPercentage = function () {
   return indexScrolledPercentage;
 }
 
-const disableScrollingForElement = function (element) {
-  // Get the current page scroll position
-  scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
-  
-  // if any scroll is attempted,
-  // set this to the previous value
-  window.onscroll = function() {
-      window.scrollTo(scrollLeft, scrollTop);
-  };
+const disableElementScrolling = function (element) {
+  element.classList.add('disable-element-scroll-y');
 }
-const enableScrollingForElement = function (element) {
-  window.onscroll = function() {};
+const enableElementScrolling = function (element) {
+  element.classList.remove('disable-element-scroll-y');
 }
 
 const indexScrollUp = function (speed) {
@@ -124,21 +119,21 @@ indexDownButton.onclick = function (e) {
 let isMouseOverIndex = false;
 
 indexList.onmouseover = function (e) {
+  disableElementScrolling(body);
   isMouseOverIndex = true;
 }
 indexList.onmouseleave = function (e) {
   isMouseOverIndex = false;
+  enableElementScrolling(body);
 }
 
 index.onwheel = function (e) {
-  disableScrollingForElement(content);
   if(isMouseOverIndex && e.deltaY == 100) {
     indexScrollDown(indexScrollSpeed);
   }
   else {
     indexScrollUp(indexScrollSpeed);
   }
-  enableScrollingForElement(content);
 }
 
 //-- Add index scrollbar
@@ -187,6 +182,7 @@ function onThemeChange() {
     document.head.appendChild(darkThemeCodeCss);
     applyDarkThemeColors();
     localStorage.setItem('theme', 'dark');
+    window.top.postMessage("iframe-dark-theme", localOrigin);
     window.top.postMessage("iframe-dark-theme", productionOrigin)
   } else {
     themeMode = "light";
@@ -195,6 +191,7 @@ function onThemeChange() {
     document.head.appendChild(lightThemeCodeCss);
     applyLightThemeColors();
     localStorage.setItem('theme', 'light');
+    window.top.postMessage("iframe-light-theme", localOrigin);
     window.top.postMessage("iframe-light-theme", productionOrigin);
   }
 }
@@ -239,10 +236,16 @@ function copyToClipBoardAttachButtons () {
 }
 copyToClipBoardAttachButtons();
 
-//--- Resize the index on mobile devices
+//--- Mobile specific
 if(screen.availWidth < 768) {
+  //- Resize the index on mobile devices
   indexList.style.minHeight = window.innerHeight;
   indexList.style.minWidth = window.innerWidth;
+
+  //- Click on index element to hide index on phone
+  indexList.onclick = function (e) {
+    hideIndex();
+  }
 }
 
 // --- Notification
@@ -252,7 +255,4 @@ notificationContainer.id = "notification-container";
 container.appendChild(notificationContainer);
 
 const addNotification = function (message, time) {
-  
 }
-
-
