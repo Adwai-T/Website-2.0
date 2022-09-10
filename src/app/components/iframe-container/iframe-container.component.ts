@@ -44,7 +44,8 @@ export class IframeContainerComponent implements OnDestroy {
   }
 
   loadPage(page: Page): void {
-    this.url = this.loadFileService.getSanitizedResourceUrl(page.html);
+    this.url = this.loadFileService.getSanitizedResourceUrl(page.html + this.pageService.getNavFragment());
+    console.log(this.url)
     this.navbarService.changeTitle(page.title);
 
     let navLinkStart = '';
@@ -60,14 +61,12 @@ export class IframeContainerComponent implements OnDestroy {
 
   @HostListener('window:popstate', ['$event'])
   onPopState(event:Event) {
-    //console.log('Back button pressed');
-
     let currentUrl = this.navbarService.getCurrentUrl();
     if(currentUrl === '/iframe') {
-      console.log(this.navbarService.getCurrentParentUrl());
+      // console.log(this.navbarService.getCurrentParentUrl());
       this.navbarService.routerService().navigateByUrl(
         '/'
-        );
+      );
     }
   }
 

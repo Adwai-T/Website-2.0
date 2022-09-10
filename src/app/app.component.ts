@@ -20,9 +20,11 @@ import { AccountService, AuthConfirmation } from './services/account.service';
 import { CookiesService } from './services/cookies.service';
 import { ErrorsService, Error } from './services/errors.service';
 import { NavBarService } from './services/nav-bar.service';
+import { SearchService } from './services/search.service';
 import { ThemeService } from './services/theme.service';
 import { WindowService } from './services/window.service';
 import { ScratchpadDialogBoxComponent } from './shared/scratchpad-dialog-box/scratchpad-dialog-box.component';
+import { SearchResultDialogComponent } from './shared/search-result-dialog/search-result-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -48,21 +50,24 @@ export class AppComponent implements OnInit, OnDestroy {
   private errorHorizontalPostion: MatSnackBarHorizontalPosition = 'right';
   private errorVerticalPostion: MatSnackBarVerticalPosition = 'bottom';
 
+  //Subscriptions
   private titleEventSubscription: Subscription;
+  private searchEventSubscription: Subscription;
   private errorsEventSubscription: Subscription;
   private appContentOverflowYSubscription: Subscription;
   private accountLoginEventSubscription: Subscription;
 
   constructor(
     //Created Services
+    private dialogService: MatDialog,
+    private matSnackBarError: MatSnackBar,
     private navBarService: NavBarService,
     private errorsService: ErrorsService,
     private windowService: WindowService,
     private theme: ThemeService,
-    private matSnackBarError: MatSnackBar,
     private cookiesService: CookiesService,
     private accountService: AccountService,
-    private notesDialog: MatDialog,
+    private searchService: SearchService
   ) {
     this.windowSize.x = window.innerWidth;
     this.windowSize.y = window.innerHeight;
@@ -72,6 +77,17 @@ export class AppComponent implements OnInit, OnDestroy {
 
     this.titleEventSubscription = navBarService.titleEvent.subscribe(
       (title: string) => (this.title = title)
+    );
+
+    this.searchEventSubscription = searchService.search.subscribe(
+      (searchString:string) => {
+        this.onSearch(searchString);
+      },
+      (error: any) => {
+//--> logging error
+        console.log(error);
+      },
+      () => {}
     );
 
     this.errorsEventSubscription = errorsService.errorsEvent.subscribe(
@@ -96,30 +112,45 @@ export class AppComponent implements OnInit, OnDestroy {
         (overflowType: string) => (this.appContentOverflowY = overflowType)
       );
 
-      this.accountLoginEventSubscription = 
-        accountService.loginEvent.subscribe(
-          (auth:AuthConfirmation) => {
-            this.userLoggedIn = true;
-          },
-          
-          (error:Error) => {console.log(error.message)}
-        );
+    this.accountLoginEventSubscription = accountService.loginEvent.subscribe(
+      (auth: AuthConfirmation) => {
+        this.userLoggedIn = true;
+      },
+
+      (error: Error) => {
+        console.log(error.message);
+      }
+    );
   }
 
   ngOnInit(): void {
     this.theme.setSideNavEl(this.sideNav);
-    if(this.cookiesService.getCookie('jwt')) {
+    if (this.cookiesService.getCookie('jwt')) {
       this.userLoggedIn = true;
     }
   }
 
-  public onOpenNotesDialog() {
-    const notesDialogRef = this.notesDialog.open(ScratchpadDialogBoxComponent, 
+  public onSearch(searchString:string) {
+    const searchDialogRef = this.dialogService.open(
+      SearchResultDialogComponent,
       {
+        id: 'searchDialog',
+        minHeight: '400px',
+        minWidth: '400px',
+      }
+    );
+  }
+
+  public onOpenNotesDialog() {
+    const notesDialogRef = this.dialogService.open(
+      ScratchpadDialogBoxComponent,
+      {
+        id: 'notesDialog',
         minHeight: '400px',
         minWidth: '400px',
         // disableClose: true,
-      });
+      }
+    );
   }
 
   @HostListener('window:resize')
@@ -133,10 +164,9 @@ export class AppComponent implements OnInit, OnDestroy {
   private checkAndSetNavBarSize(): void {
     if (this.windowSize.x < this.mobileScreenSize) {
       this.isDesktop = false;
-    }
-    else {
+    } else {
       this.isDesktop = true;
-    } 
+    }
   }
 
   public logoutUser(): void {
@@ -147,7 +177,7 @@ export class AppComponent implements OnInit, OnDestroy {
   // ---- When theme in articles is changed the side nav reacts accordingly
   @HostListener('window:message', ['$event'])
   onThemeChange(e: any): void {
-    //-- origin gives the domain the message comes from. 
+    //-- origin gives the domain the message comes from.
     // Eg in test origin === http://localhost:4200
     if (e.origin === origin) {
       if (typeof e.data !== 'string') return;
@@ -167,5 +197,6 @@ export class AppComponent implements OnInit, OnDestroy {
     this.errorsEventSubscription.unsubscribe();
     this.titleEventSubscription.unsubscribe();
     this.appContentOverflowYSubscription.unsubscribe();
+    this.searchEventSubscription.unsubscribe();
   }
 }

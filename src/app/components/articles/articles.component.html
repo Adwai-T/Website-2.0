@@ -19,7 +19,7 @@
       </div>
       <div class="cards-container">
         <mat-card class="card" *ngFor="let topic of frontDev">
-          <mat-card-header (click)="onCardClick(topic.page)">
+          <mat-card-header (click)="onCardClick(topic.page, '')">
             <div mat-card-avatar>
               <img
                 class="avatar"
@@ -31,7 +31,7 @@
             <mat-card-title>{{ topic.title }}</mat-card-title>
             <mat-card-subtitle>{{ topic.subTitle }}</mat-card-subtitle>
           </mat-card-header>
-          <mat-card-content (click)="onCardClick(topic.page)">
+          <mat-card-content (click)="onCardClick(topic.page, '')">
             {{ topic.description }}
           </mat-card-content>
           <mat-card-actions>
@@ -58,7 +58,7 @@
       </div>
       <div class="cards-container">
         <mat-card class="card" *ngFor="let topic of backDev">
-          <mat-card-header (click)="onCardClick(topic.page)">
+          <mat-card-header (click)="onCardClick(topic.page, '')">
             <div mat-card-avatar>
               <img
                 class="avatar"
@@ -70,7 +70,7 @@
             <mat-card-title>{{ topic.title }}</mat-card-title>
             <mat-card-subtitle>{{ topic.subTitle }}</mat-card-subtitle>
           </mat-card-header>
-          <mat-card-content (click)="onCardClick(topic.page)">
+          <mat-card-content (click)="onCardClick(topic.page, '')">
             {{ topic.description }}
           </mat-card-content>
           <mat-card-actions>
@@ -119,7 +119,7 @@
       <div class="sub-title-description">Programming Languages</div>
       <div class="cards-container">
         <mat-card class="card" *ngFor="let topic of languages">
-          <mat-card-header (click)="onCardClick(topic.page)">
+          <mat-card-header (click)="onCardClick(topic.page, '')">
             <div mat-card-avatar>
               <img
                 class="avatar"
@@ -131,7 +131,7 @@
             <mat-card-title>{{ topic.title }}</mat-card-title>
             <mat-card-subtitle>{{ topic.subTitle }}</mat-card-subtitle>
           </mat-card-header>
-          <mat-card-content (click)="onCardClick(topic.page)">
+          <mat-card-content (click)="onCardClick(topic.page, '')">
             {{ topic.description }}
           </mat-card-content>
           <mat-card-actions>
@@ -152,7 +152,7 @@
       </div>
       <div class="cards-container">
         <mat-card class="card" *ngFor="let topic of databases">
-          <mat-card-header (click)="onCardClick(topic.page)">
+          <mat-card-header (click)="onCardClick(topic.page, '')">
             <div mat-card-avatar>
               <img
                 class="avatar"
@@ -164,7 +164,7 @@
             <mat-card-title>{{ topic.title }}</mat-card-title>
             <mat-card-subtitle>{{ topic.subTitle }}</mat-card-subtitle>
           </mat-card-header>
-          <mat-card-content (click)="onCardClick(topic.page)">
+          <mat-card-content (click)="onCardClick(topic.page, '')">
             {{ topic.description }}
           </mat-card-content>
           <mat-card-actions>
@@ -184,7 +184,7 @@
       </div>
       <div class="cards-container">
         <mat-card class="card" *ngFor="let topic of utilities">
-          <mat-card-header (click)="onCardClick(topic.page)">
+          <mat-card-header (click)="onCardClick(topic.page, '')">
             <div mat-card-avatar>
               <img
                 class="avatar"
@@ -196,7 +196,7 @@
             <mat-card-title>{{ topic.title }}</mat-card-title>
             <mat-card-subtitle>{{ topic.subTitle }}</mat-card-subtitle>
           </mat-card-header>
-          <mat-card-content (click)="onCardClick(topic.page)">
+          <mat-card-content (click)="onCardClick(topic.page, '')">
             {{ topic.description }}
           </mat-card-content>
           <mat-card-actions>

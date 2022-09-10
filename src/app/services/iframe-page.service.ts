@@ -8,13 +8,15 @@ import { Page, Pages, PagesI } from '../objects/pages';
 export class IframePageService {
 
   private currentPage:Page;
+  private navFragment:string;
   private pages:PagesI = Pages; 
 
   public getPageUrlEvent:EventEmitter<Page> = new EventEmitter();
   
   constructor() {
-    this.currentPage = this.pages.angular;
-    this.setCurrentPage(this.pages.Cpp);
+    this.currentPage = this.pages.angular; //temp set currentPage to something
+    this.navFragment = '';
+    // this.setCurrentPage(this.pages.Cpp);
   }
 
   public setCurrentPage (page:Page):void {
@@ -24,5 +26,13 @@ export class IframePageService {
 
   public getCurrentPage ():Page {
     return this.currentPage;
+  }
+
+  public setNavFragment (fragment:string) :void{
+    this.navFragment = fragment;
+  }
+
+  public getNavFragment ():string {
+    return this.navFragment;
   }
 }

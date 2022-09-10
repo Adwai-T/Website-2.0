@@ -26,14 +26,23 @@ export class ArticlesComponent implements OnInit {
     //--- Navigate to the page directly according to url
     let url = this.router.url;
     let urlTree= this.router.parseUrl(url);
+    let fragment = '';
+    if (urlTree.fragment) 
+      fragment = '#' + urlTree.fragment;
     let segment = urlTree.root.children[PRIMARY_OUTLET].segments[1];
     if(segment) {
-      this.onCardClick(Pages[segment.path]);
+      this.onCardClick(Pages[segment.path], fragment);
     }
   }
 
-  public onCardClick(page: Page): void {
+  /**
+   * When cards are clicked the page is loaded in iframe and navigation is set.
+   * @param page Page to be loaded in iframe
+   * @param fragment ID of the section of the page to be loaded to eg #h2-1
+   */
+  public onCardClick(page: Page, fragment:string): void {
     this.iframe.setCurrentPage(page);
+    this.iframe.setNavFragment(fragment);
     this.router.navigate(['iframe']);
   }
 }
