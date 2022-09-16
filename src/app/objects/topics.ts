@@ -41,24 +41,23 @@ export const frontEndDev:Topic[] = [
     page: Pages.ajax,
     github: 'https://github.com/Adwai-T/Notes/blob/master/WebDevelopment/AsyncAwaitandPromises.md',
   },
-  {
-    title: 'HTML',
-    subTitle: 'web-dev',
-    imageSrc: 'assets/images/articles/languages/html.png',
-    description:
-      'Html is the Markup language used to format the pages of your website.',
-    page: Pages.html,
-    github: 'https://github.com/Adwai-T/Notes/blob/master/WebDevelopment/HTML.md',
-  },
-  {
-    title: 'CSS',
-    subTitle: 'web-dev',
-    imageSrc: 'assets/images/articles/languages/css.png',
-    description: 'CSS is used to style the pages of your website.',
-    page: Pages.css,
-    github: 'https://github.com/Adwai-T/Notes/blob/master/WebDevelopment/CSS.md',
-  },
-
+  // {
+  //   title: 'HTML',
+  //   subTitle: 'web-dev',
+  //   imageSrc: 'assets/images/articles/languages/html.png',
+  //   description:
+  //     'Html is the Markup language used to format the pages of your website.',
+  //   page: Pages.html,
+  //   github: 'https://github.com/Adwai-T/Notes/blob/master/WebDevelopment/HTML.md',
+  // },
+  // {
+  //   title: 'CSS',
+  //   subTitle: 'web-dev',
+  //   imageSrc: 'assets/images/articles/languages/css.png',
+  //   description: 'CSS is used to style the pages of your website.',
+  //   page: Pages.css,
+  //   github: 'https://github.com/Adwai-T/Notes/blob/master/WebDevelopment/CSS.md',
+  // },
   // {
   //   title:'',
   //   subTitle: '',

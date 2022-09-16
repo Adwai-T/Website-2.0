@@ -45,7 +45,6 @@ export class IframeContainerComponent implements OnDestroy {
 
   loadPage(page: Page): void {
     this.url = this.loadFileService.getSanitizedResourceUrl(page.html + this.pageService.getNavFragment());
-    console.log(this.url)
     this.navbarService.changeTitle(page.title);
 
     let navLinkStart = '';

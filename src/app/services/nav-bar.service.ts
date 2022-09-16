@@ -1,5 +1,5 @@
 import { Location } from '@angular/common';
-import { EventEmitter, Injectable } from '@angular/core';
+import { EventEmitter, HostListener, Injectable } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 
@@ -39,11 +39,17 @@ export class NavBarService {
   public getTitle(): string {
     return this.title;
   }
-
+  
+  /**
+   * @returns Returns the current parent url in the angular router.
+   */
   public getCurrentParentUrl() :string {
     return this.currentParentUrl;
   }
 
+  /**
+   * @returns Returns current Url according to angular router 
+   */
   public getCurrentUrl():string {
     return this.router.url;
   }

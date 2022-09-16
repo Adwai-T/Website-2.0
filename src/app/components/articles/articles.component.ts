@@ -19,10 +19,17 @@ export class ArticlesComponent implements OnInit {
 
   constructor(
     private iframe: IframePageService, 
-    private router: Router
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
+    // console.log('Articles Component Init');
+    // console.log(window.location.href);
+    // console.log(this.router.url);
+    this.checkUrlAndSetNavigationInformation();
+  }
+
+  private checkUrlAndSetNavigationInformation():void {
     //--- Navigate to the page directly according to url
     let url = this.router.url;
     let urlTree= this.router.parseUrl(url);

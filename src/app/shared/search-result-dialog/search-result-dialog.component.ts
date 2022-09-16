@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-result-dialog',
@@ -8,8 +9,15 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class SearchResultDialogComponent implements OnInit {
 
-  constructor(public searchDialogRef: MatDialogRef<SearchResultDialogComponent>) { 
+  constructor(
+    public searchDialogRef: MatDialogRef<SearchResultDialogComponent>,
+    public router : Router
+    ) { 
   }
 
   ngOnInit(): void { }
+
+  linkClick() {
+    this.router.navigateByUrl('/notes/angular#h2-3');
+  }
 }
