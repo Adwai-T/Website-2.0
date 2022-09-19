@@ -8,13 +8,11 @@ import { MatMenuModule } from '@angular/material/menu';
 
 import { ScratchPadComponent } from './scratch-pad/scratch-pad.component';
 import { ScratchpadDialogBoxComponent } from './scratchpad-dialog-box/scratchpad-dialog-box.component';
-import { SearchResultDialogComponent } from './search-result-dialog/search-result-dialog.component';
 
 @NgModule({
   declarations: [
     ScratchPadComponent,
     ScratchpadDialogBoxComponent,
-    SearchResultDialogComponent,
   ],
   imports: [
     CommonModule,

@@ -8,6 +8,7 @@ import {
 import { SafeResourceUrl } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
 import { Page } from 'src/app/objects/pages';
+import { ErrorsService } from 'src/app/services/errors.service';
 import { FilesService } from 'src/app/services/files.service';
 import { IframePageService } from 'src/app/services/iframe-page.service';
 import { NavBarService } from 'src/app/services/nav-bar.service';
@@ -35,6 +36,7 @@ export class IframeContainerComponent implements OnDestroy {
     private windowService: WindowService,
     private pageService: IframePageService,
     private themeService: ThemeService,
+    private errorService: ErrorsService,
   ) {
     this.loadPage(pageService.getCurrentPage());
     this.windowService.setAppContentOverflowY('hidden');
@@ -43,7 +45,11 @@ export class IframeContainerComponent implements OnDestroy {
     });
   }
 
-  loadPage(page: Page): void {
+  private loadPage(page: Page): void {
+    if(!page) {
+      this.errorService.addError({message: 'Sorry, Page is no longer available.', code: 0})
+      return;
+    }
     this.url = this.loadFileService.getSanitizedResourceUrl(page.html + this.pageService.getNavFragment());
     this.navbarService.changeTitle(page.title);
 
@@ -62,7 +68,6 @@ export class IframeContainerComponent implements OnDestroy {
   onPopState(event:Event) {
     let currentUrl = this.navbarService.getCurrentUrl();
     if(currentUrl === '/iframe') {
-      // console.log(this.navbarService.getCurrentParentUrl());
       this.navbarService.routerService().navigateByUrl(
         '/'
       );

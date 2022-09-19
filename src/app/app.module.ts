@@ -24,6 +24,7 @@ import { ArticlesComponent } from './components/articles/articles.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { SearchResultDialogComponent } from './components/search-result-dialog/search-result-dialog.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ContactComponent } from './components/contact/contact.component';
     ProjectsComponent,
     AboutComponent,
     ContactComponent,
+    SearchResultDialogComponent,
   ],
   imports: [
     BrowserModule,

@@ -105,7 +105,6 @@ export function loadFile(src) {
     xhttp.send();
     xhttp.onreadystatechange = function () {
       if (xhttp.readyState === XMLHttpRequest.DONE) {
-        console.log("resolve");
         return resolve(xhttp.response);
       }
     };
@@ -317,9 +316,7 @@ export class Vector2i {
 
   getReflectionVector(normal) {
     let projectVector = this.getProjectionVector(normal);
-    console.log(projectVector);
     projectVector.scaleVector(2);
-    console.log(projectVector);
     // return this.getSubtractionVector(projectVector);
     return projectVector.getSubtractionVector(this);
   }

@@ -1,0 +1,22 @@
+<div id="search-result-container">
+  <div id="title">Search Results</div>
+
+  <mat-divider></mat-divider>
+
+  <div id="main">
+    <div *ngFor="let result of searchResultMain" class="result">
+      <div (click)="goTo(result.href)">{{result.linkText | titlecase}}</div> 
+    </div>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div id="other">
+    <div>Other Results</div> 
+    <div *ngFor="let result of searchResultOther" class="result">
+      <div (click)="goTo(result.href)">{{result.linkText | titlecase}}</div> 
+    </div>
+  </div>
+
+  <button mat-button mat-dialog-close>Close</button>
+</div>

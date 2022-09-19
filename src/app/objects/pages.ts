@@ -17,7 +17,13 @@ export interface PagesI{
 }
 
 /*
- Important : Key of page and title of the page should be the same for proper navigation,
+ Important : 
+
+ Name of the html page and the key for that page should be same.
+ Page names are used to create links in index file and for direct
+ navigation to that page.
+ 
+ Key of page and title of the page should be the same for proper navigation,
  when the page is reloaded or navigate directly to that page.
  The first letter of the Title can be capitalized and there can be any number of spaces.
 
@@ -64,8 +70,8 @@ export const Pages:PagesI = {
     html: 'assets/pages/htmlonly/java.html',
     navLinkStart: 'notes',
   },
-  javaspring : {
-    title: 'Java Spring',
+  spring : {
+    title: 'Spring',
     html: 'assets/pages/htmlonly/spring.html',
     navLinkStart: 'notes',
   },

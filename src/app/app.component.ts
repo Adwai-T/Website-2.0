@@ -6,7 +6,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { DialogPosition, MatDialog } from '@angular/material/dialog';
 import { MatDrawer, MatDrawerContainer } from '@angular/material/sidenav';
 import {
   MatSnackBar,
@@ -23,8 +23,8 @@ import { NavBarService } from './services/nav-bar.service';
 import { SearchService } from './services/search.service';
 import { ThemeService } from './services/theme.service';
 import { WindowService } from './services/window.service';
+import { SearchResultDialogComponent } from './components/search-result-dialog/search-result-dialog.component';
 import { ScratchpadDialogBoxComponent } from './shared/scratchpad-dialog-box/scratchpad-dialog-box.component';
-import { SearchResultDialogComponent } from './shared/search-result-dialog/search-result-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -79,13 +79,12 @@ export class AppComponent implements OnInit, OnDestroy {
       (title: string) => (this.title = title)
     );
 
-    this.searchEventSubscription = searchService.search.subscribe(
-      (searchString:string) => {
-        this.onSearch(searchString);
+    this.searchEventSubscription = searchService.searchEvent.subscribe(
+      (openDialog:boolean) => {
+        if(openDialog) { this.onSearch(); }
       },
       (error: any) => {
 //--> logging error
-        console.log(error);
       },
       () => {}
     );
@@ -118,7 +117,7 @@ export class AppComponent implements OnInit, OnDestroy {
       },
 
       (error: Error) => {
-        console.log(error.message);
+//-- log errors
       }
     );
   }
@@ -130,13 +129,13 @@ export class AppComponent implements OnInit, OnDestroy {
     }
   }
 
-  public onSearch(searchString:string) {
+  public onSearch() {
     const searchDialogRef = this.dialogService.open(
       SearchResultDialogComponent,
       {
         id: 'searchDialog',
-        minHeight: '400px',
-        minWidth: '400px',
+        minHeight: '100px',
+        minWidth: '100px',
       }
     );
   }

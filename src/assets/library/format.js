@@ -182,8 +182,11 @@ function onThemeChange() {
     document.head.appendChild(darkThemeCodeCss);
     applyDarkThemeColors();
     localStorage.setItem('theme', 'dark');
-    window.top.postMessage("iframe-dark-theme", localOrigin);
-    window.top.postMessage("iframe-dark-theme", productionOrigin)
+    if(window.location.href.includes('localhost')) {
+      window.top.postMessage("iframe-dark-theme", localOrigin);
+    } else {
+      window.top.postMessage("iframe-dark-theme", productionOrigin);
+    }
   } else {
     themeMode = "light";
     themeSwitchToggle.style.left = boundingRectToggle[0].left - 25 + "px";
@@ -191,8 +194,11 @@ function onThemeChange() {
     document.head.appendChild(lightThemeCodeCss);
     applyLightThemeColors();
     localStorage.setItem('theme', 'light');
-    window.top.postMessage("iframe-light-theme", localOrigin);
-    window.top.postMessage("iframe-light-theme", productionOrigin);
+    if(window.location.href.includes('localhost')) {
+      window.top.postMessage("iframe-light-theme", localOrigin);
+    } else {
+      window.top.postMessage("iframe-light-theme", productionOrigin);
+    }
   }
 }
 onThemeChange();

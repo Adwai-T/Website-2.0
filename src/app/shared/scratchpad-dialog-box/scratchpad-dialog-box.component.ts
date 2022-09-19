@@ -34,6 +34,5 @@ export class ScratchpadDialogBoxComponent implements OnInit {
       position: position,
       id: 'scratchPadTemp'
     }
-    console.log(this.openScratchPad);
   }
 }
