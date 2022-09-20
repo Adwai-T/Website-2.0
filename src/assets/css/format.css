@@ -38,7 +38,7 @@
 #indexDown{
   position: fixed;
   right: 80px;
-  bottom: 20px;
+  bottom: 80px;
   z-index: 6;
 }
 .index-li-h2{

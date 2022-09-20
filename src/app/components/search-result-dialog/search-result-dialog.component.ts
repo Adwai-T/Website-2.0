@@ -8,6 +8,7 @@ import {
   searchResultObject,
   SearchService,
 } from 'src/app/services/search.service';
+import { SidenavService } from 'src/app/services/sidenav.service';
 
 @Component({
   selector: 'app-search-result-dialog',
@@ -23,7 +24,8 @@ export class SearchResultDialogComponent implements OnInit, OnDestroy {
   constructor(
     public searchDialogRef: MatDialogRef<SearchResultDialogComponent>,
     public router: Router,
-    public searchService: SearchService
+    public searchService: SearchService,
+    public sidenavService: SidenavService,
   ) {
     this.searchResultSubscription = this.searchService.searchEvent.subscribe(
       (searchChange:boolean) => {
@@ -41,6 +43,9 @@ export class SearchResultDialogComponent implements OnInit, OnDestroy {
   }
 
   public goTo(link:string) {
+    if(!this.sidenavService.isDesktop()) {
+      this.sidenavService.sideNavClose();
+    }
     this.router.navigateByUrl('/notes/' + link);
   }
 

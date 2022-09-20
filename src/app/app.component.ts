@@ -25,6 +25,7 @@ import { ThemeService } from './services/theme.service';
 import { WindowService } from './services/window.service';
 import { SearchResultDialogComponent } from './components/search-result-dialog/search-result-dialog.component';
 import { ScratchpadDialogBoxComponent } from './shared/scratchpad-dialog-box/scratchpad-dialog-box.component';
+import { SidenavService } from './services/sidenav.service';
 
 @Component({
   selector: 'app-root',
@@ -56,6 +57,7 @@ export class AppComponent implements OnInit, OnDestroy {
   private errorsEventSubscription: Subscription;
   private appContentOverflowYSubscription: Subscription;
   private accountLoginEventSubscription: Subscription;
+  private sideNavEventSubscription: Subscription;
 
   constructor(
     //Created Services
@@ -67,7 +69,8 @@ export class AppComponent implements OnInit, OnDestroy {
     private theme: ThemeService,
     private cookiesService: CookiesService,
     private accountService: AccountService,
-    private searchService: SearchService
+    private searchService: SearchService,
+    private sidenavService: SidenavService,
   ) {
     this.windowSize.x = window.innerWidth;
     this.windowSize.y = window.innerHeight;
@@ -78,6 +81,16 @@ export class AppComponent implements OnInit, OnDestroy {
     this.titleEventSubscription = navBarService.titleEvent.subscribe(
       (title: string) => (this.title = title)
     );
+
+    this.sideNavEventSubscription = sidenavService.sideNavToggle.subscribe(
+      (toggle:string) => {
+        if(toggle === 'open') {
+          this.matDrawer.open();
+        } else if(toggle === 'close') {
+          this.matDrawer.close();
+        } else {}
+      }
+    )
 
     this.searchEventSubscription = searchService.searchEvent.subscribe(
       (openDialog:boolean) => {
@@ -163,8 +176,10 @@ export class AppComponent implements OnInit, OnDestroy {
   private checkAndSetNavBarSize(): void {
     if (this.windowSize.x < this.mobileScreenSize) {
       this.isDesktop = false;
+      this.sidenavService.setIsDesktopMode(false);
     } else {
       this.isDesktop = true;
+      this.sidenavService.setIsDesktopMode(true);
     }
   }
 
@@ -197,5 +212,6 @@ export class AppComponent implements OnInit, OnDestroy {
     this.titleEventSubscription.unsubscribe();
     this.appContentOverflowYSubscription.unsubscribe();
     this.searchEventSubscription.unsubscribe();
+    this.sideNavEventSubscription.unsubscribe();
   }
 }

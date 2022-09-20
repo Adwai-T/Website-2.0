@@ -44,12 +44,8 @@ export class ArticlesComponent implements OnInit, OnDestroy {
           this.checkUrlAndSetNavigationInformation();
         }
       },
-      (err) => {
-        console.log('Error', err);
-      },
-      () => {
-        console.log('Completed');
-      }
+      (err) => {},
+      () => {}
     )
   }
 

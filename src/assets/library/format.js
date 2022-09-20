@@ -21,7 +21,7 @@ document.head.appendChild(formatCss);
 hljs.highlightAll();
 
 // - set initial value to visible
-index.style.visibility = "visible";
+index.style.visibility = "hidden";
 
 const indexToggle = document.createElement("button");
 indexToggle.id = "index-toggle";
@@ -251,6 +251,7 @@ if(screen.availWidth < 768) {
   //- Click on index element to hide index on phone
   indexList.onclick = function (e) {
     hideIndex();
+    enableElementScrolling(body);
   }
 }
 
