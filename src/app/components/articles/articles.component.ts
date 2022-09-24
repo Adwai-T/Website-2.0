@@ -1,17 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NavigationEnd, PRIMARY_OUTLET, Router } from '@angular/router';
 import { Page, Pages } from 'src/app/objects/pages';
-import {
-  backEndDev,
-  databases,
-  frontEndDev,
-  languages,
-  salesforce,
-  Topic,
-  utilities,
-} from 'src/app/objects/topics';
 import { IframePageService } from 'src/app/services/iframe-page.service';
 import { Subscription } from 'rxjs';
+import { Section, Sections } from 'src/app/objects/main-topics';
 
 @Component({
   selector: 'app-articles',
@@ -22,12 +14,8 @@ import { Subscription } from 'rxjs';
   ],
 })
 export class ArticlesComponent implements OnInit, OnDestroy {
-  public frontDev: Topic[] = frontEndDev;
-  public backDev: Topic[] = backEndDev;
-  public salesforce: Topic[] = salesforce;
-  public languages: Topic[] = languages;
-  public databases: Topic[] = databases;
-  public utilities: Topic[] = utilities;
+
+  public sections:Section[] = Sections;
 
   private routerEventSubscription: Subscription;
 

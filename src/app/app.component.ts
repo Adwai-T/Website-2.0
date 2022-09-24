@@ -6,7 +6,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { DialogPosition, MatDialog } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { MatDrawer, MatDrawerContainer } from '@angular/material/sidenav';
 import {
   MatSnackBar,
@@ -39,6 +39,7 @@ export class AppComponent implements OnInit, OnDestroy {
   @ViewChild('sideNav', { static: true }) private sideNav!: ElementRef;
 
   public isDesktop: boolean = true;
+  public sideNavMode: 'side'|'over' = 'side';
   public title: string = '';
   public searchBarValue = '';
   public appContentOverflowY: string = 'auto';
@@ -176,9 +177,11 @@ export class AppComponent implements OnInit, OnDestroy {
   private checkAndSetNavBarSize(): void {
     if (this.windowSize.x < this.mobileScreenSize) {
       this.isDesktop = false;
+      this.sideNavMode = 'over';
       this.sidenavService.setIsDesktopMode(false);
     } else {
       this.isDesktop = true;
+      this.sideNavMode = 'side';
       this.sidenavService.setIsDesktopMode(true);
     }
   }

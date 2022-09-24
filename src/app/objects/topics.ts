@@ -10,7 +10,9 @@ export interface Topic {
   imageSrc: string;
   description: string;
   page: Page;
-  github?: string; 
+  github?: string;
+  isDemo?:boolean;
+  canFav?:boolean;
 }
 
 export const frontEndDev:Topic[] = [
@@ -254,25 +256,37 @@ export const projects: Topic[] = [
   {
     title:'Md To Html',
     subTitle: 'utility',
-    imageSrc: 'assets/images/articles/languages/javascript.png',
+    imageSrc: 'assets/images/articles/languages/mdtohtml.png',
     description: 'Converts Markdown used on github or bit bucket pages to Html page.',
     page: Pages.mdtohtml,
     github: 'https://github.com/Adwai-T/md-to-html',
+    isDemo: true,
+  },
+  {
+    title: 'Steam Trade Bot',
+    subTitle: 'Bot',
+    imageSrc: 'assets/images/articles/languages/bot.png',
+    page: Pages.none,
+    description: 'Steam trade bot implemented in Java.',
+    github: 'https://github.com/Adwai-T/JavaSteam',
+    isDemo: false,
   },
   {
     title:'Canvas Helper',
     subTitle: 'html canvas',
-    imageSrc: 'assets/images/articles/languages/javascript.png',
+    imageSrc: 'assets/images/articles/languages/canvas2.png',
     description: 'Helper library for html canvas, makes using canvas easier.',
     page: Pages.canvashelper,
     github: 'https://github.com/Adwai-T/CanvasHelper',
+    isDemo: true,
   },
   {
     title:'Canvas Helper Examples',
     subTitle: 'html canvas',
-    imageSrc: 'assets/images/articles/languages/javascript.png',
+    imageSrc: 'assets/images/articles/languages/canvas.png',
     description: 'Examples of Helper library for html canvas, makes using canvas easier.',
     page: Pages.canvashelperexamples,
     github: 'https://github.com/Adwai-T/CanvasHelper',
+    isDemo: true,
   },
 ]

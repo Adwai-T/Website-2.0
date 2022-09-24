@@ -3,3 +3,8 @@ export interface Vector{
   y:number;
   z?:number;
 }
+
+export interface ServerResponse {
+  code:number;
+  message:string;
+}

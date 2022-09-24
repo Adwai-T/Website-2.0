@@ -20,6 +20,7 @@
         {{ topic.description }}
       </mat-card-content>
       <mat-card-actions>
+        <button mat-button (click)="onCardClick(topic.page)">DEMO</button>
         <button mat-button><a target="_blank" [href]="topic.github">GITHUB</a></button>
       </mat-card-actions>
     </mat-card>

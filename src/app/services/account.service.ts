@@ -34,7 +34,10 @@ export interface AuthError {
 })
 export class AccountService {
 
-  public loginEvent: EventEmitter<AuthConfirmation> = new EventEmitter<AuthConfirmation>()
+  public loginEvent: EventEmitter<AuthConfirmation> = new EventEmitter<AuthConfirmation>();
+  private loggedIn: boolean = false;
+  private admin: boolean = false;
+  private memeber: boolean = false;
 
   constructor(private http: HttpClient) { }
 
@@ -60,5 +63,26 @@ export class AccountService {
   
   public userWelcome() :Observable<string> {
     return this.http.get<string>(urls.account.user);
+  }
+
+  public isLoggedIn() :boolean{
+    return this.loggedIn;
+  }
+  public setLoggedIn(loggedIn:boolean) :void {
+    this.loggedIn = loggedIn
+  }
+
+  public isMember() :boolean {
+    return this.memeber;
+  }
+  public setMemeber(member:boolean) :void {
+    this.memeber = member;
+  }
+
+  public isAdmin() :boolean {
+    return this.admin;
+  }
+  public setAdmin(admin:boolean) :void {
+    this.admin = admin;
   }
 }

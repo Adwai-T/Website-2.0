@@ -1,7 +1,7 @@
 <mat-drawer-container id="app-container" autosize #container>
   <!-- Side Nav -->
   <mat-drawer
-    mode="side"
+    [mode]="sideNavMode"
     [opened]="isDesktop"
     [disableClose]="isDesktop"
     #matDrawer

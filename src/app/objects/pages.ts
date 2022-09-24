@@ -183,5 +183,12 @@ export const Pages:PagesI = {
     title : 'Canvas Helper Examples',
     html : 'assets/pages/withjs/canvas-helper/examplesjs/index.html',
     navLinkStart: 'projects',
+  },
+
+  //--- For topics that dont have pages just other resource links
+  none : {
+    title: '',
+    html: '',
+    navLinkStart: 'projects',
   }
 }

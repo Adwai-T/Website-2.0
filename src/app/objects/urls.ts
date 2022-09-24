@@ -1,5 +1,5 @@
-let baseUrl = 'http://localhost:8080/'; //---dev 
-// let baseUrl = 'http://adwait.in/'; //---prod 
+// let baseUrl = 'http://localhost:8080/'; //---dev 
+let baseUrl = 'https://adwait-website.herokuapp.com/'; //---prod 
 
 
 export const urls = {
@@ -18,5 +18,12 @@ export const urls = {
         save: baseUrl + 'notes/save',
         update: baseUrl + 'notes/save',
         delete: baseUrl + 'notes/delete',
+    },
+    contact: {
+        base: baseUrl+ 'contact',
+        send: baseUrl + 'contact/send',
+        getAllContacted: baseUrl + 'contact/filter/contacted',
+        getAll: baseUrl + 'contact/getAll',
+        delete: baseUrl + 'contact/delete',
     }
 }
