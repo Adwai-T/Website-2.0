@@ -1,31 +1,55 @@
 <div id="container">
+  <div class="title-container">
+    <img
+      class="avatar"
+      src="assets/images/articles/languages/stalker.png"
+      alt="language icon"
+      aria-hidden="true"
+    />
+    <div class="title">Projects</div>
+  </div>
+  <div id="title-description"></div>
 
-  <div id="web-dev">
-    <div class="title-container">
-      <img class="avatar" src="assets/images/articles/languages/stalker.png" alt="language icon" aria-hidden="true">
-      <div class="title">Projects</div>
-    </div>
-    <div id="title-description"></div>
+  <mat-divider></mat-divider>
 
   <div class="cards-container">
     <mat-card class="card" *ngFor="let topic of projects">
-      <mat-card-header (click)="onCardClick(topic.page)">
+      <mat-card-header (click)="onCardClick(topic.page, topic.isDemo)">
         <div mat-card-avatar>
-          <img class="avatar" [src]="topic.imageSrc" alt="language icon" aria-hidden="true">
+          <img
+            class="avatar"
+            [src]="topic.imageSrc"
+            alt="language icon"
+            aria-hidden="true"
+          />
         </div>
         <mat-card-title>{{ topic.title }}</mat-card-title>
         <mat-card-subtitle>{{ topic.subTitle }}</mat-card-subtitle>
       </mat-card-header>
-      <mat-card-content (click)="onCardClick(topic.page)">
+      <mat-card-content (click)="onCardClick(topic.page, topic.isDemo)">
         {{ topic.description }}
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button (click)="onCardClick(topic.page)">DEMO</button>
-        <button mat-button><a target="_blank" [href]="topic.github">GITHUB</a></button>
+        <button
+          *ngIf="topic.isDemo"
+          mat-button
+          (click)="onCardClick(topic.page, topic.isDemo)"
+        >
+          DEMO
+        </button>
+        <button mat-button>
+          <a target="_blank" *ngIf="topic.github" [href]="topic.github"
+            >GITHUB</a
+          >
+        </button>
       </mat-card-actions>
     </mat-card>
   </div>
-  <div>
-    Language Avatar Images used on this page were downloaded from <strong><a target="_blank" href="https://icons8.com">icon8.com</a></strong>.
+
+  <mat-divider></mat-divider>
+  <div class="footer">
+    Language Avatar Images used on this page were downloaded from
+    <strong><a target="_blank" href="https://icons8.com">icon8.com</a></strong
+    >.
   </div>
 </div>

@@ -98,13 +98,38 @@ export const Pages:PagesI = {
 
   //- salesforce
   salesforceAdmin : {
-    title : 'Spring Security',
+    title : 'Salesforce Administrator',
     html: 'assets/pages/htmlonly/salesforceAdmin.html',
     navLinkStart: 'notes',
   },
   salesforceDev : {
-    title : 'Spring Security',
+    title : 'Salesforce Developer',
     html: 'assets/pages/htmlonly/salesforceDev.html',
+    navLinkStart: 'notes',
+  },
+  salesforceFlow : {
+    title : 'Salesforce Flow',
+    html: 'assets/pages/htmlonly/salesforceFlow.html',
+    navLinkStart: 'notes',
+  },
+  salesforceLWC : {
+    title : 'Salesforce LWC',
+    html: 'assets/pages/htmlonly/salesforceLWC.html',
+    navLinkStart: 'notes',
+  },
+  salesforceAura : {
+    title : 'Salesforce Aura Components',
+    html: 'assets/pages/htmlonly/salesforceAura.html',
+    navLinkStart: 'notes',
+  },
+  salesforceVisualforce : {
+    title : 'Salesforce Visualforce Pages',
+    html: 'assets/pages/htmlonly/salesforceVisualforce.html',
+    navLinkStart: 'notes',
+  },
+  salesforceIDEs : {
+    title : 'Salesforce IDEs',
+    html: 'assets/pages/htmlonly/salesforceIDEs.html',
     navLinkStart: 'notes',
   },
 
@@ -189,6 +214,6 @@ export const Pages:PagesI = {
   none : {
     title: '',
     html: '',
-    navLinkStart: 'projects',
+    navLinkStart: '',
   }
 }

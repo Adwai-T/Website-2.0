@@ -1,49 +1,47 @@
 <div id="container">
   <!-- Web Development -->
-  <div id="web-dev">
-    <div class="title-container">
-      <img
-        class="avatar"
-        src="assets/images/articles/languages/web.png"
-        alt="language icon"
-        aria-hidden="true"
-      />
-      <div class="title">Notes</div>
-    </div>
-    <div id="title-description"></div>
-    <mat-divider></mat-divider>
-    <div class="sub-topic" *ngFor="let section of sections">
-      <div class="sub-title">{{ section.title }}</div>
-      <div class="sub-title-description">{{ section.description }}</div>
-      <div class="cards-container">
-        <mat-card class="card" *ngFor="let topic of section.topics">
-          <mat-card-header (click)="onCardClick(topic.page, '')">
-            <div mat-card-avatar>
-              <img
-                class="avatar"
-                [src]="topic.imageSrc"
-                alt="language icon"
-                aria-hidden="true"
-              />
-            </div>
-            <mat-card-title>{{ topic.title }}</mat-card-title>
-            <mat-card-subtitle>{{ topic.subTitle }}</mat-card-subtitle>
-          </mat-card-header>
-          <mat-card-content (click)="onCardClick(topic.page, '')">
-            {{ topic.description }}
-          </mat-card-content>
-          <mat-card-actions>
-            <!-- <button mat-button (click)="onCardClick(topic.page, '')">Note</button> -->
-            <!-- <button mat-button>
+  <div class="title-container">
+    <img
+      class="avatar"
+      src="assets/images/articles/languages/web.png"
+      alt="language icon"
+      aria-hidden="true"
+    />
+    <div class="title">Notes</div>
+  </div>
+  <div id="title-description"></div>
+  <mat-divider></mat-divider>
+  <div class="sub-topic" *ngFor="let section of sections">
+    <div class="sub-title">{{ section.title }}</div>
+    <div class="sub-title-description">{{ section.description }}</div>
+    <div class="cards-container">
+      <mat-card class="card" *ngFor="let topic of section.topics">
+        <mat-card-header (click)="onCardClick(topic.page, '')">
+          <div mat-card-avatar>
+            <img
+              class="avatar"
+              [src]="topic.imageSrc"
+              alt="language icon"
+              aria-hidden="true"
+            />
+          </div>
+          <mat-card-title>{{ topic.title }}</mat-card-title>
+          <mat-card-subtitle>{{ topic.subTitle }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content (click)="onCardClick(topic.page, '')">
+          {{ topic.description }}
+        </mat-card-content>
+        <mat-card-actions>
+          <!-- <button mat-button (click)="onCardClick(topic.page, '')">Note</button> -->
+          <!-- <button mat-button>
               <a target="_blank" [href]="topic.github">GITHUB</a>
             </button> -->
-          </mat-card-actions>
-        </mat-card>
-      </div>
-      <mat-divider></mat-divider>
+        </mat-card-actions>
+      </mat-card>
     </div>
-    <!-- Topic container end -->
+    <mat-divider></mat-divider>
   </div>
+  <!-- Topic container end -->
 
   <!-- Icons Credit -->
   <br />

@@ -24,12 +24,14 @@ export class ProjectsComponent implements OnInit {
     let urlTree= this.router.parseUrl(url);
     let segment = urlTree.root.children[PRIMARY_OUTLET].segments[1];
     if(segment) {
-      this.onCardClick(Pages[segment.path]);
+      this.onCardClick(Pages[segment.path], true);
     }
   }
 
-  public onCardClick(page: Page): void {
-    this.iframe.setCurrentPage(page);
-    this.router.navigate(['iframe']);
+  public onCardClick(page: Page, isDemo: boolean|undefined): void {
+    if(isDemo) {
+      this.iframe.setCurrentPage(page);
+      this.router.navigate(['iframe']);
+    }
   }
 }
