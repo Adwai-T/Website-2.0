@@ -4,8 +4,8 @@
   <mat-divider></mat-divider>
 
   <div id="main">
-    <div *ngFor="let result of searchResultMain" class="result">
-      <div (click)="goTo(result.href)">{{result.linkText | titlecase}}</div> 
+    <div *ngFor="let result of searchResultMainKeys" class="result">
+      <div (click)="goTo(result)">{{searchResultMain[result] | titlecase}}</div> 
     </div>
   </div>
 
@@ -13,8 +13,8 @@
 
   <div id="other">
     <div>Other Results</div> 
-    <div *ngFor="let result of searchResultOther" class="result">
-      <div (click)="goTo(result.href)">{{result.linkText | titlecase}}</div> 
+    <div *ngFor="let result of searchResultOtherKeys" class="result">
+      <div (click)="goTo(result)">{{ searchResultOther[result] | titlecase}}</div> 
     </div>
   </div>
 

@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 import {
-  SearchResult,
+  searchResult,
   searchResultObject,
   SearchService,
 } from 'src/app/services/search.service';
@@ -18,8 +18,8 @@ import { SidenavService } from 'src/app/services/sidenav.service';
 export class SearchResultDialogComponent implements OnInit, OnDestroy {
   private searchResultSubscription: Subscription;
 
-  public searchResultMain: SearchResult[] = [];
-  public searchResultOther: SearchResult[] = [];
+  public searchResultMain: searchResult = {};
+  public searchResultOther: searchResult = {};
 
   constructor(
     public searchDialogRef: MatDialogRef<SearchResultDialogComponent>,
@@ -47,6 +47,14 @@ export class SearchResultDialogComponent implements OnInit, OnDestroy {
       this.sidenavService.sideNavClose();
     }
     this.router.navigateByUrl('/notes/' + link);
+  }
+
+  get searchResultMainKeys() :string[]  {
+    return Object.keys(this.searchResultMain)
+  }
+
+  get searchResultOtherKeys() :string[]  {
+    return Object.keys(this.searchResultOther)
   }
 
   ngOnDestroy(): void {

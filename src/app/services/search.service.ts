@@ -3,15 +3,11 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { ErrorsService } from './errors.service';
 import { INDEX } from '../objects';
 
-export interface SearchResult {
-  linkText: string;
-  href: string;
-  description?: string;
-}
+export type searchResult = Record<string, string>;
 
 export interface searchResultObject {
-  main: SearchResult[];
-  other: SearchResult[];
+  main: searchResult;
+  other: searchResult;
 }
 
 @Injectable({
@@ -20,14 +16,14 @@ export interface searchResultObject {
 export class SearchService {
   private index: any = INDEX;
   private topics: string[] = Object.keys(INDEX);
-  private currentSearchResult :searchResultObject = {main:[], other:[]}; 
+  private currentSearchResult: searchResultObject = { main: {}, other: {} };
 
   public searchEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  constructor(private errorsService: ErrorsService) { }
+  constructor(private errorsService: ErrorsService) {}
 
   public onSearch(searchString: string): void {
-    if (searchString.length < 5) {
+    if (searchString.length < 4) {
       this.errorsService.addError({
         code: 0,
         message: 'Search string must atleast be 5 characters long.',
@@ -38,17 +34,24 @@ export class SearchService {
     this.searchEvent.emit(true);
   }
 
+  private dontSearchWord : Record<string, boolean> = {
+    to : true, it: true, the: true, with: true, of: true,
+    from: true, as: true, in: true,
+  }
+
   private searchFor(searchString: string): searchResultObject {
-    const mainResults: SearchResult[] = [];
-    const otherResults: SearchResult[] = [];
+    const mainResults: Record<string, string> = {};
+    const otherResults: Record<string, string> = {};
     const resultsObject = { main: mainResults, other: otherResults };
     let mainSearchTopic = '';
 
     const searchWords = searchString.toLowerCase().split(' ');
     for (let topic of this.topics) {
       for (let searchWord of searchWords) {
+        if (this.dontSearchWord[searchWord]) continue;
+
         if (topic.includes(searchWord)) {
-          mainResults.push({ linkText: topic, href: topic });
+          mainResults[topic] = topic;
           mainSearchTopic = topic;
           continue;
         }
@@ -56,15 +59,9 @@ export class SearchService {
         for (let subtopic of Object.keys(this.index[topic])) {
           if (subtopic.includes(searchWord)) {
             if (topic == mainSearchTopic) {
-              mainResults.push({
-                linkText: subtopic,
-                href: topic.concat(this.index[topic][subtopic]),
-              });
+              mainResults[topic.concat(this.index[topic][subtopic])] = subtopic;
             } else {
-              otherResults.push({
-                linkText: subtopic,
-                href: topic.concat(this.index[topic][subtopic]),
-              });
+              otherResults[topic.concat(this.index[topic][subtopic])] = subtopic;
             }
           }
         }
@@ -73,7 +70,7 @@ export class SearchService {
     return resultsObject;
   }
 
-  public getCurrentSearchResult() :searchResultObject {
+  public getCurrentSearchResult(): searchResultObject {
     return this.currentSearchResult;
   }
 }
