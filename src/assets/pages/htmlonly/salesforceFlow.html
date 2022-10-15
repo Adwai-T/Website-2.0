@@ -1,0 +1,259 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<title></title>
+</head>
+<body>
+<div id="container">
+
+<div id="index">
+<ul id="index-list">
+<li class="index-li-h2"><a href="#h2-0">Introduction to different Flows</a></li>
+<li class="index-li-h3"><a href="#h3-0">Interactive Experiences</a></li>
+<li class="index-li-h3"><a href="#h3-1">Behind-the-Scenes Automation</a></li>
+<li class="index-li-h2"><a href="#h2-1">Flow Builder</a></li>
+<li class="index-li-h3"><a href="#h3-2">Features of flow builder</a></li>
+<li class="index-li-h3"><a href="#h3-3">Flow Building Blocks</a></li>
+<li class="index-li-h3"><a href="#h3-4">Plan out Flow</a></li>
+<li class="index-li-h3"><a href="#h3-5">Shortcuts while using Flow builder</a></li>
+<li class="index-li-h2"><a href="#h2-2">Flow Resources</a></li>
+<li class="index-li-h3"><a href="#h3-6">Flow Variables</a></li>
+<li class="index-li-h2"><a href="#h2-3">Invokable Methods</a></li>
+<li class="index-li-h3"><a href="#h3-7">Using Wrapper Class in Invokable class</a></li>
+<li class="index-li-h3"><a href="#h3-8">Returning value to Flow from Invokable Method</a></li>
+<li class="index-li-h2"><a href="#h2-4">Deploying Flows</a></li>
+</ul>
+</div>
+
+<div id="content">
+<h1 id="h1-0">Salesforce Flow</h1>
+<h2 id="h2-0">Introduction to different Flows</h2>
+<p><strong>Salesforce Flow</strong> is a blanket term for everything in salesforce that allow to create, manage and run automation with clicking not code. It might also include separate products like Flow Orchestrator and Flow Integration power.</p>
+
+<p><strong>Flow</strong> An automation configuration saved in salesforce with the structure of a flowchart. The Flow automates a buisness process by collecting data and using that data to make things happen. It can affect things in your salesforce org and in an external system.</p>
+
+<p><strong>Flow Builder</strong> is the primary tool for creating flows.</p>
+
+<quote> Flow, Processes and Workflow are what are called Declarative automation, that means they do not need any code.</quote>
+<h3 id="h3-0">Interactive Experiences</h3>
+<p>These automations require user input.</p>
+
+<ul>
+	<li> Screen Flow - Create an interaction and ask users questions.</li>
+	<li> AutoLaunched Flow - Run by button click or by launched by other automations.</li>
+	<li> Approval Process - Build a series of steps with assigned approvers, that can automate tasks like lock or update records. An approval can be run manually, when a button is clicked or automatically when launched by another automation.</li>
+	<li> Lightning Components - Use HTML and Javascript code to build interactive components that can be embeded a page or an app.</li>
+	<li> VisualForce Pages - Use Html and Apex code to build an interactive page.</li>
+</ul>
+<h3 id="h3-1">Behind-the-Scenes Automation</h3>
+<p>If the business process start automatically and run behind the scenes, such as when a record is changed then following can be used.</p>
+
+<ul>
+	<li> Record-Triggered Flows - Use flow builder to create automation that run when a record is created, update, or deleted.</li>
+	<li> Schedule Trigger Flows - Use to create automation that run at time and frequency specified.</li>
+	<li> Platform Event-Triggered Flows - Use Flow Builder to create automation that run when a platform event message is received.</li>
+	<li> Apex - Use apex code to write reusable block of automation, that can be triggered in various ways.</li>
+</ul>
+<h2 id="h2-1">Flow Builder</h2>
+<p>Goto <strong>Setup | Process Automation | Flows</strong> then click <strong>New Flow</strong>.</p>
+
+<p>To view details about flow and the version that is active or run or activate a version of the flow, click on the drop down menu at the right of the flow's name and select <strong>View Details and Version</strong>, from here the details for the flow also can be edited.</p>
+
+<quote> Upto 50 flow version for any given flow can be created at a time, after which the previous unwanted version have to be deleted to create new versions. Only one version of these can be active at any time and that is the one that is deployed to production.</quote>
+<p>THe new Flow window shows the types of flows that can be created.</p>
+
+<p>The Core types that can be selected are -</p>
+
+<ul>
+	<li> Screen Flow (Needs user interaction, others run in background)</li>
+	<li> Schedule-triggered Flow</li>
+	<li> Autolaunched Flow(No Trigger)</li>
+	<li> Record-Triggered Flow</li>
+	<li> Platfrom Event - Triggered Flow</li>
+</ul>
+<quote> Flows can be edited in production(It is not recommeneded.), where no apex code can be edited.</quote>
+<h3 id="h3-2">Features of flow builder</h3>
+<p><strong>Select Element</strong> allows selecting multiple elements so that they can be copied to other places in the flow.</p>
+
+<p>Use <strong>Auto-Layout/Free-Form</strong> to choose the layout style for the flow.(It is recommended to use Auto-Layout where ever possible as it has additional features.)</p>
+
+<p>Use <strong>Activate</strong> to make the current version of flow active.</p>
+
+<p><strong>Run</strong> runs the most recent saved version of the flow that is open. Unsaved changes are not run.</p>
+
+<p><strong>Debug</strong> lets test the most recent saved version of the flow by feeding it sample data and reviewing what it does when it runs.</p>
+
+<h3 id="h3-3">Flow Building Blocks</h3>
+<ul>
+	<li> <strong>Elements</strong> are nodes on the canvas that make things happen.</li>
+	<li> <strong>Connectors</strong> are lines on the canvas that define the path.</li>
+	<li> <strong>Resources</strong> are containers that don't appear on the canvas, but referenced by flow's elements. Each resource contains a value or a formaula that resolves to a value.</li>
+</ul>
+<p>Each element is a step that tells the flow what to do.</p>
+
+<table>
+<tr>
+	<th>Element Type</th>
+	<th>What It Does</th>
+</tr>
+
+<tr>
+	<td>Interaction</td>
+	<td>Interacts with users</td>
+</tr>
+<tr>
+	<td>Data</td>
+	<td>Interacts with data</td>
+</tr>
+<tr>
+	<td>Logic</td>
+	<td>Interacts with the flow itself</td>
+</tr>
+</table>
+<h3 id="h3-4">Plan out Flow</h3>
+<table>
+<tr>
+	<th>Requirement</th>
+	<th>Element Type to Use</th>
+</tr>
+
+<tr>
+	<td>Collect information from user.</td>
+	<td>Interaction (Screen)</td>
+</tr>
+<tr>
+	<td>Look for a matching contact record.</td>
+	<td>Data (Get Records)</td>
+</tr>
+<tr>
+	<td>Check if a matching record was found and follow the corresponding path:</td>
+	<td>Logic (Decision)</td>
+</tr>
+<tr>
+	<td>If no match exists, create the contact.</td>
+	<td>Data (Create Records)</td>
+</tr>
+<tr>
+	<td>If a match exists, update that contact.</td>
+	<td>Data (Update Records)</td>
+</tr>
+<tr>
+	<td>Rejoin the branches together and then confirm what the flow did in Chatter.</td>
+	<td>Interaction (Action)</td>
+</tr>
+<tr>
+	<td>Confirm that the flow is done.</td>
+	<td>Interaction (Screen)</td>
+</tr>
+</table>
+<h3 id="h3-5">Shortcuts while using Flow builder</h3>
+<table>
+<tr>
+	<th>Action</th>
+	<th>KeyBoard Shortcuts</th>
+</tr>
+
+<tr>
+	<td>Zoom in</td>
+	<td>CTRL+=</td>
+</tr>
+<tr>
+	<td>Zoom Out</td>
+	<td>CTRL+-</td>
+</tr>
+<tr>
+	<td>Zoom to fit</td>
+	<td>CTRL+ALT+1</td>
+</tr>
+<tr>
+	<td>Zoom to view</td>
+	<td>CTRL+ALT+1</td>
+</tr>
+<tr>
+	<td>Switch focus to another panel</td>
+	<td>F6</td>
+</tr>
+</table>
+<h2 id="h2-2">Flow Resources</h2>
+<h3 id="h3-6">Flow Variables</h3>
+<p>Variables store values that can be changed by the flow.</p>
+
+<p>A field from a record cannot directly be referenced inside a flow, so first this value is stored in a variable.</p>
+
+<p>Many flow elements output their own variables, so it is not always necessary to create varibles.</p>
+
+<p>Types of variables-</p>
+
+<p>Text, Record, Number, Currency, Boolean, Date, Date/Time, Picklist, Multi-Select Picklist and Apex Defined.</p>
+
+<quote> When using boolean variables use <samp>{!GlobalConstant.True}</samp> and <samp>{!GlobalConstant.False}</samp> else flow will interpret these variables as string and not as boolean.</quote>
+<p>To create a new variable in flow builder <strong>New Resource(In Toolbox) | Variable(Resource Type) | Provide Name | Select Datatype | Done</strong>.</p>
+
+<p>Other types of resources similar to variables include Constants, Formulas, Text Templates etc.</p>
+
+<p>Most times variables would store only one value, but if needed the <strong>Allow multiple values</strong> checkbox can be selected which will store a collection of that value type.</p>
+
+<quote> Like formula fields, formulas in resource are also recalculated when they are accessed. If a formula in a flow has variables that change and the formula is used more than once, it might be recalculated to a different value later.</quote>
+<h2 id="h2-3">Invokable Methods</h2>
+<p>Invokable method are methods that can be invoked by Process Builder or by Flows.</p>
+
+<p>To create a invokable method create a class with only one method that is annotate with <samp>@InvocableMethod</samp>.</p>
+
+<p>They only support List as parameters.</p>
+
+<quote> At any time flow can handle only one record, so the List in the invocable method will always only have one record in it.</quote>
+<p>In Flow these methods can be invoked by using <strong>Interaction | Action</strong> and then using the class name in the action field.</p>
+
+<h3 id="h3-7">Using Wrapper Class in Invokable class</h3>
+<p>Wrapper class is used if multiple inputs need to be used from flow.</p>
+
+
+<pre><code class="language-java">
+public class FlowInvokableClass {
+    @InvocableMethod
+    public static void invocableMethod(List&lt;WrapperClass&gt; inputs) {
+        //as there is only one record in the list,
+        //that record can directly be used
+        System.debug(inputs[0].oppName);
+    }
+
+
+    public class WrapperClass {
+        @InvocableVariable(required="true")
+        public String oppsName;
+
+
+        @InvocableVariable
+        public Date oppCloseDate;
+
+
+        @InvokcableVaraible
+        public String stageName;
+    }
+}
+</code></pre>
+
+<h3 id="h3-8">Returning value to Flow from Invokable Method</h3>
+<p>A value or List of any value can be returned by Invokable Method.</p>
+
+<p>Then when the execution of the invokable method is completed the value returned by the method is stored in a resource variable in the flow can be used from there.</p>
+
+<h2 id="h2-4">Deploying Flows</h2>
+<p>Use <strong>Environments | Change Sets | Outbound Chain Set</strong> In Sandbox.</p>
+
+<p>The flow to deploy should be active in the Sandbox org.</p>
+
+<p>When deployed it will be found in <strong>Environments | Change Sets | Inbound Chain Set</strong>. Then from here they can be deployed directly, if there are no other apex classes.</p>
+
+<p>When flows are deployed to production they need to be manually activated.</p>
+
+<p>Also the version of flow in sandbox and production can be different. The version number for the flow depends on the number of times the same flow is saved in sandbox where as in production it depends on the number of times the flow is deployed to production.</p>
+
+</div>
+</div>
+    <!-- Format -->
+    <script src="../../highlight/highlight.min.js"></script>
+    <script src="../../library/format.js"></script>
+
+</body>
+</html>

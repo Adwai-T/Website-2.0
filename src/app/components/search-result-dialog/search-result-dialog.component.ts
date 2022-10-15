@@ -43,6 +43,7 @@ export class SearchResultDialogComponent implements OnInit, OnDestroy {
   }
 
   public goTo(link:string) {
+    console.log(link);
     if(!this.sidenavService.isDesktop()) {
       this.sidenavService.sideNavClose();
     }
@@ -60,5 +61,4 @@ export class SearchResultDialogComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.searchResultSubscription.unsubscribe();
   }
-
 }

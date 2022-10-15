@@ -132,48 +132,54 @@ export const salesforce: Topic[] = [
     title:'Administrator',
     subTitle: 'salesforce',
     imageSrc: 'assets/images/articles/languages/salesforce.png',
-    description: 'Salesforce Administrators work with stakeholders to define system requirements and customise the platform',
-    page: Pages.salesforceAdmin,
+    description: 'Salesforce Administrators work with stakeholders to define'
+    + 'system requirements and customise the platform',
+    page: Pages.salesforceadmin,
     github: '',
   },
   {
     title:'Developer',
     subTitle: 'salesforce',
     imageSrc: 'assets/images/articles/languages/salesforce.png',
-    description: 'Salesforce Development involves programming with Apex and interactions with database throught programming.',
-    page: Pages.salesforceDev,
+    description: 'Salesforce Development involves programming with Apex and' 
+          +'interactions with database throught programming. '
+          +'Database Triggers, Asynchronous Apex, REST and callouts.',
+    page: Pages.salesforcedev,
     github: '',
   },
   {
     title:'Flow',
     subTitle: 'salesforce',
     imageSrc: 'assets/images/articles/languages/salesforce.png',
-    description: 'Salesforce Flow',
-    page: Pages.salesforceDev,
+    description: 'Salesforce Flow is a declarative tool provided by salesforce,'
+              + 'which minimizes need for programming for regularly used tasks.',
+    page: Pages.salesforceflow,
     github: '',
   },
   {
     title:'LWC',
     subTitle: 'salesforce',
     imageSrc: 'assets/images/articles/languages/salesforce.png',
-    description: 'Salesforce Lightning Web Component.',
-    page: Pages.salesforceDev,
+    description: 'Salesforce Lightning Web Component is component framework based on the '
+                + 'ES6 standards and reduces platform specific code.',
+    page: Pages.salesforcelwc,
     github: '',
   },
   {
     title:'Aura',
     subTitle: 'salesforce',
     imageSrc: 'assets/images/articles/languages/salesforce.png',
-    description: 'Salesforce Aura Components.',
-    page: Pages.salesforceDev,
+    description: 'Aura components are used to build modern web apps with reusable UI components'
+                + 'on salesforce platform.',
+    page: Pages.salesforceaura,
     github: '',
   },
   {
     title:'Visualforce',
     subTitle: 'salesforce',
     imageSrc: 'assets/images/articles/languages/salesforce.png',
-    description: 'Salesforce Visualforce Pages.',
-    page: Pages.salesforceDev,
+    description: 'Salesforce Visualforce Pages are customizable pages used on salesforce platform.',
+    page: Pages.salesforcevisualforce,
     github: '',
   },
   {
@@ -181,7 +187,7 @@ export const salesforce: Topic[] = [
     subTitle: 'salesforce',
     imageSrc: 'assets/images/articles/languages/salesforce.png',
     description: 'Developing Salesforce with Developer Console Or VS Code.',
-    page: Pages.salesforceDev,
+    page: Pages.salesforceides,
     github: '',
   }
 ]

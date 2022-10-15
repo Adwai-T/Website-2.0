@@ -97,37 +97,37 @@ export const Pages:PagesI = {
   },
 
   //- salesforce
-  salesforceAdmin : {
+  salesforceadmin : {
     title : 'Salesforce Administrator',
     html: 'assets/pages/htmlonly/salesforceAdmin.html',
     navLinkStart: 'notes',
   },
-  salesforceDev : {
+  salesforcedev : {
     title : 'Salesforce Developer',
     html: 'assets/pages/htmlonly/salesforceDev.html',
     navLinkStart: 'notes',
   },
-  salesforceFlow : {
+  salesforceflow : {
     title : 'Salesforce Flow',
     html: 'assets/pages/htmlonly/salesforceFlow.html',
     navLinkStart: 'notes',
   },
-  salesforceLWC : {
+  salesforcelwc : {
     title : 'Salesforce LWC',
     html: 'assets/pages/htmlonly/salesforceLWC.html',
     navLinkStart: 'notes',
   },
-  salesforceAura : {
+  salesforceaura : {
     title : 'Salesforce Aura Components',
     html: 'assets/pages/htmlonly/salesforceAura.html',
     navLinkStart: 'notes',
   },
-  salesforceVisualforce : {
+  salesforcevisualforce : {
     title : 'Salesforce Visualforce Pages',
     html: 'assets/pages/htmlonly/salesforceVisualforce.html',
     navLinkStart: 'notes',
   },
-  salesforceIDEs : {
+  salesforceides : {
     title : 'Salesforce IDEs',
     html: 'assets/pages/htmlonly/salesforceIDEs.html',
     navLinkStart: 'notes',
@@ -193,7 +193,7 @@ export const Pages:PagesI = {
     title: 'Md To Html',
     html: 'assets/pages/withjs/md-to-html/index.html',
     navLinkStart: 'projects',
-  },
+  }, 
   linkedlist : {
     title: 'Linked List',
     html: 'assets/pages/withjs/linked-list/index.html',

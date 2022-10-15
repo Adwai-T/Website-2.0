@@ -1,0 +1,773 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<title></title>
+</head>
+<body>
+<div id="container">
+
+<div id="index">
+<ul id="index-list">
+<li class="index-li-h2"><a href="#h2-0">PickLists</a></li>
+<li class="index-li-h3"><a href="#h3-0">Global Picklists</a></li>
+<li class="index-li-h3"><a href="#h3-1">Dependent Picklist</a></li>
+<li class="index-li-h3"><a href="#h3-2">Picklist Limits</a></li>
+<li class="index-li-h2"><a href="#h2-1">Relationships</a></li>
+<li class="index-li-h3"><a href="#h3-3">Relationship between Account and Opportunity</a></li>
+<li class="index-li-h3"><a href="#h3-4">Many To Many Relationship</a></li>
+<li class="index-li-h4"><a href="#h4-0">Customize the Related List</a></li>
+<li class="index-li-h2"><a href="#h2-2">Process Automation</a></li>
+<li class="index-li-h3"><a href="#h3-5">Salesforce Flow</a></li>
+<li class="index-li-h3"><a href="#h3-6">Process Builder</a></li>
+<li class="index-li-h4"><a href="#h4-1">Process Types</a></li>
+<li class="index-li-h3"><a href="#h3-7">Flow Builder</a></li>
+<li class="index-li-h3"><a href="#h3-8">Approvals</a></li>
+<li class="index-li-h3"><a href="#h3-9">Event Monitoring</a></li>
+<li class="index-li-h2"><a href="#h2-3">Prepare Your Salesforce Org for Users</a></li>
+<li class="index-li-h3"><a href="#h3-10">Set Up the Exchange Rate</a></li>
+<li class="index-li-h3"><a href="#h3-11">Currency Mamangement Tool</a></li>
+<li class="index-li-h2"><a href="#h2-4">Deliverability</a></li>
+<li class="index-li-h2"><a href="#h2-5">Data Security</a></li>
+<li class="index-li-h3"><a href="#h3-12">Users</a></li>
+<li class="index-li-h3"><a href="#h3-13">Profiles</a></li>
+<li class="index-li-h4"><a href="#h4-2">Standard Profiles</a></li>
+<li class="index-li-h4"><a href="#h4-3">Custom Profiles</a></li>
+<li class="index-li-h3"><a href="#h3-14">Permission Set</a></li>
+<li class="index-li-h3"><a href="#h3-15">Permission Set Group</a></li>
+<li class="index-li-h3"><a href="#h3-16">Organization</a></li>
+<li class="index-li-h4"><a href="#h4-4">Set Password Policy</a></li>
+<li class="index-li-h4"><a href="#h4-5">Network Access</a></li>
+<li class="index-li-h4"><a href="#h4-6">Session Settings</a></li>
+<li class="index-li-h4"><a href="#h4-7">Admin Can Login As Any User</a></li>
+<li class="index-li-h3"><a href="#h3-17">Objects</a></li>
+<li class="index-li-h3"><a href="#h3-18">Fields</a></li>
+<li class="index-li-h3"><a href="#h3-19">Records</a></li>
+<li class="index-li-h4"><a href="#h4-8">Organization Wide Default</a></li>
+<li class="index-li-h4"><a href="#h4-9">Role Hirerachy</a></li>
+<li class="index-li-h4"><a href="#h4-10">Sharing Rules</a></li>
+<li class="index-li-h4"><a href="#h4-11">Manual Sharing</a></li>
+<li class="index-li-h4"><a href="#h4-12">Team Access</a></li>
+<li class="index-li-h4"><a href="#h4-13">Territorial Heierarchy Access</a></li>
+<li class="index-li-h4"><a href="#h4-14">Apex Sharing</a></li>
+<li class="index-li-h3"><a href="#h3-20">Audit System Use</a></li>
+<li class="index-li-h2"><a href="#h2-6">Users' Identity</a></li>
+<li class="index-li-h3"><a href="#h3-21">Multifactor Authentication</a></li>
+<li class="index-li-h3"><a href="#h3-22">Enable Multifactor Authentication</a></li>
+<li class="index-li-h4"><a href="#h4-15">Enable MFA for Select Users</a></li>
+<li class="index-li-h4"><a href="#h4-16">Turn On MFA for Everyone in Organization</a></li>
+<li class="index-li-h4"><a href="#h4-17">Salesforce Authenticator Application</a></li>
+<li class="index-li-h3"><a href="#h3-23">Monitor Logging</a></li>
+<li class="index-li-h2"><a href="#h2-7">Sandbox</a></li>
+<li class="index-li-h3"><a href="#h3-24">Types of Sandboxes</a></li>
+<li class="index-li-h3"><a href="#h3-25">Create a New Sandbox</a></li>
+<li class="index-li-h3"><a href="#h3-26">Refresh Sandbox</a></li>
+<li class="index-li-h2"><a href="#h2-8">Getting Org ready for Salesforce Release</a></li>
+<li class="index-li-h3"><a href="#h3-27">Run NPSP Health check</a></li>
+<li class="index-li-h3"><a href="#h3-28">Run Salesforce Optimizer</a></li>
+<li class="index-li-h2"><a href="#h2-9">Manage Chatter</a></li>
+<li class="index-li-h2"><a href="#h2-10">Email Letter Head and Templates</a></li>
+<li class="index-li-h3"><a href="#h3-29">Create a LetterHead</a></li>
+<li class="index-li-h3"><a href="#h3-30">Create a Email Template</a></li>
+<li class="index-li-h3"><a href="#h3-31">Send an Email Test</a></li>
+<li class="index-li-h2"><a href="#h2-11">Customize Saleforce Org URL with My Domain</a></li>
+<li class="index-li-h3"><a href="#h3-32">Reset Password and Security Token</a></li>
+<li class="index-li-h2"><a href="#h2-12">Reports and Dashboard</a></li>
+<li class="index-li-h3"><a href="#h3-33">Benefits of Reports and Dashboard</a></li>
+<li class="index-li-h3"><a href="#h3-34">Create and Sharing Reports and Dashboard Folder</a></li>
+<li class="index-li-h3"><a href="#h3-35">Create a Custom Report</a></li>
+<li class="index-li-h2"><a href="#h2-13">Data</a></li>
+<li class="index-li-h3"><a href="#h3-36">Data Management</a></li>
+<li class="index-li-h4"><a href="#h4-18">Data Import Wizard</a></li>
+<li class="index-li-h4"><a href="#h4-19">Data Loader</a></li>
+<li class="index-li-h4"><a href="#h4-20">Consideration while importing</a></li>
+<li class="index-li-h3"><a href="#h3-37">Export Data</a></li>
+<li class="index-li-h3"><a href="#h3-38">Storage Usage</a></li>
+<li class="index-li-h2"><a href="#h2-14">Lightning App Builder</a></li>
+<li class="index-li-h3"><a href="#h3-39">What Can be build with LAB</a></li>
+<li class="index-li-h3"><a href="#h3-40">Lightning Page Types</a></li>
+<li class="index-li-h3"><a href="#h3-41">Lightning Components</a></li>
+</ul>
+</div>
+
+<div id="content">
+<h1 id="h1-0">SalesForce Admin</h1>
+<h2 id="h2-0">PickLists</h2>
+<quote> A noraml picklist set can be promoted to a global picklist by using <strong>Promote to Global Value Set</strong> button on the picklist.</quote>
+<h3 id="h3-0">Global Picklists</h3>
+<p>Global value sets let you share the same picklist values with more than one picklist field.</p>
+
+<p>Global value sets are always restricted and cannot be converted into unrestricted, this protects the values as changing global value set changes it for all the fields that use it.</p>
+
+<quote> Quick search option <samp>Picklist Value Sets</samp>.</quote>
+<p>We can add new value, reorder, replace, and change the default value of a global value set. We can also edit, delete, and deactivate individual values.</p>
+
+<p>When custom picklist use a global picklist set, a single select can be changed to multi select, but it cannot be changed to any different datatype.</p>
+
+<p>Custom picklist field's association with a global value set cannot be undone.</p>
+
+<h3 id="h3-1">Dependent Picklist</h3>
+<p>When there are two picklist or a picklist and a checkbox field, a dependency can be created between them by clicking the <strong>Field Dependencies</strong> button on the top right of the <strong>Fields and Relationship</strong> page an object.</p>
+
+<p>Then select Controlling Field and Dependent Field. Next choose the options from dependent picklist values to be included when a value from the controlling picklist is selected and click Include Values, then save.</p>
+
+<quote> A controlling picklist can at most have 300 values.</quote>
+<h3 id="h3-2">Picklist Limits</h3>
+<p>For standard picklist the value can be 255 character long, which count the line break and return character.</p>
+
+<p>Restricted picklist can have upto 1000 values that includes active as well as inactive.</p>
+
+<p>Unrestricted picklist can have upto 1000 values and upto 4000 inactive values.</p>
+
+<p>In custom multiselect picklist a user can have upto 500 values, each with upto 255 characters and can select upto 100 values at a time on a record.</p>
+
+<p>Global picklist set can have a combination of 1000 active and inactive values.</p>
+
+<p>Upto 500 Global picklist set can be created in an org, and any number of picklists can use these sets.</p>
+
+<p>If a global picklist value set is applied to more than 13 different object, the values can be deactivated but not replaced or deleted.</p>
+
+<p>Controlling picklist can have atmost 300 values.</p>
+
+<h2 id="h2-1">Relationships</h2>
+<h3 id="h3-3">Relationship between Account and Opportunity</h3>
+<p>Relationship between Account and opportunity is a standard relationship even if shows as a lookup relation ship in schema builder.</p>
+
+<p>This is a kind of default relationship between the two objects such that we can create a rollup summary on the account object for opportunity.</p>
+
+<p>Also when the account is deleted, the opportunity related to the account are deleted.</p>
+
+<h3 id="h3-4">Many To Many Relationship</h3>
+<p>Salesforce does not provide a direct option to create a many to many realtionship.</p>
+
+<p>However a many to many relationship can be created by using two <strong>Master Detail Relationship</strong> on a <strong>Juntion object</strong> that has the two object that need to be linked with many to many relationship as the Master.</p>
+
+<p>The First Master Details relationship created on the Junction object becomes the <strong>Primary relationship</strong> and effect the records of the junction object in following ways -</p>
+
+<ul>
+	<li> <strong>Look and feel</strong> of edit page, icons and color of primary relationship are used.</li>
+	<li> <strong>Record ownership</strong> is inherited from the Owner field value of the primary Master, even if there is no Owner field on details object record.</li>
+	<li> <strong>Division</strong> - if used is inherit their division from primary master record.</li>
+</ul>
+<p>For <strong>Related List</strong> Label use an appropriate name that represent the relationship between the two objects.</p>
+
+<p>If the primary master-detail relationship is deleted or converted to lookup, the secondary master detail relationship becomes primary.</p>
+
+<h4 id="h4-0">Customize the Related List</h4>
+<p>To create a seemless experience for user, the related list where the relationship is displayed can be customized.</p>
+
+<p>Edit the page layout for each of the Object linked by the Many to Many relationship. In the related list click on the wrench icon and add the field that refers to the other object.</p>
+
+<p>This will make it convenient for the user to see the related object directly in the related list.</p>
+
+<h2 id="h2-2">Process Automation</h2>
+<h3 id="h3-5">Salesforce Flow</h3>
+<p>Salesforce Flow provides declarative process automation.</p>
+
+<ul>
+	<li> SalesForce Flow -> Product</li>
+</ul>
+<ul>
+	<li> Flow Builder and Process Builder -> Tools</li>
+</ul>
+<p>There are other automation tools that can be used such as workflow rules and process builder that are used but are going to be retired and hence it is important to use Salesforce flow.</p>
+
+<ul>
+	<li> Use Cases for Salesforce Flow :</li>
+</ul>
+<ol>
+	<li> Set up automated tasks and processes.</li>
+	<li> Create a guided tutorial or wizard with screens.</li>
+	<li> Connect to external systems.</li>
+	<li> Add automation to your pages and apps.</li>
+	<li> Reuse what you build.</li>
+</ol>
+<quote> It is always best to start with declarative non code tools first and work our way up to code solutions as they are much easier to manage.</quote>
+<ul>
+	<li> Cases and what automation tool to use :</li>
+</ul>
+<ol>
+	<li> Guided visual experience : processes that need input from users -> Flow Builder</li>
+	<li> Behind-the-scenes automation : user input isnâ€™t needed. and salesforce has all the data that is needed -> Flow builder or process builder (if existing) or Apex</li>
+	<li> Approval automation : Business processes that determine how a record, like a time-off request, gets approved by the right stakeholders. -> Approvals</li>
+</ol>
+<ul>
+	<li> Use of Flow Builder :</li>
+</ul>
+<ol>
+	<li> Automate a guided visual experience.</li>
+	<li> Start a behind-the-scenes business process: such as create, update, delete a record or when platform event occur or even at a specified time or frequency.</li>
+</ol>
+<p>Use of Process builder :</p>
+
+<p>It is now not recommended to use process builder and instead use flow builder as they have the same functionality and flow builder is the current tool and will be updated to get better.</p>
+
+<ul>
+	<li> Use Apex With flow :</li>
+</ul>
+<p>Use Apex when you need more functionality than is available in Flow Builder. Build the more complex functionality as invocable Apex methods. Then call the resulting Apex as an Apex action in the process or as an Apex action element in the flow.</p>
+
+<h3 id="h3-6">Process Builder</h3>
+<quote> <a href="https://help.salesforce.com/s/articleView?id=sf.process_overview.htm&type=5" target="_blank">Official Docs Process Builder</a>.</quote>
+<p>Automate if/then business processes and see a graphical representation of your process as you build.</p>
+
+<quote> Use <strong>Process Builder</strong> in Quick Find.</quote>
+<p>Component of Process :</p>
+
+<ul>
+	<li> Trigger : Identify When the Process Should Run.</li>
+</ul><p>  1. Only when record is created.  2. Anytime a record is created and edited.</p>
+<ul>
+	<li> Criteria : Determine Whether or Not to Execute Actions.</li>
+</ul><p>  1. Set filter conditions.  2. Enter a custom formula. Like in validation rules, the formula must resolve to true or false.</p>
+<p>  3. Opt out of criteria and always execute the associated actions.</p>
+<ul>
+	<li> Actions : What the Process Should Do.</li>
+</ul><p>  1. Immediate Action.  2. Scheduled Action.</p>
+<ul>
+	<li> Actions that can be performed</li>
+</ul><p>  1. Create records.  2. Update the record that started the process or any related record.</p>
+<p>  3. Submit that record for approval.</p>
+<p>  4. Update one or more related records.</p>
+<p>  5. Send emails using a specified email template.</p>
+<p>  6. Post to a Chatter feed.</p>
+
+<h4 id="h4-1">Process Types</h4>
+<ol>
+	<li> Record Change : A record is created or edited</li>
+	<li> Invocable : Itâ€™s called by another process</li>
+	<li> Platform Event : A platform event message is received</li>
+</ol>
+<h3 id="h3-7">Flow Builder</h3>
+<quote> Official Docs : <a href="https://help.salesforce.com/s/articleView?_ga=2.177363109.1471975043.1655380276-282416983.1653311265&id=flow.htm&language=en_US" target="_blank">Flow</a></quote>
+<p><strong>Salesforce Flow</strong> : Encompasses building, managing, and running flows and processes.</p>
+
+<p><strong>Flow</strong> is an application that automates a business process by collecting data and doing something in your Salesforce org or an external system.</p>
+
+<quote> Access Flows by using <strong>Flows</strong> in quick find.</quote>
+<p><strong>Flow Builder</strong> : a point-and-click tool for building flows.</p>
+
+<p>Components of Flow builder</p>
+
+<ol>
+	<li> Elements : Screen, Logic, Actions, Integrations.</li>
+	<li> Connectors : define the path that the flow takes at run time.</li>
+	<li> Resources : are containers that represent a given value, such as field values or formulas.</li>
+</ol>
+<p>Keyboard ShortCuts in flow builder</p>
+
+<ul>
+	<li> To zoom in, press CTRL+=.</li>
+	<li> To zoom out, press CTRL+-.</li>
+	<li> To zoom to fit, press CTRL+Alt+1.</li>
+	<li> To zoom to view, press CTRL+Alt+0.</li>
+</ul>
+<quote> Only flow admins (users with the Manage Flow user permission) can run inactive flows.</quote>
+<h3 id="h3-8">Approvals</h3>
+<p>An approval process automates how Salesforce records are approved in our org.</p>
+
+<quote> To go to <strong>Setup | Process Automation | Approval Process</strong>.</quote>
+<p>We can use Use <samp>Jump Start Wizard</samp> for creating approvals quickly.</p>
+
+<p>Steps to create Approvals :</p>
+
+<ol>
+	<li> Firstly we create an email template that will be sent to the approvers use <samp>Classic Email Templates</samp>.</li>
+	<li> The we add a custom field on the object that needs approval so that the approval steps can be tracked there.</li>
+	<li> Then we create a approval process.</li>
+</ol>
+<h3 id="h3-9">Event Monitoring</h3>
+<quote> Shield Event monitoring is a only free in developer org, but needs to be purchased for all other org types.</quote>
+<ul>
+	<li> <strong>Developer Edition</strong> organizations have free access to all log types with 1-day data retention.</li>
+	<li> <strong>Enterprise</strong>, Unlimited, and Performance Edition organizations have free access to the insecure external assets, login, logout, and total API usage event log files with 1-day data retention. For an extra cost, you can access all log file types with 30-day data retention.</li>
+</ul>
+<p>Event monitoring provides tracking for many types of events such as :</p>
+
+<ul>
+	<li> Logins</li>
+	<li> Logouts</li>
+	<li> URI (web clicks in Salesforce Classic)</li>
+	<li> Lightning (web clicks, performance, and errors in Lightning Experience and the Salesforce mobile app)</li>
+	<li> Visualforce page loads</li>
+	<li> Application programming interface (API) calls</li>
+	<li> Apex executions</li>
+	<li> Report exports</li>
+</ul>
+<quote> There are 50 such event that can be monitored.</quote>
+<p>Event Monitoring can be used for which of the following scenarios?</p>
+<p>-> Monitoring which IP addresses users are logging in form.</p>
+
+<p>Youâ€™re developing a new application for your organization. According to Salesforce best practices, what should you consider first?</p>
+<p>-> API-first approach to development.</p>
+
+<h2 id="h2-3">Prepare Your Salesforce Org for Users</h2>
+<h3 id="h3-10">Set Up the Exchange Rate</h3>
+<p>Multi Currency for the organization can be set up through <samp>Company Information</samp> in the setup.</p>
+
+<p>First Enable the <samp>Activate Multiple Currencies</samp>. After saving an additional button to setup the currency named <samp>Currency Setup</samp> will be available at the top of the Company Information page.</p>
+
+<p>On the Currency Setup page, new currencies can be added and a static exchange rate for the currency can be set up.</p>
+
+<h3 id="h3-11">Currency Mamangement Tool</h3>
+<p>When there are multiple currencies setup in the organization, the exchange rates need to be managed as salesforce does not automaitcally update the rates.</p>
+
+<p>These rates can be set up either to be static where they are changed as needed or can be setup so that they change according to the date setup.</p>
+
+<h2 id="h2-4">Deliverability</h2>
+<p>In Setup Quick find.</p>
+
+<p>Access to send emails if they can be send.</p>
+
+<p>Test Deliverability : Test email being send.</p>
+
+<h2 id="h2-5">Data Security</h2>
+<quote> Even id security is configured completely throught the user interface, it will still be enforced even when the user uses API calls to query or update data.</quote>
+<h3 id="h3-12">Users</h3>
+<p>Users use Salesforce <a href="https://help.salesforce.com/s/articleView?id=sf.users_licenses_overview.htm&type=5" target="_blank">licenses</a>. Each user has exactly one license and one profile.</p>
+
+<quote> Available <a href="https://help.salesforce.com/s/articleView?id=sf.users_licenses_overview.htm&type=5" target="_blank">Licenses</a> for the organization can be viewed in <strong>Company Information</strong>.</quote>
+<p>Every Salesforce user is identified by a username, a password, and a single profile.</p>
+
+<p>Together with other settings, the profile determines what tasks users can perform, what data they see, and what they can do with the data.</p>
+
+<h3 id="h3-13">Profiles</h3>
+<quote> Salesforce has an enhanced profile user interface that makes it easy to find and modify profile settings. User Management Settings | (Enable) <strong>Enhanced Profile User Interface</strong>.</quote>
+<p>If a user already is given access to some data in the profile that permission cannot be taken away by any other security setting like permission set, so the profile should be the most restrictive and access should be opened up using permission set and sharing settings.</p>
+
+<ul>
+	<li> Profiles control the access to object and fields.</li>
+	<li> They also control access to Tabs and Apps.</li>
+	<li> Login Hours can also be set for particular profiles.</li>
+</ul>
+<h4 id="h4-2">Standard Profiles</h4>
+<p>They can be views as templates that can be cloned to create custom profiles that are used. They can be assigned directly to a user but have limitations over custom profiles that are created by cloning them.</p>
+
+<p>Standard profiles permission cannot be edited but some settings can be customized, such as</p>
+
+<ul>
+	<li> Custom App Settings</li>
+	<li> Tab Settings</li>
+	<li> Desktop Integration Client Options</li>
+	<li> Session Settings</li>
+	<li> Password Policies</li>
+</ul>
+<h4 id="h4-3">Custom Profiles</h4>
+<p>Custom Profiles are created by using standard profiles as template and they are mostly assigned to users. A Custom profile cannot be created from scratch, a standard profile that is the closest to the functionality need to be used and cloned.</p>
+
+<p>Unlike Standard Profiles all the settings in Custom Profiles can be modified.</p>
+
+<h3 id="h3-14">Permission Set</h3>
+<p>The interface for configuring permission sets look very similar to that of the profile as they have the same type of permissions that can be granted.</p>
+
+<p>Permission sets details page <samp>Manage Assignments</samp> (button) can be used to see all users assgined the permission set and add that permission set to new users.</p>
+
+<p>Also on User Details page the permission sets assigned to the user can be viewed and new permission sets can be assigned.</p>
+
+<h3 id="h3-15">Permission Set Group</h3>
+<p>Group a number of permission sets that might to be given to simialr type of users.</p>
+
+<p>In this a newer feature of permission set group is mute permissions sets in group in which some permissions sets can be muted and reactivated/unmuted as needed.</p>
+
+<p>We can also see under combined permission, all the permissions together that are granted by all the permission sets in the permission set group.</p>
+
+<h3 id="h3-16">Organization</h3>
+<p>For the whole org, you can maintain a list of authorized users, set password policies, and limit logins to certain hours and locations.</p>
+
+<h4 id="h4-4">Set Password Policy</h4>
+<p>Goto <strong>Setup | Security | Password Policy</strong></p>
+
+<p>Set the password restrictions and login lockout policies for all users.</p>
+
+<h4 id="h4-5">Network Access</h4>
+<p>Goto <strong>Setup | Security | Network Access</strong></p>
+
+<p>Allow for giving access to certain Ip-Addresses througn which logging-in would not need access code.</p>
+
+<p>They are called as Trusted IP Address Ranges.</p>
+
+<quote> From Profile Login Ip Ranges can be set, they are not the same as Trusted IP Address Ranges.</quote>
+<ul>
+	<li> Login Ip Address Ranges : Settings that control the IP addresses from which users can log in.</li>
+</ul>
+<ul>
+	<li> Trusted Ip Address Ranges : Contains IP address ranges from sources that your organization trusts. Users logging in to salesforce.com with a browser from trusted networks are allowed to access salesforce.com without having to activate their computers.</li>
+</ul>
+<h4 id="h4-6">Session Settings</h4>
+<p>Contol session connection types, timeout restrictions, Ip Address ranges etc.</p>
+
+<p>It also controls what sessions security levels such as multifactor authentication being considered High assurance and other like username and password, lightning login etc as standard authentication.</p>
+
+<p>It also controls the pages users are redirected to when they logout. This could be to some custom Url or by default is to salesforce login page.</p>
+
+<h4 id="h4-7">Admin Can Login As Any User</h4>
+<p>For testing adming might want to login in as a different user.</p>
+
+<p>To Enable this as a org policy goto <strong>Setup | Security | Login Access Policies</strong> and enable <strong>Administrators can login in as Any User</strong>.</p>
+
+<h3 id="h3-17">Objects</h3>
+<p>By setting permissions on a particular type of object, you can prevent a group of users from creating, viewing, editing, or deleting any records of that object.</p>
+
+<quote> Record detail pages can be reached by placing a record ID at the root of the URL.</quote>
+<p>You can set object permissions with profiles or permission sets. Permission sets grant additional permissions and access settings to a user.</p>
+
+<p>Users are assigend one profile and can be assigned any number of permission sets.</p>
+
+<p>Permissions can also allow user to create or edit records of a given type, run reports, and customize the app.</p>
+
+<quote> The <samp>View All Data</samp> and <samp>Modify All Data</samp> overrides all other sharing settings, role hierarcy, and sharing rules, so should only be assigned to system administrator.</quote>
+<h3 id="h3-18">Fields</h3>
+<p>You can restrict access to certain fields, even if a user has access to the object.</p>
+
+<p>Like objects field access can be controlled by the profile and by using permission sets.</p>
+
+<p>Field Access are given just below object settings, and have two options (Read Access, Edit Access).</p>
+
+<p>In field details page in object manager, <strong>View Fields Accessibility</strong> (button top center) shows the accessibility for different profiles. <strong>Where it is used</strong> is another button next ot view fields accessibility that shows where the field is referenced (eg page layouts). Where it is used is not availabe for standard fields.</p>
+
+<quote> There is a 900 maximum hard limit on total custom fields per object.</quote>
+<h3 id="h3-19">Records</h3>
+<p>You can allow particular users to view an object, but then restrict the individual object records they're allowed to see.</p>
+
+<p>Controlled inside <strong>Sharing Settings</strong>.</p>
+
+<quote> Organization Wide Default is the most restrictive, as you go down the list the options can be used to open up the organization security for more users selectively.</quote>
+<h4 id="h4-8">Organization Wide Default</h4>
+<p>Specify the default level of access users have to each otherâ€™s records.</p>
+
+<quote> In Organization Wide Default all standard objects have <strong>Grant Access Using Hierarchies</strong> enabled by default and it cannot be changed while it can be disabled for custom objects.</quote>
+<p>The options for each object depend on the object and can be Public Read/Write, Public Read Only, Private, Public Read/Write/Transfer (for objects such as Cases, Leads), Controlled By Parent(In case of details object in a Master-Details Relationship).</p>
+
+<h4 id="h4-9">Role Hirerachy</h4>
+<p>Role Hierarchy provides vertical access to records. The user above in the hierarchy has access to all the records of the user with roles below.</p>
+
+<p>Not all user need to be added to the role hierarcy, some can be outside of the role hierarcy and their records will not be shared by the role hierarchy.</p>
+
+<h4 id="h4-10">Sharing Rules</h4>
+<p>Use Sharing Rules to make automatic exceptions to the organization wide sharing settings for defined set of users.</p>
+
+<p>The sharing can be done with Roles, Roles and Subordinates or Public groups.</p>
+
+<p>Then access can be given to object themselves and the related objects.</p>
+
+<h4 id="h4-11">Manual Sharing</h4>
+<p>Access Manual Sharing by going to the record that needs to be shared and than click on arrow drop down on the top right and click <samp>Sharing</samp>.</p>
+
+<p>The record can then be shared with groups or individual users.</p>
+
+<h4 id="h4-12">Team Access</h4>
+<p>A team is a group of users that work together on account, opporunity or case.</p>
+
+<p>Different teams can be created like Account Team or Case Team etc.</p>
+
+<p>Access Teams by first Enabling that team type (eg Account Team).</p>
+
+<h4 id="h4-13">Territorial Heierarchy Access</h4>
+<h4 id="h4-14">Apex Sharing</h4>
+<p><a href="https://help.salesforce.com/s/articleView?id=sf.security_apex_sharing_reasons.htm&type=5" target="_blank">For Apex Sharing Help</a>df</p>
+
+<h3 id="h3-20">Audit System Use</h3>
+<ul>
+	<li> Record Modification Field</li>
+</ul>
+<p>All records include a field that stores the name of the user who created the record and who last modified the record. This can provide the basic information for audit.</p>
+
+<ul>
+	<li> Login History</li>
+</ul>
+<p>Successful and failed login attempts for the past 6 months can be monitored. <a href="https://help.salesforce.com/s/articleView?id=sf.users_login_history.htm&type=5" target="_blank">Help Page</a>.</p>
+
+<ul>
+	<li> Field History Tracking</li>
+</ul>
+<p>Auditing can be trued on for fields to automatically track changes to individual fields.<a href="https://help.salesforce.com/s/articleView?id=sf.tracking_field_history.htm&type=5" target="_blank">Help PAge</a>.</p>
+
+<quote> Field Level Audit is available for all custom fields but only for some standard fields.</quote>
+<ul>
+	<li> Setup Audit Trail</li>
+</ul>
+<p>The Setup Audit Trail logs when modifications are made to your organizationâ€™s configuration. <a href="https://help.salesforce.com/s/articleView?id=sf.admin_monitorsetup.htm&type=5" target="_blank">Help Page</a>.</p>
+
+<ul>
+	<li> Identity Verification History</li>
+</ul>
+<p>Identify Verification is found in Identity | Identity verification History. It filter and displays upto 20000 of the most recent identity verfication records. It can also show the approximate geolocation.</p>
+
+<h2 id="h2-6">Users' Identity</h2>
+<h3 id="h3-21">Multifactor Authentication</h3>
+<p>When MFA is turned on, users need to provide multifactor every time they log in.</p>
+
+<p>Orgs can be setup to require MFA for additional circumstances such as</p>
+
+<ol>
+	<li> When user access Salesforce APIs.</li>
+	<li> When user access a connected app, dashboard, or report. This process is known as step-up or high Assurance authentication.</li>
+	<li> During a custom login flow or within a custom app.</li>
+</ol>
+<p>In multifactor authentication the user provides two evidences :</p>
+
+<ol>
+	<li> Something that the user knows like username and password.</li>
+	<li> Something that is in users possession like mobile device with an authentication app or a physical security key. It can be done through Salesforce Authentication(Mobile Application), ThirdParty TOTP(Time based One-time Password) (Google Authenticator, Microsoft Authenticator, Authy etc), Security Keys which are small physical token that look like thumb drive (compatible with FIDO universal Second Factor, or FIDO2 WebAuthn Standards), or Build-in Authenticators like fingerprint or facial recofnition scanner that are build into user's device.</li>
+</ol>
+<h3 id="h3-22">Enable Multifactor Authentication</h3>
+<quote> Before setting up MFA setup <strong>Session Settings</strong> so that Multi-Factor Authentication is in the High Assurance Category as it can prevent You and other Admins from loggin in.</quote>
+<h4 id="h4-15">Enable MFA for Select Users</h4>
+<p>Enable MFA for select users by assigning the <strong>Multi-Factor Authentication for User Interface Login</strong> user permission. This can be done by editing profiles or by creating a permission set that can be then assigned to specific users.</p>
+
+<p>Steps :</p>
+
+<ol>
+	<li> Create a permission set and name it appropriately.</li>
+	<li> Once created, go to the permission set details page.</li>
+	<li> Under System | System Permissions (Click link) | Edit (button) | <strong>Multi-Factor Authentication for User Interface Logins</strong> (check box) | Save.</li>
+	<li> Multi-Factor Authentication for API Logins option is also available here.</li>
+	<li> Assign this permission set to the users as needed.</li>
+	<li> On details page of new permission set, click <strong>Manage Assignments</strong>.</li>
+	<li> Click <strong>Add Assignment</strong> On the list of users, select the checkbox next to the users.</li>
+	<li> Click Assign | Done.</li>
+</ol>
+<quote> There are multiple options Named Multi-Factor Authentication, check the <strong>Multi-Factor Authentication for User Interface Logins</strong>.</quote>
+<h4 id="h4-16">Turn On MFA for Everyone in Organization</h4>
+<p>Setup | Identity | <strong>Identity Verification</strong> | Select <strong>Require multi-factor Authentication for all direct UI logins to your Salesforce org</strong> (checkbox) | Save.</p>
+
+<p>After the setting is enabled everyone in the org, regardless of whether they were previouly assigned the MFA user permission, is now required to complete MFA when logging in.</p>
+
+<h4 id="h4-17">Salesforce Authenticator Application</h4>
+<p>Download Salesforce Authenticator Application on mobile device to authenticate.</p>
+
+<p>If a person regularly access salesforce authenticator app from any particluar location they can automate the authentication on their phone for that locaiton by selecting <strong>Always approve from this location</strong> in the mobile application.</p>
+
+<p>Such trusted locations can be added and removed from a list of truested location on the application.</p>
+
+<p>IF the user loses access to the application the administrator can disconnect the authenticator from the users account.</p>
+
+<ol>
+	<li> <strong>Setup | Users | User details page</strong></li>
+	<li> Click Disconnect next to App Registration: Salesforce Authenticator.</li>
+</ol>
+<p>If the MFA is set by permission set the permission set for users can be removed to disable MFA for those users.</p>
+
+<h3 id="h3-23">Monitor Logging</h3>
+<p>Identity verification history can be user to monitor who logged in to the org and when.</p>
+
+<p>Setup | Verification | Identity Verification History</p>
+
+<h2 id="h2-7">Sandbox</h2>
+<p>A Salesforce sandbox is a place for the users to test and build without risk of changing or losing the valuable data on the production organization. Sandboxes help user to keep production organizations data clean during training, development and testing.</p>
+
+<quote> Sandboxes are accessed through <samp>https://test.salesforce.com</samp>. Use username with a period and the name of the sandbox at the end like <samp>name@example.com.SanboxName</samp> and password on the day that sandbox was created.</quote>
+<h3 id="h3-24">Types of Sandboxes</h3>
+<p><strong>Developer</strong> Sandbox has all of the production configuration but none of the production data. They can be refreshed or pull in latest configuration from production once a day.</p>
+
+<p>Production Configuration included in sandbox are Configurations, Apex, Metadata and All Users.</p>
+
+<p>Has capacity of 200MB.</p>
+
+<p>Good for development and testing.</p>
+
+<p><strong>Developer Pro</strong> Sandbox has all the production configuration but none of the production data. They can hold more data than the Developer Sandbox and can be refreshed once per day.</p>
+
+<p>Has capacity of 1 GB.</p>
+
+<p>Good for development and quality assurance tasks, testing, and user training.</p>
+
+<p><strong>Partial Copy</strong> sandbox has all the production configuration and also a sample of the real-world data from the production organization what was defined using the sandbox template. They can be refreshed once every 5 days.</p>
+
+<p>Has capacity of 5GB.</p>
+
+<p>Good for user acceptance testing, integration testing, and training, because it contains some of your production data.</p>
+
+<p><strong>Full Copy</strong> sandbox is a full copy of the production organization. It includes all the configuration and most if not all data. Can be refreshed every 29 days.</p>
+
+<p>Capacity is same as production environment.</p>
+
+<p>An ideal testing environment since it is just like production. This is the only type of sandbox that supports performance testing, load testing, and staging. You probably donâ€™t want to use Full sandboxes for development, though, because you can only refresh configurations and data every 29 days, and that refresh can take days to complete.</p>
+
+<p>The type and quantity of sandboxes you can set up and use depends on your license.</p>
+
+<h3 id="h3-25">Create a New Sandbox</h3>
+<quote> A sandbox needs to be set up in Salsforce production. It cannot be setup in a developer or trailhead playground.</quote>
+<p>Setup | Sandbox (Quick Find box) | Sandbox | New Sandbox | Name Sandbox | Select create from dropdown (mostly production) | Select type of sandbox to create | Create.</p>
+
+<p>Sandboxes once created will take several minutes or even days in the case of Full Copy to be ready to use. A notification email will be sent once the sandbox is ready to use.</p>
+
+<quote> Once sandbox is created, check email deliverability settings (Setup | Deliverability (Quick Search) | System email only or No access). By default the System email only is the deliverability access level on any new Sandbox, but still should be checked to make sure.</quote>
+<h3 id="h3-26">Refresh Sandbox</h3>
+<p>To add new configuration and data from production to sandbox, they need to be refreshed by going to Sandboxes list in Setup | Sanbox and <strong>Refresh</strong> next to the sandbox's name.</p>
+
+<p>It is important to note that a refresh will destroy any of the data or customizations created in that sandbox since last refresh.</p>
+
+<p>Also after refresh the email Deliverability must be check again.</p>
+
+<h2 id="h2-8">Getting Org ready for Salesforce Release</h2>
+<quote> Salesforce Platform Seasonal Releases features three times a year in the Spring, Summer, and Winter releases. NPSP features three times each yearâ€”Winter, Spring, and Summer.</quote><quote> Salesforce auto-enables some features (release notes point these out), so admins need to prepare for the changes to the org that these releases bring.</quote>
+<h3 id="h3-27">Run NPSP Health check</h3>
+<p>NPSP health check tool scans organization for data and configuration inconsistencies and errors and reports back with descriptions of what seems to be wrong.</p>
+
+<p>Saleforce recommends running health check after any major data import or update and outside of those events it should be run atleast once a quarter.</p>
+
+<p>NPSP Settings (In App Launcher) | System Tools and Health Check. | (optional) Disable Record Data Health Checks | Run Health Check.</p>
+
+<h3 id="h3-28">Run Salesforce Optimizer</h3>
+<p>The Salesforce Optimizer takes a snapshot of the org to look for potential problems and gives a detailed report on at least 55 metrics covering storage, fields, users, and much more. For each metric, Salesforce provides a blueprint to address problem areas or improve user adoption.</p>
+
+<p>Salesforce recommend running the Salesforce Optimizer before installing a new app and before each Salesforce release.</p>
+
+<p>Setup | Optimizer | Allow Access (First time only) | Open Optimizer | Run Optimizer | (Once completed) Refresh the page to see results or If left the page go to App Launcher and select <strong>Salesforce Optimizer</strong>.</p>
+
+<h2 id="h2-9">Manage Chatter</h2>
+<p>To create a chatter group goto <strong>App Launcher | Groups</strong>.</p>
+
+<p>Here create a group and add memebers.</p>
+
+<p>Polls can be setup for the member to vote in.</p>
+
+<h2 id="h2-10">Email Letter Head and Templates</h2>
+<h3 id="h3-29">Create a LetterHead</h3>
+<p>Goto <strong>App Launcher | Enhanced Letterheads</strong>.</p>
+
+<p>Here click New to create a new letterhead.</p>
+
+<p>Merge field (bottom right looks like <samp>{}</samp>) option can be used to insert field names.</p>
+
+<quote> If there is a "insufficient privileges" error in the Letterhead Content, navigate to <strong>Setup | Lightning Email Templates</strong> and toggle on Folders and Enhanced Sharing.</quote>
+<h3 id="h3-30">Create a Email Template</h3>
+<p>Goto <strong>App Launcher | Email Template</strong>.</p>
+
+<p>Here click New Email Template.</p>
+
+<h3 id="h3-31">Send an Email Test</h3>
+<p>Goto <strong>App Launcher | Contacts</strong> or go to Contacts by using Contacts tab.</p>
+
+<p>Select a contact to send email.</p>
+
+<p>In the Activity tab on the right click Email. In the Email, click Insert, create or update template option which is small icon at the bottom of body of email and select the template to insert.</p>
+
+<p>Fill the template and click send.</p>
+
+<h2 id="h2-11">Customize Saleforce Org URL with My Domain</h2>
+<p>My Domain is an Identity Feature that makes it possible to customize salesforce org with a subdomain within the saleforce domain.</p>
+
+<p>My domain is not just about changing the login domain for the org, it also is required for</p>
+
+<ul>
+	<li> Work in multiple Saleforce orgs in the same browser.</li>
+	<li> Setup single sign-on (SSO) with third party identity vendors.</li>
+	<li> Set up authentication providers, such as google and facebook, so that users can login into their salesforce org with their social media credentials.</li>
+	<li> Customize org's login page with companies brand.</li>
+</ul>
+<p>Because of the importance of mydomain, every org gets one by default.</p>
+
+<p>To update My Domain go to <strong>Setup | Company Settings | My Domain</strong>. Here salesforce will guide throught the process of updating my domain.</p>
+
+<h3 id="h3-32">Reset Password and Security Token</h3>
+<p>Username, password and Security Token for salseforce account is needed to authenticate when authenticating from an unkown Ip Address.</p>
+
+<p>To get the Security token goto <strong>Bear Icon | Settings (Under Username) | My Personal Information | Reset My Secruity Token</strong>.</p>
+
+<p>When making request from an unkown IP address the passwork and token should be used together like <samp>passwordsecuritytoken</samp> without spaces.</p>
+
+<p>Session Id will be generated and send by salesforce on successful login, that then can be used for further requests.</p>
+
+<h2 id="h2-12">Reports and Dashboard</h2>
+<h3 id="h3-33">Benefits of Reports and Dashboard</h3>
+<ul>
+	<li> <strong>Visibility into data</strong> - gives better insight to help managers make better decisions.</li>
+	<li> <strong>Time savings</strong> - Quick view of data to answer simple as well as complex questions.</li>
+	<li> <strong>Flexibility</strong> - tailoring reports and dashboards to the specific needs of end users</li>
+</ul>
+<h3 id="h3-34">Create and Sharing Reports and Dashboard Folder</h3>
+<p>Go to <strong>App Launcher | Sales | Reports tab</strong> there click <strong>New Folder</strong>.</p>
+
+<p>Similarly For Dashboard Go to <strong>App Launcher | Sales | Dashboard tab</strong> there click <strong>New Folder</strong>.</p>
+
+<p>Sub folders can be created inside any folder by clicking on the folder and using the same New Folder button.</p>
+
+<p>To share a folder click right side drop down and select share.</p>
+
+<p>Folders can be shared with Users, Roles and Subordinates, Public group and roles. They can be set to Visible, Edit or Mange as Access level.</p>
+
+<h3 id="h3-35">Create a Custom Report</h3>
+<p>To create a new report for an object goto Reports from Reports tab.</p>
+
+<p>Report data can be filtered, and grouped by columns.</p>
+
+<p>Fields shown can be remove from the outline tab.</p>
+
+<p>To add Fields, click <strong>Fields</strong> from the left side nav.</p>
+
+<p>In the filters, filter logic can be added by clicking the dropdown next to filter. This logic will use the filters number and logical operators to add logic of how the different filters are applied together. By default all filters are added with an <samp>AND</samp> logic.</p>
+
+<p>Relative dates such as <samp>THIS YEAR</samp> can also be used instead of absolute date, to filter fields such as Close Date. Example instead of <samp>Close Date &gt; Jan 1, 2022</samp> filter report by relative date as <samp>Close Date = THIS YEAR</samp>.</p>
+
+<h2 id="h2-13">Data</h2>
+<h3 id="h3-36">Data Management</h3>
+<p>Data can be easily imported into salesforce by using Data Import Wizard or Data Loader.</p>
+
+<h4 id="h4-18">Data Import Wizard</h4>
+<p>It is a tool accessible throught <strong>Setup</strong> that allows import of records for object such as contacts, leads, accounts as well as data in custom objects.</p>
+
+<p>Upto 50000 records an be imported.</p>
+
+<p>The import process can automated.</p>
+
+<h4 id="h4-19">Data Loader</h4>
+<p>This is a client application that can import up to five million records at a time, of any data type, either from files or a database connection.</p>
+
+<p>Schedule regular data loads is possible.</p>
+
+<h4 id="h4-20">Consideration while importing</h4>
+<ul>
+	<li> Picklist values in restricted picklist if value is not present default value is used.</li>
+	<li> Multiselect picklists value should be separated by semicolon.</li>
+	<li> Checkboxes value use 1 for checked and 0 for unchecked.</li>
+	<li> Date/Time fields formate should match the locale settings.</li>
+	<li> Formula fields cannot accept imported data.</li>
+	<li> Salesforce runs validation rules on records before they are imported, if failed record isn't imported.</li>
+</ul>
+<h3 id="h3-37">Export Data</h3>
+<ul>
+	<li> Data Export Service is an inbrowser service that is accessible throught setup menu. Data can be exported weekly or monthly.</li>
+	<li> Data Loader - Is a client application that is intalled separately.</li>
+</ul>
+<h3 id="h3-38">Storage Usage</h3>
+<p>Go to <strong>Setup | Data | Storage Usage</strong></p>
+
+<p>Shows the storage usage of the organization.</p>
+
+<h2 id="h2-14">Lightning App Builder</h2>
+<h3 id="h3-39">What Can be build with LAB</h3>
+<ul>
+	<li> Single-page app that drill down into standard pages.</li>
+	<li> Dashborads style apps.</li>
+	<li> Point app to solve particular task.</li>
+	<li> Custom record pages for objects.</li>
+	<li> Custom home pages.</li>
+</ul>
+<quote> Structure of Lightning pages adapt for devices its viewded on.</quote>
+<h3 id="h3-40">Lightning Page Types</h3>
+<ul>
+	<li> App Page</li>
+	<li> Home Page</li>
+	<li> Record Page</li>
+</ul>
+<quote> When a page is Edited for the first time, salesforce makes a copy of the standard page. The copy is what then can be edited in Lightning App Builder. The page created like this, as a copy, retain a reference to the standard page, which will then be used by salesforce when new features need to be added.</quote><quote> If a page is created from scratch, the new page capabalities Salesforce rolls out don't appears automatically.</quote>
+<p>To Create a new Page go to - <strong>Setup | User Interface | Lightning App Builder</strong>. Here click <strong>new</strong> and then select the type of page that needs to be created.</p>
+
+<quote> To Deactivate A page click <strong>Activation</strong>, click the <strong>App | Page Type |Profile tab | Remove Assignments</strong>.</quote>
+<h3 id="h3-41">Lightning Components</h3>
+<p>It is a compact, configurable and reusable element that can be added to Lightning App Builder.</p>
+
+<ul>
+	<li> Standard Components - Lightning component build by salesforce.</li>
+	<li> Custom Components - Made with Aura or LWC.</li>
+	<li> Thrid party Components on AppExchange</li>
+</ul>
+</div>
+</div>
+
+    <!-- Format -->
+    <script src="../../highlight/highlight.min.js"></script>
+    <script src="../../library/format.js"></script>
+</body>
+</html>

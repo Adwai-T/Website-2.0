@@ -36,7 +36,7 @@ export class SearchService {
 
   private dontSearchWord : Record<string, boolean> = {
     to : true, it: true, the: true, with: true, of: true,
-    from: true, as: true, in: true,
+    from: true, as: true, in: true, and: true,
   }
 
   private searchFor(searchString: string): searchResultObject {

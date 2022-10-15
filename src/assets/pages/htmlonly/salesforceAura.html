@@ -1,0 +1,1279 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<title></title>
+</head>
+<body>
+<div id="container">
+<div id="index">
+<ul id="index-list">
+<li class="index-li-h2"><a href="#h2-0">Introduction</a></li>
+<li class="index-li-h2"><a href="#h2-1">Using VsCode to Develop Aura Components</a></li>
+<li class="index-li-h2"><a href="#h2-2">Aura Components</a></li>
+<li class="index-li-h3"><a href="#h3-0">Use of Lightning Components</a></li>
+<li class="index-li-h3"><a href="#h3-1">Lightning Component Library</a></li>
+<li class="index-li-h3"><a href="#h3-2">Styling Aura Components</a></li>
+<li class="index-li-h3"><a href="#h3-3">Enable Debug Mode</a></li>
+<li class="index-li-h3"><a href="#h3-4">Manage Aura Components</a></li>
+<li class="index-li-h4"><a href="#h4-0">Open Existing Aura Component</a></li>
+<li class="index-li-h4"><a href="#h4-1">Delete Aura Component</a></li>
+<li class="index-li-h3"><a href="#h3-5">Add a component to other Component</a></li>
+<li class="index-li-h2"><a href="#h2-3">Aura Attributes</a></li>
+<li class="index-li-h3"><a href="#h3-6">Define default value for a sObject</a></li>
+<li class="index-li-h3"><a href="#h3-7">Expressions</a></li>
+<li class="index-li-h4"><a href="#h4-2">Value Providers</a></li>
+<li class="index-li-h4"><a href="#h4-3">Global value providers</a></li>
+<li class="index-li-h3"><a href="#h3-8">Attribute Data Types</a></li>
+<li class="index-li-h2"><a href="#h2-4">Controller</a></li>
+<li class="index-li-h3"><a href="#h3-9">Javascript API for controller</a></li>
+<li class="index-li-h3"><a href="#h3-10">Handle Action with Controller</a></li>
+<li class="index-li-h4"><a href="#h4-4">Component, Event Methods in Javascript</a></li>
+<li class="index-li-h4"><a href="#h4-5">Finding Components by ID</a></li>
+<li class="index-li-h3"><a href="#h3-11">Helper</a></li>
+<li class="index-li-h3"><a href="#h3-12">Invoking Another Action in the controller</a></li>
+<li class="index-li-h3"><a href="#h3-13">Understanding value providers between view and controller</a></li>
+<li class="index-li-h2"><a href="#h2-5">Input Data Using Forms</a></li>
+<li class="index-li-h3"><a href="#h3-14">List of Form Controls and Lightning Base Components</a></li>
+<li class="index-li-h3"><a href="#h3-15">Validating Fields</a></li>
+<li class="index-li-h3"><a href="#h3-16">Lightning Data Service</a></li>
+<li class="index-li-h4"><a href="#h4-6">Create Component that use Lightning Data Service</a></li>
+<li class="index-li-h4"><a href="#h4-7">Advantages of Lightning Data service</a></li>
+<li class="index-li-h2"><a href="#h2-6">Server-Side Controller</a></li>
+<li class="index-li-h3"><a href="#h3-17">Quering Data from salesforce using Apex controller</a></li>
+<li class="index-li-h3"><a href="#h3-18">Loading Data from salesforce</a></li>
+<li class="index-li-h3"><a href="#h3-19">Differnce between `c` in controllers and view</a></li>
+<li class="index-li-h3"><a href="#h3-20">Securing Data in Apex Controller</a></li>
+<li class="index-li-h4"><a href="#h4-8">Enforce Sharing Rules</a></li>
+<li class="index-li-h4"><a href="#h4-9">Enforce Object and Field Permissions (CURD and FLS)</a></li>
+<li class="index-li-h3"><a href="#h3-21">Throwing Exception from Apex Controller</a></li>
+<li class="index-li-h2"><a href="#h2-7">Connect Components with Aura Events</a></li>
+<li class="index-li-h3"><a href="#h3-22">Types of Lightning Events</a></li>
+<li class="index-li-h3"><a href="#h3-23">Sending an Event from a Component</a></li>
+<li class="index-li-h4"><a href="#h4-10">Create a new Lightning Event</a></li>
+<li class="index-li-h4"><a href="#h4-11">Register Event that Component fires</a></li>
+<li class="index-li-h4"><a href="#h4-12">Create a new Event and Fire from Controller</a></li>
+<li class="index-li-h3"><a href="#h3-24">Handle an Event</a></li>
+<li class="index-li-h4"><a href="#h4-13">Register an Event to be Handled</a></li>
+<li class="index-li-h4"><a href="#h4-14">Handle Event in Controller</a></li>
+<li class="index-li-h3"><a href="#h3-25">Event Handling Lifecycle of type Component</a></li>
+<li class="index-li-h3"><a href="#h3-26">Additional Resources</a></li>
+<li class="index-li-h2"><a href="#h2-8">Complete Example of Aura Basics</a></li>
+<li class="index-li-h2"><a href="#h2-9">Salesforce Lightning Design System (SLDS)</a></li>
+<li class="index-li-h2"><a href="#h2-10">CSS in Components</a></li>
+<li class="index-li-h2"><a href="#h2-11">Dynamically Showing and Hiding Markup</a></li>
+<li class="index-li-h3"><a href="#h3-27">CSS to toggle markup</a></li>
+<li class="index-li-h3"><a href="#h3-28">aura:if</a></li>
+</ul>
+</div>
+
+<div id="content">
+<h1 id="h1-0">Salesforce Aura Component Framework</h1>
+<p>Component based framework helps develop single page application usable in Desktop and Mobile.</p>
+
+<h2 id="h2-0">Introduction</h2>
+<p>The lightning Component framwork is a UI framwork for developing web apps for desktop and mobile devices. It is used to create single-page applications with dynamic, responsive user interfaces for Lightning Platform apps.</p>
+
+<p>It uses Javascript on client side and Apex on the server side.</p>
+
+<p>Client side - View (Markup) + controller (Javascript)</p>
+
+<p>Saleforce is the connection betwenn Client and server.</p>
+
+<p>Server side - Controller (Apex) + Database</p>
+
+<quote> Aura Framework unlike Apex is case sensitive.</quote>
+<p>The Aura components and LWC design concept are based on a <a href="https://www.lightningdesignsystem.com/" target="_blank">Lightning Design System. Visit</a> the website to know more about the design principles.</p>
+
+<h2 id="h2-1">Using VsCode to Develop Aura Components</h2>
+<p>Make sure that salesforce cli is installed and vs code is setup with all the plugins needed for salesforce development. For a detailed guide check the VS code setup for salesforce development guide.</p>
+
+<p>In Vs code Open Command Palette with <strong>F1</strong> or <strong>Ctrl+Shift+P</strong> on windows or <strong>Cmd+Shift+P</strong> on mac and type <strong>SFDX</strong>. This will give several options in a drop down.</p>
+
+<p>Select <strong>SFDX: Create Lightning Component</strong>. Don't Use <strong>SFDX: Create Lightning Web Component</strong> as it will create a LWC Component.</p>
+
+<p>To deploy back right-click on the component folder or on the main folder for all components and then select <strong>SFDX: Deploy Source to Org</strong>.</p>
+
+<h2 id="h2-2">Aura Components</h2>
+<p>A component is a bundle that includes a definition resources, written in markup and may include additional optional resources like a controller, style sheet and so on.</p>
+
+
+<pre><code class="language-xml">
+&lt;aura:component&gt;
+    &lt;p&gt;Hello World&lt;/p&gt;
+&lt;/aura:component&gt;
+</code></pre>
+
+<quote> Components can be nested inside other components or applications. Applications cannot be nested inside other application.</quote>
+<h3 id="h3-0">Use of Lightning Components</h3>
+<ul>
+	<li> Add Apps to the Lightning Experience App Launcher and Tabs.</li>
+	<li> Create Drag-and-Drop Components for Lighitning App Builder and Experience Builder.</li>
+	<li> Add Lightning Components to Lightning Pages.</li>
+	<li> Add Lightning Components to Lightning Experience Record Pages.</li>
+	<li> Launch a Lightning Component as a Quick Action.</li>
+	<li> Override Standard Actions with Lightning Components.</li>
+	<li> Create Stand-Alone Apps.</li>
+	<li> Run Lightning Components Apps Inside Visualforce Pages.</li>
+	<li> Run Ligtning Components Apps on other Platfroms with Lightning Out.</li>
+	<li> Customize Flow Screens.</li>
+</ul>
+<h3 id="h3-1">Lightning Component Library</h3>
+<p>Salesforce provides a library for out of the box component that can be used and customized for any use case.</p>
+
+<p><a href="https://developer.salesforce.com/docs/component-library/overview/components" target="_blank">Visit Lightining Compoeent Library.</a></p>
+
+<h3 id="h3-2">Styling Aura Components</h3>
+<p>The style file is used to style the component with css.</p>
+
+<p><samp>.THIS</samp> selector is replaced at runtime by a scoping string name for that component.</p>
+
+<p>This prevents styles from one component effecting other components or poluting the global style.</p>
+
+<p>Use <samp>p.THIS{}</samp> for example to style a paragraph in a given component.</p>
+
+<h3 id="h3-3">Enable Debug Mode</h3>
+<p>Sometimes when a new component is added or changes are made to an existing component, they might not be visible as the browser has cached the site.</p>
+
+<p>A hard refresh can be done to clear cache and reload the page.</p>
+
+<p>To enable debug mode for a user goto <strong>Setup | Custom Code | Lightning Component | Debug Mode</strong> and select the user for which debug mode is to be enabled.</p>
+
+<p>Now when the page is refreshed on the top right there will be two new buttons added. The green button will help clear the cache. Then the page can be refreshed to view the latest changes.</p>
+
+<h3 id="h3-4">Manage Aura Components</h3>
+<p>Aura Component can be developed in the Salesforce Developer Console.</p>
+
+<h4 id="h4-0">Open Existing Aura Component</h4>
+<p>In Developer Console Goto <strong>File | Open Lightning Resources</strong> Select the name of the component and click Open Selected.</p>
+
+<h4 id="h4-1">Delete Aura Component</h4>
+<p>Goto <strong>Setup | Custom Code | Lightning Components | Lightning Components</strong>.</p>
+
+<p>Here find the name and click <strong>Del</strong> next to the name of the component.</p>
+
+<h3 id="h3-5">Add a component to other Component</h3>
+<p>Components can be added to other components and applications.</p>
+
+<p>Components are build as a simple unit with mostly simple singular function and then added to other component to create a complex functionality.</p>
+
+<p>Use <samp>&lt;c:ComponentName&gt;</samp> to add a component to other components.</p>
+
+<quote> <samp>c</samp> is the detault namespace for all custom components that are created.</quote>
+
+<pre><code class="language-xml">
+&lt;aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" &gt;
+    &lt;c:campingHeader/&gt;
+    &lt;c:campingList/&gt;
+&lt;/aura:component&gt;
+</code></pre>
+
+<h2 id="h2-3">Aura Attributes</h2>
+<p>Attributes in aura components are like instance variables of an Apex class.</p>
+
+<p>An attribute is defined with <samp>&lt;aura:attribute&gt;</samp> and requires <samp>name</samp> and <samp>type</samp> attributes. It also accepts <samp>dafault</samp>, <samp>description</samp>, <samp>access</samp> and <samp>required</samp> attributes.</p>
+
+<p>Store client side data in attributes.</p>
+
+<quote> <samp>{!...}</samp> is used to evaulate syntax to evaluate an expression. Ex. <samp>{!c.change}</samp> calls a client-side controller and <samp>{!v.att-name}</samp> refers to a component attribute value, <samp>{!v.body}</samp> outputs the body of the component, which is an array of components.</quote><quote> <samp>{#...}</samp> can be used to create one way data binding, where value can travel to client side controller but, changes in controller will not be reflected in the Html. This is also refered to as unbound expression.</quote>
+
+<pre><code class="language-xml">
+&lt;aura:attribute name="att-name"
+types="String" access="private" default="def-value"
+required="false" /&gt;
+
+
+&lt;!--name and type are required--&gt;
+&lt;!--Default access is Public--&gt;
+
+
+&lt;!--Using Attribute values--&gt;
+&lt;lightning:card title="{!v.att-name}"&gt;
+    {!v.greeting}
+    &lt;!--Dont need double quotes while using outside of the tag--&gt;
+&lt;/lightning:card&gt;
+</code></pre>
+
+<quote> Use <samp>&lt;aura:attribute /&gt;</samp> as a single self closing tag as sometimes using a closing tag, aura framework does not accept an attribute with opening and closing tag.</quote>
+<h3 id="h3-6">Define default value for a sObject</h3>
+<p>Here the attributes type is the API name of the standard or custom object.</p>
+
+<p>The default for value for an sObject is just the JSON represntation for that object, in which sObject type is specified with <samp>sObjectType</samp> as key and then field's API names can be used to define their default values.</p>
+
+
+<pre><code class="language-xml">
+&lt;aura:attribute name="attName" type="sObjectName"
+    default="{
+        'sObjectType' : 'sObjectName',
+        'Name' : '',
+        'OtherField__c' : '',
+        'otherStandardField' : '',
+        'NumberField__c' : 0,
+        'BooleanField__c' : false
+    }" /&gt;
+</code></pre>
+
+<h3 id="h3-7">Expressions</h3>
+<p>An expression is any set of literal values, variables, sub-expressions, or operators that can be resolved to a single value.</p>
+
+<p><samp>{!...}</samp> is used to evaulate syntax to evaluate an expression. Ex. <samp>{!c.change}</samp> calls a client-side controller and <samp>{!v.att-name}</samp> refers to a component attribute value, <samp>{!v.body}</samp> outputs the body of the component, which is an array of components.</p>
+
+<p>Expressions can also perfrom operations, for example <samp>{!$Label.c.Greeting + v.message}</samp> will concatinate the two strings.</p>
+
+<p><samp>{#...}</samp> can be used to create one way data binding, where value can travel to client side controller but, changes in controller will not be reflected in the Html. This is also refered to as unbound expression.</p>
+
+<h4 id="h4-2">Value Providers</h4>
+<p>In expressions <samp>v.something</samp> was used. The <strong>v</strong> in it is called as a value provider.</p>
+
+<p>Value providers are a way to group, encapsulate and access related data.</p>
+
+<p>In simple terms <strong>v</strong> can be thought as value provider for the view.</p>
+
+<p><strong>v</strong> gives a hook to access component attributes and is used to access all the components attributes.</p>
+
+<p>As attributes for component can also be other objects their values are also accessible with value provider as <samp>{! v.account.Id}</samp>.</p>
+
+<p><samp>c.componentName</samp> is also a value provider.</p>
+
+<p><strong>c</strong> a component's controller, which enables the wiring of event handlers and actions for component.</p>
+
+<p>All Components have a <strong>v</strong> value provider but aren't required to have a controller. Both value providers are created automatically when defined for a component.</p>
+
+<h4 id="h4-3">Global value providers</h4>
+<p>There are other global value providers.</p>
+
+<ul>
+	<li> <samp>globalID</samp> return the unique global ID for a component which is generated at runtime.</li>
+	<li> <samp>$Browser</samp> provides information about the harware and operating system of the browser accessing the application.</li>
+	<li> <samp>$ContentAsset</samp> - lets reference images, style sheets, and javascript used asset files in lightning components.</li>
+	<li> <samp>$Label</samp> - Enables access to labels stored outside of code.</li>
+	<li> <samp>$Locale</samp> - returns infromation about the current users preferred Locale.</li>
+	<li> <samp>$Resource</samp> - reference images, style sheets or javascript stored/uploaded in static resources.</li>
+</ul>
+<h3 id="h3-8">Attribute Data Types</h3>
+<p>Attributes can have following data types.</p>
+
+<ul>
+	<li> Primitives like boolean, Date, DateTime, Decimal, Double, Integer, Long, or String.</li>
+	<li> Standard and Custom sObjects.</li>
+	<li> Collections such as List, Map and Set.</li>
+	<li> Custom Apex classes.</li>
+	<li> Framework-specific types such as a <samp>Aura.Component</samp>, or <samp>Aura.Component[]</samp>.</li>
+</ul>
+<h2 id="h2-4">Controller</h2>
+<p>A controller is basically a collection of code that defines the apps behaviour when user input, timer, other events or data updates etc.</p>
+
+<p>LWC can be seen as a MVC(Model View Controller) model, but more appropriately it is View Controller Controller Model. Where there is front view, cleint side controller both running on client side browser and server side controller that runs on salesforces server and communicates with salesforce database and provides appropriate data to be rendered.</p>
+
+<p>The client side controller is responsible for event handling from the user, where as the server side controller handles request and is connected to database.</p>
+
+<quote> Use Unique names for client side and serverside actions in a component. Using same names can lead to hard to debug issues. While debugging the framework logs a browser console warning about clashing cleint and server action names.</quote>
+<h3 id="h3-9">Javascript API for controller</h3>
+<p><a href="https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/ref_jsapi_intro.htm" target="_blank">The full official documentation for the Javascript API used in the controller can be found here.</a></p>
+
+<h3 id="h3-10">Handle Action with Controller</h3>
+<p>Client side controller is a top level function and all handler function are defined inside it. The top level function takes all the handler functions as javascript object as argument.</p>
+
+<p>Handler functions are defined as key value pair inside the controller.</p>
+
+<p>Each handler function can have three parameters, component, event and helper.</p>
+
+<p><samp>handleClick: function(component, event, helper) {</samp></p>
+
+<ul>
+	<li> Component is the component to which the controller belongs.</li>
+	<li> Event is the event that the action is handling.</li>
+	<li> Helper is the component's helper, another javascript resource of reusable functions. It is optional.</li>
+</ul>
+<p>Say a button click triggers the handler. The button can be referenced in the handler by using <samp>let btn = event.getSource()</samp>. Now the button reference can be used in the handler.</p>
+
+<p>To get values from attributes in the view use <samp>cmp.get("v.attributeName")</samp>.</p>
+
+<p>In the handler method, the values can be set for different attributes in the component as <samp>component.set("v.message", message);</samp>.</p>
+
+<h4 id="h4-4">Component, Event Methods in Javascript</h4>
+<p><a href="https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/ref_jsapi_component.htm" target="_blank">Component Methods that can be used in javascript functions can be found on official docs here.</a></p>
+
+<p>Main Component methods -</p>
+
+<ul>
+	<li> <samp>addEventHandler()</samp> - dynamically add an event handler for a component.</li>
+	<li> <samp>find()</samp> - Locates a component using its local ID <samp>(aura:id)</samp>.</li>
+	<li> <samp>get()</samp> - Returns the value referenced using property syntax.</li>
+	<li> <samp>set()</samp> - Sets the value referenced using property syntax.</li>
+	<li> <samp>removeEventHandler()</samp> - Dynamically removes a component event handler for the specified event.</li>
+</ul>
+<quote> <samp>component.find()</samp> can be used to access the component and its child components from the controller and helper. It cannot be used to find any component in the component hierarchy.</quote>
+<p><a href="https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/ref_jsapi_event.htm" target="_blank">Event Methods that can be used in javascript function can be found on this official docs page here.</a></p>
+
+<p>Main Event methods are -</p>
+
+<ul>
+	<li> <samp>getEventType()</samp> - APPLICATION or COMPONENT</li>
+	<li> <samp>getName()</samp> - returns event's name.</li>
+	<li> <samp>getSource()</samp> - returns source component that fired an event.</li>
+	<li> <samp>getSourceEvent()</samp> - return the source event that fired this event, if it was fired by an event binding such as <samp>!{e.myEvent}</samp></li>
+</ul>
+<h4 id="h4-5">Finding Components by ID</h4>
+<p>Use <samp>aura:id</samp> to add a local ID to element in component.</p>
+
+<p><samp>&lt;lightning:button aura:id="button1" label="button1"/&gt;</samp>.</p>
+
+<p>Then the component can be found in the client side javascript controller by using <samp>component.find("button1")</samp>.</p>
+
+<ul>
+	<li> If the local ID is unique, find will return that component.</li>
+	<li> If there are multiple components, with the same id, an array of components will be returned.</li>
+	<li> If there were no matches, <samp>undefined</samp> will be returned.</li>
+</ul>
+<h3 id="h3-11">Helper</h3>
+<ul>
+	<li> A component's helper is the approprite place to put code to be shared between serveral different action handlers.</li>
+	<li> Complex processing details should be put in the helper so that the logic in the action handler remains clear.</li>
+	<li> Helper function can have any function signature, that is they can have any paramters and can return what ever value is needed. Unlike handlers functions are called and used in the handler as they are needed which gives them this flexibility.</li>
+	<li> It's a convention still to have component as the first parameter to helper functions.</li>
+</ul>
+<h3 id="h3-12">Invoking Another Action in the controller</h3>
+<p>To call an action method from anther method, put the common code in a helper function and invoke the helper using <samp>helper.somefunction(cmp)</samp>.</p>
+
+<h3 id="h3-13">Understanding value providers between view and controller</h3>
+<p>Value Providers were already defined above. <strong>v</strong> and <strong>c</strong> are the value providers that help in wiring up values between the controller and view for a component on the client side.</p>
+
+<p><strong>v</strong> is used as a value provider in the javascript controller to get values that are present in the markup and <strong>c</strong> is used in the markup to get values that are set in javascript controller.</p>
+
+<p><strong>v</strong> - values from view.</p>
+<p><strong>c</strong> - values from controller.</p>
+
+<quote> While referencing or invoking a method in the view <samp>()</samp> are not used, just use the name with <strong>c</strong> value provider.</quote>
+<p>Example - When button is clicked set the value of item to be packed and disable the button.</p>
+
+
+<pre><code class="language-xml">
+&lt;aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" &gt;
+    &lt;aura:attribute name="item" type="Camping_Item__c" required="true" /&gt;
+    &lt;div class="item-info"&gt;
+        &lt;p&gt;Name : &lt;lightning:formattedText value="{! v.item.Name}" /&gt;&lt;/p&gt;
+        &lt;p&gt;Price : &lt;lightning:formattedNumber value="{! v.item.Price__c}" style="currency"/&gt;&lt;/p&gt;
+        &lt;p&gt;Quanity : &lt;lightning:formattedNumber value="{! v.item.Quantity__c}"/&gt;&lt;/p&gt;
+        &lt;lightning:input type="toggle" name="Packed" label="Packed?" checked="{! v.item.Packed__c}" /&gt;
+        &lt;lightning:button label="Packed!" title="Packed!" onclick="{! c.packItem }"/&gt;
+    &lt;/div&gt;
+&lt;/aura:component&gt;
+</code></pre>
+
+
+<pre><code class="language-javascript">
+({
+  packItem: function (component, event, helper) {
+    component.set("v.item.Packed__c", true);
+    //-- get button and set it to be disabled
+    event.getSource().set("v.disabled", true);
+  },
+});
+</code></pre>
+
+<p>The complete example is given below.</p>
+
+<h2 id="h2-5">Input Data Using Forms</h2>
+<p>Forms can be used to get user Input for server side use or for updating user interface on the client side.</p>
+
+<p>When creating form to work with salesforce data, either Lightning Data service can be used or fields can be wired up to saleforce object and apex can be used to process user input.</p>
+
+<h3 id="h3-14">List of Form Controls and Lightning Base Components</h3>
+<p>Option Selection and their Corresponding base Components</p>
+
+<ul>
+	<li> Button: <samp>lightning:button</samp> (and lightning:buttonIcon and so on)</li>
+	<li> Checkbox: <samp>lightning:checkboxGroup</samp></li>
+	<li> Dropdown menu for single selection: <samp>lightning:combobox</samp></li>
+	<li> Dropdown menu for single selection using the HTML <samp>&lt;select&gt;</samp>: - <samp>lightning:select</samp></li>
+	<li> Dual listbox for multiple selection: <samp>lightning:dualListbox</samp></li>
+	<li> Radio button: <samp>lightning:radioGroup</samp></li>
+</ul>
+<p>Input value form Control and their Corresponding Base Components</p>
+
+<ul>
+	<li> Input field: <samp>lightning:input</samp></li>
+	<li> Address compound field: <samp>lightning:inputAddress</samp></li>
+	<li> Geolocation compound field: <samp>lightning:inputLocation</samp></li>
+	<li> Name compound field: <samp>lightning:inputName</samp></li>
+	<li> Rich text field: <samp>lightning:inputRichText</samp></li>
+	<li> Input range for number selection: <samp>lightning:slider</samp></li>
+	<li> Text input (multi-line): <samp>lightning:textarea</samp></li>
+</ul>
+<h3 id="h3-15">Validating Fields</h3>
+<p>Validate user input, handle erros and display error message on input fields.</p>
+
+<p>Firstly all input fields that need to be checked for validity should be marked with and <samp>aura:id</samp> so that the component can be fetched inside the javascript controller.</p>
+
+<p>Inside javascript controller. Lets say the <samp>aura:id</samp> for the input components to be validated is <samp>compId</samp>.</p>
+
+
+<pre><code class="language-javascript">
+onSubmit: function (component, event, helper) {
+    let allAreValid = component.find('compId')
+                        .reduce(function (validSoFar, inputComponent) {
+                            inputComponent.showHelpMessageIfInvalid();
+                            return validSoFar &amp;&amp; inputCmp.get('v.validity').valid;
+                        }, true);
+    if(allAreValid) {
+        console.log('All entries are valid');
+    }
+    else {
+        console.log('One or more inputs are invalid');
+    }
+}
+</code></pre>
+
+<ul>
+	<li> <samp>inputComponent.showHelpMessageIfInvalid()</samp> - will check if the element is valid, if it is not relevant help message and red border highlightning.</li>
+	<li> <samp>inputComponent.get('v.validity').valid</samp> is a part of every <samp>lightning:input</samp> component. It's value is changed according to the field being valid. Say input is required and no value is present the value will be false.</li>
+</ul>
+<p>Other values that can be used with <samp>inputComponent.get('v.validity')</samp> as <samp>valid</samp> has been used in the above example -</p>
+
+<p>badInput, patternMismatch, rangeOverflow, rangeUnderflow, stepMismatch, tooLong, typeMismatch, valueMissing.</p>
+
+<p><a href="https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/js_validate_fields.htm?_ga=2.235318657.1880068607.1664260333-282416983.1653311265" target="_blank">Official Documentation for field validation.</a></p>
+
+<h3 id="h3-16">Lightning Data Service</h3>
+<p>Lightning Data Service can be used to create, edit or delete a record without using Apex code in a component.</p>
+
+<p>A big advantage to using lightning data service for simple record fetching and editing over Apex code is it handles sharing rules and field level security.</p>
+
+<p>Other advantages include performance, user interface consistency and overall simplicity.</p>
+
+<quote> At surface Lightning Data Service can be thought as Lightning component version of Visualforce standard Controller.</quote>
+<p>Lightning Data service is built on hightly efficient local storage that is shared accross all components that use it. Records loaded in Lightning Services are cached and shared accross components making components accessing the same records see significant performance improvement.</p>
+
+<h4 id="h4-6">Create Component that use Lightning Data Service</h4>
+<p>Lightning Data Service is available throught <samp>force:recordData</samp> and several base components.</p>
+
+<p><samp>force:recordData</samp> does not include any UI elements only the logic and a way to communicate to the server. Use custom UI with <samp>force:recordData</samp>.</p>
+
+<p>Additional Components that use Lightning Data Service</p>
+
+<ul>
+	<li> <samp>lightning:recordForm</samp> - Display, create or edit records.</li>
+	<li> <samp>lightning:recordViewForm</samp> - Display records with <samp>lightning:outputField</samp>.</li>
+	<li> <samp>lightning:recordEditForm</samp> - Create or edit records with <samp>lightning:inputField</samp>.</li>
+</ul>
+<p><a href="https://developer.salesforce.com/docs/component-library/bundle/force:recordData/documentation" target="_blank">Official Docs Force Record Data.</a></p>
+
+<p><a href="https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/data_service.htm" target="_blank">Official Docs For Lightning Data Service.</a></p>
+
+<p><samp>force:recordData</samp> sample syntax</p>
+
+
+<pre><code class="language-xml">
+&lt;!-- aura:id is required to reference the 
+component in your Javascript controller --&gt;
+&lt;force:recordData aura:id="forceRecordCmp"
+    recordId="{!v.recordId}"
+    layoutType="{!v.layout}"
+    fields="{!v.fieldsToQuery}"
+    mode="VIEW"
+    targetRecord="{!v.record}"
+    targetFields="{!v.simpleRecord}"
+    targetError="{!v.error}"
+/&gt;
+</code></pre>
+
+<p>In the above sample syntax -</p>
+
+<ul>
+	<li> <samp>recordId</samp> - specifies the record to load.</li>
+	<li> <samp>mode</samp> - can be set to either <samp>EDIT</samp> or <samp>VIEW</samp> and determines the operations available.</li>
+	<li> <samp>layoutType</samp> - specifies the layout <samp>FULL</samp> or <samp>COMPACT</samp> used to display the record, which determines what fields are included.</li>
+	<li> <samp>fields</samp> - specifies which fields in the record to query.</li>
+	<li> either <samp>fields</samp> or <samp>layoutType</samp> is required.</li>
+	<li> <samp>target*</samp> - attributes that start with target are poplulated by <samp>force:recordData</samp> - itself. It can be used to allow access from the UI.</li>
+	<li> <samp>targetRecord</samp> - is populated with loaded record.</li>
+	<li> <samp>targetFields</samp> - is populated with the simplified view of loaded record.</li>
+	<li> <samp>targetError</samp> - is populated with any errors.</li>
+</ul>
+<p>There are several methods that can be used in javascript controller with <samp>force:recordData</samp>.</p>
+
+<ul>
+	<li> <samp>saveRecord()</samp> inserts or updates the record loaded into the force:recordData component.</li>
+	<li> <samp>deleteRecord()</samp> deletes the loaded record.</li>
+	<li> <samp>getNewRecord()</samp> loads a new record template that performs an insert when saved.</li>
+	<li> <samp>reloadRecord()</samp> reruns the loading code to overwrite the current targetRecord with the current attribute values.</li>
+</ul>
+<h4 id="h4-7">Advantages of Lightning Data service</h4>
+<ul>
+	<li> Fetch record data once, reducing network transfer, server and database load.</li>
+	<li> Caches record data on the client , separate from component metadata.</li>
+	<li> Share record data across components.</li>
+	<li> Enable progressive record loading, caching and merging more fields and layouts into the cache.</li>
+	<li> Promote consistency by using only one instance of the record data across multiple components.</li>
+	<li> Create notifications when record data changes.</li>
+</ul>
+<h2 id="h2-6">Server-Side Controller</h2>
+<p>Server side request are all asynchronous. The client side controller fires off a server request and then keeps processing.</p>
+
+<p>Then when the response comes back from ther server, code that was packaged with the request called as the callback function runs and handles the response.</p>
+
+<p><a href="https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/controllers_server_intro.htm" target="_blank">Official Docs of Server-Side controller.</a>.</p>
+
+<h3 id="h3-17">Quering Data from salesforce using Apex controller</h3>
+<p>Apex contains remote methods that lightning components can call.</p>
+
+<p>To make a method available for use with Ligthning component code annotate the method with <samp>@AuraEnabled</samp>.</p>
+
+<p>This method should be <samp>static</samp> and either <samp>public</samp> or <samp>global</samp>.</p>
+
+<p>These methods can directly return a sObject or a list of sObject. The marshalling/unmarshalling in other words serializing/deseralizing is done by Lightning component framework.</p>
+
+<h3 id="h3-18">Loading Data from salesforce</h3>
+<p>The Apex controller, that has methods marked with <samp>@AuraEnabled</samp>, is connected to the aura component by using <samp>contorller="ApexControllerName</samp> in the <samp>&lt;aura:component&gt;</samp> tag.</p>
+
+<p>Note that <samp>ApexControllerName</samp> is the name of the class and not the merhods.</p>
+
+<p>This adds a reference to the Apex controller to the aura framework. Now a value provider similar to <strong>v</strong> and <strong>c</strong> which was used to get values from view and javascript controller can be used to access the methods in the Apex controller.</p>
+
+<p>The <strong>c</strong> value provider is used in the client side(javascript) controller to access the methods in the apex controller. When <strong>c</strong> is used in client side controller it always refer to the apex controller value provider.</p>
+
+<p>Following is structure of a simple event that happens when the component is initialized.</p>
+
+
+<pre><code class="language-xml">
+&lt;!--The Component--&gt;
+&lt;aura:component controller="ApexControllerClassName"&gt;
+    &lt;aura:attribute name="objects" type="ObjectName__c[]"&gt;
+    &lt;aura:handler name="init" action="{! c.doInit }" value="{! this }" /&gt;
+&lt;/aura:component&gt;
+</code></pre>
+
+<p><samp>&lt;aura:handler&gt;</samp> tag is used to handle a specific event. In the above case the handler handles the <samp>init</samp> event.</p>
+
+
+<pre><code class="language-java">
+// --- Apex Controller ---
+public with sharing class ApexController {
+    @AuraEnabled
+    public static List&lt;ObjectName__c&gt; getSObjects () {
+        return [SELECT Id, Name, CustomField__c, CustomField2__c
+                FROM ObjectName__c];
+    }
+
+
+    @AuraEnabled
+    public static ObjectName__c saveSObject (ObjectName__c obj) {
+        upsert obj;
+        return obj;
+    }
+}
+</code></pre>
+
+
+<pre><code class="language-javascript">
+// --- Client Side Javascript Controller ---
+({
+  doInit: function (component, event, helper) {
+    //use c value provider to refrence the method in apex controller
+    let action = component.get("c.getSObjects");
+    //Add callback
+    //&lsquo;this&lsquo; is the scope in which the callback will execute.
+    //it is the action handler itself.
+    action.setCallback(this, function (response) {
+      let state = response.getState();
+      if (state === "SUCCESS") {
+        component.set("v.objects", response.getReturnValue());
+      } else {
+        console.log("Failed to load object with state - " + state);
+      }
+    });
+    //-- the callback function takes a single parameter, the response
+
+
+    //Send action off to be executed.
+    $A.enqueueAction(action);
+  },
+
+
+  createSObject: function (component, obj) {
+    let action = component.get("c.saveSObject");
+    action.setParams({
+      obj: obj,
+    });
+    action.setCallback(this, function (response) {
+      let state = response.getState();
+      if (state === "SUCCESS") {
+        let objects = component.get("v.objects");
+        objects.push(response.getReturnValue());
+        component.set("v.objects", objects);
+      }
+    });
+
+
+    $A.enqueueAction(action);
+  },
+});
+</code></pre>
+
+<quote> The parameter name while creating the action in javascript controller <samp>action.setParams()</samp>, must match the parameter name in the Apex method declaration.</quote>
+<h3 id="h3-19">Differnce between <samp>c</samp> in controllers and view</h3>
+<p><strong>c</strong> in a component is client side controller, the default namespace and the server side contoller.</p>
+
+<table>
+<tr>
+	<th>Identifier</th>
+	<th>Context</th>
+	<th>Meaning</th>
+</tr>
+
+<tr>
+	<td>c.</td>
+	<td>Component markup</td>
+	<td>Client-side controller</td>
+</tr>
+<tr>
+	<td>c.</td>
+	<td>Controller code</td>
+	<td>Server-side controller</td>
+</tr>
+<tr>
+	<td>c:</td>
+	<td>Markup</td>
+	<td>Default namespace</td>
+</tr>
+</table>
+<h3 id="h3-20">Securing Data in Apex Controller</h3>
+<p>By default, Apex runs in system mode, which means that it runs substantially elevated permission, acting as if the user had most premissions and all field and object-level access granted.</p>
+
+<p>Because these security layers are not enforced like they are in salesforce UI, code must be written to enforce them.</p>
+
+<p>If not enforced in code, the component might expose sensitive data that was suppose to be hidden from users in the saleforce UI.</p>
+
+<quote> Salesforce recommends using Lightning Data Service which handle sharing rules, CURD and field level security.</quote>
+<h4 id="h4-8">Enforce Sharing Rules</h4>
+<p>While declaring a class it is best practice to use <samp>with sharing</samp> to enforce sharing rules when a component uses a Apex controller.</p>
+
+<p><samp>public with sharing class SharingClass{}</samp>.</p>
+
+<p>An <samp>@AuraEnabled</samp> Apex class that does not explicitly set <samp>with sharing</samp> or <samp>without sharing</samp> or has <samp>inherited sharing</samp> uses a default value of <samp>with sharing</samp>. However, if a class that does not define sharing, is called by a class with sharing, the class will operate with the same sharing behaviour of the calling class.</p>
+
+<quote> <samp>with sharing</samp> enforces record level security, it does not enforce object level or field level security.</quote>
+<p>Field level and Object level security must be manually enforced in the code.</p>
+
+<h4 id="h4-9">Enforce Object and Field Permissions (CURD and FLS)</h4>
+<p>First method without Graceful degradation.</p>
+
+<p><strong>Query with <samp>WITH SECURITY_ENFORCED</samp></strong> - It is the easiest, but also doesn't have ways for graceful degradation on permission errors.</p>
+
+
+<pre><code class="language-sql">
+SELECT Id, Name
+FROM Account
+WITH SECURITY_ENFORCED
+</code></pre>
+
+<p><strong>Graceful degradation with <samp>stripInaccessible()</samp></strong> method.</p>
+
+<p>For graceful degradation on permission errors, use the <samp>stripInaccessible()</samp> method to enforce field and object level data protection.</p>
+
+<p>The method strips the fields and relationship fields from the query and subquery results that the user should not have access to.</p>
+
+<p>It can be checked to see if there where fields that were stripped, and throw an <samp>System.AuraHandledException</samp> exception with a custom message.</p>
+
+<p>It can also be used to remove inaccessible sObject fields before DML operation to avoid exceptions and to sanatize sObject that have been deseralized from an untrusted source.</p>
+
+<h3 id="h3-21">Throwing Exception from Apex Controller</h3>
+<p><samp>System.AuraHandledException</samp> can be thrown from apex controller to return a custom error message to a javascript controller.</p>
+
+<p>When apex controller experiences an exception there are two ways to deal with it, either the exception can be handled in the apex controller itself or apex controller will pass that exception along into the response.</p>
+
+<p>If an exception is handled in apex controller, then exception can be completely handled and a normal response can be sent to the client controller, or if the exception cannot be completely handled a <samp>System.AuraHandledException</samp> can be thrown.</p>
+
+<p>Handling exceptions in Apex controller and throwing a <samp>AurahandledException</samp> gives the javascript controller the opportunity to handle the exception gracefully.</p>
+
+<p>When a <samp>AuraHandledException</samp> is thrown in apex, the state in the response is set to <samp>ERROR</samp> and that can be checked and handled in the callback in javascript controller.</p>
+
+
+<pre><code class="language-java">
+public with sharing class ExceptionHandlingClass{
+
+
+    @AuraEnabled
+    public static String exceptionMethod(String name) {
+        if(name == '') {
+            throw new AuraHandledException('Name cannot be empty');
+        }
+        return 'Hello' + name;
+    }
+}
+</code></pre>
+
+
+<pre><code class="language-javascript">
+({
+  greet: function (component, event, helper) {
+    let action = component.get("c.exceptionMethod");
+    action.setCallback(this, function (response) {
+      let state = response.getState();
+      if (state === "SUCCESS") {
+        console.log("Server says - " + response.getReturnedValue());
+      } else if (state === "INCOMPLETE") {
+        //do something while incomplete
+      } else if (state === "ERROR") {
+        let errors = response.getError();
+        if (errors) {
+          errors.foreach((error) =&gt; console.log(error.getMessage()));
+        } else {
+          console.log("Unkown server error has occured");
+        }
+      }
+    });
+
+
+    $A.enqueueAction(action);
+  },
+});
+</code></pre>
+
+<quote> <a href="https://developer.salesforce.com/blogs/2017/09/error-handling-best-practices-lightning-apex" target="_blank">Error Handling Best Practices for Lightning and Apex Article.</a></quote>
+<h2 id="h2-7">Connect Components with Aura Events</h2>
+<p>Aura Event can be thought as a broadcast for a value that other components that know about it can listen for and get value from.</p>
+
+<p>The components that send fire that event has no way of knowing if some other component has handled the event or recieved the value.</p>
+
+<quote> To create a new Event, in Developer Console, goto, <strong>File | New | Lightning Event</strong> and name the event.</quote>
+<p>The name given to an event when it is created is important. It will be used to define type of event being handled by <samp>aura:handler</samp>. It will not appear in the syntax for that event. It will be used as type of event, while a new event is registered in a component.</p>
+
+<p>Lightning Event may or may not have a value packaged. Sometimes they are used just to notify a handling component about an event that has happened in the component that fires the event.</p>
+
+<quote> Event definitions that are created with <samp>&lt;aura:event&gt;</samp> can be thought as more of interfaces that will be used as types to tell the framework what kind of value that event is carring. The actual instance of this event is created when registered in component and then creating in javascript controller with <samp>component.getEvent()</samp> function.</quote>
+<p>No logic is implemented in the event definition.</p>
+
+<h3 id="h3-22">Types of Lightning Events</h3>
+<p>Events can be of two types</p>
+
+<ul>
+	<li> COMPONENT - Used when event needs are going to be handled by ancestor components or the component that are above in the hierarchy.</li>
+	<li> APPLICATION - Used when event is could be handled by any component which may or may not be the ancestor of the event firing component.</li>
+</ul>
+<h3 id="h3-23">Sending an Event from a Component</h3>
+<ul>
+	<li> Define a custom event by creating a Lightning Event.</li>
+	<li> Register component to send these events with <samp>&lt;aura:registerEvent&gt;</samp></li>
+	<li> In javascript controller use <samp>component.getEvent()</samp> to create a specififc event instance.</li>
+	<li> Fire the event in controller using <samp>fire()</samp>.</li>
+</ul>
+<h4 id="h4-10">Create a new Lightning Event</h4>
+<p>Let consider the name of the new Event that is created below is <strong>updateValueEvent</strong>. This is important as it will be used as type of event, while a new event is registered in a component.</p>
+
+
+<pre><code class="language-xml">
+&lt;aura:event type="COMPONENT"&gt;
+  &lt;!--The attribute defines the payload that the event has packaged.--&gt;
+  &lt;aura:attribute name="value" type="sObjectName" /&gt;
+&lt;/aura:event&gt;
+</code></pre>
+
+<h4 id="h4-11">Register Event that Component fires</h4>
+
+<pre><code class="language-xml">
+&lt;!--Inside the component definition after the attributes are defined--&gt;
+&lt;aura:registerEvent name="eventName" type="c:updateValueEvent" /&gt;
+</code></pre>
+
+<h4 id="h4-12">Create a new Event and Fire from Controller</h4>
+
+<pre><code class="language-javascript">
+({
+  fireEvent: function (component, event, helper) {
+    // Get the value for the event from this component.
+    let valueFromAttribute = component.get("v.valueFromAttribute");
+    // Create an event named eventName
+    let updateValue = component.getEvent("eventName");
+    // Package the value that will be carried by the event as payload
+    updateValue.setParams({ value: valueFromAttribute });
+    // fire the event
+    updateEvent.fire();
+  },
+});
+</code></pre>
+
+<h3 id="h3-24">Handle an Event</h3>
+<ul>
+	<li> Define a custom event. This might already be done if a new custom event was made so a component can fire that event.</li>
+	<li> Register the component to handle the event, by mapping it to a <samp>&lt;action:handler&gt;</samp></li>
+	<li> Actually handle event in an action handler in javascript controller.</li>
+</ul>
+<h4 id="h4-13">Register an Event to be Handled</h4>
+<p>Lets consider the name of the new Lightning Event created is <strong>updateValueEvent</strong>.</p>
+
+
+<pre><code class="language-xml">
+&lt;!--Inside component markup--&gt;
+&lt;aura:handler name"eventName" event="c:updateValueEvent" action="{! c.handleUpdateEvent }&gt;
+</code></pre>
+
+<quote> When the event was to be fired from the component the event was registered with <samp>aura:registerEvent</samp>, now that an event is to be handled it is placed inside a <samp>aura:handler</samp> and an action is set to handle it.</quote><quote> The name in <samp>aura:handler</samp> should be the same as name of <samp>aura:registerEvent</samp>.</quote>
+<h4 id="h4-14">Handle Event in Controller</h4>
+
+<pre><code class="language-javascript">
+// --- controller
+
+
+handleUpdateEvent : function (component, event, helper) {
+  //param name is the same as the attribute name defined in the
+  //Lightning Event definition.
+  let updatedValue = event.getParam("value");
+  //Use helper to do something with the value
+  helper.doSomething(component, updatedValue);
+}
+</code></pre>
+
+<h3 id="h3-25">Event Handling Lifecycle of type Component</h3>
+<ul>
+	<li> Detect firing of event in the rendered page on client.</li>
+	<li> Determine the event type.</li>
+	<li> Identify the container component of the event source component.</li>
+	<li> Locate all handlers within the container component for the indentified component event.</li>
+	<li> Execute each handler by passing event instance.</li>
+	<li> Re-render component optionally.</li>
+</ul>
+<h3 id="h3-26">Additional Resources</h3>
+<ul>
+	<li> <a href="https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/events_intro.htm?_ga=2.80335831.1137324470.1664565138-281210481.1664565137" target="_blank">Communicating with events.</a></li>
+	<li> <a href="https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/events_component.htm" target="_blank">Component Events.</a></li>
+	<li> <a href="https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/js_cb_data_change.htm" target="_blank">Detecting Data change with Change Handlers.</a></li>
+	<li> <a href="https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/events_component_handling_intro.htm?_ga=2.13770487.1137324470.1664565138-281210481.1664565137" target="_blank">Handling Component Events.</a></li>
+	<li> <a href="https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/events_application.htm?_ga=2.79911895.1137324470.1664565138-281210481.1664565137" target="_blank">Application Events.</a></li>
+	<li> <a href="https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/events_application.htm?_ga=2.79911895.1137324470.1664565138-281210481.1664565137" target="_blank">Handling Application Event.</a></li>
+	<li> <a href="https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/events_demo.htm?_ga=2.46805095.1137324470.1664565138-281210481.1664565137" target="_blank">Advanced Event Examples.</a></li>
+</ul>
+<h2 id="h2-8">Complete Example of Aura Basics</h2>
+<p>The example consist of 5 components.</p>
+
+<ul>
+	<li> Camping - Component Combines all other components and has no logic.</li>
+	<li> CampingHeader - Has the Component Heading.</li>
+	<li> CampingListItem - Represents each individual Camping item.</li>
+	<li> CampingListForm - Form For creating a new Camping Item.</li>
+	<li> CampingList - Contains the CampingListForm and iterates over CampingListItem.</li>
+	<li> CampingListController - Apex class to handle to dml for camping item and query camping items from salesforce database.</li>
+</ul>
+<p><strong>CampingComponent</strong> - Only has markup</p>
+
+
+<pre><code class="language-xml">
+&lt;aura:component
+  implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId"
+  access="global" &gt;
+    &lt;c:campingHeader/&gt;
+    &lt;c:campingList/&gt;
+&lt;/aura:component&gt;
+</code></pre>
+
+<p><strong>CampingHeader</strong> - Has Markup and style</p>
+
+
+<pre><code class="language-xml">
+&lt;aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" &gt;
+    &lt;lightning:layout class="slds-page-header"&gt;
+        &lt;lightning:layoutItem&gt;
+            &lt;lightning:icon iconName="action:goal" alternativeText="Camping"&gt;
+            &lt;/lightning:icon&gt;
+        &lt;/lightning:layoutItem&gt;
+        &lt;lightning:layoutItem&gt;
+            &lt;h1&gt;Camping List&lt;/h1&gt;
+        &lt;/lightning:layoutItem&gt;
+    &lt;/lightning:layout&gt;
+&lt;/aura:component&gt;
+</code></pre>
+
+
+<pre><code class="language-css">
+.THIS {
+  font-size: 18px;
+}
+</code></pre>
+
+<p><strong>CampingListItem</strong> - Visual Represent all saved items</p>
+
+
+<pre><code class="language-xml">
+&lt;aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" &gt;
+    &lt;aura:attribute name="item" type="Camping_Item__c" required="true" /&gt;
+    &lt;aura:handler name="init" action="{! c.doInit }" value = "{! this }"/&gt;
+    &lt;div class="item-info"&gt;
+        &lt;p&gt;Name : &lt;lightning:formattedText value="{! v.item.Name}" /&gt;&lt;/p&gt;
+        &lt;p&gt;Price : &lt;lightning:formattedNumber value="{! v.item.Price__c}" style="currency"/&gt;&lt;/p&gt;
+        &lt;p&gt;Quanity : &lt;lightning:formattedNumber value="{! v.item.Quantity__c}"/&gt;&lt;/p&gt;
+        &lt;lightning:input type="toggle" name="Packed" label="Packed?" checked="{! v.item.Packed__c}" /&gt;
+        &lt;lightning:button label="Packed!" title="Packed!" onclick="{! c.packItem }"/&gt;
+    &lt;/div&gt;
+&lt;/aura:component&gt;
+</code></pre>
+
+
+<pre><code class="language-javascript">
+({
+  packItem : function(component, event, helper) {
+    component.set("v.item.Packed__c", true);
+    event.getSource().set("v.disabled", true);
+    //--if button is clicked it is set to disabled,
+    //but does not actually persist it in database.
+  }
+
+
+  doInit: function (component, event, helper) {}
+})
+</code></pre>
+
+<p><strong>addItemEvent</strong> - Event that will be used to communicate between CampingListForm and CampingList</p>
+
+
+<pre><code class="language-xml">
+&lt;aura:event type="COMPONENT" description="Event template"&gt;
+    &lt;aura:attribute name="item" type="Camping_Item__c" /&gt;
+&lt;/aura:event&gt;
+</code></pre>
+
+<p><strong>CampingListForm</strong> - create form, create a new event that fires when form is submitted. Has Markup, controller, and helper</p>
+
+
+<pre><code class="language-xml">
+&lt;aura:component &gt;
+    &lt;aura:attribute name="newItem" 
+                    type="Camping_Item__c"
+                    default="{
+                             'sObjectType' : 'Camping_Item__c',
+                             'Quantity__c' : 0,
+                             'Price__c' : 0,
+                             'Packed__c' : false
+                             }"/&gt;
+    &lt;!--Register the event that this component fires--&gt;
+    &lt;aura:registerEvent type="c:addItemEvent" name="addItem" /&gt;
+    
+    &lt;!--Form--&gt;
+    &lt;form class="slds-form_stacked"&gt;
+        &lt;lightning:input 
+                         label="Name" 
+                         value="{! v.newItem.Name }" 
+                         required="true"
+                         aura:id="itemInput"&gt;
+        &lt;/lightning:input&gt;
+        
+        &lt;lightning:input
+                         label="Quantity"
+                         type="number"
+                         value="{! v.newItem.Quantity__c }"
+                         required="true"
+                         min="1"
+                         aura:id="itemInput"&gt;
+        &lt;/lightning:input&gt;
+        
+        &lt;lightning:input 
+                         label="Price"
+                         type="number"
+                         value="{! v.newItem.Price__c }"
+                         formatter="currency"
+                         aura:id="itemInput"&gt;
+        &lt;/lightning:input&gt;
+        
+        &lt;lightning:input 
+                         label="Packed?"
+                         type="checkbox"
+                         checked="{! v.newItem.Packed__c }"
+                         aura:id="itemInput"
+                         &gt;
+        &lt;/lightning:input&gt;
+        
+        &lt;lightning:button 
+                          variant="brand"
+                          label="Create Camping Item"
+                          onclick="{! c.clickCreateItem }"&gt;
+        &lt;/lightning:button&gt;
+    &lt;/form&gt;
+&lt;/aura:component&gt;
+</code></pre>
+
+
+<pre><code class="language-javascript">
+// --- Controller
+({
+    clickCreateItem : function(component, event, helper) {
+        let validItem = component.find('itemInput').reduce(function (validSoFar, inputCmp) {
+            // Displays error messages for each invalid fields
+            inputCmp.showHelpMessageIfInvalid();
+            return validSoFar &amp;&amp; inputCmp.get('v.validity').valid;
+        }, true);
+        
+        if(validItem){
+            let newCampingItem = component.get("v.newItem");
+            //Use helper method to fire event
+            helper.createItem(component, newCampingItem);
+            
+        } else 
+            alert('Item not saved as Input is invalid');
+    },
+})
+</code></pre>
+
+
+<pre><code class="language-javascript">
+// --- Helper
+({
+  createItem : function(component, item) {
+        //Create new instance of event
+        let addItemEvent = component.getEvent('addItem');
+        //Add payload to event
+        addItemEvent.setParams({"item" : item});
+        addItemEvent.fire();
+
+
+        //Reset form
+        component.set("v.newItem",{ 'sobjectType': 'Camping_Item__c',
+                                   'Name': '',
+                                   'Quantity__c': 0,
+                                   'Price__c': 0,
+                                   'Packed__c': false 
+                                  });
+  }
+})
+</code></pre>
+
+<p><strong>CampingList</strong> - Contains campingForm and iterates over campingListItem. Also has the logic to actually save the Camping Item to salesforce database.</p>
+
+
+<pre><code class="language-xml">
+&lt;aura:component 
+                implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" 
+                access="global" 
+                controller="CampingListController"&gt;
+  &lt;!--controller - defines the AuraEnabled class that handles DML 
+  for this component--&gt;
+    
+    &lt;aura:attribute name="items" 
+                    type="Camping_Item__c[]"/&gt; 
+    
+    &lt;!--Set event handler for the init event that fires when the
+    Component is first loaded--&gt;
+    &lt;aura:handler name="init" action="{! c.doInit }" value="{! this}" /&gt;
+    &lt;!--Set event handler for the custom event fired by the camping
+    Form.--&gt;
+    &lt;aura:handler name="addItem" 
+                  action="{! c.handleAddItem }"
+                  event="c:addItemEvent"
+                  /&gt;
+
+
+   &lt;c:campingListForm/&gt;
+    
+    &lt;aura:iteration items="{! v.items }" var="item"&gt;
+        &lt;c:campingListItem item="{! item }" /&gt;
+    &lt;/aura:iteration&gt;
+&lt;/aura:component&gt;
+</code></pre>
+
+
+<pre><code class="language-javascript">
+// --- Controller
+
+
+//--- Uses the Apex controller to query items and 
+// to persist items to salesforce database.
+({
+    doInit: function(component, event, helper) {
+        //get components on start up
+        let action = component.get("c.getItems");
+        action.setCallback(this, function(response) {
+            if(response.getState() === 'SUCCESS') {
+                let items = component.get('v.items');
+                items = response.getReturnValue();
+                component.set("v.items", items);
+            }else if(response.getState() === 'ERROR') {
+                console.log(response.getError());
+            } else {
+                console.log(response);
+                console.log('Records from server could not be loaded.');
+            }  
+        });
+        
+        $A.enqueueAction(action);
+    },
+    
+    handleAddItem : function(component, event, helper) {
+        
+        console.log("Save Item Event Handler called");
+        let item = event.getParam('item');
+        let action = component.get('c.saveItem');
+        action.setParams({
+            "item" : item
+        });
+        action.setCallback(this, function(response) {
+            if(response.getState() === "SUCCESS") {
+                let returnedItem = response.getReturnValue();
+        let items = component.get('v.items');
+                items.push(JSON.stringify(returnedItem));
+                component.set('v.items', JSON.stringify(items));
+                alert('New Camping Item ' 
+                      + returnedItem.Name 
+                      + ' Saved Successfully.');
+            } 
+            else {
+                alert('There was a problem saving item');
+                console.log(response.getError());
+            }
+        });
+        $A.enqueueAction(action);
+    }
+})
+
+
+//The methods in this could shift their logic into helper methods
+//to handle the query and dml
+</code></pre>
+
+<p><strong>CampingListController</strong> - Apex class that is set with <samp>AuraEnabled</samp> methods to help query and perform dml operations for CampingList Component.</p>
+
+
+<pre><code class="language-java">
+//-- This class only has sharing rules enforced.
+// Ideally Field and Object level security should also be enforced.
+public with sharing class CampingListController {
+  @AuraEnabled
+    public static List&lt;Camping_Item__c&gt; getItems() {
+        List&lt;Camping_Item__c&gt; items = [SELECT Name, Packed__c, Price__c, Quantity__c
+                                       FROM Camping_Item__c];
+        System.debug(items);
+        return items;
+    }
+    
+    @AuraEnabled
+    public static Camping_Item__c saveItem(Camping_Item__c item) {
+        upsert item;
+        System.debug(item);
+        return item;
+    }
+}
+</code></pre>
+
+<h2 id="h2-9">Salesforce Lightning Design System (SLDS)</h2>
+<p>SLDS is already added to apps and components when they are run in the Lightning Experience. So there is not need to add any additional code to use it.</p>
+
+<p>While running in lightning experince is sometimes called as one.app container.</p>
+
+<p>However SLDS is not available by default in a standalone app or when using component in Lightning Out or Lightning Components for Visualforce. These are different app containers and they all provide different services and resources.</p>
+
+<p>To create an app in such a way that it works and looks good in all of these contexts add SLDS to the application declaration.</p>
+
+
+<pre><code class="language-xml">
+&lt;aura:application extends="force:slds"&gt;
+        &lt;!-- This component is the real "app" --&gt;
+        &lt;!-- c:componentName/ --&gt;
+&lt;/aura:application&gt;
+</code></pre>
+
+<p>The <samp>extends="force:slds</samp> attribute activates SLDC in application. Note that this app is just a wrapper, a shell, the real app is the component that is being developed.</p>
+
+<p>When running in Lightning Experience or the saleforce app, with no code change, they use that container's automatic inclusion of SLDS.</p>
+
+<h2 id="h2-10">CSS in Components</h2>
+<p>Add css to component by clicking <strong>STYLE</strong> button in the Developer Console sidebar.</p>
+
+<quote> <samp>&lt;style&gt;</samp> tag cannot be added to the component markup.</quote>
+<p>All top-level elements in a component have a special <samp>THIS</samp> CSS class added to them. This, effectively, adds namespacing to CSS and helps prevent one component's CSS from overriding another component's styling. The framework throws an error if a CSS file doesn't follow this convention.</p>
+
+
+<pre><code class="language-xml">
+&lt;aura:component&gt;
+  &lt;!--class white is on a top level element--&gt;
+  &lt;div class="white"&gt;
+    Hello, HTML!
+  &lt;/div&gt;
+
+
+  &lt;h2&gt;Check out the style in this list.&lt;/h2&gt;
+
+
+  &lt;ul&gt;
+    &lt;!--Following classes are on desendants of ul--&gt;
+    &lt;li class="red"&gt;I'm red.&lt;/li&gt;
+    &lt;li class="blue"&gt;I'm blue.&lt;/li&gt;
+    &lt;li class="green"&gt;I'm green.&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/aura:component&gt;
+</code></pre>
+
+
+<pre><code class="language-css">
+/&lowast; Will apply for all elements  in this component &lowast;/
+.THIS {
+  background-color: grey;
+}
+
+
+/&lowast; There is no space, as this is a selector 
+for top level element&lowast;/
+.THIS.white {
+  background-color: white;
+}
+
+
+/&lowast; Following have a space between selectors,
+ as they are desendant elements&lowast;/
+.THIS .red {
+  background-color: red;
+}
+.THIS .blue {
+  background-color: blue;
+}
+.THIS .green {
+  background-color: green;
+}
+</code></pre>
+
+<h2 id="h2-11">Dynamically Showing and Hiding Markup</h2>
+<p>CSS can be used to toggle markup visibility. However <samp>&lt;aura:if&gt;</samp> is the preferred approach because it defers the creating and rendering of the enclosed element tree until needed.</p>
+
+<h3 id="h3-27">CSS to toggle markup</h3>
+
+<pre><code class="language-xml">
+&lt;!--Component Markup--&gt;
+&lt;aura:component&gt;
+  &lt;lightning:button label="Toggle" onclick="{! c.toggle }" /&gt;
+  &lt;p aura:id="text"&gt; Toggled Text &lt;/p&gt;
+&lt;/aura:component&gt;
+</code></pre>
+
+
+<pre><code class="language-javascript">
+// --- JS controller
+({
+  toggle: function (component, event, helper) {
+    let toggleText = component.find("text");
+    $A.util.toggleClass(toggleText, "toggle");
+  },
+});
+</code></pre>
+
+
+<pre><code class="language-css">
+/&lowast; In CSS &lowast;/
+.THIS.toggle {
+  display: none;
+}
+</code></pre>
+
+<h3 id="h3-28">aura:if</h3>
+<p>Using <samp>aura:if</samp> to conditionally render a component or part of markup.</p>
+
+
+<pre><code class="language-xml">
+&lt;aura:if isTrue="{! v.isError }" &gt;
+  &lt;div&gt; {! v.errorMessage } &lt;/div&gt;
+&lt;/aura:if&gt;
+</code></pre>
+
+</div>
+</div>
+    <!-- Format -->
+    <script src="../../highlight/highlight.min.js"></script>
+    <script src="../../library/format.js"></script>
+
+</body>
+</html>

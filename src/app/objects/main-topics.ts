@@ -32,15 +32,15 @@ export const Sections: Section[] = [
       'those that are simple with no need to access restricted resources.',
     topics: backEndDev,
   },
-  // {
-  //   title: 'Salesforce',
-  //   description:
-  //     'Salesforce is a popular CRM tool for support, sales, ' +
-  //     'and marketing teams. Salesforce services allow businesses to use ' +
-  //     'cloud technology to better connect with partners, customers, and ' +
-  //     'potential customers.',
-  //   topics: salesforce,
-  // },
+  {
+    title: 'Salesforce',
+    description:
+      'Salesforce is a popular CRM tool for support, sales, ' +
+      'and marketing teams. Salesforce services allow businesses to use ' +
+      'cloud technology to better connect with partners, customers, and ' +
+      'potential customers.',
+    topics: salesforce,
+  },
   {
     title: 'Languages',
     description: 'Programming Languages basics.',

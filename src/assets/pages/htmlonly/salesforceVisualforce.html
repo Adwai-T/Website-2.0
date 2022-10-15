@@ -1,0 +1,457 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<title></title>
+</head>
+<body>
+<div id="container">
+    
+<div id="index">
+<ul id="index-list">
+<li class="index-li-h2"><a href="#h2-0">Introduction To Visualforce Pages</a></li>
+<li class="index-li-h3"><a href="#h3-0">Use of Visualforce Pages</a></li>
+<li class="index-li-h2"><a href="#h2-1">Create Visaulforce pages</a></li>
+<li class="index-li-h2"><a href="#h2-2">Components of Visaulforce page</a></li>
+<li class="index-li-h3"><a href="#h3-1">Output Components</a></li>
+<li class="index-li-h3"><a href="#h3-2">Display a Table</a></li>
+<li class="index-li-h3"><a href="#h3-3">Other Components</a></li>
+<li class="index-li-h2"><a href="#h2-3">Varibles in Visualforce</a></li>
+<li class="index-li-h3"><a href="#h3-4">Global Variables</a></li>
+<li class="index-li-h3"><a href="#h3-5">Formula Expressions</a></li>
+<li class="index-li-h2"><a href="#h2-4">Visualforce Standard Controller</a></li>
+<li class="index-li-h3"><a href="#h3-6">Use Standard Controller to Fetch data for Single sObject</a></li>
+<li class="index-li-h4"><a href="#h4-0">Display Fields from Related Records</a></li>
+<li class="index-li-h2"><a href="#h2-5">Input Data Using Forms</a></li>
+<li class="index-li-h3"><a href="#h3-7">Display Form Errors and Messages</a></li>
+<li class="index-li-h3"><a href="#h3-8">Edit Related Records</a></li>
+<li class="index-li-h2"><a href="#h2-6">Standard List Controllers</a></li>
+<li class="index-li-h3"><a href="#h3-9">Add List View Filtering</a></li>
+<li class="index-li-h3"><a href="#h3-10">Example of Standard List Controller</a></li>
+<li class="index-li-h2"><a href="#h2-7">Static Resources</a></li>
+<li class="index-li-h3"><a href="#h3-11">Adding zipped static files to Visualforce Pages</a></li>
+<li class="index-li-h2"><a href="#h2-8">Custom Controller</a></li>
+<li class="index-li-h3"><a href="#h3-12">Create a Custom Controller</a></li>
+<li class="index-li-h3"><a href="#h3-13">Custom Controller Example</a></li>
+</ul>
+</div>
+
+<div id="content">
+<h1 id="h1-0">Salesforce Visualforce Pages</h1>
+<h2 id="h2-0">Introduction To Visualforce Pages</h2>
+<p>Visualforce is a web development framework that enables developers to build sophisticated, custom user interface for both mobile and desktop apps that can be hosted on the Lightning Platform.</p>
+
+<p>Developers create a visualforce page by composing components, Html, and optional styling elements. Visualforce page is similar to a Standard web page by includes powerful features to access, display and update organization's data.</p>
+
+<p>Each page is accessible at a unique URL.</p>
+
+<p>When a page is accessed, the server performs any data processing, renders the page into HTML and return the results to the browser to display.</p>
+
+<p><strong>Visual Force Standard controller</strong> is a part of the visaulforce framework that provides automatic data access and modification, standard actions and more.</p>
+
+<h3 id="h3-0">Use of Visualforce Pages</h3>
+<ul>
+	<li> They can be accessed from the App Launcher.</li>
+	<li> Add a Visualforce page to navigation bar.</li>
+	<li> Add a visaul force page as a component in the lightning App Builder.</li>
+	<li> Launch a Visualforce Page as a Quick Action.</li>
+	<li> Display a Visaulforce Page by Overriding Standard buttons or links.</li>
+	<li> Display a Visualforce Page using custom buttons and Links.</li>
+</ul>
+<h2 id="h2-1">Create Visaulforce pages</h2>
+<p>Developer Console can be used to create Visualforce pages.</p>
+
+<p>In Developer Console <strong>File | New | Visualforce Page</strong> to create a new page.</p>
+
+<p>To see the how the new page renders, click <strong>Preview</strong>. The preview window automatically update to show the changes when code is saved. This preview however shows the page without the salesforce styling.</p>
+
+<p>To view how the page would look in the context of salesforce lightning experience go to salesforce home or any lightning experience window, open the developer console for browser and add the following code.</p>
+
+<p>Change <samp>pageName</samp> in the following code.</p>
+
+
+<pre><code class="language-javascript">
+$A.get("e.force:navigateToURL").setParams(
+    {"url": "/apex/pageName"}).fire();
+</code></pre>
+
+<p>The javascript code fires the Lightning Experience <samp>navigateToURL</samp> event, and is equivalent to entering classic <samp>/apex/PageName</samp>.</p>
+
+<p>To Open an existing visualforce page, in developer console, goto <strong>File | Open</strong>.</p>
+
+<p>To view all visualforce pages in the org go to <strong>Setup | Custom Code | Visualforce Pages</strong>.</p>
+
+<quote> While creating a page, developer console can suggest possible attributes that the tag supports.</quote>
+<h2 id="h2-2">Components of Visaulforce page</h2>
+<p><samp>&lt;apex:pageBlock&gt;</samp> is a structured user interface element that groups related items on a page.</p>
+
+<p><samp>&lt;apex:pageBlockSection&gt;</samp> component can be added inside <samp>&lt;apex:pageBlock&gt;</samp> to give even more structure. When rendered elements can be collapsed by the user to hide all but the section title. <samp>&lt;apex:pageBlockSection&gt;</samp> is a child tag and cannot be used without <samp>&lt;apex:pageBlock&gt;</samp>.</p>
+
+<h3 id="h3-1">Output Components</h3>
+<p><samp>&lt;apex:details /&gt;</samp>- Reproductes the entire standard view page for the sObject of concern. All styling for this component is like that in salesforce classic view.</p>
+
+<p>In apex:details the related list for the record are also included, this can be turned off by using <samp>&lt;apex:detail relatedList="false"/&gt;</samp></p>
+
+<p><samp>&lt;apex:relatedList&gt;</samp> - Use to display lists of records related to current record.</p>
+
+<p>A particular related list for object can be shown by using-</p>
+<p><samp>&lt;apex:relatedList list="Contacts"/&gt;</samp> or</p>
+<p><samp>&lt;apex:relatedList list="Opportunities" pageSize="5"/&gt;</samp></p>
+
+<quote> <samp>&lt;apex:enhancedList&gt;</samp> and <samp>&lt;apex:listViews&gt;</samp> are other coarse-grained components that you might want to use with or in place of <samp>&lt;apex:relatedList&gt;</samp></quote>
+<p><samp>&lt;apex:outputField&gt;</samp> to display individual fields from a record. Ex. <samp>&lt;apex:outputField value="{! Account.Name }"/&gt;</samp></p>
+
+<p>Using apex:outputField by themseleves do not have any label, also they lack the formatting that might be expected.</p>
+
+<p>But when they are wrapped in <samp>&lt;apex:pageBlock&gt;</samp> and <samp>&lt;apex:pageBlockSection&gt;</samp> the are displayed in a layout and format that is desired.</p>
+
+
+<pre><code class="language-xml">
+&lt;apex:page standardController="Opportunity"&gt;
+    &lt;apex:pageBlock title="Opportunity Details"&gt;
+        &lt;apex:pageBlockSection&gt;
+            &lt;apex:outputField value="{! Opportunity.Name }"/&gt;
+            &lt;apex:outputField value="{! Opportunity.Amount }"/&gt;
+            &lt;apex:outputField value="{! Opportunity.CloseDate }"/&gt;
+            &lt;apex:outputField value="{! Opportunity.Account.Name }"/&gt;
+        &lt;/apex:pageBlockSection&gt;
+    &lt;/apex:pageBlock&gt;
+&lt;/apex:page&gt;
+</code></pre>
+
+<p><samp>&lt;apex:outputLink&gt;</samp> is used with <samp>URLFOR()</samp> and <samp>$Action</samp> to provide direct link for that action. They can be used with tables and iterators to provide links for different records or related reords of an object.</p>
+
+<p><samp>{!URLFOR(target, [id], [inputs], [no override])}</samp>.</p>
+
+<p>Replace target with the URL or action, s-control, or static resource merge variable, id with an optional reference to the record, and inputs with any optional parameters. The no override argument is also optional and defaults to “false.” It applies to targets for standard Salesforce pages such as $Action.Account.New. Replace no override with “true” when you want to display a standard Salesforce page regardless of whether you have defined an override for it elsewhere.</p>
+
+<p><samp>&lt;apex:outputText&gt;</samp> is used to display text values.</p>
+
+<p><samp>&lt;apex:outputText value="{! $ObjectType.Contact.Fields.FieldName.Label }"/&gt;</samp> can be used to display the name of field. This might be useful if the app is being used by multilingual clients, as the field name value will be handled by salesforce and provide translations.</p>
+
+
+<pre><code class="language-xml">
+&lt;!--Consider that contact is a variable that represents a record of Contact--&gt;
+&lt;apex:outputLink
+    value="{! URLFOR($Action.Contact.Delete, contact.Id) }"&gt;
+    Del
+&lt;/apex:outputLink&gt;
+</code></pre>
+
+<h3 id="h3-2">Display a Table</h3>
+<p>Use <samp>&lt;apex:pageBlockTable&gt;</samp> to add a table of data to a page.</p>
+
+<p><samp>&lt;apex:pageBlockTable&gt;</samp> is an iteration component that generates a table of data, complete with platform styling.</p>
+
+<p>For example, <samp>{!Account.contacts}</samp> is an expression that evaluates to a list of contacts for an account.</p>
+
+<p>Use this expression with an iteration component to create a list or table with details of these related contacts.</p>
+
+
+<pre><code class="language-xml">
+&lt;apex:pageBlock title="Contacts"&gt;
+   &lt;apex:pageBlockTable value="{!Account.contacts}" var="contact"&gt;
+      &lt;apex:column value="{!contact.Name}"/&gt;
+      &lt;apex:column value="{!contact.Title}"/&gt;
+      &lt;apex:column value="{!contact.Phone}"/&gt;
+   &lt;/apex:pageBlockTable&gt;
+&lt;/apex:pageBlock&gt;
+</code></pre>
+
+<quote> <apex:dataTable> and <apex:dataList> are iteration components for creating tables and lists without styling. And <apex:repeat> is an iteration component that you can use to generate any arbitrary markup for a collection of records.</quote>
+<h3 id="h3-3">Other Components</h3>
+<quote> <a href="https://developer.salesforce.com/docs/atlas.en-us.224.0.pages.meta/pages/pages_compref.htm?_ga=2.109022850.1880068607.1664260333-282416983.1653311265" target="_blank">A full list of all the component available for visualforce pages can be found here</a>.</quote>
+<h2 id="h2-3">Varibles in Visualforce</h2>
+<p>Dynamic data is accessible in markup through the use of global variables, calculations and properties made avaiables by the page's controller.</p>
+
+<p>A visalforce expression is any set of literal values, variables, subexpressions or operators that can be resolved to a single value. Method calls aren't allowd in expressions.</p>
+
+<quote> Expression syntax in visualforce is <samp>{! expression}</samp> which is also continued in Aura framework. Expressions are case-insensitive and pages are ignored.</quote>
+<p>Anything inside the <samp>{! }</samp> delimiter is evaluated and dynamically replaced when the page is rendered or when the value is used. Whitespace is ignored.</p>
+
+<p>The resulting value can be primitive, boolean, sObject, a controller method such as a action method or other results.</p>
+
+<h3 id="h3-4">Global Variables</h3>
+<p>Global variables can be accessed as <samp>{! $GlobalVariableName.FieldName }</samp>.</p>
+
+<quote> Visual for provides information about logged-in user in a global variables named <samp>$User</samp> and can be used as <samp>{! $User.FirstName }</samp>. This is similar to using <samp>UserInfo</samp> in Apex code.</quote>
+<p>There are many global variables that can be used with visualforce pages. <a href="https://developer.salesforce.com/docs/atlas.en-us.224.0.pages.meta/pages/pages_variables_global.htm?_ga=2.42231333.1880068607.1664260333-282416983.1653311265" target="_blank">A full list can be found here</a>.</p>
+
+
+<pre><code class="language-xml">
+&lt;apex:page &gt;
+    &lt;apex:pageBlock title="User Info"&gt;
+        &lt;apex:pageBlockSection title="User Name"&gt;
+            First Name - {! $User.FirstName }
+            &lt;br/&gt;
+            Last Name - {! $User.LastName } 
+            &lt;br/&gt;
+            UserName - {! $User.UserName }
+        &lt;/apex:pageBlockSection&gt;
+        &lt;apex:pageBlockSection title="Is Active"&gt;
+            Is user Active - {! $User.isActive } 
+        &lt;/apex:pageBlockSection&gt;
+    &lt;/apex:pageBlock&gt;
+&lt;/apex:page&gt;
+</code></pre>
+
+<h3 id="h3-5">Formula Expressions</h3>
+<p>Formulas in expression are evaluated to get a value that will be used.</p>
+
+<p>Examples of some formula expressions.</p>
+
+<p><samp>{! $User.FirstName & ' ' & $User.LastName }</samp> - here <samp>&</samp> is used to concatenate strings.</p>
+
+<p><samp>{! TODAY() + 7 }</samp> - Gives a date 7 days after the date that the page is being accessed.</p>
+
+<p><samp>{! Max(1, 2, 3) }</samp> - Gives max of provided number.</p>
+
+<p><samp>{! CONTAINS('salesforce', 'force')}</samp> - return boolean value by checking first string for second string.</p>
+
+<p>It can be considered any fromula that can be used in the formula field in objects can be used here in visualforce pages.</p>
+
+<p>Conditional expressions just like in formula fields can be used in expressions.</p>
+
+
+<pre><code class="language-javascript">
+&lt;p&gt;{! IF( CONTAINS('salesforce.com','force.com'),
+     'Yep', 'Nope') }&lt;/p&gt;
+&lt;p&gt;{! IF( DAY(TODAY()) &lt; 15,
+     'Before the 15th', 'The 15th or after') }&lt;/p&gt;
+</code></pre>
+
+<h2 id="h2-4">Visualforce Standard Controller</h2>
+<p>Visualforce uses the traditional model–view–controller (MVC) paradigm, and includes sophisticated built-in controllers to handle standard actions and data access, providing simple and tight integration with the Lightning Platform database.</p>
+
+<p>Most Standard and all custom objects have standard controllers that can be used to interact with the data associated with the object. These controllers can be extended to add new functionality, or custom controllers can be created from scratch.</p>
+
+<quote> The standard controller in addition to fetching data also provides a set of standard actions, such as create, edit, save, and delete, that can be added to the pages using standard user interface elements such as buttons and links.</quote>
+<h3 id="h3-6">Use Standard Controller to Fetch data for Single sObject</h3>
+<p>Go the visualforce preview and add the record id to the url like <samp>https://resourceful-moose-dne36d-dev-ed--c.visualforce.com/apex/DisplayUserInfo?core.apexpages.request.devconsole=1&id=001D000000JRBes</samp>.</p>
+
+<p>The above url now has two parameters. <samp>core.apexpages.request.devconsole=1</samp> which already existed and <samp>id</samp> that we added. Anything after <samp>?</samp> is a url parameter and are separated by <samp>&</samp>.</p>
+
+<p>To preview the page in the context of salesforce lightning experience with the id parameter use-</p>
+
+
+<pre><code class="language-javascript">
+$A.get("e.force:navigateToURL").setParams(
+    {"url": "/apex/pageName?&amp;id=00141000004jkU0AAI"}).fire();
+</code></pre>
+
+<p>Now that the record id is in the url the standard controller can fetch the data for that record.</p>
+
+<p>Lets take that the record id is for an account. A standard conroller for account can then fetch data for the record and store it in the controller for it to be used in the page.</p>
+
+
+<pre><code class="language-xml">
+&lt;!-- URL should have valid record id as parameter to display Account info--&gt;
+&lt;apex:page standardController="Account"&gt;
+    &lt;apex:pageBlock title="Account Summary"&gt;
+        &lt;apex:pageBlockSection&gt;
+            Name: {! Account.Name } &lt;br/&gt;
+            Phone: {! Account.Phone } &lt;br/&gt;
+            Industry: {! Account.Industry } &lt;br/&gt;
+            Revenue: {! Account.AnnualRevenue } &lt;br/&gt;
+        &lt;/apex:pageBlockSection&gt;
+    &lt;/apex:pageBlock&gt;
+&lt;/apex:page&gt;
+</code></pre>
+
+<h4 id="h4-0">Display Fields from Related Records</h4>
+<p>Dot notation is used to display data from related records.</p>
+
+<p>In Above example for account object, the record owner information can be displayed by using the dot notation.</p>
+
+<p><samp>Account owner - {! Account.Owner.Name }</samp>.</p>
+
+<p>Lets take example of contact-</p>
+
+
+<pre><code class="language-xml">
+&lt;apex:page standardController="Contact"&gt;
+    &lt;apex:pageBlock title="Contact Summary"&gt;
+        &lt;apex:pageBlockSection&gt;
+            First Name- {! Contact.FirstName } &lt;br/&gt;
+            Last Name- {! Contact.LastName } &lt;br/&gt;
+            Owner Email- {! Contact.Owner.Email } &lt;br/&gt;
+        &lt;/apex:pageBlockSection&gt;
+    &lt;/apex:pageBlock&gt;
+&lt;/apex:page&gt;
+</code></pre>
+
+<h2 id="h2-5">Input Data Using Forms</h2>
+<p>Use <samp>&lt;apex:form&gt;</samp> and <samp>&lt;apex:inputField&gt;</samp> to create a page to edit data. Combine <samp>&lt;apex:commandButton&gt;</samp> with the save action built into the standard controller to create a new record, or save changes to an existing one.</p>
+
+<p>When using the standard contorller, apex:form and apex:commandButtons, visualforce does most of the work required. Like retrieve data, display relevant data, validate new values, save valid changes, and provide appropriate messages to the person submitting the changes.</p>
+
+<p>If data needs to be send back to salesforce, most of the times this will be done inside an <samp>&lt;apex:form&gt;</samp>.</p>
+
+<p>Place form elements within <samp>&lt;apex:pageBlock&gt;</samp> and <samp>&lt;apex:pageBlockSection&gt;</samp> tags to organize and group them, and to have the form adopt the platform visual style.</p>
+
+<quote> The <samp>&lt;apex:inputField&gt;</samp> component renders the appropriate input widget based on the standard or custom fields type.</quote>
+
+<pre><code class="language-xml">
+&lt;apex:page standardController="Contact"&gt;
+    &lt;apex:form&gt;
+        &lt;apex:pageBlock title="Contact Details"&gt;
+            &lt;apex:pageBlockSection&gt;
+                &lt;apex:inputField value="{! Contact.FirstName}"/&gt;
+                &lt;apex:inputField value="{! Contact.LastName}"/&gt;
+                &lt;apex:inputField value="{! Contact.Email}"/&gt;
+                &lt;apex:commandButton action="{! save }" value="Save"/&gt;
+            &lt;/apex:pageBlockSection&gt;
+        &lt;/apex:pageBlock&gt;
+    &lt;/apex:form&gt;
+&lt;/apex:page&gt;
+</code></pre>
+
+<h3 id="h3-7">Display Form Errors and Messages</h3>
+<p>Use <samp>&lt;apex:pageMessages&gt;</samp> to display any form handling errors or messages.</p>
+
+<p>When using the standard controller, it collects all the errors in the form. <samp>&lt;apex:pageMessages&gt;</samp> then tells the controller where to display these messages.</p>
+
+<p><samp>&lt;apex:inputField&gt;</samp> displays errors for its own field, where as <samp>&lt;apex:pageMessages&gt;</samp> are used to display errors for the whole form.</p>
+
+<h3 id="h3-8">Edit Related Records</h3>
+<p><samp>&lt;apex:outputLink&gt;</samp> with standard controller can be used to make it easy for users to edit related information by providing links to related records. <samp>&lt;apex:pageBlockTable&gt;</samp> can be used to iterate over all the related records and given provide relevant links to the outputLink tags.</p>
+
+<p>Example -</p>
+
+
+<pre><code class="language-xml">
+&lt;apex:pageBlock title="Contacts"&gt;
+    &lt;apex:pageBlockTable value="{!Account.contacts}" var="contact"&gt;
+        &lt;apex:column&gt;
+            &lt;apex:outputLink
+                value="{! URLFOR($Action.Contact.Edit, contact.Id) }"&gt;
+                Edit
+            &lt;/apex:outputLink&gt;
+            &amp;nbsp;
+            &lt;apex:outputLink
+                value="{! URLFOR($Action.Contact.Delete, contact.Id) }"&gt;
+                Del
+            &lt;/apex:outputLink&gt;
+        &lt;/apex:column&gt;
+        &lt;apex:column value="{!contact.Name}"/&gt;
+        &lt;apex:column value="{!contact.Title}"/&gt;
+        &lt;apex:column value="{!contact.Phone}"/&gt;
+    &lt;/apex:pageBlockTable&gt;
+&lt;/apex:pageBlock&gt;
+</code></pre>
+
+<h2 id="h2-6">Standard List Controllers</h2>
+<p>Standard List controller can be used to create Visualforce pages that can display or act on a set of records.</p>
+
+<p>Standard List conrollers queries for records of a specific object and makes the records available in a collection variable. It also filters and paginates through the result.</p>
+
+<p>As instead of a single record in this case there is a collection of records an iteration component is used to display the results.</p>
+
+<p>First add <samp>standardController</samp> attribute and then add <samp>recordSetVar</samp> attribute to the same page to make it a Standard List controller.</p>
+
+<p>Following is an example of Contact.</p>
+
+
+<pre><code class="language-xml">
+&lt;apex:page standardController="Contact" recordSetVar="contacts"&gt;
+    &lt;apex:pageBlock title="Contacts List"&gt;
+        &lt;!-- Contacts List --&gt;
+        &lt;apex:pageBlockTable value="{! contacts }" var="ct"&gt;
+            &lt;apex:column value="{! ct.FirstName }"/&gt;
+            &lt;apex:column value="{! ct.LastName }"/&gt;
+            &lt;apex:column value="{! ct.Email }"/&gt;
+            &lt;apex:column value="{! ct.Account.Name }"/&gt;
+        &lt;/apex:pageBlockTable&gt;
+    &lt;/apex:pageBlock&gt;
+&lt;/apex:page&gt;
+</code></pre>
+
+<h3 id="h3-9">Add List View Filtering</h3>
+<p>Use <samp>{! listViewOptions }</samp> to get a list of list view filters available for an object. Use <samp>{! filterId }</samp> to set the list view filter to use for a standard list controller’s results.</p>
+
+<h3 id="h3-10">Example of Standard List Controller</h3>
+
+<pre><code class="language-xml">
+&lt;apex:page standardController="Account" recordSetVar="accounts"&gt;
+    &lt;apex:form &gt;    
+    &lt;apex:pageBlock title="Account List"&gt;
+        &lt;apex:repeat value="{!accounts}" var="a"&gt;
+            &lt;li&gt; &lt;apex:outputLink value="/{!a.Id}" /&gt; &lt;/li&gt;
+        &lt;/apex:repeat&gt;
+    &lt;/apex:pageBlock&gt;
+    &lt;/apex:form&gt;
+&lt;/apex:page&gt;
+</code></pre>
+
+<quote> Using record Id at the root takes to the details page for that record.</quote>
+<h2 id="h2-7">Static Resources</h2>
+<p>First add a static resource, say jQuery to the organization from <strong>Setup | Custom Code | Static Resources</strong>.</p>
+
+<h3 id="h3-11">Adding zipped static files to Visualforce Pages</h3>
+<p>Use the <samp>$Resource</samp> global variable and the <samp>URLFOR()</samp> function to reference items within a zipped static resource.</p>
+
+<p>The <samp>URLFOR()</samp> function can combine a reference to a zipped static resource and a relative path to an item within it to create a URL that can be used with Visualforce components that reference static assets.</p>
+
+<p>For example, <samp>{!URLFOR($Resource.vfimagetest, 'cats/kitten1.jpg')}</samp> returns a URL to a specific graphic asset within the zipped static resource, which can be used by the <samp>&lt;apex:image&gt;</samp> component.</p>
+
+
+<pre><code class="language-xml">
+&lt;apex:page &gt;
+    &lt;apex:image url="{!URLFOR($Resource.vfimagetest, 'cats/kitten1.jpg')}"&gt;&lt;/apex:image&gt;
+&lt;/apex:page&gt;
+</code></pre>
+
+<h2 id="h2-8">Custom Controller</h2>
+<p>Custom controllers contain custom logic and data manipulation that can be used by a Visualforce page.</p>
+
+<p>When using a custom controller a standard controller cannot be used.</p>
+
+<p>The <samp>controller</samp> attribute of <samp>&lt;apex:page&gt;</samp> is use to define a custom controller to use with that page.</p>
+
+<h3 id="h3-12">Create a Custom Controller</h3>
+<p>A custom controller is just an apex class. There are no interfaces that need to be implemented by the custom controller nor there needs to be class that the custom controller must extend.</p>
+
+<p>Define methods with a <samp>getSomeExpression()</samp> will tell visualforce that this is a getter method and will use it accordingly.</p>
+
+<p>Ex. <samp>getContacts()</samp> that returns <samp>List&lt;Contact&gt;</samp> being defined in the controller for a page, the using <samp>{! contacts }</samp> will tell visualforce page to use the records that the method got to update the page accordingly.</p>
+
+<p>There are corresponding setter methods that let you submit values from the page back up to your controller.</p>
+
+<p>An alternative to getters and setters is to use Apex properties. Properties are kind of a combination of a variable with getter and setter methods, with a syntax that groups them together more clearly. A simple property that references a custom object might be declared like this.</p>
+
+<p><samp>public MyObject__c myVariable { get; set; }</samp>.</p>
+
+<p>Properties can be public or private, and can be read-only, or even write-only, by omitting the get or set.</p>
+
+<h3 id="h3-13">Custom Controller Example</h3>
+
+<pre><code class="language-java">
+public class NewCaseListController {  
+    public List&lt;Case&gt; getNewCases() {
+        return [SELECT Id, CaseNumber, Status
+               FROM Case
+               WHERE Status='New'];
+    }
+}
+</code></pre>
+
+
+<pre><code class="language-xml">
+&lt;apex:page controller="NewCaseListController" &gt;
+    &lt;apex:pageBlock title="New Cases List" id="cases_list"&gt;
+    &lt;li&gt;
+        &lt;apex:repeat  value="{!NewCases}" var="Case" rendered="true" &gt; 
+        &lt;p&gt;&lt;apex:outputLink value="/{!Case.ID}"&gt;{!Case.CaseNumber}&lt;/apex:outputLink&gt;&lt;/p&gt;
+        &lt;/apex:repeat&gt;
+    &lt;/li&gt;
+    &lt;/apex:pageBlock&gt;
+&lt;/apex:page&gt;
+</code></pre>
+
+</div>
+</div>
+    <!-- Format -->
+    <script src="../../highlight/highlight.min.js"></script>
+    <script src="../../library/format.js"></script>
+
+</body>
+</html>

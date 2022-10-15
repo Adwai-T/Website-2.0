@@ -1,0 +1,1825 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<title></title>
+</head>
+<body>
+<div id="container">
+
+<div id="index">
+<ul id="index-list">
+<li class="index-li-h2"><a href="#h2-0">Create a Lightning Web Component</a></li>
+<li class="index-li-h2"><a href="#h2-1">Expose LWC to use with Salesforce Pages</a></li>
+<li class="index-li-h2"><a href="#h2-2">Data Binding</a></li>
+<li class="index-li-h3"><a href="#h3-0">One way Data Binding from Controller to Markup</a></li>
+<li class="index-li-h3"><a href="#h3-1">Two way Data Binding</a></li>
+<li class="index-li-h3"><a href="#h3-2">@track Property</a></li>
+<li class="index-li-h3"><a href="#h3-3">Getter</a></li>
+<li class="index-li-h3"><a href="#h3-4">Setter</a></li>
+<li class="index-li-h2"><a href="#h2-3">Rendering Elements</a></li>
+<li class="index-li-h3"><a href="#h3-5">Conditional Rendereing with Directives</a></li>
+<li class="index-li-h3"><a href="#h3-6">Template Looping</a></li>
+<li class="index-li-h4"><a href="#h4-0">for:each loop</a></li>
+<li class="index-li-h4"><a href="#h4-1">iterator loop</a></li>
+<li class="index-li-h2"><a href="#h2-4">Component Composition</a></li>
+<li class="index-li-h3"><a href="#h3-7">Accessing Elements in the Component</a></li>
+<li class="index-li-h3"><a href="#h3-8">Attach Elements to DOM using lwc:dom = "manual" directive</a></li>
+<li class="index-li-h2"><a href="#h2-5">Styling In LWC</a></li>
+<li class="index-li-h3"><a href="#h3-9">CSS in LWC</a></li>
+<li class="index-li-h3"><a href="#h3-10">Lightning Design System</a></li>
+<li class="index-li-h4"><a href="#h4-2">Lightning Design System Token</a></li>
+<li class="index-li-h3"><a href="#h3-11">Shared CSS in LWC</a></li>
+<li class="index-li-h3"><a href="#h3-12">Dynamic Styling</a></li>
+<li class="index-li-h3"><a href="#h3-13">Styling Shadow DOM</a></li>
+<li class="index-li-h2"><a href="#h2-6">LWC Lifecycle Hooks</a></li>
+<li class="index-li-h3"><a href="#h3-14">Complete Lifecycle of LWC</a></li>
+<li class="index-li-h3"><a href="#h3-15">Contructor() Method</a></li>
+<li class="index-li-h3"><a href="#h3-16">connectedCallback Method</a></li>
+<li class="index-li-h3"><a href="#h3-17">renderedCallback Method</a></li>
+<li class="index-li-h3"><a href="#h3-18">disconnectedCallback Method</a></li>
+<li class="index-li-h3"><a href="#h3-19">errorCallback(err, stack)</a></li>
+<li class="index-li-h3"><a href="#h3-20">render Method</a></li>
+<li class="index-li-h2"><a href="#h2-7">Component Communication</a></li>
+<li class="index-li-h3"><a href="#h3-21">Parent To Child Component Communication</a></li>
+<li class="index-li-h4"><a href="#h4-3">@api Decorator</a></li>
+<li class="index-li-h4"><a href="#h4-4">Calling Child method from Parent</a></li>
+<li class="index-li-h4"><a href="#h4-5">Using @api with getter and setter</a></li>
+<li class="index-li-h3"><a href="#h3-22">Child To Parent Communication</a></li>
+<li class="index-li-h4"><a href="#h4-6">Create and Dispatch Events</a></li>
+<li class="index-li-h4"><a href="#h4-7">Example of Parent to child</a></li>
+<li class="index-li-h4"><a href="#h4-8">Child to Parent communication with CustomEvent with Data</a></li>
+<li class="index-li-h3"><a href="#h3-23">Communication between two independent component</a></li>
+<li class="index-li-h4"><a href="#h4-9">Using the pubsub model</a></li>
+<li class="index-li-h3"><a href="#h3-24">Passing Markup using Slot</a></li>
+<li class="index-li-h3"><a href="#h3-25">CSS behaviour between parent and child</a></li>
+<li class="index-li-h2"><a href="#h2-8">LWC in Aura</a></li>
+<li class="index-li-h2"><a href="#h2-9">Lightning Messaging Service</a></li>
+<li class="index-li-h3"><a href="#h3-26">Create the message channel</a></li>
+<li class="index-li-h3"><a href="#h3-27">Communication Between distinct LWC</a></li>
+<li class="index-li-h3"><a href="#h3-28">LWC to Aura Communication using LMS</a></li>
+<li class="index-li-h3"><a href="#h3-29">LMS with Visualforce Pages</a></li>
+<li class="index-li-h2"><a href="#h2-10">Salesforce Resources</a></li>
+<li class="index-li-h3"><a href="#h3-30">Import Static Resource</a></li>
+<li class="index-li-h3"><a href="#h3-31">Third Party Javascript Libraries</a></li>
+<li class="index-li-h3"><a href="#h3-32">Loading Thrid party Css Library</a></li>
+<li class="index-li-h3"><a href="#h3-33">Use Asset files</a></li>
+<li class="index-li-h3"><a href="#h3-34">Use Custom Labels</a></li>
+<li class="index-li-h3"><a href="#h3-35">Check Permissions</a></li>
+<li class="index-li-h3"><a href="#h3-36">Access Client Form Factor</a></li>
+<li class="index-li-h3"><a href="#h3-37">Get Current User Information</a></li>
+<li class="index-li-h3"><a href="#h3-38">Fetch Object Name and Record Id</a></li>
+<li class="index-li-h2"><a href="#h2-11">Toast Notifications</a></li>
+<li class="index-li-h2"><a href="#h2-12">Navigation Service</a></li>
+<li class="index-li-h3"><a href="#h3-39">Navigate Example</a></li>
+<li class="index-li-h3"><a href="#h3-40">Fetch Current Page Reference</a></li>
+<li class="index-li-h2"><a href="#h2-13">Connecting with Salesforce Database</a></li>
+<li class="index-li-h3"><a href="#h3-41">Lighting Data Service</a></li>
+<li class="index-li-h3"><a href="#h3-42">@Wire Adapters</a></li>
+<li class="index-li-h4"><a href="#h4-10">getRecord Adapter</a></li>
+<li class="index-li-h4"><a href="#h4-11">Full list of All Adapters</a></li>
+<li class="index-li-h3"><a href="#h3-43">Base Lightning Components</a></li>
+<li class="index-li-h4"><a href="#h4-12">When to use Base Lightning Components?</a></li>
+<li class="index-li-h4"><a href="#h4-13">Different Forms in Base Lightning Components</a></li>
+<li class="index-li-h4"><a href="#h4-14">Lightning record form</a></li>
+<li class="index-li-h4"><a href="#h4-15">Customize lightning record view form</a></li>
+<li class="index-li-h4"><a href="#h4-16">Using Salesforce Schema</a></li>
+<li class="index-li-h4"><a href="#h4-17">Give Fields Custom Label</a></li>
+<li class="index-li-h4"><a href="#h4-18">Custom Validation</a></li>
+<li class="index-li-h2"><a href="#h2-14">Apex with LWC</a></li>
+<li class="index-li-h3"><a href="#h3-44">Wire Apex Method</a></li>
+<li class="index-li-h3"><a href="#h3-45">Call Apex Method Imperatively</a></li>
+</ul>
+</div>
+
+<div id="content">
+<h1 id="h1-0">Lightning Web Components</h1>
+<h2 id="h2-0">Create a Lightning Web Component</h2>
+<p>Make sure that salesforce cli is installed and vs code is setup with all the plugins needed for salesforce development. For a detailed guide check the VS code setup for salesforce development guide.</p>
+
+<p>In Vs code Open Command Palette with <strong>F1</strong> or <strong>Ctrl+Shift+P</strong> on windows or <strong>Cmd+Shift+P</strong> on mac and type <strong>SFDX</strong>. This will give several options in a drop down.</p>
+
+<p>Select <strong>SFDX: Create Lighting Web Component</strong>. Don't Use <strong>SFDX: Create Lightning Component</strong> as it will create a Aura Component.</p>
+
+<p>Enter Name for the new Component, accept where to save the component in directory structure. The view the new component under <samp>force-app/main/default/lwc</samp>.</p>
+
+<p>To deploy back right-click on the component folder or on the main folder for all components and then select <strong>SFDX: Deploy Source to Org</strong>.</p>
+
+<quote> After a Lightning Comonent is created, a <samp>componentName.css</samp> and a <samp>componentName.svg</samp> can be added.</quote>
+<h2 id="h2-1">Expose LWC to use with Salesforce Pages</h2>
+<p>Different Targets can be defined in the <samp>componentName.js-meta.xml</samp> file, to expose the component and define where it can be used.</p>
+
+<p>Child component that are used in a other components do not need to be exposed.</p>
+
+
+<pre><code class="language-xml">
+&lt;isExposed&gt;true&lt;/isExposed&gt;
+&lt;targets&gt;
+  &lt;target&gt;lightning__AppPage&lt;/target&gt;
+  &lt;target&gt;lightning__RecordPage&lt;/target&gt;
+  &lt;target&gt;lightning__HomePage&lt;/target&gt;
+&lt;/targets&gt;
+</code></pre>
+
+<quote> A detailed list of all the targets and configuration that are possible can be found in the <a href="https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.reference_configuration_tags" target="_blank">Official documentation here</a>.</quote>
+<h2 id="h2-2">Data Binding</h2>
+<h3 id="h3-0">One way Data Binding from Controller to Markup</h3>
+<p>Data binding helps synchronization between the controller and template.</p>
+
+<p>Primitives as well as objects can be accessed in markup using data binding.</p>
+
+<p>Computed values for array like <samp>{ arr[0] }</samp>, is not allowed in data binding, but object values can be accessed with dot notation like <samp>{ obj.key }</samp>. Also unlike in aura expressions, computed values like <samp>{ 2+2 }</samp> are not allowed.</p>
+
+
+<pre><code class="language-javascript">
+export default class DataBinding extends LightningElements {
+  name = "adwait";
+}
+</code></pre>
+
+
+<pre><code class="language-html">
+&lt;template&gt;
+  &lt;div&gt;{ name }&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+
+<h3 id="h3-1">Two way Data Binding</h3>
+<p>By default saleforce lwc does not support two way data binding.</p>
+
+<p>But that can be achieved with one way data binding and events.</p>
+
+
+<pre><code class="language-javascript">
+export default class TwoWayBinding extends LightningElement {
+  name = "Adwait";
+  message = "Hello";
+
+
+  inputChanged(event) {
+    this.message = event.target.value;
+  }
+}
+</code></pre>
+
+
+<pre><code class="language-html">
+&lt;template&gt;
+  &lt;label&gt;Type Message &lt;/label&gt;
+  &lt;input type="text" onkeyup="{inputChanged}" /&gt;
+  &lt;div&gt;{ name } you have a message - { message }&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+
+<h3 id="h3-2">@track Property</h3>
+<p>Above oneway data binding only consisted of a primitive, but when an object or an array are to bound, there is a limit to the depth of changes that are tracked by lwc. Thus to tell the lwc framework to track changes in an object or array, <samp>@track</samp> decorator is used.</p>
+
+<p>Without using <samp>@track</samp>, lwc only checks if the previous value is <samp>===</samp> the new value and re-renders if there is a change.</p>
+
+
+<pre><code class="language-javascript">
+import { LightiningElement, track } from 'lwc';
+
+
+export default class DataBinding extends LightningElements {
+  @track
+  student = {name : "adwait", greeting="Hello"};
+
+
+  inputChanged(event) {
+    this.student.greeting = event.target.value;
+  }
+}
+</code></pre>
+
+
+<pre><code class="language-html">
+&lt;template&gt;
+  &lt;label&gt;Type Greeting&lt;/label&gt;
+  &lt;input type="text" onkeyup="{inputChanged}" /&gt;
+  &lt;div&gt;{ student.greeting }, { student.name }&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+
+<p>Without the <samp>@track</samp> decorator the value of greeting being changed in the <samp>inputChanged()</samp> function will not be updated in the view.</p>
+
+<p>It is not recommended but creating a new copy of the object and updateing the field on that object and then reassigning the value to the variable will make lwc rerender without <samp>@track</samp> decorator. Like <samp>this.student = {...this.student, greeting:event.target.value}</samp>. But for large objects this will have a performance impact as new object is created by copying the older.</p>
+
+<h3 id="h3-3">Getter</h3>
+<p>As calculated expressions are not allowed in data binding in lwc, values from arrays or expressions cannot be used in view.</p>
+
+<p>To solve this use getter.</p>
+
+<p>In the below example whenever the value in array change they are tracked and so the sum getter is also updated rerendering the view. If fields are used to calculate, they need to be update manually every time to be rerendered, where as getters will be called automatically.</p>
+
+
+<pre><code class="language-javascript">
+import { LightiningElement, track } from "lwc";
+
+
+export default class DataBinding extends LightningElements {
+  @track
+  arr = [10, 20, 30];
+
+
+  get sum() {
+    return this.arr.reduce((acc, val) =&gt; acc + val);
+  }
+}
+</code></pre>
+
+
+<pre><code class="language-html">
+&lt;template&gt;
+  &lt;div&gt;{ sum }&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+
+<h3 id="h3-4">Setter</h3>
+<p>This method is used to modify the data coming from the parent component.</p>
+
+<quote> To modify an object argument passed to a setter, a shallow copy must be created, else the component using it will throw an error.</quote>
+<p>So lets say <samp>set userDetails(details){}</samp> is a setter, being set by parent and details is an object, <samp>details.daysWorked += 2</samp> will thrown an error, as the argument is directly being modified. To resolve this create a shallow copy, with <samp>this.userDetails = {...details}</samp> then modify <samp>this.userDetails.daysWorked += 2</samp>.</p>
+
+<p>Also new properties can be added to this instance object.</p>
+
+<h2 id="h2-3">Rendering Elements</h2>
+<h3 id="h3-5">Conditional Rendereing with Directives</h3>
+<p>Directives are special HTML attributes. They can be used to manipulate dom using markup.</p>
+
+<p>For conditional rendering <samp>if:true= { expression }</samp> and <samp>if:false= { expression }</samp> can be used in <samp>&lt;template&gt;</samp> tag.</p>
+
+
+<pre><code class="language-html">
+&lt;template&gt;
+  &lt;button onclick="{toggle}"&gt;Toggle Greeting&lt;/button&gt;
+  &lt;template if:true="{visibility}"&gt; Hello World &lt;/template&gt;
+&lt;/template&gt;
+</code></pre>
+
+
+<pre><code class="language-javascript">
+visibility = true;
+toggle () {
+  visibility = !visibility;
+}
+</code></pre>
+
+<h3 id="h3-6">Template Looping</h3>
+<p>There are two ways to looping with template.</p>
+
+<h4 id="h4-0">for:each loop</h4>
+
+<pre><code class="language-html">
+&lt;template for:each= {arrayName} for:item= "aliasForItemInArray" for:index="i"&gt;
+  &lt;div key={aliasForItemArray}&gt;{ aliasForItemArray }&lt;div&gt;
+&lt;/template&gt;
+</code></pre>
+
+<quote> <samp>key</samp> attribute on the tempate is important as it will tell lwc framework, which value is to be tracked for changes, this is important if it is an array of objects and internal values of object might change.</quote>
+<p><samp>key</samp> value can be a string or a number, it cannot be an object.</p>
+
+<h4 id="h4-1">iterator loop</h4>
+<p>Special behaviour can be applied to the first or the last item in the loop.</p>
+
+<p>Using key is necessary similar to foreach loop for lwc framework to track changes.</p>
+
+
+<pre><code class="language-html">
+&lt;!--Consider arrayName is an array of object--&gt;
+&lt;template iterator:aliasName="{arrayName}"&gt;
+  &lt;div key="{aliasName.value.name}"&gt;
+    &lt;template if:true="{aliasName.first}"&gt;
+      &lt;strong&gt;List Start&lt;/strong&gt;
+    &lt;/template&gt;
+    {aliasName.value.name}
+    &lt;template if:true="{aliasName.first}"&gt;
+      &lt;strong&gt;List End&lt;/strong&gt;
+    &lt;/template&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+
+<p>Properties that can be used with iterator like</p>
+
+<ul>
+	<li> value - value of item <samp>aliasName.value.property</samp>.</li>
+	<li> index - index of item <samp>aliasName.index</samp>.</li>
+	<li> first - first element of array/list <samp>aliasName.first</samp>.</li>
+	<li> last - last element of array/list <samp>aliasName.last</samp>.</li>
+</ul>
+<h2 id="h2-4">Component Composition</h2>
+<p>Component can be added to the body of other component. To add one component in to another, has a specific naming convention.</p>
+
+<p>Lets say Component name is <samp>childComponentLWC</samp> then evey capital letter in the component name will be converted to lower case and preceded by a <samp>-</samp>, also a <samp>c-</samp> will be added to the start of the component name. So the child component will be added by using <samp>&lt;c-child-component-l-w-c&gt;&lt;/c-child-component-l-w-c&gt;</samp>.</p>
+
+<p>While adding one component to another, the child components do not need to be exposed. Only the outer most parent needs to be exposed.</p>
+
+<h3 id="h3-7">Accessing Elements in the Component</h3>
+<p>To access elements rendered by a component, use the <samp>template</samp> property, similar to using <samp>document</samp> property.</p>
+
+<p><samp>this.template.querySelector(selector)</samp> or <samp>element.template.querySelector(selector)</samp></p>
+
+<quote> DOM operations are expensive and should be used when necessary.</quote>
+<h3 id="h3-8">Attach Elements to DOM using lwc:dom = "manual" directive</h3>
+<p>The directive <samp>lwc:dom="manual"</samp> is used on an element in template to attach another element to it in javascript.</p>
+
+
+<pre><code class="language-html">
+&lt;template&gt;
+  &lt;div class="parent" lwc:dom="manual"&gt;&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+
+
+<pre><code class="language-javascript">
+const parent = this.template.querySelector(".parent");
+parent.innserHTML = "&lt;div&gt;This is child element.&lt;/div&gt;";
+</code></pre>
+
+<h2 id="h2-5">Styling In LWC</h2>
+<p>There are different ways styles can be applied in LWC.</p>
+
+<ul>
+	<li> Inline Styles - note recommended and has highest priority.</li>
+	<li> External CSS</li>
+	<li> Using Lightning Design System</li>
+	<li> SLDS Design Token</li>
+	<li> Sharing CSS in LWC</li>
+	<li> Dynamic Styling</li>
+	<li> Third-part css Library</li>
+	<li> Applying CSS across shadow DOM</li>
+</ul>
+<h3 id="h3-9">CSS in LWC</h3>
+<p>To apply styling from an external file to a component, the name of the css file should be exactly the same as the component name, with a <samp>.css</samp> extension.</p>
+
+<p>If a style sheet is present the style will automatically be applied, there is no need of declaraing the style sheet in markup or in controller.</p>
+
+<h3 id="h3-10">Lightning Design System</h3>
+<p>The salesforce Lightining System gives the resources to make the custom component consistent with the Salesforces Lightning interface.</p>
+
+<quote> To view all available styles <a href="https://www.lightningdesignsystem.com/" target="_blank">visit Lightning Design System Website</a>.</quote>
+<p>The important benefit of this library is that, it does not need to be included, it is already present when using component within Lightning Component.</p>
+
+<h4 id="h4-2">Lightning Design System Token</h4>
+<p>Tokens are contant value that can be used in the css file by referencing them as variables.</p>
+
+<p>To reference a token use <samp>var(--lwc-tokenName)</samp>.</p>
+
+
+<pre><code class="language-css">
+div {
+  color: var(--lwc-brandAccessible);
+}
+</code></pre>
+
+<h3 id="h3-11">Shared CSS in LWC</h3>
+<p>To create a shared CSS</p>
+
+<ul>
+	<li> Create a new component.</li>
+	<li> Delete the Html and controller file as they are not needed.</li>
+	<li> Create a css file, with the name same as the component.</li>
+	<li> Now in the component's css where this file is to be called, use <samp>@import 'c/NameOfCssComponent';</samp>(without the .css extension).</li>
+	<li> The above can be used in the any number of component, and will import all the styles.</li>
+</ul>
+<quote> If there is an issue where the import component is not found, try to deploy both the css component and the component that uses it together.</quote>
+<h3 id="h3-12">Dynamic Styling</h3>
+<p>In javascript elements can be selected or an event function can be used to dynamically assign and remove style from an element.</p>
+
+<p>Or <samp>style</samp> property of a tag can be changed using data binding.</p>
+
+<h3 id="h3-13">Styling Shadow DOM</h3>
+<p>It is not recommneded to change styling this ways as it will effect the performance of the app.</p>
+
+<p>This can be used to style the saleforce default Lightning components such as <samp>&lt;lightning-button&gt;</samp> which is not allowed by default.</p>
+
+
+<pre><code class="language-javascript">
+export default class ShadowDomStyling extends LightningElement {
+  //--Use vairable to prevent the code from running again every time
+  //the hook is called.
+  isStyleApplied = false;
+
+
+  //-- lifecycle Hook
+  renderedCallback() {
+    if (this.isStyleApplied) return;
+    //create a style element to attach to shadow dom
+    const style = document.createElement("style");
+    style.innerText = &lsquo;.slds-button {color:red}&lsquo;;
+    this.template.querySelector("lightning-button").appendChild(style);
+    this.isStyleApplied = true;
+  }
+}
+</code></pre>
+
+<h2 id="h2-6">LWC Lifecycle Hooks</h2>
+<p>A lifecycle hook is a callback method triggered at a specific phase of a component instance lifecycle.</p>
+
+<p>At <strong>Mounting Phase</strong></p>
+
+<ul>
+	<li> <samp>constructor()</samp></li>
+	<li> <samp>connectedCallback()</samp></li>
+	<li> <samp>renderedCallback()</samp></li>
+	<li> <samp>render()</samp> - Render may or may not be considered a lifecycle hook.</li>
+</ul>
+<p>At <strong>UnMounting Phase</strong></p>
+
+<ul>
+	<li> <samp>disconnectedCallback()</samp></li>
+</ul>
+<p>At <strong>Error Phase</strong></p>
+
+<ul>
+	<li> <samp>errorCallback()</samp></li>
+</ul>
+<h3 id="h3-14">Complete Lifecycle of LWC</h3>
+<p>Parent Component ➡ Constructor ➡ public properties to update (? Yes/No) ➡ (Yes) update public property value ➡ (No) Component inserted into DOM ➡ connected callback called ➡ component rendered ➡ <strong>All child Component</strong> Lifecycle ➡ After all child component rendered ➡ renderCallback ➡ Component Life cycle End</p>
+
+<p>Child Component life cycle is the same as parent, except at the end after renderCallback is called the parents renderCallback is called.</p>
+
+<h3 id="h3-15">Contructor() Method</h3>
+<ul>
+	<li> Invoked with the component is created.</li>
+	<li> Call super() first inside this.</li>
+	<li> Component properties are not ready yet.</li>
+	<li> To access host element, use <samp>this.template</samp>.</li>
+	<li> Child component do not exist yet.</li>
+	<li> Flows from parent to child component.</li>
+	<li> Attributes should not be added in constructor to the host element.</li>
+</ul>
+
+<pre><code class="language-javascript">
+export default class ConstructorExample {
+  constructor() {
+    super();
+    this.template.addEventListener("click", () =&gt; {});
+  }
+}
+</code></pre>
+
+<h3 id="h3-16">connectedCallback Method</h3>
+<ul>
+	<li> Called when the component is inserted into the document.</li>
+	<li> flows from parent to child</li>
+	<li> Child component do not exist yet</li>
+	<li> Host elements cannot be accessed with <samp>this.template</samp></li>
+</ul>
+<p><strong>Use connectedCallback</strong> Perform initialization tasks, such as fetch data, setup caches, or listen for events.</p>
+
+<p><strong>Do not use connectedCallback()</strong> to change the state of a component, such as loading values or setting properties. Use getters and setters instead.</p>
+
+<h3 id="h3-17">renderedCallback Method</h3>
+<ul>
+	<li> Fires when a component rendering is done.</li>
+	<li> It can fire more than once.</li>
+	<li> This hook flows from child to parent.</li>
+	<li> When a component rerenders all the expressions used in the template are reevaluated.</li>
+</ul>
+<p><strong>Do not use renderedCallback()</strong> to change state or update property of a component or to update a wire adapter configuration object property in <samp>renderCallback()</samp> as it can result in an infinite loop.</p>
+
+<quote> It is important for component's performance that heavy operations are not performed in this hook, as it is called many times during the life cycle of the component.</quote>
+<h3 id="h3-18">disconnectedCallback Method</h3>
+<ul>
+	<li> fires when a component is removed from the DOM</li>
+	<li> flows from parent to child</li>
+	<li> specific to Lightning web components, not from html custom elements specification.</li>
+</ul>
+<p>This life cycle method is especially useful for clearing data and unsubscribing from events or removing window events Listeners from the component.</p>
+
+<h3 id="h3-19">errorCallback(err, stack)</h3>
+<ul>
+	<li> called when a decendant component throws an error in one of its callback.</li>
+	<li> The error argument is a javascript native error object, stack is a string.</li>
+	<li> callback method is specific to Lightning web component.</li>
+</ul>
+
+<pre><code class="language-javascript">
+//--in child component
+//anywhere
+throw new Error('Error In child Component');
+
+
+//-- parent component
+errorCallback(err, stack) {
+  console.log(err.message);
+  console.log(stack);
+}
+</code></pre>
+
+<h3 id="h3-20">render Method</h3>
+<ul>
+	<li> Render is technically not a lifecycle hook. It is a protected method on the LightningElement class.</li>
+	<li> This method is called to update the UI.</li>
+	<li> It may be called before and after <samp>connectedCallback()</samp>.</li>
+	<li> <samp>render()</samp> is rarely used, the main use case is to conditionally render a template.</li>
+</ul>
+
+<pre><code class="language-html">
+&lt;!--Using multiple HTML to conditionally render--&gt;
+&lt;!--template1.html--&gt;
+&lt;template&gt;
+  &lt;h1&gt;Template 1&lt;/h1&gt;
+  &lt;button onclick={clickHandler} label = 'template2'&gt;template2&lt;button&gt;
+&lt;/template&gt;
+
+
+&lt;!--template2.html--&gt;
+&lt;template&gt;
+  &lt;h1&gt;Template 2&lt;/h1&gt;
+  &lt;button onclick={clickHandler} label = 'renderMethod'&gt;renderMethod&lt;button&gt;
+&lt;/template&gt;
+
+
+&lt;!--renderMethod.html--&gt;
+&lt;template&gt;
+  &lt;h1&gt;Default Render Template&lt;/h1&gt;
+  &lt;button onclick={clickHandler} label = 'template1'&gt;template1&lt;button&gt;
+&lt;/template&gt;
+</code></pre>
+
+
+<pre><code class="language-javascript">
+import { LightningElement } from "lwc";
+import template1 from "./template1.html";
+import template2 from "./template2.html";
+import renderTemplate from "./renderMethod.html";
+
+
+export default class RenderMethod extends LightningElement {
+  selectedTemplate = "";
+
+
+  render() {
+    //what ever template is returned by this method
+    //that template will be loaded.
+    return this.selectedTemplate === "template1"
+      ? template1
+      : this.selectedTemplate === "template2"
+      ? template2
+      : renderTemplate;
+  }
+  //the render method will run automatically when the selectTemplate
+  //variable changes or for any change in the component
+
+
+  clickHandler(event) {
+    this.selectedTemplate = event.target.label;
+  }
+}
+</code></pre>
+
+<h2 id="h2-7">Component Communication</h2>
+<p>Different approaches to communication between components</p>
+
+<ul>
+	<li> Parent to Child Communication</li>
+	<li> Child to Parent Communication</li>
+	<li> Sibling Component Communication</li>
+	<li> Lightning Messaging Service - Helps Communication Across VF pages, Aura and LWC.</li>
+</ul>
+<h3 id="h3-21">Parent To Child Component Communication</h3>
+<h4 id="h4-3">@api Decorator</h4>
+<ul>
+	<li> Makes property or method public and visible to parent.</li>
+	<li> HTML attributes are used to access the components public properties.</li>
+	<li> Public properties are reactive, that is if their value changes the component's template re-renders.</li>
+</ul>
+<quote> When using properties in javascsript the property name can be camel case, but when referencing these as attribute in the parent template, the property name must be in cabab case. Ex. <samp>&lt;child-component attribute-name&gt;&lt;/child-component&gt;</samp> in parent template, <samp>@api attributeName</samp> in child javascript.</quote><quote> If an attribute is defined on a element and the value is not initialized, its default value will be true.</quote>
+<p>Arrays and object can be passed similarly to the child component using <samp>@api</samp> decorator.</p>
+
+<p>Passed arrays can also be iterated over with for template loop or template iterator.</p>
+
+<p>Values passed as attribute themselves can be return values from function that are triggered by some action on the parent component. As the function is called by some event, the value in child will be updated and the component will be rerendered.</p>
+
+<h4 id="h4-4">Calling Child method from Parent</h4>
+<p>In this case function in child will be made public using <samp>@api</samp>. Then using <samp>this.template.querySelector('child-component-tag-name').methodOnChild();</samp> the method in the child component can be invoked.</p>
+
+<h4 id="h4-5">Using @api with getter and setter</h4>
+<p><samp>@api</samp> decorator is used with the getter, if both are define, both do not need to be decorated with <samp>@api</samp>.</p>
+
+
+<pre><code class="language-javascript">
+import { LightningElement, api } from "lwc";
+
+
+export default class GetterSetters extends LightningElement {
+  userDetails;
+  @api
+  get user() {
+    return userDetails;
+  }
+  set user(details) {
+    this.userDetails = details;
+  }
+}
+</code></pre>
+
+<h3 id="h3-22">Child To Parent Communication</h3>
+<p>Child to parent communication is mostly achieved by using CustomEvents.</p>
+
+<p>The Events are javascript events, and are not specific to lwc.</p>
+
+<quote> Event Names can only be string, with no uppercase letters, No space, underscore can be used to separate words.</quote>
+<h4 id="h4-6">Create and Dispatch Events</h4>
+<p>Use <samp>let e = new CustomEvent('event_name', {bubbles:true, composed:false, details:null});</samp>.</p>
+
+<p>Then dispatch event using <samp>this.dispatchEvent(e)</samp> which is <samp>eventTarget.dispatchEvent(createdEvent);</samp>.</p>
+
+<h4 id="h4-7">Example of Parent to child</h4>
+
+<pre><code class="language-html">
+&lt;!--In parent--&gt;
+&lt;template&gt;
+  &lt;template if:true={isChildOpen}&gt;
+    &lt;child-component onclose={closeChildHandler}&gt;&lt;/child-component&gt;
+    &lt;!--close event in javascript is refered to as onclose in html--&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+
+&lt;!--In Child--&gt;
+&lt;template&gt;
+  &lt;button onclick={closeHandler}&gt;Close&lt;/button&gt;
+&lt;/template&gt;
+</code></pre>
+
+
+<pre><code class="language-javascript">
+//In child component
+//--create and dispatch event from a function
+//--this function can be triggered by a button or so.
+closeHandler() {
+  const ev = new CustomEvent('close');
+  this.dispatchEvent(ev);
+}
+
+
+//In parent
+isChildOpen = true;
+closeChildHandler() {
+  this.isChildOpen = false;
+}
+</code></pre>
+
+<h4 id="h4-8">Child to Parent communication with CustomEvent with Data</h4>
+<p>While createing a CustomEvent use <samp>details</samp> to pass the data that is to be sent with the event.</p>
+
+<p>Like <samp>const ev = new CustomEvent('close', {detail: {message : 'Child closed'}});</samp></p>
+
+<p>Now in the parent when refereing to the event the value of detail can also be extracted as <samp>closeChildHandler(ev) { console.log(ev.detail); }</samp>;</p>
+
+<p>Event bubbling can also be used to communicate between child to parent.</p>
+
+<h3 id="h3-23">Communication between two independent component</h3>
+<h4 id="h4-9">Using the pubsub model</h4>
+<p>This is the old way of communication between indenpendent components in LWC. Now Lightning Messagin Service is preferred over the pub sub model.</p>
+
+<p>In a publish-subscribe pattern, one component publishes an event. Other components subscribe to receive and handle the event. Every component that subscribes to the event receives the event. The pubsub module restricts events to a single page.</p>
+
+<p><a href="https://github.com/developerforce/pubsub" target="_blank">Download the c/pubsub cross DOM messaging component here from github.</a></p>
+
+<h3 id="h3-24">Passing Markup using Slot</h3>
+<ul>
+	<li> Slot is used to pass HTML markup from one component to another.</li>
+	<li> An aura compoenent cannot be passed.</li>
+	<li> There are Named slots <samp>&lt;slot name='slotName&gt;&lt;/slot&gt;</samp> and unnamed slot <samp>&lt;slot&gt;&lt;/slot&gt;</samp>.</li>
+</ul>
+<p>When using multiple unnamed slots, whatever is passed between the component will be repeated in each of the slots.</p>
+
+<p>If a slot is created in the child, and the parent does not pass a value, the space for that slot still will be rendered.</p>
+
+
+<pre><code class="language-html">
+&lt;!--Named slot Example--&gt;
+&lt;!--Parent--&gt;
+&lt;template&gt;
+  &lt;!--First Company with description--&gt;
+  &lt;c-child-component&gt;
+    &lt;div slot="companyName"&gt;Google&lt;/div&gt;
+    &lt;div slot="companyDescription"&gt;Search Engine&lt;/div&gt;
+  &lt;/c-child-component&gt;
+  &lt;!--Second Company with no description--&gt;
+  &lt;c-child-component&gt;
+    &lt;div slot="companyName"&gt;Microsoft&lt;/div&gt;
+  &lt;/c-child-component&gt;
+&lt;/template&gt;
+
+
+&lt;!--Child--&gt;
+&lt;template&gt;
+  &lt;div&gt;Company Name&lt;/div&gt;
+  &lt;div&gt;&lt;slot name="companyName"&gt;&lt;/slot&gt;&lt;/div&gt;
+  &lt;div&gt;
+    &lt;slot
+      name="companyDescription"
+      onslotchange="{slotChangeHandler}"
+      class="slds-hide description"
+    &gt;
+      &lt;!--slds-hide will hide the description by default--&gt;
+    &lt;/slot&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+
+
+<pre><code class="language-javascript">
+slotChangeHandler(e) {
+  const description = this.template.querySelector('.description');
+  if(description)
+    description.classList.remove('slds-hide');
+}
+</code></pre>
+
+<h3 id="h3-25">CSS behaviour between parent and child</h3>
+<ul>
+	<li> Parent css cannot reach child, neither can child change css for parent.</li>
+	<li> Parent can use the child tag name to style the child tag in css.(Only container not the inner tags).</li>
+	<li> Child component can apply style to its own tag in parent by using <samp>:host{}</samp> in its own css file.</li>
+	<li> With <samp>:host{}</samp> a css selector like class can be used to style child element in host selectively when there are multiple child components used. Like <samp>:host(.className){}</samp></li>
+	<li> Slots can only be styled in the parent that passes the slot value.</li>
+</ul>
+<h2 id="h2-8">LWC in Aura</h2>
+<p>Aura and LWC can work together.</p>
+
+<p>Aura components can contain Lightning Web components, however the opposite dont apply. Lightning web components can't contain Aura components.</p>
+
+<quote> Names of LWC and Aura component must be unique. Components can't have the same name.</quote>
+
+<pre><code class="language-html">
+&lt;template&gt;
+  &lt;div&gt;{ message }&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+
+
+<pre><code class="language-javascript">
+// --- In LWC
+export default class InLwc extends LightningElement {
+  @api
+  message;
+
+
+  sendMessageToAura() {
+    const event = new CustomEvent("sendmsg", {
+      detail: {
+        message: "Message From LWC",
+      },
+    });
+    this.dispatchEvent(event);
+  }
+}
+</code></pre>
+
+
+<pre><code class="language-xml">
+&lt;aura:component implements="flexipage:availableForAllPageTypes"&gt;
+&lt;aura:attribute name="message" type="string" /&gt;
+  &lt;c:InLwc message = "Message from Aura" onsendmsg="{! c.lwcMessageEventHandler }"/&gt;
+  &lt;div&gt;{! v.message }&lt;/div&gt;
+&lt;/aura:component&gt;
+</code></pre>
+
+
+<pre><code class="language-javascript">
+// --- In Aura Javascript Controller
+({
+  lwcMessageEventHandler: function (component, event, helper) {
+    //- the param name is the same as that set in detail,
+    // in the custom event created in lwc
+    let msg = event.getParam("message");
+    component.set("v.message", msg);
+  },
+});
+</code></pre>
+
+<h2 id="h2-9">Lightning Messaging Service</h2>
+<p>Lightning Messaging Service enables communication between Aura Components, LWC and Visualforce pages.</p>
+
+<h3 id="h3-26">Create the message channel</h3>
+<ul>
+	<li> Create a folder called <samp>messageChannels</samp> in <samp>/force-app/main/default</samp>.</li>
+	<li> Creat file <samp>ChannelName.messageChannel-meta.xml</samp>.</li>
+	<li> ChannelName should be the name of the channel being created, the extension should be exactly as given above.</li>
+	<li> Inside the standard tag to setup channel are <samp>LightningMessageChannel</samp>.</li>
+	<li> Once the file is created, and defined, update the <samp>manifest/package.xml</samp> by adding the LightningMessageChannel.</li>
+	<li> Api version should be above 47.</li>
+</ul>
+
+<pre><code class="language-xml">
+&lt;!--ExampleChannel.messageChannel-meta.xml--&gt;
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;LightningMessageChannel xmlns="http://soap.sforce.com/2004/04/metadata"&gt;
+  &lt;description&gt; Example Lightning Message Channel&lt;/description&gt;
+  &lt;isExposed&gt;true&lt;/isExposed&gt;
+  &lt;lightningMessageFields&gt;
+    &lt;description&gt;Variable used in LMS&lt;/description&gt;
+    &lt;fieldName&gt;data&lt;/fieldName&gt;
+  &lt;/lightningMessageFields&gt;
+  &lt;masterLabel&gt;ExampleMessageChannel&lt;/masterLabel&gt;
+&lt;/LightningMessageChannel&gt;
+</code></pre>
+
+
+<pre><code class="language-xml">
+&lt;!--update Manifest--&gt;
+&lt;package&gt;
+  &lt;types&gt;
+    &lt;members&gt;&lowast;&lt;/memebers&gt;
+    &lt;name&gt;LightningMessageChannel&lt;/name&gt;
+  &lt;/types&gt;
+  &lt;!--version here should be greater than 47.0--&gt;
+&lt;/package&gt;
+</code></pre>
+
+<h3 id="h3-27">Communication Between distinct LWC</h3>
+<p>Two LWC that do not share any relation can communicate by using Lightning Message Service.</p>
+
+<ul>
+	<li> Reference message channel in LWC using <samp>import exampleLMS from "@salesforce/messageChannel/ExampleMessageChannel__c"</samp>.</li>
+	<li> Import LMS API using <samp>import {APPLICATION_SCOPE, publish, subscribe. unsubscribe, MessageContext } from 'lightning/messageService'</samp>.</li>
+	<li> <samp>MessageContext</samp> Wire Adapter is used to get information of all Lwc using LMS. <samp>@wire(MessageContext) context</samp>.</li>
+	<li> Publish a message using <samp>publish(this.context, ExampleChannelService, message)</samp>.</li>
+	<li> Subscribe a Message Channel to receive the message <samp>this.subscription = subscribe(this.context, ExampleChannelService, (message)={this.handleMessage(message)}, {scope: APPLICATION SCOPE});</samp>.</li>
+	<li> Unsubscribe to a message channel <samp>unsubscribe(this.subscription); this.subscription = null;</samp>.</li>
+</ul>
+
+<pre><code class="language-javascript">
+import { LightningElement, wire } from 'lwc';
+import { MessageContext, publish } from 'lightning/messageService';
+import ExampleMessageChannel from '@salesforce/messageChannel/ExampleMessageChannel__c'
+
+
+export default component1 extends LightningElement {
+  messageInput
+
+
+  @wire(MessageContext)
+  msgContext;
+
+
+  inputHandler(event) {
+    this.messageInput = event.target.value;
+  }
+
+
+  sendMessage() {
+    const message = {
+      lmsData: {
+        value:this.messageInput;
+      }
+    }
+    //publish(messageContext, messageChannel, dataToPublish);
+    publish(this.msgContext, ExampleMessageChannel, message);
+  }
+}
+</code></pre>
+
+
+<pre><code class="language-html">
+&lt;!--Component1 template--&gt;
+&lt;template&gt;
+  &lt;lightning-input type="text" label="Message" onkeyup="{inputHandler}" /&gt;
+  &lt;button onclick="{sendMessage}"&gt;Send Message&lt;/button&gt;
+&lt;/template&gt;
+</code></pre>
+
+
+<pre><code class="language-javascript">
+import { LightningElement, wire } from "lwc";
+import ExampleMessageChannel from "@salesforce/messageChannel/ExampleMessageChannel__c";
+import { subscribe, MessageContext } from "lightning/messageService";
+
+
+export default class Component2 extends LightningElement {
+  recievedMessage;
+  subscription;
+  @wire(MessageContext)
+  context;
+
+
+  //lifecycle hook
+  connectedCallback() {
+    this.subscribeToMessage();
+  }
+
+
+  subscribeToMessage() {
+    //subscribe(messageContext, messageChannel, listenerFunction,     subscriberOptions)
+    this.subscription = subscribe(
+      this.context,
+      ExampleMessageContext,
+      (message) =&gt; {
+        this.handleMessage(message);
+      },
+      { scope: APPLICATION_SCOPE }
+    );
+  }
+
+
+  handlerMessage(message) {
+    this.recievedMessage = message.lmsData.value
+      ? message.lmsData.value
+      : "No Message published";
+  }
+
+
+  unsubscribeMessage() {
+    unsubscribe(this.subscription);
+    this.subscription = null;
+  }
+}
+</code></pre>
+
+
+<pre><code class="language-html">
+&lt;!--Component2 Template--&gt;
+&lt;template&gt;
+  &lt;div&gt;Message : {recievedMessage}&lt;/div&gt;
+  &lt;button onclick="{unsubscribeHandler}"&gt;Unsubscribe Message&lt;/button&gt;
+&lt;/template&gt;
+</code></pre>
+
+<h3 id="h3-28">LWC to Aura Communication using LMS</h3>
+<ul>
+	<li> Add <samp>lightning:messageChannel</samp> component to Aura Component.</li>
+	<li> Specify a controller action that reads the message argument to get the value in the message payload.</li>
+	<li> To publish a message find the reference of the message channeland call the publish method by passing the payload.</li>
+</ul>
+<p>The following Example Aura component is used with the above 2 LWC, to send and recieved messages with LMS. When the LWC that publishes the message, publishes, both the aura and 2nd LWC will recieve the message.</p>
+
+
+<pre><code class="language-xml">
+&lt;!--Aura component--&gt;
+&lt;aura:component implements="flexipage:availableForAllPages"&gt;
+  &lt;aura:attribute name="messageValue" type="String" /&gt;
+  &lt;aura:attribute  name="recievedMessage" type="String"/&gt;
+  &lt;lightning:messageChannel
+    type:"ExampleMessageChannel__c",
+    aura:id="ExampleMessageChannel"
+    onMessage="{! c.messageHandler }"
+    scope="APPLICATION" /&gt;
+
+
+    &lt;input text = "text" id="inputMessage" value="{!v.messageValue}"
+    onkeyup="{!c.inputHandler}" /&gt;
+    &lt;button onclick="{! c.publishMessage }"&gt;Publish Message&lt;/button&gt;
+
+
+    &lt;div&gt;Recieved Message : {! v.recievedMessage }&lt;/div&gt;
+&lt;/aura:component&gt;
+</code></pre>
+
+
+<pre><code class="language-javascript">
+({
+  messageHandler: function (component, event, helper) {
+    if (message != null &amp;&amp; message.getParams("lmsData") != null) {
+      component.set("v.recievedMessage", messageParams("lmsData").value);
+    }
+  },
+
+
+  inputHandler: function (component, event, helper) {
+    component.set("v.messageValue", event.target.value);
+  },
+
+
+  publishMessage: function (component, event, helper) {
+    let msg = component.get("v.messageValue");
+    let message = {
+      lmsData: {
+        value: msg,
+      },
+    };
+    component.find("ExampleMessageChannel").publish(message);
+  },
+});
+</code></pre>
+
+<h3 id="h3-29">LMS with Visualforce Pages</h3>
+<ul>
+	<li> Get the message channel reference using <samp>$MessageChannel</samp> global variable.</li>
+	<li> publish a message using <samp>sforce.one.publish(MessageChannelName, payload)</samp>.</li>
+	<li> Subscribe to Messages using <samp>subscriptionToMC = sforce.one.subscribe(MessageChannelName, msgHandler, {scope:"APPLICATION"})</samp>.</li>
+	<li> unsubscribe a Message using <samp>sforce.one.unsubscribe(subscriptionToMC)</samp></li>
+</ul>
+<quote> Before VisualForce pages created can be used with Lightning Experience, it needs to be enabled for that page. Goto <strong>Setup | Custom Code | Visualforce Pages</strong> and click edit for the page, here enable <strong>Available for Lightning Experience, ...</strong>.</quote>
+<p>Then the visualforce page can be added, by adding the standard component <strong>Visualforce</strong> in the Lightning App builder and then selecting the Visualforce Page Name that is to be added.</p>
+
+<p>The following page will work with the above created LWC as well as aura components.</p>
+
+
+<pre><code class="language-html">
+&lt;!--Visualforce page--&gt;
+&lt;aura:page lightningStylesheets="true"&gt;
+  &lt;!--add lightningStypesheets allows using lds classes in the page--&gt;
+  &lt;apex:slds/&gt;
+  &lt;div&gt;
+    &lt;input type="text" id="messageInput" /&gt;
+    &lt;div id="recievedMessage"&gt;&lt;/div&gt;
+    &lt;button onclick="publishHandler()"&gt;Publish&lt;/button&gt;
+    &lt;button onclick="subscribeHandler()"&gt;Subscribe&lt;/button&gt;
+    &lt;button onclick="unsubscribeHandler()"&gt;Unsubscribe&lt;/button&gt;
+  &lt;/div&gt;
+
+
+  &lt;script&gt;
+    let channel = "{! $MessageChannel.ExampleMessageChannel__c }";
+    let subscriptionToMC;
+    function publishHandler () {
+      let data = document.getElementById("messageInput").value;
+      const message = {
+        lmsData: {
+          value: data;
+        }
+      }
+      sforce.one.publish(channel, message);
+    }
+
+
+    function subscribeHandler () {
+      if(!subscriptionToMC) {
+        this.subscriptionToMC = sforce.one.subscribe(channel, msgHandler, {scope: "APPLICATION"});
+      }
+    }
+
+
+    function msgHandler(message) {
+      let recievedMessageDiv = document.getElementById("recievedMessage");
+      recievedMessageDiv.innerHTML = message &amp;&amp; message.lmsData ? message.lmsData.value : "No Data";
+    }
+
+
+    function unsubscribeHandler() {
+      if(subscriptionToMC) {
+        sforce.one.unsubscribe(subscriptionToMC);
+        subscriptionToMC = null;
+      }
+    }
+  &lt;/script&gt;
+&lt;/apex:page&gt;
+</code></pre>
+
+<h2 id="h2-10">Salesforce Resources</h2>
+<p>Static resources can be imported from <samp>@salesforce/resourceUrl</samp> scoped module.</p>
+
+<p><samp>import resRef from '@salesforce/resourceUrl/resourceReference;</samp></p>
+
+<p>Static resource could be a archive file, image, stylesheet, or javascript.</p>
+
+<p>To upload new static resource goto <strong>Setup | Custom Code | Static Resource</strong>.</p>
+
+<h3 id="h3-30">Import Static Resource</h3>
+<p>Upload the image to static resource.</p>
+
+
+<pre><code class="language-javascript">
+import { LightningElement } from "lwc";
+import IMAGE_REF from "@salesforce/resourceUrl/imageName";
+
+
+export default class StaticImage extends LightningElement {
+  imageRef = IMAGE_REF;
+}
+</code></pre>
+
+
+<pre><code class="language-html">
+&lt;template&gt;
+  &lt;img src="{imageRef}" alt="Image Description" /&gt;
+&lt;/template&gt;
+</code></pre>
+
+<h3 id="h3-31">Third Party Javascript Libraries</h3>
+<p>Javascript library is loaded to static resource. Then that can be imported as any other static resource.</p>
+
+<p><samp>loadScript</samp> needs to be imported from <samp>lightning\platformResourceLoader</samp> to load the script to be used.</p>
+
+<p><samp>platformResourceLoader.loadScript(ComponentRef, fileUrl)</samp> returns a promise.</p>
+
+<p>Lets say the js file is in the form of a zip.</p>
+
+
+<pre><code class="language-javascript">
+import JS_LIB_ZIP from '@salesforce/resourceUrl/jsZip';
+import { loadScript } from 'lightning\platformResourceLoader';
+
+
+export default class ImportJS extends LightningElement{
+  operationResult;
+  //as renderedCallback is called manytimes
+  //the library must be laoded only one.
+  isLibraryLoaded = false;
+
+
+  //-- life cycle look
+  renderedCallback() {
+
+
+    if(this.isLibraryLoaded) return;
+  //execute all promises and then
+    Promise.all([
+      loadScript(this, JS_LIB_ZIP + 'path/to/js/file/in/zip/fileName.js');
+    ]).then (() =&gt; {
+      //if successful
+
+
+      this.isLibraryLoaded = true;
+      //The methods in the js can now be used here directly
+      //as if they were this components methods.
+
+
+      //call the method in this class after the library loads.
+      useLibraryMethods();
+    }).catch (err) {
+      //handle error in loading file
+      console.log(err);
+    }
+  }
+  useLibraryMethods() {
+    this.operationResult = methodFromJsLib();
+  }
+}
+</code></pre>
+
+<h3 id="h3-32">Loading Thrid party Css Library</h3>
+<p>First upload the static css library to the orgs static resources.</p>
+
+<p>Use the <samp>import {loadStyle} from 'lightning/platformResourceLoader'</samp> to load the stylesheet.</p>
+
+<p>Loading the css is the same as loading the javascript library, except to load css use <samp>loadStyle</samp> method that returns a promise.</p>
+
+<h3 id="h3-33">Use Asset files</h3>
+<p>To upload an asset file go to <strong>App Launcher | Files</strong>. Here Go to <strong>Libraries | Asset Library</strong>.</p>
+
+<p>Make sure that the asset file is available to all user while uploading.</p>
+
+<p>Example : Make asset file available for download.</p>
+
+
+<pre><code class="language-javascript">
+import { ASSET_FILE } from "@salesforce/contentAssetUrl/assetAPIName";
+
+
+export default class DownloadAsset extends LightningElement {
+  file = ASSET_FILE;
+}
+</code></pre>
+
+
+<pre><code class="language-html">
+&lt;template&gt;
+  &lt;a href="{file}" download&gt;Download File&lt;/a&gt;
+&lt;/template&gt;
+</code></pre>
+
+<h3 id="h3-34">Use Custom Labels</h3>
+<p>To import custom Labels in LWC use</p>
+
+<p><samp>import LabelName from '@salesforce/label/LabelReference'</samp>.</p>
+
+<p>The name of the label in org is in the format <samp>namespace.labelName</samp>. So for LWC the namespace will always be <samp>c</samp> so use it like <samp>@salesforce/label/c.LabelName</samp> while importing.</p>
+
+<p>When using multiple labels, add all label to a LABELS object and use that object to refer in template.</p>
+
+<h3 id="h3-35">Check Permissions</h3>
+<p>User and Custom permissions can be checked in LWC without using apex.</p>
+
+<p>To check permissions use</p>
+
+<ul>
+	<li> <samp>import hasUserPermission from '@salesforce/userPermission/permissionName'</samp></li>
+	<li> <samp>import hasCustomPermission from '@salesforce/customPermission/permissionName'</samp></li>
+</ul>
+<p>When used the <samp>hasUserPermission</samp> or <samp>hasCustomPermission</samp> varaible will be a boolean value true if the user has permission and false or null when the user does not have that permission</p>
+
+<p>Ex For view All Data</p>
+
+<p><samp>import hasPermissionViewAllData from '@salesforce/userPermission/ViewAllData'</samp></p>
+
+<p>The value of hasPermissionViewAllData must be assigned to a getter or a varaible before it can be used in view.</p>
+
+<quote> To get all the ApiNames of permission, open <strong>Developer Console | Resources | Objects | Profile</strong> here it will open a list of all permissions Api names.</quote>
+<h3 id="h3-36">Access Client Form Factor</h3>
+<p>The cleint form factor gives the value based on what device a client access the website.</p>
+
+<p>Possible Values are</p>
+
+<ul>
+	<li> Large - for desktop</li>
+	<li> Medium - for tablet</li>
+	<li> Small - for phone</li>
+</ul>
+<p>To get the form factor use</p>
+
+<p><samp>import clientFormFactor from '@salesforce/client/formFactor'</samp>.</p>
+
+<h3 id="h3-37">Get Current User Information</h3>
+<p>Only two properties about the current user can be retrieved, <samp>Id</samp> and <samp>isGuest</samp>.</p>
+
+<p>To get the information use</p>
+
+<p><samp>import userProperty from '@salesforce/user/property'</samp>.</p>
+
+<h3 id="h3-38">Fetch Object Name and Record Id</h3>
+<p>When on a record page, property named <samp>recordId</samp> and <samp>objectApiName</samp>, decorated with <samp>@api</samp> will automatically fetch Record Id and Object Name for the record on the record page.</p>
+
+<p>The property names should be exactly as shown and are case sensitive.</p>
+
+<h2 id="h2-11">Toast Notifications</h2>
+<p>Toast Notification are popup alerts with some information.</p>
+
+<p>They can be of types</p>
+
+<ul>
+	<li> success</li>
+	<li> error</li>
+	<li> info</li>
+	<li> warning</li>
+</ul>
+<p>There are two modes of the toast</p>
+
+<ul>
+	<li> dismissable(default, closable, visible for 3 sec)</li>
+	<li> pester (visible for 3 sec)</li>
+	<li> sticky (remains visible till closed with button)</li>
+</ul>
+
+<pre><code class="language-javascript">
+import { ShowToastEvent } from 'lightning/platformShowToastEvent';
+
+
+toastHandler() {
+  const toastEvent = new ShowToastEvent({
+    title: 'Toast Example',
+    //this {0} and {1} are the index of objects passed in the
+    //array of messageData
+    message: '{0} Toast Message {1}',
+    variant: 'success',
+    mode: 'pester',
+    //Data can be string or object or both
+    messageData: [
+      'stringData',
+      {
+        url: 'link/to/website/or/resource',
+        label: 'click here'
+      }
+    ]
+  });
+  this.dispatchEvent(toastEvent);
+}
+</code></pre>
+
+<h2 id="h2-12">Navigation Service</h2>
+<p>To use the navigation service</p>
+<p><samp>import { NavigationMixin } from 'lightning/navigation'</samp></p>
+
+<p>and then apply it to the base class</p>
+
+<p><samp>export default class navigationComponent extends NavigationMixin(LightningElement) { }</samp></p>
+
+<p>To dispatch the navigation request, call the navigation service's</p>
+
+<p><samp>&lt;a href="pageReference, [replace]" target="_blank"&gt;NavigationMixin.Navigate&lt;/a&gt;</samp></p>
+
+<ul>
+	<li> pageReference - is an object that defines the page.</li>
+	<li> replace - is a boolean value which if set to true pageReference replaces the existing entry in the browser history. Default is false.</li>
+</ul>
+<p>Page Reference type supported are</p>
+
+<ul>
+	<li> App</li>
+	<li> Lightning Component</li>
+	<li> Knowledge Article</li>
+	<li> Login Page</li>
+	<li> Named Page(communities/standard)</li>
+	<li> Navigation Item page</li>
+	<li> Object page</li>
+	<li> Record page</li>
+	<li> Record Relationship page</li>
+	<li> Web page</li>
+</ul>
+<h3 id="h3-39">Navigate Example</h3>
+
+<pre><code class="language-javascript">
+import { LightningElement } from 'lwc';
+import { NavigationMixin } from 'lightning/navigation';
+import { encodeDefaultFieldValues } from 'lightning/pageReferenceUtils';
+
+
+export default class NavigateComponent extends NaviationMixin(LightningElement) {
+
+
+  navigateToHomeHandler() {
+    this[NavigationMixin.Navigate]({
+      type:'standard__namePage',
+      attributes: {
+        pageName:'home'
+      }
+    });
+  }
+
+
+  navigateToChatterHandler() {
+    this[NavigationMixin.Navigate]({
+      type:'standard__namePage',
+      attributes: {
+        pageName:'chatter'
+      }
+    });
+  }
+
+
+//open new account form page
+  navigateToObjectHandler() {
+    this[NavigationMixin.Navigate]({
+      type:'standard__objectPage',
+      attributes: {
+        objectApiName:'Account',
+        actionName:'new'
+      }
+    });
+  }
+
+
+  //with default values
+  navigateToObjectWithDefaultValuesHandler() {
+    const defaultValues = encodeDefaultFieldValues({
+      //use api names
+      FirstName:'F Name',
+      LastName: 'L'
+    });
+
+
+    this[NavigationMixin.Navigate]({
+      type:'standard__objectPage',
+      attributes: {
+        objectApiName:'Account',
+        actionName:'new'
+      },
+      state: {
+        defaultFieldValues: defaultValues
+      }
+    });
+  }
+
+
+  //open list view of account
+  navigateToObjectListViewHandler() {
+    this[NavigationMixin.Navigate]({
+      type:'standard__objectPage',
+      attributes: {
+        objectApiName:'Account',
+        actionName:'list'
+      },
+      state: {
+        filterName: 'Recent'
+      }
+    });
+  }
+
+
+  //Navigate to record page
+  navigateToRecordPageHandler() {
+    this[NavigationMixin.Navigate]({
+      type:'standard__recordPage',
+      attributes: {
+        objectApiName:'Account',
+        recordId:'recordIdHere',
+        actionName: 'view' //also could be 'edit'
+      }
+    });
+  }
+
+
+  //Navigate to tab
+  navigateToTabHandler() {
+    this[NavigationMixin.Navigate]({
+      type:'standard__navItemPage',
+      attributes: {
+        apiName:'NameSeenInNavLink',
+      }
+    });
+  }
+
+
+  //Navigate to related relationship 
+  navigateToObjectRelationshipListViewHandler() {
+    this[NavigationMixin.Navigate]({
+      type:'standard__recordRelationshipPage',
+      attributes: {
+        recordId:'IdSeenInNavLink',
+        objectApiName:'Account',
+        relationshipApiName:'Contacts',
+        actionName:'view'
+      }
+    });
+  }
+
+
+  //- To LWC page
+  navigateToLWCHandler() {
+    let definition = {
+      componentDef: 'c.lwcTarget' //namespace.LWCName
+
+
+      //pass data to component being navigated to
+      //optional
+      attributes: {
+        recordId: 'recordIdHere'
+      }
+    }
+
+
+    this[NavigationMixin.Navigate]({
+      type:'standard__webPage',
+      attributes: {
+        //btoa will encode string into base64 encoded form
+        url:'/one/one.app#'+btoa(JSON.stringify(definition))
+      }
+    });
+  }
+
+
+  //--- other page types ---
+//- To external page 
+//- standard__webPage with attribute url:'https://link'
+
+
+  //Navigate to visualForce page 
+  navigateToVisualforcePageHandler() {
+    this[NavigationMixin.Navigate]({
+      type:'standard__webPage',
+      attributes: {
+        url:"/apex/navVisualForcePageName"
+      }
+    }).then(generatedUrl =&gt; {
+      //the above method return a promise with
+      //generated url for the visualforce page.
+      window.open(generatedUrl, "__blank").
+      //open in new tab because of __blank
+    })
+  }
+}
+</code></pre>
+
+<h3 id="h3-40">Fetch Current Page Reference</h3>
+<p>Current pages url and attributes or url paramters can be fetched using the CurrentPageReference imported from <samp>lightning/navigation</samp>.</p>
+
+
+<pre><code class="language-javascript">
+import { LightningElement, wire } from 'lwc';
+import { CurrentPageReference } from 'lightning/navigation'
+
+
+export default class CurrentPageReference extends LightningElement {
+  @wire(CurrentPageReference) pageRef
+
+
+//As the pageRef is a async fetch, the value might not be available
+//immediately, so use getter and the ternary operator when return.
+  get pageReference() {
+    //just to show it on the page use stringify
+    return this.pageRef ? JSON.stringify(this.pageRef, null, 2): '';
+  }
+}
+</code></pre>
+
+<h2 id="h2-13">Connecting with Salesforce Database</h2>
+<p>There are three ways to interact with the salesforce database.</p>
+
+<ul>
+	<li> Basic Lightning Components - built on lightning data service.</li>
+	<li> Lightning Data service wire adapter and functions.</li>
+	<li> Apex</li>
+</ul>
+<h3 id="h3-41">Lighting Data Service</h3>
+<p>Lightning Data service is a centralized data caching framework built on top of the UI API.</p>
+
+<p>Advantages of Lightning Data service</p>
+
+<ul>
+	<li> Centralized data caching framework and it is built on UserInterface API.</li>
+	<li> UI API gives data and metadata in a single response.</li>
+	<li> Enforces Sharing rules as well as Field level access.</li>
+	<li> Invalidates cached entries when salesforce data and metadata changes.</li>
+	<li> Optimizes server call.</li>
+</ul>
+<p>The <samp>lightning/ui*Api</samp> module is used for the functionality provided by Lightning Data Service.</p>
+
+<p>The <samp>*</samp> can be ObjectInfo, List, Record, App.</p>
+
+<h3 id="h3-42">@Wire Adapters</h3>
+<p>Wire service is build on Lightning Data Service.</p>
+
+<p>LWC uses <samp>@wire</samp> in javascript to read data from one of the wire adapters in the <samp>lightning/ui*Api</samp> namespace.</p>
+
+<p><samp>@wire</samp> is reactive.</p>
+
+<quote> While using variables that are fetched ayncly, such as UserID from <samp>@salesforce</samp> use the <samp>'$propertyName'</samp> as a string, where propertyName is the variable name in class that the asyncly fetched value is assigned to. These variables are called as reactive variables.</quote>
+<p>The wire adapter defines the data shape that the wire service provisions in an immutable stream.</p>
+
+
+<pre><code class="language-javascript">
+import {adapterId} from 'adapterModule';
+
+
+@wire(adapter, {adapterConfig})
+propertyOrFunction;
+</code></pre>
+
+<p><samp>adapter</samp> in the above sample code is imported from <samp>lightning/ui*Api</samp>.</p>
+
+<p><samp>adapterConfiguration</samp> is object with properties particular to the adapter.</p>
+
+<p>The <samp>@wire</samp> response has two values <samp>data</samp> and <samp>error</samp> that get assigned to the property or response is passed as arguement to the function, from which they can be accessed.</p>
+
+<quote> If wire assigns value to a property, a if template might have to be used in the view as the wire will fetch data async and it might not be available when the view is rendered, throwing an error.</quote>
+<h4 id="h4-10">getRecord Adapter</h4>
+<p>Only fetches record and not the metadata for the object.</p>
+
+<p>Use as</p>
+
+<p><samp>@wire(getRecord, {recordId: string, fields: string|string[], optionalFields?: string|string[]})</samp>.</p>
+
+<p>OR</p>
+
+<p><samp>@wire(getRecord, {recordId: string, optionalFields?: string|string[], mode?: string|string[], layoutTypes:string|string[]})</samp></p>
+
+<ul>
+	<li> Mode - have values Edit, Create, and View(default).</li>
+	<li> optionalFields - Only included if the user has permission.</li>
+	<li> fields - if fields has a field that the user does not have access to, response will throw an error.</li>
+	<li> layoutType - Compact or Full(default)</li>
+</ul>
+
+<pre><code class="language-javascript">
+import {LightningElement, wire} from 'lwc';
+import NAME_FIELD from '@salesforce/schema/User.Name';
+import userId from '@salesforce/user/Id';
+import {getRecord} from 'lightning/uiRecordApi';
+
+
+export default class WireServiceExample extends LightningElement {
+
+
+  //fetching id is an async process.
+  id = userId;
+  //so to access this variable in wireservice,
+  //use the '$propertyName' 
+
+
+  //Fields can be created with hardcoded apiNames of fields,
+  //but references as below are recommneded.
+  fields= [NAME_FIELD];
+
+
+  @wire(getRecord, {recordId: '$id', fields: this.fields})
+  userDetailHandler({data, error}) {
+    if(data) console.log(data);
+    else console.log(error)
+  }
+  //used destructuring on response object.
+}
+</code></pre>
+
+<h4 id="h4-11">Full list of All Adapters</h4>
+<p><a href="https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.reference_ui_api" target="_blank">A full list of All the adapters available can be found here in the Official Documentation</a>.</p>
+
+<h3 id="h3-43">Base Lightning Components</h3>
+<p>Base Lightning Components are build on Lightning Data Service and  inherits the caching and synchronisation capabilities.</p>
+
+<quote> Salesforce objects and fields references can be imported from <samp>@salesforce/schema</samp>.</quote>
+<h4 id="h4-12">When to use Base Lightning Components?</h4>
+<ul>
+	<li> Create a metadata-driven UI or form-based UI to record page.</li>
+	<li> Display record values based on the field metadata.</li>
+	<li> Hide or show localized field labels.</li>
+	<li> Display the help text on a custom field.</li>
+	<li> Perform client side validation and enforce validation rules.</li>
+</ul>
+<h4 id="h4-13">Different Forms in Base Lightning Components</h4>
+<ul>
+	<li> <samp>lightinin-record-edit-form</samp> - displays an editable form.</li>
+	<li> <samp>lightning-record-view-form</samp> - display a form in view mode.</li>
+	<li> <samp>lightning-record-form</samp> - supports readonly, view and read mode. Least customization. Gives save and cancel button.</li>
+</ul>
+<h4 id="h4-14">Lightning record form</h4>
+<p>Attributes used</p>
+
+<ul>
+	<li> object-api-name</li>
+	<li> record-id</li>
+	<li> fields</li>
+	<li> layout-type - full or compact</li>
+	<li> mode - edit, view, readonly</li>
+	<li> columns</li>
+</ul>
+<quote> Events and Task object are not supported.</quote>
+
+<pre><code class="language-javascript">
+import { LightningElement, api } from 'lwc';
+
+
+@api recordId; //Automatically fetch record id from record page
+@api objectApiName
+</code></pre>
+
+
+<pre><code class="language-html">
+&lt;template&gt;
+  &lt;lightning-record-form
+    record-id={recordId}
+    object-api-name = {objectApiName}
+    mode = "edit"
+    column = "2"
+    layout-type = "Compact"
+  &gt;
+  &lt;/lightning-record-form&gt;
+&lt;/template&gt;
+</code></pre>
+
+<h4 id="h4-15">Customize lightning record view form</h4>
+<p>Lightning Record view form and edit form can be customized, but Lightning Record form cannot be customized.</p>
+
+
+<pre><code class="language-html">
+&lt;template&gt;
+  &lt;lightning-record-view-form
+    object-api-name = "Account"
+    record-id = {recordId}
+  &gt;
+  &lt;div class="slds-grid"&gt;
+    &lt;div class="slds-col slds-size-6-of-12"&gt;
+      &lt;!--Field Names are field api names--&gt;
+      &lt;lightning-outup-field field-name="Name"&gt;&lt;/lightning-outup-field&gt;
+      &lt;lightning-outup-field field-name="Phone"&gt;&lt;/lightning-outup-field&gt;
+    &lt;/div&gt;
+    &lt;div class="slds-col slds-size-6-of-12"&gt;
+      &lt;lightning-outup-field field-name="AnnualRevenue"&gt;&lt;/lightning-outup-field&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;/lightning-record-view-form&gt;
+&lt;/template&gt;
+</code></pre>
+
+<h4 id="h4-16">Using Salesforce Schema</h4>
+
+<pre><code class="language-javascript">
+import { LightningElement } from 'lwc';
+//@salesforce/schema/ObjectApiName
+import CONTACT_OBJECT from '@salesforce/schema/Contact';
+//@salesforce/schema/ObjectApiName.FieldApiName
+import NAME_FIELD from '@salesforce/schema/Contact.Name';
+
+
+export default class EditForm extends LightningElement {
+  objName = CONTACT_OBJECT;
+  fields = {
+    contactName: NAME_FIELD
+  }
+
+
+  resetFormHandler() {
+    const inputFields = this.template.querySelector('lightning-input-field');
+    if(inputFields) {
+      Array.form(inputFields).forEach(field =&gt; {
+        field.reset();
+      });
+    }
+  }
+
+
+  //called when the form is submitted successfully
+  successHandler(event) {
+    console.log(event);
+  }
+
+
+  //called when there is a error while submitting form
+  errorHandler(event) {
+    console.log(event);
+  }
+}
+</code></pre>
+
+
+<pre><code class="language-html">
+&lt;template&gt;
+  &lt;lightning-record-edit-form 
+    object-api-name = {objName}
+    onsuccess={successHandler}
+    onerror={errorHandler}
+  &gt;
+    &lt;!--If record-id is added, then the record data will be
+    automatically fetch and that record can be edited.--&gt;
+
+
+    &lt;!--This will catch and display any errors automatically--&gt;
+    &lt;lightning-messages&gt;&lt;/lightning-messages&gt;
+    &lt;lightning-input-field field-name={fields.contactName} /&gt;
+    &lt;!--Similarly other fields can be added--&gt;
+    &lt;button onclick={resetFormHandler}&gt;Cancel&lt;/button&gt;
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+  &lt;lightning-record-edit-form&gt;
+&lt;/template&gt;
+</code></pre>
+
+<h4 id="h4-17">Give Fields Custom Label</h4>
+<p>To give fields custom label first the default label should be hidden.</p>
+
+<p><samp>&lt;lightning-input-field fieldName={fields.Name} variant="label-hidden" /&gt;</samp></p>
+
+<p>The create a label with</p>
+
+<p><samp>&lt;label&gt;Enter your email&lt;/label&gt;</samp></p>
+
+<p>Then give padding and margin as needed.</p>
+
+<h4 id="h4-18">Custom Validation</h4>
+<p>To create a custom validation on fields before the form is submitted use the following steps.</p>
+
+<ul>
+	<li> Add a button of <samp>type="submit"</samp>.</li>
+	<li> Add a event handler, <samp>onsubmit={handleValidateAndSubmit}</samp> on the <samp>lighning-recor-edit-form</samp>.</li>
+	<li> In <samp>handleValidateAndSubmit</samp> add <samp>event.preventDefault()</samp> to prevent the form from submitting as a default behaviour.</li>
+	<li> The <samp>handleValidateAndSubmit</samp> method then queries all the input fields and checks the values for validation.</li>
+	<li> Once validated, the form must now be submitted manually, so create a <samp>fields</samp> object that has all the values.</li>
+	<li> <samp>const fields = event.detail.fields</samp>.</li>
+	<li> THen set the value of the fields from the form, <samp>fields.Name = inputField.value</samp>.</li>
+	<li> Fetch the form with querySelector and then invoke the <samp>submit(fields)</samp> method on it.</li>
+	<li> To show error if one of the input fields is invalid, use <samp>inputField.setCustomValidity("Error Message Here");</samp></li>
+	<li> The after validating all fields and adding error message as needed, show the messages with <samp>inputField.reportValidity()</samp> for each field.</li>
+</ul>
+<h2 id="h2-14">Apex with LWC</h2>
+<p>There are two ways to invoke apex from lwc component. First by using Wire Apex Method and the other Call Apex Method Imperatively.</p>
+
+<p>To expose an Apex method to LWC, the method must be <samp>static</samp> and <samp>public</samp> or <samp>global</samp>.</p>
+<p>Also it must be annotated with <samp>@AuraEnabled</samp>.</p>
+
+<p>In most cases <samp>@AuraEnabled(cacheable=true)</samp> can be used to improve performance.</p>
+
+<p>To import an apex method into LWC use</p>
+
+<p><samp>import apexMethod from '@salesforce/apex/Namespace.Classname.apexMethodRef'</samp></p>
+
+<p>Namespace is only required of the method is from a managed package, else no namespace is required.</p>
+
+<h3 id="h3-44">Wire Apex Method</h3>
+<p>A apex method can be invoked using the wire method.</p>
+
+<quote> Objects Task and Event are not supported by wire.</quote>
+
+<pre><code class="language-javascript">
+import apexMethodName from '@salesforce/apex/Namespace.Classname.apexMethodRef';
+
+
+@wire(apexMethodName, {apexMethodParams});
+propertyOrFunction
+//params object should have properties of the same
+//name as the parameters on the apex method
+
+
+//params are optional, if method does not take any params
+@wire(apexMethodName)
+propertyOrFunction
+</code></pre>
+
+<quote> Parameter values can be null, but not undefined, else method will not be called.</quote>
+<h3 id="h3-45">Call Apex Method Imperatively</h3>
+<p>Use this approach over <samp>@wire</samp> when</p>
+
+<ul>
+	<li> To call method is not annotated with <samp>cacheable=true</samp>, which includes any method that inserts, update or deletes data.</li>
+	<li> To control when the method is invoked in LWC, as wire methods are invoked immediately after the component is loaded.</li>
+	<li> To work with Task or Event or other objects not supported by wire services.</li>
+	<li> To call a method from ES6 module that doesn't extend LightningLElement</li>
+</ul>
+
+<pre><code class="language-javascript">
+import getAccountList from '@salesforce/apex/AccountController.getAccountList';
+
+
+//parameter object can be passed if needed with
+//property names the same as the paramter name for
+//the apex method
+fetchAccountHandler() {
+  getAccountList().then(result =&gt; {
+    console.log(result);
+  }).catch(err) {
+    console.log(err);
+  }
+}
+</code></pre>
+
+</div>
+</div>
+
+    <!-- Format -->
+    <script src="../../highlight/highlight.min.js"></script>
+    <script src="../../library/format.js"></script>
+</body>
+</html>

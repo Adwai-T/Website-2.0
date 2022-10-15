@@ -1,0 +1,3519 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<title></title>
+</head>
+<body>
+<div id="container">
+
+<div id="index">
+<ul id="index-list">
+<li class="index-li-h2"><a href="#h2-0">Apex Language Basics</a></li>
+<li class="index-li-h3"><a href="#h3-0">Introduction</a></li>
+<li class="index-li-h3"><a href="#h3-1">Basic Code Examples</a></li>
+<li class="index-li-h3"><a href="#h3-2">Apex Properties</a></li>
+<li class="index-li-h2"><a href="#h2-1">sObject</a></li>
+<li class="index-li-h3"><a href="#h3-3">sObjects and Field Names</a></li>
+<li class="index-li-h3"><a href="#h3-4">Generic sObject</a></li>
+<li class="index-li-h3"><a href="#h3-5">Casting Generic sObject to Specific sObject Types</a></li>
+<li class="index-li-h2"><a href="#h2-2">Collections</a></li>
+<li class="index-li-h3"><a href="#h3-6">List And Arrays</a></li>
+<li class="index-li-h3"><a href="#h3-7">Set</a></li>
+<li class="index-li-h3"><a href="#h3-8">Map</a></li>
+<li class="index-li-h3"><a href="#h3-9">Enums in Apex</a></li>
+<li class="index-li-h2"><a href="#h2-3">Debug and Run Diagnostics</a></li>
+<li class="index-li-h3"><a href="#h3-10">Debug logs</a></li>
+<li class="index-li-h4"><a href="#h4-0">Clear debug logs</a></li>
+<li class="index-li-h3"><a href="#h3-11">Set Checkpoints</a></li>
+<li class="index-li-h2"><a href="#h2-4">Governer Limits and Limits Class Methods</a></li>
+<li class="index-li-h2"><a href="#h2-5">Exception Handling</a></li>
+<li class="index-li-h3"><a href="#h3-12">Simple Example</a></li>
+<li class="index-li-h2"><a href="#h2-6">Apex Testing</a></li>
+<li class="index-li-h3"><a href="#h3-13">What should be tested</a></li>
+<li class="index-li-h3"><a href="#h3-14">Running Tests</a></li>
+<li class="index-li-h3"><a href="#h3-15">Test Methods</a></li>
+<li class="index-li-h3"><a href="#h3-16">Test Data</a></li>
+<li class="index-li-h3"><a href="#h3-17">Limitations of Test Classes</a></li>
+<li class="index-li-h3"><a href="#h3-18">Test Examples</a></li>
+<li class="index-li-h2"><a href="#h2-7">Security</a></li>
+<li class="index-li-h3"><a href="#h3-19">With Sharing</a></li>
+<li class="index-li-h3"><a href="#h3-20">Without Sharing</a></li>
+<li class="index-li-h3"><a href="#h3-21">Inherited Sharing</a></li>
+<li class="index-li-h3"><a href="#h3-22">Implementation of Sharing Rules</a></li>
+<li class="index-li-h3"><a href="#h3-23">Enforce Field and Object level security</a></li>
+<li class="index-li-h2"><a href="#h2-8">Database</a></li>
+<li class="index-li-h3"><a href="#h3-24">Apex and Database</a></li>
+<li class="index-li-h3"><a href="#h3-25">Query Editor</a></li>
+<li class="index-li-h2"><a href="#h2-9">SOQL - Salesforce Object Query Language</a></li>
+<li class="index-li-h3"><a href="#h3-26">Relational Queries</a></li>
+<li class="index-li-h4"><a href="#h4-1">Parent to Child Query</a></li>
+<li class="index-li-h4"><a href="#h4-2">Child to Parent Query</a></li>
+<li class="index-li-h3"><a href="#h3-27">Related Object Query Example</a></li>
+<li class="index-li-h3"><a href="#h3-28">Using Logical Operators in SOQL</a></li>
+<li class="index-li-h3"><a href="#h3-29">IN keyword in SOQL</a></li>
+<li class="index-li-h3"><a href="#h3-30">Using LIKE in SOQL</a></li>
+<li class="index-li-h3"><a href="#h3-31">Using OFFSET keyword in SOQL</a></li>
+<li class="index-li-h3"><a href="#h3-32">Binding Variables in Query</a></li>
+<li class="index-li-h3"><a href="#h3-33">Creating Dynamic Query</a></li>
+<li class="index-li-h3"><a href="#h3-34">Complex SOQL Examples</a></li>
+<li class="index-li-h3"><a href="#h3-35">Working with Date and DateTime in SOQL</a></li>
+<li class="index-li-h4"><a href="#h4-3">Example of Date in SOQL</a></li>
+<li class="index-li-h3"><a href="#h3-36">Aggregation Functions</a></li>
+<li class="index-li-h3"><a href="#h3-37">SOQL query result as Map</a></li>
+<li class="index-li-h3"><a href="#h3-38">SOSL - Salesforce Object Search Language</a></li>
+<li class="index-li-h3"><a href="#h3-39">Wildcards for SOQL and SOSL</a></li>
+<li class="index-li-h3"><a href="#h3-40">Examples SOSL</a></li>
+<li class="index-li-h2"><a href="#h2-10">Manipulate Records with DML</a></li>
+<li class="index-li-h3"><a href="#h3-41">Data Manipulation Language Direct operations</a></li>
+<li class="index-li-h3"><a href="#h3-42">DML insert</a></li>
+<li class="index-li-h3"><a href="#h3-43">DML upsert</a></li>
+<li class="index-li-h3"><a href="#h3-44">DML delete and undelete</a></li>
+<li class="index-li-h3"><a href="#h3-45">Using generic sObject with SOQL and DML</a></li>
+<li class="index-li-h3"><a href="#h3-46">Partial DML</a></li>
+<li class="index-li-h2"><a href="#h2-11">Understanding Execution Context</a></li>
+<li class="index-li-h3"><a href="#h3-47">Methods Invoking Apex</a></li>
+<li class="index-li-h2"><a href="#h2-12">Triggers</a></li>
+<li class="index-li-h3"><a href="#h3-48">What is a Apex trigger?</a></li>
+<li class="index-li-h3"><a href="#h3-49">Why we need Apex Trigger?</a></li>
+<li class="index-li-h3"><a href="#h3-50">Trigger Events</a></li>
+<li class="index-li-h3"><a href="#h3-51">Difference between Before And After Trigger Events</a></li>
+<li class="index-li-h3"><a href="#h3-52">Implementation Considerations</a></li>
+<li class="index-li-h3"><a href="#h3-53">Order Of Execution</a></li>
+<li class="index-li-h3"><a href="#h3-54">Deactivate a Trigger</a></li>
+<li class="index-li-h3"><a href="#h3-55">Multiple Trigger</a></li>
+<li class="index-li-h3"><a href="#h3-56">Trigger Context Variables</a></li>
+<li class="index-li-h3"><a href="#h3-57">Validations and Throwing Errors</a></li>
+<li class="index-li-h3"><a href="#h3-58">OperationType Context Variables</a></li>
+<li class="index-li-h3"><a href="#h3-59">Bulkify Trigger logic</a></li>
+<li class="index-li-h3"><a href="#h3-60">Calling Apex classes from Triggers</a></li>
+<li class="index-li-h3"><a href="#h3-61">Recursive Trigger Problem</a></li>
+<li class="index-li-h3"><a href="#h3-62">Testing Trigger</a></li>
+<li class="index-li-h3"><a href="#h3-63">Trigger Examples</a></li>
+<li class="index-li-h2"><a href="#h2-13">Asynchronous Apex</a></li>
+<li class="index-li-h3"><a href="#h3-64">Use of Asynchronous Apex</a></li>
+<li class="index-li-h3"><a href="#h3-65">Asynchronous Process Overview</a></li>
+<li class="index-li-h3"><a href="#h3-66">AsyncApexJob</a></li>
+<li class="index-li-h4"><a href="#h4-4">Fields of AsyncApexJob</a></li>
+<li class="index-li-h3"><a href="#h3-67">Future Method</a></li>
+<li class="index-li-h4"><a href="#h4-5">Limitations of Future</a></li>
+<li class="index-li-h4"><a href="#h4-6">Future Request Design</a></li>
+<li class="index-li-h4"><a href="#h4-7">Future Method Example</a></li>
+<li class="index-li-h3"><a href="#h3-68">Batch Apex</a></li>
+<li class="index-li-h4"><a href="#h4-8">Batch Apex Limitations</a></li>
+<li class="index-li-h4"><a href="#h4-9">start(Database.BatchableContext bc)</a></li>
+<li class="index-li-h4"><a href="#h4-10">execute(Database.BatchableContext bc)</a></li>
+<li class="index-li-h4"><a href="#h4-11">finish(Database.BatchableContext bc)</a></li>
+<li class="index-li-h4"><a href="#h4-12">Batchable Class public or global</a></li>
+<li class="index-li-h4"><a href="#h4-13">Variable State in Batchable Class</a></li>
+<li class="index-li-h4"><a href="#h4-14">Batch Class Example</a></li>
+<li class="index-li-h3"><a href="#h3-69">Queueable Apex</a></li>
+<li class="index-li-h4"><a href="#h4-15">Chaining Queuable Jobs</a></li>
+<li class="index-li-h4"><a href="#h4-16">Making callout from Queueable Jobs</a></li>
+<li class="index-li-h4"><a href="#h4-17">Queuable Apex Example</a></li>
+<li class="index-li-h3"><a href="#h3-70">Scheduled Apex</a></li>
+<li class="index-li-h4"><a href="#h4-18">Cron Expressions</a></li>
+<li class="index-li-h4"><a href="#h4-19">Schedule a Job from UI</a></li>
+<li class="index-li-h4"><a href="#h4-20">Schedulable Apex Example</a></li>
+<li class="index-li-h4"><a href="#h4-21">Immediately Run Scheduled Apex class from Developer Console</a></li>
+<li class="index-li-h3"><a href="#h3-71">Monitoring Asynchronous Apex</a></li>
+<li class="index-li-h4"><a href="#h4-22">Monitoring future Jobs</a></li>
+<li class="index-li-h4"><a href="#h4-23">Monitoring Queueable Apex</a></li>
+<li class="index-li-h4"><a href="#h4-24">Monitoring Scheduled Jobs</a></li>
+<li class="index-li-h4"><a href="#h4-25">Delete Queued Scheduled Job</a></li>
+<li class="index-li-h4"><a href="#h4-26">Apex Flex Queue</a></li>
+<li class="index-li-h2"><a href="#h2-14">Salesforce Platform APIs</a></li>
+<li class="index-li-h3"><a href="#h3-72">API Limits</a></li>
+<li class="index-li-h4"><a href="#h4-27">Check API limits</a></li>
+<li class="index-li-h3"><a href="#h3-73">Which API To Use?</a></li>
+<li class="index-li-h3"><a href="#h3-74">Reset Password and Security Token</a></li>
+<li class="index-li-h3"><a href="#h3-75">Connect Postman to Salesforce</a></li>
+<li class="index-li-h4"><a href="#h4-28">Set up Cross-Origin Resource Sharing (CORS)</a></li>
+<li class="index-li-h4"><a href="#h4-29">Authorize Org</a></li>
+<li class="index-li-h3"><a href="#h3-76">REST Resources and Methods</a></li>
+<li class="index-li-h3"><a href="#h3-77">SOAP API</a></li>
+<li class="index-li-h4"><a href="#h4-30">Authenticating SOAP</a></li>
+<li class="index-li-h4"><a href="#h4-31">Create a new Record with SOAP UI</a></li>
+<li class="index-li-h3"><a href="#h3-78">Bulk API</a></li>
+<li class="index-li-h3"><a href="#h3-79">Streaming API</a></li>
+<li class="index-li-h3"><a href="#h3-80">Metadata API</a></li>
+<li class="index-li-h3"><a href="#h3-81">Tooling API</a></li>
+<li class="index-li-h2"><a href="#h2-15">Apex Integration With REST</a></li>
+<li class="index-li-h3"><a href="#h3-82">External Service Callout</a></li>
+<li class="index-li-h3"><a href="#h3-83">HTTP callout</a></li>
+<li class="index-li-h3"><a href="#h3-84">Example Callout</a></li>
+<li class="index-li-h3"><a href="#h3-85">Mapping Custom objects with Response JSON</a></li>
+<li class="index-li-h3"><a href="#h3-86">Testing Service Callout</a></li>
+<li class="index-li-h4"><a href="#h4-32">Test callout with StaticResourseCalloutMock</a></li>
+<li class="index-li-h4"><a href="#h4-33">Test Callout with HttpCalloutMock</a></li>
+<li class="index-li-h2"><a href="#h2-16">Apex Web Services</a></li>
+<li class="index-li-h3"><a href="#h3-87">Expose Apex Class as REST Service</a></li>
+<li class="index-li-h3"><a href="#h3-88">Method annotations for different rest methods -</a></li>
+<li class="index-li-h3"><a href="#h3-89">Making REST calls with Workbench</a></li>
+<li class="index-li-h3"><a href="#h3-90">Using Connected App</a></li>
+<li class="index-li-h3"><a href="#h3-91">Supported Data Types for Apex REST</a></li>
+<li class="index-li-h3"><a href="#h3-92">Namespaces in Apex REST Endpoints</a></li>
+<li class="index-li-h3"><a href="#h3-93">Security Considerations for Apex Web Services</a></li>
+<li class="index-li-h3"><a href="#h3-94">Testing Apex REST services</a></li>
+<li class="index-li-h3"><a href="#h3-95">Example Apex REST Web Service</a></li>
+<li class="index-li-h4"><a href="#h4-34">Example 1 : Basic REST Service</a></li>
+<li class="index-li-h4"><a href="#h4-35">Example 2 : Using RestContext.request and Restcontext:response to Create Attachment</a></li>
+<li class="index-li-h2"><a href="#h2-17">Sending Emails</a></li>
+<li class="index-li-h3"><a href="#h3-96">Example Send Email and Check Sent Emails</a></li>
+<li class="index-li-h2"><a href="#h2-18">Custom Settings</a></li>
+<li class="index-li-h3"><a href="#h3-97">Enable List custom Settings</a></li>
+<li class="index-li-h3"><a href="#h3-98">Accessing Custom Settings</a></li>
+<li class="index-li-h2"><a href="#h2-19">Custom Code</a></li>
+<li class="index-li-h3"><a href="#h3-99">Custom Labels</a></li>
+<li class="index-li-h2"><a href="#h2-20">Custom Metadata</a></li>
+<li class="index-li-h3"><a href="#h3-100">Why use Custom Metadata</a></li>
+<li class="index-li-h3"><a href="#h3-101">Where to use Custom Metadata types</a></li>
+<li class="index-li-h3"><a href="#h3-102">What can use Custom Metadata types</a></li>
+<li class="index-li-h3"><a href="#h3-103">Create and Manage Custom Metadata Types</a></li>
+<li class="index-li-h3"><a href="#h3-104">Using Custom Metadata types</a></li>
+<li class="index-li-h4"><a href="#h4-36">In Default Values</a></li>
+<li class="index-li-h4"><a href="#h4-37">In Validation Rules</a></li>
+<li class="index-li-h4"><a href="#h4-38">In formula</a></li>
+<li class="index-li-h3"><a href="#h3-105">Apex Metadata API</a></li>
+<li class="index-li-h3"><a href="#h3-106">Safeguard in Apex Metadata API</a></li>
+<li class="index-li-h3"><a href="#h3-107">Example Of Apex Metadata API</a></li>
+<li class="index-li-h3"><a href="#h3-108">Build Admin Tools for Automated Configuration</a></li>
+<li class="index-li-h3"><a href="#h3-109">Testing Metadata Deployment</a></li>
+</ul>
+</div>
+
+<div id="content">
+<h1 id="h1-0">Salesforce Development</h1>
+<h2 id="h2-0">Apex Language Basics</h2>
+<quote> <a href="https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_writing.htm" target="_blank">Official Apex Documentation</a>.</quote><quote> <a href="https://resources.docs.salesforce.com/238/latest/en-us/sfdc/pdf/salesforce_apex_developer_guide.pdf" target="_blank">Download as Pdf</a></quote>
+<h3 id="h3-0">Introduction</h3>
+<p>Apex is case insensitive, where the reserved keywords(class static, etc) , class , method , variable names will be treated without considering case.</p>
+
+<quote> Salesforce compiles classes when we save them.</quote><quote> Salesforce enforces an Apex Heap Size Limit of 6MB for synchronous transactions and 12MB for asynchronous transactions.</quote>
+<p>As apex is a garbage collected language we dont have to manage memory for our program.</p>
+
+<p><samp>new</samp> keyword : Create a new instance of the object and allocate appropriate amount of memory.</p>
+
+<p>When an object only has a parametarized constructor, we cannot use the default constuctor to create an instance. We have to explicitly define a default constructor to use it with a parametrazied constructor.</p>
+
+<h3 id="h3-1">Basic Code Examples</h3>
+<p>Declare and Use variable</p>
+
+
+<pre><code class="language-java">
+public static void variables() {
+  System.debug('&lt;-- Variables --&gt; ');
+//- Variables
+  //If value is not assigned to a declaration, the value is Null
+  //-- Primitive Data Types
+  String Name = 'adwait';
+  Integer num = 2;//32 bits - -2147483648 to 2147483647
+  Long bigNumber = 10000000L;// 64 bits upto 19 digits positive and negative
+  Decimal decNum = 10.2;
+  Double bigDecNum = 10000.222;
+  Boolean isTrue = true; //other value can be false
+  ID accountId='00300000003T2PGAA0';
+  Date today = Date.newInstance(2022, 07, 09);
+  Time currentTime = Time.newInstance(21, 30, 10, 0);
+  DateTime currentDateTime = DateTime.newInstance(today, currentTime);
+  //Other primitive data types are
+  //Blob and ID
+
+
+  //-- Constants : Once initialized will value cannot be changed
+  final Decimal PI = 3.14159;
+    final String ORGOWNER;
+    ORGOWNER = 'Adwait';
+  System.debug('Constant can be initialized after declaration : ' + ORGOWNER);
+
+
+//- String class
+  //String is data type class, that means it also has helper methods.
+  //https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_methods_system_string.htm
+    System.debug('Capatalized Name String : ' + name.capitalize());
+
+
+    //-- Escape Characters
+    //Inside string we might want to escape characters like '
+    //we do that with \
+    String escapeCharacters = 'The \' is escaped in this string';
+    System.debug(escapeCharacters);
+    //Other escape sequences are \b \n \r \t\ \\ \o-null character
+}
+</code></pre>
+
+<quote> <samp>ID</samp> is not a reserved keyword in Salesforce so <samp>ID id='00300000003T2PGAA0';</samp> will not show any error, but ID is also a class with methods and the <samp>id</samp> variables will shadow the <samp>ID</samp> class, thus it is not recommended to use id as a name for any variables.</quote><quote> If we set ID to a 15-character value, Apex converts the value to its 18-character representation. All invalid ID values are rejected with a runtime exception.</quote><quote> Using value of ID at the url root will redirect to the details page of that record if the user has permission to see that record.</quote>
+<h3 id="h3-2">Apex Properties</h3>
+<p>Properties are kind of a combination of a variable with getter and setter methods, with a syntax that groups them together more clearly. A simple property that references a custom object might be declared like this.</p>
+
+<p><samp>public MyObject__c myVariable { get; set; }</samp></p>
+
+<p>Properties can be public or private, and can be read-only, or even write-only, by omitting the get or set.</p>
+
+<p>Implementations for the get or set methods can be coded when additional logic besides simply setting and retrieving a value is needed.</p>
+
+<h2 id="h2-1">sObject</h2>
+<p>As apex is tightly integrated with the database, records and their fields can be accessed direclty from apex code.</p>
+
+<quote> Every record is natively represented as an <strong>sObject</strong> in apex.</quote>
+<p>Also before records are inserted into salesforce database, they are represented as sObject in apex.</p>
+
+<h3 id="h3-3">sObjects and Field Names</h3>
+<p>Apex references standard or custom sObjects and their fields using their <strong>unique API names</strong>.</p>
+
+<p>API names for objects and fields can differ from their labels.</p>
+
+<p>For <strong>custom objects</strong> and <strong>custom fields</strong>, the API name always ends with the <samp>__c</samp> suffix. For <strong>custom relationship fields</strong>, the API name ends with the <samp>__r</samp> suffix.</p>
+
+<h3 id="h3-4">Generic sObject</h3>
+<p>When the method operating on a sObject does not know the exact type of sObject that it is handling, a generic sobject can be used.</p>
+
+<p>Variables that are declared with the generic sObject data type can reference any Salesforce record, whether it is a standard or custom object record.</p>
+
+
+<pre><code class="language-javascript">
+sObject sobj1 = new Account(Name='Trailhead');
+sObject sobj2 = new Book__c(Name='Workbook 1');
+</code></pre>
+
+<p>In contrast, variables that are declared with the specific sObject data type can reference only the Salesforce records of the same type.</p>
+
+<quote> The fields of a generic sObject can be accessed only through the <samp>put()</samp> and <samp>get()</samp> methods.</quote>
+<h3 id="h3-5">Casting Generic sObject to Specific sObject Types</h3>
+<p>Casting a generic sObject into a specific sObject type makes it possible to use dot notation.</p>
+
+
+<pre><code class="language-java">
+// Cast a generic sObject to an Account
+Account acct = (Account)myGenericSObject;
+// Now dot notation can be used with the sObject
+String name = acct.Name;
+String phone = acct.Phone;
+</code></pre>
+
+<h2 id="h2-2">Collections</h2>
+<h3 id="h3-6">List And Arrays</h3>
+<p>A List is an ordered collection of elements that works much the same as a traditional array.</p>
+
+<p>Arrays in Salesforce are just list and they can be used interchangably.</p>
+
+<quote> Arrays and List in Apex are implemented same under the hood and can be used interchangeably.</quote>
+
+<pre><code class="language-java">
+//--- Different ways of declaring a List
+List&lt;String&gt; l1 = new List&lt;String&gt;();
+l1.add('Val1');
+l1.add('Val2');
+l1.add('Val3');
+
+
+// -- as array
+String[] myStrings = new List&lt;String&gt;();
+myStrings.add('Val1');
+myStrings.add('Val2');
+myStrings.add('Val3');
+
+
+List&lt;String&gt; myStrings =  new List&lt;String&gt; {'val1', 'val2', 'val3' };
+
+
+//Apex being tightly coupled with salesforce database can directly
+//get data.
+List&lt;Account&gt; myAccounts = [SELECT Id, Name FROM Account];
+
+
+//--- get values
+String firstAccName = myAccounts[0].Name;
+//-- or
+String firstAccountName = myAccount.get(0).Name;
+</code></pre>
+
+<quote> <a href="https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_methods_system_list.htm" target="_blank">List official Docs for all Methods</a></quote>
+<h3 id="h3-7">Set</h3>
+<p>A set is an unordered collection of elements that does not contain duplicates.</p>
+
+<p>A set is commonly used to store ID values because the value are always unique. A set can then be used as a part of a query with <samp>WHERE</samp> clause.</p>
+
+
+<pre><code class="language-java">
+Set&lt;Id&gt; ids = new Set&lt;Id&gt;{'001d000000BOaHSAA1','001d000000BOaHTAA1'};
+ids.add('001d000000BOaHTAA1');
+
+
+List&lt;Account&gt; accs = [SELECT Id, Name FROM Account WHERE Id IN :ids];
+</code></pre>
+
+<p><a href="https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_methods_system_set.htm" target="_blank">List of methods on Set from official Docs.</a></p>
+
+<h3 id="h3-8">Map</h3>
+<p>A map is a collection of key-value pairs.</p>
+
+<p>Each key maps to a single value. The key values must be unique.</p>
+
+
+<pre><code class="language-java">
+//--- Create new map with integer as a key and string as value
+Map&lt;Integer, String&gt; numberToString = new Map&lt;Integer, String&gt;();
+numberToString.put(1, 'One');
+numberToString.put(2, 'Two');
+numberToString.put(3, 'Three');
+numberToString.put(4, 'Four');
+numberToString.put(5, 'Five');
+String valueOf5 = numberToString.get(5);
+
+
+//--- Soql can also return maps.
+Map&lt;Id, Account&gt; accountMap = new Map&lt;Id, Account&gt;([SELECT Id, Name FROM Account]);
+
+
+Id accId = '001d000000BOaHSAA1';
+Account account = accountMap.get(accId);
+</code></pre>
+
+<p><a href="https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_methods_system_map.htm" target="_blank">List of all Map Methods from official Docs.</a></p>
+
+<h3 id="h3-9">Enums in Apex</h3>
+<p>Unlike in languages like Java and C# enums in Apex cannot be declared with numbers, but are used the same.</p>
+
+
+<pre><code class="language-java">
+public enum NewEnum {
+  val1,
+  val2,
+  val3,
+  val4
+}
+
+
+//Access values of enum
+Integer enumOrder = NewEnum.val2.ordinal(); //returns 1
+</code></pre>
+
+<h2 id="h2-3">Debug and Run Diagnostics</h2>
+<h3 id="h3-10">Debug logs</h3>
+<p>Debug logs provide a huge amount of information when a code is run that might be needed to debug and to analyze the execution of code.</p>
+
+<p><samp>System.debug('Message to print to debug logs');</samp> is the most widly used for logging to the debug log.</p>
+
+<p>One of the following logging levels can also be specified</p>
+
+<ul>
+	<li> NONE</li>
+	<li> ERROR</li>
+	<li> WARN</li>
+	<li> INFO</li>
+	<li> DEBUG</li>
+	<li> FINE</li>
+	<li> FINER</li>
+	<li> FINEST</li>
+</ul>
+<p>The amount of information logged depends on the logging level.</p>
+
+<p>To change logging level <strong>Developer Console | Debug | Change Log Level | Add/Change | Info | Done</strong></p>
+
+<quote> Each log cannot be greater than 20MB in size and each org has a capacity of upto 1000MB of debug logs in total. When that is exceeded older logs are overridden.</quote>
+<h4 id="h4-0">Clear debug logs</h4>
+<p>The logs generated are also an object that can be queried from the database.</p>
+
+<p>Use <samp>SELECT Id, StartTime, LogUserId, LogLength, Location FROM ApexLog</samp> inside the query editor to see all the logs.</p>
+
+<h3 id="h3-11">Set Checkpoints</h3>
+<p>Checkpoints are similar to breakpoints in that they reveal a lot of information about the execution of code. But unlike local code debugging, on a multitenant remote server the code cannot stop execution and hence with breakpoints the <strong>code execution does not stop/pause</strong>.</p>
+
+<p>To see breakpoint data after executing go to the checkpoint tab, open the entries that appear.</p>
+
+<h2 id="h2-4">Governer Limits and Limits Class Methods</h2>
+<p>As salesforce is a multitenant architecture, that is multiple users use the same server resources. Usage caps are enforced by Salesforce to ensure efficient processing that ensures users of the platform to have unimpeded performance.</p>
+
+<quote> Limits class methods can be very useful when testing to determine the resources that are being used.</quote>
+<p>Governer Limits Methods are all static and used as <samp>Limits methodName()</samp>.</p>
+
+<p><samp>Limits.getLimitDMLStatements()</samp> - Returns the total number of DML statements or <samp>database.EmptyRecycleBin</samp> methods that can be invoked.</p>
+
+<p><samp>Limits.getLimitHeapSize()</samp> - Returns the total amount of memory in bytes that can be used for the heap.</p>
+
+<p><samp>Limits.getQueries()</samp> - Returns the number of SOQL queries that have been issued.</p>
+
+<p><samp>Limits.getQueryRows()</samp> - Returns the number of records that have been returned by issuing SOQL queries.</p>
+
+<p><samp>Limits.getDMLStatements()</samp> - Reutns the number of DML statements that have been called.</p>
+
+<p>Many more methods can used. A Full list of these methods is available <a href="https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_methods_system_limits.htm" target="_blank">here by Salesforce</a>.</p>
+
+<h2 id="h2-5">Exception Handling</h2>
+<h3 id="h3-12">Simple Example</h3>
+
+<pre><code class="language-java">
+public class ExceptionHandlingClass {
+  public static void errorMethod() {
+    try {
+      Integer i = 10/0;//Will through error
+    }
+    catch (Exception e) { //This is a generic exception
+      //Specific exception can be caught and handled.
+      System.debug(e);
+    }
+    finally {
+      //Executes irrespective of there being an error or
+      //there being no error.
+    }
+  }
+}
+</code></pre>
+
+<h2 id="h2-6">Apex Testing</h2>
+<p>Unit test in salesforce are required.</p>
+
+<p>75% test coverage is necessary on the lightning platfrom to deploy apex code to production organization.</p>
+
+<p>Code coverage is related to invoking classes and methods in the test methods and is not related to the assert methods used. Asserts should be used where ever possible and necessary to check the results from the code.</p>
+
+<p>All test are run before every major release.</p>
+
+<p>Before every release saleforce runs all Apex tests in the organization through a process called <strong>Apex Hammer</strong>.</p>
+
+<p>In Apex Hammer salesforce runs the test code in current release version and in the next release version and compares the results from both. The Hammer does not run on all orgs, it selects orgs based on certain criteria to check bugs and issues with the next release.</p>
+
+<h3 id="h3-13">What should be tested</h3>
+<ul>
+	<li> Single action</li>
+	<li> Bulk Action</li>
+	<li> Positive behavior</li>
+	<li> Negative behavior</li>
+	<li> Restricted user</li>
+</ul>
+<h3 id="h3-14">Running Tests</h3>
+<p>In the Developer Console</p>
+
+<p><strong>Test | New Run</strong>, under test class, add all the test that are to be run.</p>
+
+<p>Then <strong>Run</strong>.</p>
+
+<p>In the <strong>Test</strong> tab at the bottom the status of each test canbe seen.</p>
+
+<quote> When apex code is updated, rerun their test to update the code coverage result. Sometimes the developer console is unable to update the value of code coverage when individual or groups of test are run with <strong>New Run</strong>, to fix this run all tests with <strong>Test | Run All</strong>.</quote>
+<h3 id="h3-15">Test Methods</h3>
+<p><samp>System.assert</samp> and <samp>System.assertEquals</samp> are methods that will be used most</p>
+<p>during testing.</p>
+
+<quote> In all the assertion methods the first argument is expected value and send is actual value. The third argument is custom message that is returned as a part of the error message..</quote>
+<p><samp>System.assert(a == b)</samp> : No message will be displayed, only will check.</p>
+<p><samp>System.assert(a == b, 'A is not equal to B')</samp> : Message will be displayed if test fails.</p>
+
+<p><samp>System.assertEquals(a, b)</samp> : Only check if the two values are equal, no message.</p>
+<p><samp>System.assertEquals(a, b, 'A is not equal to B')</samp> : Message will be displayed if test fails.</p>
+
+<p><samp>System.assertNotEquals(a, b)</samp> : Only check if the two values are not equal, no message.</p>
+<p><samp>System.assertNotEquals(a, b, 'A is equal to B')</samp> : Message will be displayed if test fails.</p>
+
+<p><samp>Test.startTest()</samp> and <samp>Test.stopTest</samp> are used to mark the start and stop of test in a test method.</p>
+
+<p>When <samp>Test.startTest()</samp> is used a new set of governor limits is assigned the code that executes after that until the next <samp>Test.stopTest()</samp> method is called.</p>
+
+<h3 id="h3-16">Test Data</h3>
+<p>Test data can be created for use in test classes.</p>
+
+<p>Test data created for testing is transient and is not commited to any database.</p>
+
+<p>A setup method with annotation <samp>@testSetup</samp> can be used to create test data that can then be used by all the methods in that test class. Test data so created is scoped for that class and is not available in any other test class.</p>
+
+<p>One setup method annotated with <samp>@testSetup</samp> can be created per test class and does not take any argument and also does not return any argument.</p>
+
+<quote> While testing for triggers and some other classes that work on data, it might be important to do that work on the data (insert, update, delete) from the <samp>@isTest</samp> methods. <samp>@testSetup</samp> database operations are not considered as tests and thus do not affect code coverage.</quote><quote> Even though it is <strong>not a best practice</strong> to do so, there are times when a test method needs access to pre-existing data. To access org data, annotate the test method with <samp>@isTest(SeeAllData=true)</samp>.</quote>
+<h3 id="h3-17">Limitations of Test Classes</h3>
+<ul>
+	<li> Test classes cannot send emails, which is ultimatly very good, but email sending code cannot be tested with test classes.</li>
+	<li> Similarly Callouts cannot be made by test classes.</li>
+	<li> SOSL queries made in test classes always return empty.</li>
+	<li> Some sObjects might have unique constrains that might give error on insert.</li>
+</ul>
+<h3 id="h3-18">Test Examples</h3>
+<p>Example 1 : Testing classes</p>
+
+<p>Even if the classes are private and are never called directly, during our testing all the private methods are invoked during our testing becasue of the different arguments/data that was used while invoking the main method.</p>
+
+<quote> To make private classes to the test class <samp>@TestVisible</samp> annotation can be used over the private method. Ideally this should not be needed, but could be useful if the private method is complex and needs to be tested separatly.</quote>
+
+<pre><code class="language-java">
+//-- Class
+public class VerifyDate {
+//method to handle potential checks against two dates
+  public static Date CheckDates(Date date1, Date date2) {
+    //if date2 is within the next 30 days of date1, use date2.  Otherwise use the end of the month
+    if(DateWithin30Days(date1,date2)) {
+      return date2;
+    } else {
+      return SetEndOfMonthDate(date1);
+    }
+  }
+
+
+  //method to check if date2 is within the next 30 days of date1
+  private static Boolean DateWithin30Days(Date date1, Date date2) {
+    //check for date2 being in the past
+          if( date2 &lt; date1) { return false; }
+
+
+          //check that date2 is within (&gt;=) 30 days of date1
+          Date date30Days = date1.addDays(30); //create a date 30 days away from date1
+    if( date2 &gt;= date30Days ) { return false; }
+    else { return true; }
+  }
+
+
+  //method to return the end of the month of a given date
+  private static Date SetEndOfMonthDate(Date date1) {
+    Integer totalDays = Date.daysInMonth(date1.year(), date1.month());
+    Date lastDay = Date.newInstance(date1.year(), date1.month(), totalDays);
+    return lastDay;
+  }
+}
+
+
+//-- Test class
+@isTest
+public class TestVerifyDate {
+  @isTest
+  public static void testDate() {
+    Date todayDate = Date.today();
+    Date after30Days = todayDate.addDays(30);
+    Date after20Days = todayDate.addDays(20);
+    Date after60Days = todayDate.addDays(60);
+
+
+    Integer numDaysInThisMonth = Date.daysInMonth(todayDate.year(), todayDate.month());
+    Date lastDateOfThisMonth = Date.newInstance(todayDate.year(), todayDate.month(), numDaysInThisMonth);
+
+
+    System.assertEquals(
+      lastDateOfThisMonth,
+      VerifyDate.CheckDates(todayDate, after60Days),
+      'Date when 60 days after method fails.'
+    );
+    System.assertEquals(
+      lastDateOfThisMonth,
+      VerifyDate.CheckDates(todayDate, after30Days),
+      'Date when 30 days after method fails.'
+    );
+    System.assertEquals(
+      after20Days,
+      VerifyDate.CheckDates(todayDate, after20Days),
+      'Date when 20 days after method fails.'
+    );
+  }
+}
+</code></pre>
+
+<h2 id="h2-7">Security</h2>
+<h3 id="h3-19">With Sharing</h3>
+<p>Using <samp>with sharing</samp> or <samp>without sharing</samp> keywork on a class to specify whether sharing rules must be enforced.</p>
+
+<p>Using the <samp>inherited sharing</samp> keyword on a class to run the the class in the sharing mode of the class that called it.</p>
+
+<p>Using the <samp>with sharing</samp> keyword when declaring a class to enforce sharing rules of the current user. Explicitly setting this keyword ensures that the code runs in the current user context, enforcing the sharing rules that apply to the current user.</p>
+
+<p>Apex code that is executed with the <samp>executeAnonymous</samp> call and Connect in Apex always executes using the sharing rules of the current user.</p>
+
+<p><samp>public with sharing class SharingClass {}</samp>.</p>
+
+<quote> To get current users info use <samp>UserInfo</samp> directly in code. <a href="https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_methods_system_userinfo.htm" target="_blank">Methods that can be used with UserInfo.</a></quote>
+<h3 id="h3-20">Without Sharing</h3>
+<p>Using the <samp>without sharing</samp> keyword when declaring a class to ensure that the sharing rules for the current user are not enforced.</p>
+
+<p>Thus by using <samp>without sharing</samp>, sharing rule enforcement can be explicitly be turned off when that class is called from another class that is declared using <samp>with sharing</samp>.</p>
+
+<p><samp>public without sharing class NoSharing {}</samp></p>
+
+<h3 id="h3-21">Inherited Sharing</h3>
+<p>Using the <samp>inherited sharing</samp> keyword when declaring a class to enforce the sharing rules of the class that calls it.</p>
+
+<quote> As the sharing mode is determined at runtime, extreme care must be taken to ensure that the Apex code is secure to run with both <samp>with sharing</samp> and <samp>without sharing</samp> modes.</quote>
+<p><samp>public inherited sharing class InheritedSharingClass {}</samp></p>
+
+<h3 id="h3-22">Implementation of Sharing Rules</h3>
+<quote> Apex without an explicit sharing declaration is insecure by default. It is strongly recommended that sharing should be specifically declared for a class.</quote><quote> <samp>with sharing</samp> enforces record level security, it does not enforce object level or field level security. Apex always has access to all objects and fields so that the code does not fail while execution due to lack of access of user.</quote>
+<p>Regardless of the sharing mode, enforce object-level access and field level security in the SOQL queries or code. For example, <samp>with sharing</samp> mechanism doesnt enforce user's access to view reports and dashboards. Explicit enforcement of users CURD and field level security in the code must be done.</p>
+
+<ul>
+	<li> The sharing settings of the class where a methods is defined is applied not where the method is called from.</li>
+	<li> If the class isn't explicitly declared as with sharing or without sharing, the current sharing rule remains in effect. Therefore, the class doesn't enforce sharing rules except when it acquires sharing rules from another class. For example if the class is called from another class that has sharing enforced, then sharing is enforced for the called class.</li>
+	<li> Both inner and outer classes can be declared as <samp>with sharing</samp>. Inner classes do not inherit sharing from their container class.</li>
+	<li> Class inherit sharing setting from parent class when one class extends or implements another.</li>
+</ul>
+<quote> Apex triggers can't have an explicity sharing declaration and run as without sharing.</quote>
+<p>The automatic enforcement of field and object level security is only true for salesforce UI and the code that directly interacts with salesforce UI, there might be exceptions to this where field level and object level secruity needs to be implemented in apex code like Apex Controller for aura components.</p>
+
+<h3 id="h3-23">Enforce Field and Object level security</h3>
+<p><a href="https://developer.salesforce.com/docs/atlas.en-us.240.0.apexcode.meta/apexcode/apex_classes_perms_enforcing.htm" target="_blank">Official Docs for Enforcing Object and Field Permissions.</a>.</p>
+
+<h2 id="h2-8">Database</h2>
+<h3 id="h3-24">Apex and Database</h3>
+<p>Apex and Data bases are tightly coupled.</p>
+
+<p>Each standard as well as custom object in the organization has a representation via an Apex class that provide all sorts of functionality that make interacting with the database easier.</p>
+
+<h3 id="h3-25">Query Editor</h3>
+<p>Query Editor is a part of the Developer Console and is very handing in testing Queries.</p>
+
+<p>SOQL queries can be written an executed to see results in a tabular form.</p>
+
+<p>Field Functions</p>
+
+<ul>
+	<li> <samp>FIELDS(ALL)</samp> - to select all the fields of an object.</li>
+	<li> <samp>FIELDS(CUSTOM)</samp> - to select all the custom fields of an object.</li>
+	<li> <samp>FIELDS(STANDARD)</samp> - to select all the standard fields of an object.</li>
+</ul>
+<quote> Querys with <samp>FIELDS</samp> function have to have <samp>LIMIT 200</samp>.</quote>
+<p>Field functions can be combined with other field names to form a query.</p>
+
+<p>eg. <samp>SELECT Id, FIELDS(Custom) FROM Student__c LIMIT 200</samp></p>
+
+<p>If queried fields and FIELDS function query the same fields, there will be an error in the query.</p>
+
+<p>eg. <samp>SELECT Id, FIELDS(Standard) FROM Student__c LIMIT 200</samp></p>
+
+<p>The above will give an error as Id will be fetched twice.</p>
+
+<quote> Fields Functions other that <samp>FIELDS(STANDARD)</samp> are not supported in apex, so as to prevent heap overflow.</quote><quote> The query editor does not support <samp>ALL ROWS</samp> as it does not use apex, thus delete records cannot be viewed from the query editor. The query editor uses REST api calls.</quote>
+<h2 id="h2-9">SOQL - Salesforce Object Query Language</h2>
+<p>SOQL is used to query records from salesforce database.</p>
+
+<p>Basic SOQL query involves</p>
+
+
+<pre><code class="language-sql">
+SELECT one or more fields
+FROM an object
+WHERE filter statements and, optionally, results are ordered&lsquo;
+</code></pre>
+
+<quote> Soql can be directly be used in the for loop. It imporves the performance and also reduces the heap size used by the code as it goes out of scope as soon as the loop is over.</quote>
+<p>A Complete set of all operations that can be used in SOQL are as below.</p>
+
+
+<pre><code class="language-sql">
+SELECT fieldList [subquery][...]
+[TYPEOF typeOfField whenExpression[...] elseExpression END][...]
+FROM objectType[,...]
+[USING SCOPE filterScope]
+[WHERE conditionExpression]
+[WITH [DATA CATEGORY] filteringExpression]
+[GROUP BY {fieldGroupByList|ROLLUP (fieldSubtotalGroupByList)|CUBE
+(fieldSubtotalGroupByList)}
+[HAVING havingConditionExpression] ]
+[ORDER BY fieldOrderByList {ASC|DESC} [NULLS {FIRST|LAST}] ]
+[LIMIT numberOfRowsToReturn]
+[OFFSET numberOfRowsToSkip]
+[FOR {VIEW | REFERENCE}[,...] ]
+[ UPDATE {TRACKING|VIEWSTAT}[,...] ]
+</code></pre>
+
+<quote> The <samp>ALL ROWS</samp> keyword queries all rows for both top level and aggregate relationships, including deleted records and archived activities.</quote>
+<p>The total number of records that can be query from a single SOQL query, when one of the fields being queried on is of type JunctionIdList, can't exceed 500. If the number of records returned exceeds 500, EXCEPTION: <samp>System.UnexpectedException: Truncated</samp> appears.The restriction is <samp>&lt;total number of entity records&gt; * &lt;total number of records in the entity's JunctionIdList field&gt; &lt;= 500</samp>.</p>
+
+<h3 id="h3-26">Relational Queries</h3>
+<h4 id="h4-1">Parent to Child Query</h4>
+<p>Use <samp>()</samp> with relationship name and <samp>__r</samp> to specify relationship.</p>
+
+<p>Use the <samp>Child relationship Name</samp> from the lookup or Master details relationship field details page, and add <samp>__r</samp> for custom object and use it as it for custom objects.</p>
+
+<p>Multiple child queries can be made in a single parent query.</p>
+
+<p>Limitations -</p>
+
+<p>Only one level of parent-to-child is supported, there cannot be a child query inside another child query.</p>
+
+<p>Upto <strong>20 related objects</strong> are supported.</p>
+
+<h4 id="h4-2">Child to Parent Query</h4>
+<p>When a query from child to parent is done, it returns only one object as, unlike parent to child, where a parent can have multiple children, a child can have only one parent.</p>
+
+<p>For name of the parent use the <samp>Field Name</samp> from the details page of the relationship on the child object.</p>
+
+<p>A query that is 5 levels deep can be made.</p>
+
+<p>5 level deep and 55 related objects are supported in a single query.</p>
+
+<h3 id="h3-27">Related Object Query Example</h3>
+
+<pre><code class="language-java">
+//--- Related Records / Relationship Queries
+public static void relatedRecords () {
+    //- From child to parent
+    Contact[] cons = [SELECT Name, Account.Name, Account.ID FROM Contact WHERE FirstName = 'Jane'];
+    System.debug(cons);
+    for(Contact con : cons) {
+        System.debug('Contact Name : ' + con.Name + ' -- Account Name : ' + con.Account.Name);
+    }
+
+
+    //- From parent to child
+    //Here the Contacts is relationship name
+    //For custom object the name will have __r as the suffix
+    Account[] accs = [SELECT Name,
+                      (SELECT ID, FirstName, LastName FROM Contacts) FROM Account
+                      WHERE Name = 'Dickenson plc'
+                     ];
+    Contact[] firstAccountContact = accs[0].Contacts;
+    System.debug(accs);
+    System.debug(accCons);
+
+
+    //Custom object can also be linked in the ways shown above.
+    //Custom object relationship name end with __r suffix.
+}
+</code></pre>
+
+<h3 id="h3-28">Using Logical Operators in SOQL</h3>
+
+<pre><code class="language-java">
+//Use Logic operators to combine WHERE conditions
+List&lt;Lead&gt; leads = [SELECT Id, Name, Status FROM Lead
+                    WHERE Status='Open - Not Contacted' OR Status='Working - Contacted'
+                    LIMIT 10];
+//AND condition also can be used
+</code></pre>
+
+<h3 id="h3-29">IN keyword in SOQL</h3>
+<p>Logical Operator <samp>OR</samp> and <samp>AND</samp> can be used to check value, <samp>IN</samp> on the other hand can check if the field contains one of multiple values.</p>
+
+
+<pre><code class="language-java">
+List&lt;Lead&gt; leads2 = [SELECT ID, Name, Status FROM Lead
+                     WHERE Status IN('Open - Not Contacted', 'Working - Contacted')
+                     LIMIT 10];
+</code></pre>
+
+<h3 id="h3-30">Using LIKE in SOQL</h3>
+
+<pre><code class="language-java">
+//Use LIKE to match partial text string with support of wildcards
+List&lt;Lead&gt; leads3 = [SELECT ID, Name, Status FROM Lead
+                     WHERE Status LIKE 'Open%' OR Status LIKE 'Working%'
+                     LIMIT 10];
+</code></pre>
+
+<h3 id="h3-31">Using OFFSET keyword in SOQL</h3>
+
+<pre><code class="language-java">
+//Retrive the latest 10 recrds but skip the
+//most recent 4 records
+List&lt;Lead&gt; leads4 = [SELECT ID, Name, CreatedDate FROM Lead
+                     ORDER BY CreatedDate DESC
+                     LIMIT 10 OFFSET 4];
+</code></pre>
+
+<h3 id="h3-32">Binding Variables in Query</h3>
+<p>Binding variables</p>
+
+
+<pre><code class="language-java">
+//--- Binding variables &lsquo;:&lsquo;
+public static void bindingVariables() {
+    // -- Using IN to bind a list.
+    Set&lt;Id&gt; accountIds = new Set&lt;Id&gt;();
+    List&lt;Account&gt; acc = [SELECT ID, Name FROM Account WHERE ID IN :accountIds];
+    System.debug(acc);
+
+
+    // -- Binding Single Variables
+    String leadName = 'Bostan';
+    List&lt;Lead&gt; lead_s = [SELECT Id, Name FROM Lead WHERE Name= :leadName];
+    System.debug(lead_s);
+}
+</code></pre>
+
+<h3 id="h3-33">Creating Dynamic Query</h3>
+
+<pre><code class="language-java">
+//--- Dynamic Queries
+public static void dynamicDatabaseQuery() {
+    String accountName = '\'GenePoint\'';
+    String accountName2 = '\'sForce\'';
+
+
+    String queryString = 'SELECT ID, Name, Phone FROM Account';
+    String queryCondition = ' WHERE Name=' + accountName + ' OR Name=' + accountName2;
+
+
+    List&lt;Account&gt; accs = Database.query(queryString + queryCondition);
+    System.debug(accs);
+}
+</code></pre>
+
+<h3 id="h3-34">Complex SOQL Examples</h3>
+
+<pre><code class="language-java">
+//Get Accounts that have atleast 1 contact
+List&lt;Account&gt; acc = [Select Id, Name From Account
+                     Where Id IN (Select AccountId From Contact)];
+</code></pre>
+
+<h3 id="h3-35">Working with Date and DateTime in SOQL</h3>
+<p>Date Format - YYYY-MM-DD</p>
+
+<p>DateTime Format</p>
+
+<ul>
+	<li> YYYY-MM-DDThh:ss+hh:mm</li>
+	<li> YYYY-MM-DDThh:ss-hh:mm</li>
+	<li> YYYY-MM-DDThh:mm:ssZ</li>
+	<li> YYYY-MM-DDThh:mm:ss.nnn+hh:mm</li>
+</ul>
+<p>Date Literals can be used to compare the range of values.</p>
+
+<ul>
+	<li> <samp>TODAY</samp> - Start at 00:00:00 of current day.</li>
+	<li> <samp>YESTERDAY</samp> - Start at 00:00:00 of day before today.</li>
+	<li> <samp>TOMORROW</samp> - Start at 00:00:00 of day after today.</li>
+</ul>
+<quote> Date Literals can be used as a Date and DateTime.</quote>
+<p>Other Date Literals</p>
+
+<p><samp>LAST_WEEK</samp>, <samp>THIS_WEEK</samp>, <samp>NEXT_WEEK</samp>, similarly we have for <samp>MONTH</samp>,</p>
+<p><samp>YEAR</samp> and <samp>QUARTER</samp></p>
+
+<p><samp>LAST_N_DAYS:n</samp>, <samp>NEXT_N_DAYS:n</samp>, similarly we have for <samp>MONTH</samp>,</p>
+<p><samp>WEEK</samp> and <samp>YEAR</samp>.</p>
+
+<h4 id="h4-3">Example of Date in SOQL</h4>
+
+<pre><code class="language-java">
+public static void soqlDates() {
+    //--- Below for details about date literals and format.
+    List&lt;Lead&gt; leads = [SELECT Name, Status, CreatedDate
+                        FROM Lead
+                        WHERE CreatedDate&gt;2022-07-12T00:00:00.000+0000];
+
+
+    //Could use TODAY in place of DateTime provided above.
+    //
+    List&lt;Lead&gt; leads2 = [SELECT Name, Status, CreatedDate
+                         FROM Lead
+                         WHERE CreatedDate=LAST_N_DAYS:10];
+}
+</code></pre>
+
+<h3 id="h3-36">Aggregation Functions</h3>
+<p>They are used to get summary for any particular field.</p>
+
+<ul>
+	<li> <samp>AVG()</samp> - Return the average value of a numeric field</li>
+	<li> <samp>COUNT()</samp> and <samp>COUNT(fieldName)</samp> - Return the number of rows</li>
+	<li> <samp>COUNT_DISTINCT()</samp> - Return the number of distinct non-null field values</li>
+	<li> <samp>MIN()</samp> - Return the minimum value of a field</li>
+	<li> <samp>MAX()</samp> - Return the maximum value of a field</li>
+	<li> <samp>SUM()</samp> - Return the sum of all the numeric value of the given field.</li>
+</ul>
+
+<pre><code class="language-java">
+List&lt;sObject&gt; nums = [SELECT Count(StageName) FROM Opportunity];
+System.debug(nums[0].get('expr0'));
+
+
+public static void aggregateFunctions() {
+    Integer numberOfAccounts = [SELECT COUNT() FROM Account];
+    System.debug(numberOfAccounts);
+}
+
+
+//-- Group By
+public static void groupByFunction() {
+    AggregateResult[] opps = [SELECT StageName, COUNT(ID), MAX(Amount),
+                              MIN(Amount), AVG(Amount) FROM Opportunity
+                              GROUP BY StageName];
+    System.debug(opps);
+
+
+    AggregateResult[] opps2 = [SELECT StageName,
+                               SUM(Amount) sumAmount, AVG(Amount) avgAmount
+                               FROM Opportunity
+                               WHERE Amount&gt;3000 GROUP BY StageName];
+    System.debug(opps2);
+    System.debug('SUM value = ' + Double.valueOf(opps2[0].get('sumAmount')));
+    System.debug('AVG value = ' + Double.valueOf(opps2[0].get('avgAmount')));
+}
+</code></pre>
+
+<quote> Only Root queries support aggregate functions. That is if a query is being made from parent to child, they do not support aggregate functions.</quote>
+<p>When aggregateFunctions are used the results are returned as <samp>AggregateResult[]</samp>.</p>
+
+<p>To get values from <samp>AggregateResult[]</samp> use</p>
+
+<p><samp>Double avgAmount = Double.valueOf(aggregateReultArrayName[0].get('expr0'));</samp></p>
+
+<p>And so on for each value in the list/array.</p>
+
+<p>Aggregate functions can also be named.</p>
+
+<p><samp>SELECT StageName, AVG(Amount) avgAmount, SUM(Amount) sumAmount FROM Opportunity</samp></p>
+
+<p>Then they can be accessed from the returned list with <samp>.get('avgAmount')</samp> in place of <samp>expr0</samp> used above.</p>
+
+<quote> <samp>HAVING</samp> is an optional clause that can be used with SOQL query to filter results that aggregate functions return. <samp>WHERE</samp> clause applies only to field values where as <samp>HAVING</samp> applies to the aggregate values as well.</quote>
+<h3 id="h3-37">SOQL query result as Map</h3>
+<p>Apex map can be populated from the result from Database queries.</p>
+
+<p><samp>Map&lt;Id, Case&gt; allCases = new Map&lt;Id, Case&gt;([SELECT Id, Status, Subject From Case]);</samp></p>
+
+<h3 id="h3-38">SOSL - Salesforce Object Search Language</h3>
+<p>SOSL is used to search text in records.</p>
+
+<p>SOSL is similar to Apache Lucene.</p>
+
+<p>Unlike SOQL that can at a time query only one sObject, SOSL searches and returns sObjects of multiple types.</p>
+
+<p>Basic SOSL syntax - <samp>FIND 'SearchQuery' [IN SearchGroup] [RETURNING ObjectsAndFields]</samp>.</p>
+
+<p>Search terms in search query can be grouped with logical operators (<samp>AND</samp>, <samp>OR</samp>) and parentheses. Also search strings can include wildcards like <samp>*</samp> or <samp>?</samp>.</p>
+
+<quote> Text search are case insensitive.</quote>
+<p><strong>Search Groups</strong> are optional and represent the scope of the search. Its not specified the default is all fields.</p>
+
+<p>Search Groups can have the following value -</p>
+
+<ul>
+	<li> ALL FIELDS</li>
+	<li> NAME FIELDS</li>
+	<li> EMAIL FIELDS</li>
+	<li> PHONE FIELDS</li>
+	<li> SIDEBAR FIELDS</li>
+</ul>
+<quote> Fields to be searched have to selected from the above list of predefined groups of fields, field names where search is expected cannot be defined in the query.</quote>
+<p>Even in custom object SOSL only works on the above defined field types.</p>
+
+<quote> <a href="https://resources.docs.salesforce.com/224/latest/en-us/sfdc/pdf/salesforce_soql_sosl.pdf" target="_blank">Official documentation for SOQL and SOSL.</a></quote>
+<h3 id="h3-39">Wildcards for SOQL and SOSL</h3>
+<p>Wildcards are used with <samp>LIKE</samp> and in SOSL search query.</p>
+
+<ul>
+	<li> The <samp>%</samp> and <samp>_</samp> wildcards are supported for the LIKE operator.</li>
+	<li> The <samp>%</samp> wildcard matches zero or more characters.</li>
+	<li> The <samp>_</samp> wildcard matches exactly one character.</li>
+	<li> The text string in the specified value must be enclosed in single quotes.</li>
+	<li> The LIKE operator is supported for string fields only.</li>
+	<li> The LIKE operator performs a case-insensitive match, unlike thecase-sensitive matching in SQL.</li>
+	<li> The LIKE operator in SOQL and SOSL supports escaping of special characters <samp>%</samp> or <samp>_</samp>.</li>
+	<li> Don't use the backslash character in a search except to escape a special character.</li>
+</ul>
+<quote> Using <samp>LIKE</samp> Operator might seem convenient and easy but it is intensive and will degrade the performance of our database query. Whenever all values are known we should use the <samp>IN</samp> operator over <samp>LIKE</samp>.</quote>
+<h3 id="h3-40">Examples SOSL</h3>
+<p>Example 1: Finds Test in Account and Contact records and returns the Name Fields.</p>
+
+
+<pre><code class="language-java">
+List&lt;List&lt;SObject&gt;&gt; searchList = [FIND 'Test' IN ALL FIELDS
+                                      RETURNING Account(Name), Contact(FirstName,LastName)];
+
+
+FIND {Wingo} IN ALL FIELDS RETURNING Account(Name), Contact(FirstName,LastName,Department)
+</code></pre>
+
+<p>Example 2: The sosl will search the FirstName and LastName fields of Contacts and Cead for the given string.</p>
+
+
+<pre><code class="language-java">
+public static List&lt;List&lt;sObject&gt;&gt; searchContactsAndLeads(String nameString) {
+  List&lt;List&lt;sObject&gt;&gt; contactsLeads = [FIND :nameString
+                                       IN NAME FIELDS
+                                       RETURNING Lead, Contact];
+
+
+  return contactsLeads;
+}
+</code></pre>
+
+<p>Example 3:</p>
+
+
+<pre><code class="language-java">
+//SOSL
+public static void soslTest(String searchFor,
+                            String objectName,
+                            String fieldName)
+{
+    //--- Dynamic SOSL
+    String searchQuery = 'FIND \''
+        + searchFor
+        + '&lowast;\' IN ALL FIELDS '
+        + 'RETURNING ' + objectName + '(' + fieldName + ')';
+
+
+    List&lt;List&lt;sObject&gt;&gt; result = Search.query(searchQuery);
+    System.debug(result[0]);
+
+
+    //--- Complex SOSL
+    List&lt;List&lt;sObject&gt;&gt; soslComplex = [FIND 'test, test2' IN Name FIELDS
+                                       RETURNING Account(Name, ID),
+                                       Contact(Name, AccountId),
+                                       Opportunity(Name)];
+    //-- Getting records for different object.
+    //- Not prefered : At index as in the query
+    List&lt;Account&gt; accounts = soslComplex[0];
+    List&lt;Contact&gt; contacts = soslComplex[1];
+    List&lt;Opportunity&gt; opportunities = soslComplex[2];
+
+
+    //- Prefered way
+    if(!soslComplex.isEmpty()) {
+        for(List&lt;sObject&gt; resultLists : soslComplex) {
+            for(sObject recordInList : resultLists) {
+                if(String.valueOf(recordInList.getSObjectType()) == 'Account') {
+                    //Record Type Account, work on them here.
+                }
+                else if(String.valueOf(recordInList.getSObjectType()) == 'Contact') {
+                    //Record Type Contact, work on them here
+                }
+                else if(String.valueOf(recordInList.getSObjectType()) == 'Opportunity') {
+                    //Record Type Contact, work on them here
+                }
+            }
+        }
+    }
+}
+</code></pre>
+
+<h2 id="h2-10">Manipulate Records with DML</h2>
+<h3 id="h3-41">Data Manipulation Language Direct operations</h3>
+<p>Operations Like <samp>insert</samp>, <samp>upsert</samp>, <samp>update</samp>, <samp>merge</samp>, <samp>delete</samp> and <samp>undelete</samp> can directly be used in Apex as salesforce database are tightly integrated with apex.</p>
+
+<quote> Dml operations can throw a <samp>DmlException</samp>.</quote>
+<h3 id="h3-42">DML insert</h3>
+
+<pre><code class="language-java">
+
+
+public static void insertOperation() {
+    Account acc = new Account();
+    acc.Name = 'John Doe';
+    acc.AccountNumber = '20222001';
+    acc.Phone = '9494949494';
+    insert acc;
+    //After dml is performed, new Id value is automatically populated.
+    ID accID = acc.Id;
+    System.debug('ID = ' + accID);
+
+
+    //Similarly we could also use Database methods to insert
+    //and also to do any other dml operations that we can perform
+    //directly in apex
+    Account acc2 = new Account();
+    acc2.Name = 'Tracy';
+    acc2.Phone = '9797479797';
+    Account acc3 = new Account(Name = 'mills', Phone='8787378787');
+    Account acc4 = new Account(Name='Somerset', Phone='7878697878');
+    List&lt;Account&gt; accs = new List&lt;Account&gt;();
+    accs.add(acc2);
+    accs.add(acc3);
+    accs.add(acc4);
+    //- insert(recordToInsert, allOrNone)
+    Database.insert(accs, true);
+    //works the same as above dml operations
+    //Setting the value to false will be able to perfrom
+    //partial dml on the records that are successful.
+    for(Account a : accs) {
+        System.debug(a.id + ' : ' + a.name);
+    }
+}
+</code></pre>
+
+<h3 id="h3-43">DML upsert</h3>
+<p>In upsert records with Id are updated and records that don't have an Id are inserted.</p>
+
+<quote> Alternately while upsert or update an externalId can be given as an argument to perform the operation. Ex. <samp>upsert sObjectList Account.Fields.MyExternalId;</samp></quote>
+
+<pre><code class="language-java">
+public static void upsertOperation() {
+    List&lt;Account&gt; accList = new List&lt;Account&gt;();
+    Account acc1 = new Account();
+    acc1.Name = 'Julie Chavez';
+    acc1.Phone = '8585858585';
+    acc1.AccountNumber = '20221222';
+    accList.add(acc1);
+
+
+    Account acc2 = [Select FIELDS(STANDARD) from Account
+                    WHERE ID = '0015i00000KbPwUAAV'];
+    acc2.Website = 'adwait.in';
+    accList.add(acc2);
+
+
+    upsert accList;
+}
+</code></pre>
+
+<h3 id="h3-44">DML delete and undelete</h3>
+<quote> When performing an undelete operation to get all deleted records use <samp>ALL ROWS</samp> in the SOQL.</quote>
+
+<pre><code class="language-java">
+public static void deleteOperation() {
+    List&lt;Account&gt; acc = [SELECT Id, Name FROM Account
+                         WHERE Name LIKE 'John%' ALL ROWS];
+    System.debug(acc);
+    delete acc;
+}
+
+
+public static void undeleteOperation() {
+    List&lt;Account&gt; acc = [SELECT Id, Name, IsDeleted FROM Account
+                         WHERE Name LIKE 'John%' AND isDeleted=true ALL ROWS];
+    //Using ALL ROWS is necessary to get deleted records, if not used deleted
+    //records will not be retrieved.
+    System.debug(acc);
+
+
+    undelete acc;
+}
+</code></pre>
+
+<h3 id="h3-45">Using generic sObject with SOQL and DML</h3>
+
+<pre><code class="language-java">
+//--- Using sObject to retrieve object with fields
+//--- SObject DML
+public static void useSObject() {
+    List&lt;SObject&gt; accounts = [SELECT Name, ID FROM Account];
+    for(SObject s : accounts) {
+        System.debug('Account Name: ' + String.valueOf(s.get('Name'))
+                     + ' Account ID : ' + (ID)s.get('ID'));
+    }
+    //Caste the fields in the appropriate type in apex.
+
+
+    //-- Parent-Child relationship
+    List&lt;SObject&gt; accs = [SELECT Name, ID,
+                          (SELECT Name, ID FROM Contacts)
+                          FROM Account];
+
+
+    for(SObject s : accs) {
+        List&lt;SObject&gt; cons = s.getSObjects('Contacts');
+        System.debug(cons);
+    }
+
+
+    //-- Child to parent relationship
+    List&lt;SObject&gt; contacts = [SELECT Name, ID, Account.Name, Account.ID
+                              FROM Contact LIMIT 5];
+    System.debug(contacts);
+    for(SObject c : contacts) {
+        System.debug('Account Name : ' + c.getSObject('Account').get('Name') + ' Contact : ' + c.get('Name'));
+    }
+
+
+    //-- Do a SObject DML
+    SObject acc3 = (SObject) Type.forName('Account').newInstance();
+    acc3.put('Name', 'David Mills');
+    acc3.put('Phone', '7878987878');
+    insert acc3;
+
+
+    //--- DML with different sObject in a single list
+    Account acc4 = new Account(Name='Test Account 1');
+    Contact con4 = new Contact(LastName='Contact 1', FirstName='Test');
+    List&lt;sObject&gt; differentSobjectList = new List&lt;sObject&gt;();
+    differentSobjectList.add(acc4);
+    differentSobjectList.add(con4);
+    insert differentSobjectList;
+}
+</code></pre>
+
+<h3 id="h3-46">Partial DML</h3>
+<p>In dml if one or more records fail to persist in a transaction the whole transaction is rolled back.</p>
+
+<p>But in partial DML the records that can be persisted will be saved to database and failed will be skipped.</p>
+
+
+<pre><code class="language-java">
+public static void partialDML() {
+    List&lt;Contact&gt; conList = new List&lt;Contact&gt;();
+    Contact con = new Contact();
+    con.LastName = 'Test Contact 1';
+    Contact con1 = new Contact();
+    con1.LastName = 'Test Contact 2';
+    Contact con2 = new Contact();
+    con2.LastName = 'Test Contact 3';
+    //Required field in con3 is missing
+    Contact con3 = new Contact();
+
+
+    conList.add(con);
+    conList.add(con1);
+    conList.add(con2);
+    conList.add(con3);
+    //&lsquo;insert conList&lsquo; --&gt; will fail.
+    //Database.insert(conList, true); --&gt; will be the same as above.
+    //False as the second parameter will determine that this
+    //operation is partial dml.
+    Database.SaveResult[] srList = Database.insert(conList, false);
+
+
+    //The returned List of type Database.SaveResult will have
+    //successful and failed records with error message
+    for(Database.SaveResult resultRecord : srList) {
+        if(resultRecord.isSuccess()) {
+            //Successfully persisted Records
+        } else {
+            for(Database.Error errorObject : resultRecord.getErrors()) {
+                System.debug('Message : '+ errorObject.getMessage());
+                System.debug('Fields : ' + errorObject.getFields());
+            }
+        }
+    }
+}
+</code></pre>
+
+<h2 id="h2-11">Understanding Execution Context</h2>
+<p>The execution context in lightning experience is the time between when code is executed and when it ends.</p>
+
+<p>Tt is important to understand that, that particular code being executed is not the only code running in the organization's context.</p>
+
+<h3 id="h3-47">Methods Invoking Apex</h3>
+<table>
+<tr>
+	<th><strong>Method</strong></th>
+	<th><strong>Description</strong></th>
+</tr>
+
+<tr>
+	<td>Database Trigger</td>
+	<td>Invoked by specific events on standard or custom objects</td>
+</tr>
+<tr>
+	<td>Asynchronous Apex</td>
+	<td>Executing future, queueable, schedule, or batch apex code</td>
+</tr>
+<tr>
+	<td>Anonymous Apex</td>
+	<td>Code executed in dev console or other tool.</td>
+</tr>
+<tr>
+	<td>Web Services</td>
+	<td>SOAP or REST</td>
+</tr>
+<tr>
+	<td>Email Services</td>
+	<td>Code that is setup to intercept or process Inbound emails.</td>
+</tr>
+<tr>
+	<td>Visual or Lightning Pages</td>
+	<td>Code can automatically or manually by actions of user run from pages.</td>
+</tr>
+</table>
+<h2 id="h2-12">Triggers</h2>
+<h3 id="h3-48">What is a Apex trigger?</h3>
+<p>A database trigger is special set of operations that is run when specific actions occur with a database.</p>
+
+<p>An apex trigger is apex code that run when a specific action occurs within a saleforce Object.</p>
+
+<p>Database operations such as Insert, Update, Delete, Merge, Upsert and Undelete can run triggers.</p>
+
+<quote> <a href="https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_triggers.htm" target="_blank">Triggers official Documentation.</a></quote>
+<h3 id="h3-49">Why we need Apex Trigger?</h3>
+<p>Apex Triggers are an important part of Salesforce Buisness Automations.</p>
+
+<p>Triggers have very few limitation in what they can do and thus they can be used to achieve complex automations that other declarative tools such as flow, workflow or process would not be able to fulfill. Most of these limitations are governer limits.</p>
+
+<p>Triggers are also generally faster than Declarative tools such as flow, process, or workflow.</p>
+
+<quote> Salesforce recommends use of declarative tools such as flow, workflow or process builder before using triggers if these tasks can be achieved in a simple way with these tools as they are easier to maintain.</quote>
+<p>Before Triggers can be used to implement complex validation of data being inserted, updated or upserted.</p>
+
+<p>Triggers can be used to communicate with third party systems when data changes in salesforce.</p>
+
+<h3 id="h3-50">Trigger Events</h3>
+<p>We can define trigger for following events.</p>
+
+<ol>
+	<li> before insert</li>
+	<li> after insert</li>
+	<li> before update</li>
+	<li> after update</li>
+	<li> before delete</li>
+	<li> after delete</li>
+	<li> after undelete</li>
+</ol>
+<p>A trigger can have multiple event as argument.</p>
+
+<quote> In case of all the after triggers the records are read-only and thus cannot be changed.</quote>
+
+<pre><code class="language-javascript">
+//-- Declaring a trigger for the Lead class that runs before
+// insert and update.
+trigger LeadTrigger on Lead(before insert, before update) {
+    //Trigger code here
+}
+</code></pre>
+
+<h3 id="h3-51">Difference between Before And After Trigger Events</h3>
+<p>Before Triggers</p>
+
+<ol>
+	<li> Are used to update or validate records before they are saved to the database.</li>
+	<li> Avoid making changes to other records in before triggers.</li>
+	<li> The reason being while working with cross objects we might need ID for reference, in the case of a before event the ID might not be available.</li>
+</ol>
+<quote> When an error occurs in the trigger or during the DML that lead to the invocation of the trigger, the whole transaction including the DML, any async jobs that might be queued, any emails that might be queued to be sent etc are all rolled back. However the callouts cannot be rolled back as they have already completed.</quote>
+<p>After Trigger</p>
+
+<ol>
+	<li> Records that fire the after trigger are read only.</li>
+	<li> Make changes to other records(create/update/delete).</li>
+</ol>
+<quote> While deciding between using a before or after trigger we ask the question 'Do we need to make changes to other records?', if Yes we always use after trigger or else we could use before trigger.</quote>
+<h3 id="h3-52">Implementation Considerations</h3>
+<quote> Triggers can process upto 200 records at a time, so if more than 200 records are to be processed, they will be divided into batches of 200 records. This also means everything in the trigger will run for all the batch runs.</quote>
+<ul>
+	<li> As triggers can process records in 200 at a time batches it is necessary that we consider using asynchronous apex to split that update.</li>
+</ul>
+<p>Also to remember is the governor limits between each chunk are not reset as all the chunks are run in a single transaction.</p>
+
+<ul>
+	<li> Triggers can modify different records of the same object, to prevent infinite recursion due to triggers being invoked on the same object the apex runtime engine considers all such operations a single unit of work and sets limits on the number of operations that can be performed.</li>
+</ul>
+<quote> If a trigger updates or deletes a record in its before trigger or after tigger, a run time error will be thrown.</quote>
+<ul>
+	<li> Example say record A of Account is updated, and before update trigger of A inserts Contact B, and after insert trigger of B queries for Account A and updates it using DML update statement or database method, the A's before trigger is indirectly updating itself and there will be a runtime error.</li>
+</ul>
+<quote> SOSL cannot be used in a trigger.</quote>
+<ul>
+	<li> Callouts must be made asynchronously from a trigger so that the trigger process isn't blocked while for the external service's response.</li>
+</ul>
+<ul>
+	<li> There are operations in salesforce that do not invoke triggers. <a href="https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_triggers_ignoring_operations.htm" target="_blank">List of all such operations.</a>.</li>
+</ul>
+<quote> Insert, update, and deletes on person accounts fire Account triggers, not Contact triggers.</quote>
+<ul>
+	<li> The best pattern considers bulk nature of the trigger. SOQL should not be used inside for statements. Also it should not be considered that a SOQL will return just a single record.</li>
+</ul>
+
+<pre><code class="language-java">
+Trigger TeacherTrigger on Teacher__c (before insert, before update) {
+  Set&lt;ID&gt; ids = Trigger.newMap.keySet();
+  List&lt;Student__c&gt; t = [SELECT Id FROM Student__c WHERE teacherid__c IN :ids];
+}
+</code></pre>
+
+<h3 id="h3-53">Order Of Execution</h3>
+<p>Process Starts -> System validation rules -> Record trigger flows -> Before triggers -> After triggers -> Duplicate rules -> Custom validations -> Save the reord [no commit] -> Assignment Rules -> Auto Response Rules -> Workflow rules -> Process and flows -> Escalation and entitlement rules -> Record triggered flows -> Rollup summary -> Sharing Rule evaluation -> Commit all DML changes -> Post commit Operation (email etc).</p>
+
+<p>All of these steps are involved so we need to make sure that our trigger does not execute in any unintentional way.</p>
+
+<h3 id="h3-54">Deactivate a Trigger</h3>
+<p>To check what triggers exist on an Object, in setup go to Object Manager and search for that object.</p>
+
+<p>On the left side nav-bar of the object we will have a option 'Trigger', click on it to go to the details page Here we can find all the triggers that are present on that object.</p>
+
+<p>We can from here click on the trigger to see the code. On the code page above the code, we have a check box 'Is Active', uncheck the check box and save to deactivate the trigger.</p>
+
+<p>Deactivating Triggers could be helpful while perfroming bulk operations on that object to prevent failed records, thought caution should be taken that the data is valid and does not compromise the integrity of our database.</p>
+
+<h3 id="h3-55">Multiple Trigger</h3>
+<p>Multiple Triggers can be placed on an SObject, thought their order or execution is not guaranteed and cannot be set.</p>
+
+<p>All these trigger share the same set of governor limits.</p>
+
+<p>It is thus recommended to have a single trigger for an SObject and use the trigger vairables to assign operation specific code.</p>
+
+<h3 id="h3-56">Trigger Context Variables</h3>
+<p>Apex triggers define implicit variables from System.Trigger class.</p>
+
+<quote> Take a note that all these are variable and not methods.</quote><quote> Use Trigger Context Variables As <samp>Trigger.[variableName]</samp> eg Trigger.insert.</quote>
+<p>Variables that return <strong>Boolean</strong></p>
+
+<ul>
+	<li> <samp>isInsert</samp> - Returns true if this trigger was fired due to an isert operation.</li>
+	<li> <samp>isUpdate</samp> - Returns true if this trigger was fired due to an update operation.</li>
+	<li> <samp>isDelete</samp> - Returns true if this trigger was fired due to a delete operation.</li>
+	<li> <samp>isUndelete</samp> - Return true if this trigger was fired due to an undelete operation.</li>
+	<li> <samp>isExecuting</samp> - Return true if current context for the Apex code is a trigger. It is used in helper classes that might be call in a trigger to determine the context where the helper class is being invoked.</li>
+</ul>
+<p>Variables that return a <strong>Collection</strong></p>
+
+<ul>
+	<li> new - List of new versions of records. Available in before insert, after insert, before update, after update, after undelete.</li>
+</ul><p>  <samp>Trigger.new</samp> returns a <samp>List&lt;sObject&gt;</samp>.</p>
+<ul>
+	<li> newMap - Map of Id and new versions of records. Available in after insert, before update, after update, after undelete.</li>
+</ul><p>  <samp>Trigger.newMap</samp> returns a <samp>Map&lt;ID, sObject&gt;</samp></p>
+<ul>
+	<li> old - List of old versions of records. Available in before update, after update, before delete, after delete.</li>
+</ul><p>  <samp>Trigger.old</samp> returns a <samp>List&lt;sObject&gt;</samp></p>
+<ul>
+	<li> oldMap - Map of ID and old version of records. Available in before update, after update, before delete, after undelete.</li>
+</ul><p>  <samp>Trigger.oldMap</samp> returns a <samp>Map&lt;ID, sObject&gt;</samp></p>
+<quote> DML operations cannot be performed on Trigger.new or Trigger.old. Also Trigger.old and Trigger.oldMap are read only.</quote>
+<p>Variables that return other datatypes</p>
+
+<ul>
+	<li> size : Return the total number of records in a trigger invocation both old and new.</li>
+	<li> operationType - Return an enum corresponding to the current</li>
+</ul><p>  operation. Possible values are [<samp>BEFORE_INSERT</samp>, <samp>AFTER_INSERT</samp>  <samp>BEFORE_UPDATE</samp>, <samp>AFTER_UPDATE</samp>, <samp>BEFORE_DELETE</samp>, <samp>AFTER_DELETE</samp>,</p>
+<p>  <samp>AFTER_UNDELETE</samp>].</p>
+
+<h3 id="h3-57">Validations and Throwing Errors</h3>
+<p>Triggers can be used to prevent DML operations from occuring by calling the <samp>addError()</samp> method on a record or field.</p>
+
+<p>When an error is thrown the complete transaction is rolled back.</p>
+
+<p>We can throw an error by calling <samp>addError()</samp> method on the object or by calling the method on a given field of that object.</p>
+
+<p>eg.</p>
+<p><samp>leadRecord.addError('error message')</samp> or</p>
+<p><samp>leadRecord.Status.addError('error message')</samp>,</p>
+<p>where leadRecord is a record of type Lead.</p>
+
+<quote> Calling <samp>addError()</samp> in a trigger causes the entire set of operations to roll back, except when bulk DML is called with partial success.</quote><quote> The any DML statement in apex spawned the trigger, any error rolls back that entire operation too. However runtime engine will still go through all the records to compile a list of complete errors.</quote>
+<h3 id="h3-58">OperationType Context Variables</h3>
+<p>To check what type of event it is we might use Context Variables like <samp>isInsert</samp> and so on, but it might make our code unreadable.</p>
+
+<p>To Make the code more readable by making disctinction between the code for each trigger event, we could use switch statement with OperationType context variable.</p>
+
+
+<pre><code class="language-javascript">
+switch on Trigger.operationType {
+    when BEFORE_INSERT {
+        //code for before insert event
+    }
+    when BEFORE_UPDATE {
+        //code for before update event
+    }
+//... and so on.
+}
+</code></pre>
+
+<p>If else conditional statement can also be used in place of switch.</p>
+
+
+<pre><code class="language-java">
+if(Trigger.operationType == BEFORE_INSERT) {
+    //code for before insert event
+}
+else if (Trigger.OperationType == BEFORE_UPDATE) {
+    //code for before update event
+}
+//Only a if statement would also work
+</code></pre>
+
+<h3 id="h3-59">Bulkify Trigger logic</h3>
+<p>All triggers are bulkified by default and upto 200 records can enter trigger at once.</p>
+
+<p>All tiggers on an sObject share the same set of governer limits.</p>
+
+<p>Eg. Lets say we are creating a new task for each lead object that is created, if we don't bulkify the insert for the new task and we try to run the trigger where there are more than 150 Leads, the governer limit for 150 DML operations will be hit and salesforce will throw an exception.</p>
+<p>This can be easily solved by bulkifying all the task objects and inserting them as a collection at once.</p>
+
+<quote> Triggers can be sometimes used for duplication management but, it is hightly recommened to use salesforces built in <a href="https://trailhead.salesforce.com/en/content/learn/modules/sales_admin_duplicate_management/sales_admin_duplicate_management_unit_1" target="_blank">Duplication Management</a> provided by Salesforce in UI.</quote>
+<h3 id="h3-60">Calling Apex classes from Triggers</h3>
+<p>Triggers with huge logics can get unwieldy.</p>
+
+<p>The buisness logic for the trigger can be written in another class and then that class's methods can be called from the trigger.</p>
+
+<p>We can directly call the class's methods with its name in the trigger as we would have in any other apex class.</p>
+
+<h3 id="h3-61">Recursive Trigger Problem</h3>
+<p>Say we have a before and after record on the same object that creates a new object of the same type. Here the new object created will invokes the same trigger again sending us in a loop where new objects created invokes a trigger that creates another object that also invokes the same trigger.</p>
+
+<p>When this happens we will have an exception that reads Maximum trigger depth exceeded.</p>
+
+<quote> Maximum trigger depth allowed is 16.</quote>
+<p>The transaction succeeds and all changes are committed to the database if the trigger hits a depth of 16 but if a depth of 17 is hit the transaction will fail and all changes will be reverted.</p>
+
+<p>To Avoid Recursive triggers use a static variables in the class that will be refered to before the trigger is executed.</p>
+
+<h3 id="h3-62">Testing Trigger</h3>
+
+<pre><code class="language-java">
+//-- Trigger
+trigger AccountDeletion on Account (before delete) {
+    // Prevent the deletion of accounts if they have related opportunities.
+    for (Account a : [SELECT Id FROM Account
+                     WHERE Id IN (SELECT AccountId FROM Opportunity) AND
+                     Id IN :Trigger.old]) {
+        Trigger.oldMap.get(a.Id).addError(
+            'Cannot delete account with related opportunities.');
+    }
+}
+</code></pre>
+
+
+<pre><code class="language-java">
+//-- Test
+@isTest
+private class TestAccountDeletion {
+    @isTest static void TestDeleteAccountWithOneOpportunity() {
+        // Test data setup
+        // Create an account with an opportunity, and then try to delete it
+        Account acct = new Account(Name='Test Account');
+        insert acct;
+        Opportunity opp = new Opportunity(Name=acct.Name + ' Opportunity',
+                                       StageName='Prospecting',
+                                       CloseDate=System.today().addMonths(1),
+                                       AccountId=acct.Id);
+        insert opp;
+        // Perform test
+        Test.startTest();
+        Database.DeleteResult result = Database.delete(acct, false);
+        Test.stopTest();
+        // Verify
+        // In this case the deletion should have been stopped by the trigger,
+        // so verify that we got back an error.
+        System.assert(!result.isSuccess());
+        System.assert(result.getErrors().size() &gt; 0);
+        System.assertEquals('Cannot delete account with related opportunities.',
+                             result.getErrors()[0].getMessage());
+    }
+}
+</code></pre>
+
+<h3 id="h3-63">Trigger Examples</h3>
+
+<pre><code class="language-java">
+// -- Trigger
+trigger ContractTrigger on Contract__c (after insert) {
+    Switch on Trigger.operationType {
+        when AFTER_INSERT {
+            ContractTriggerHandler.afterInsert(Trigger.new);
+        }
+    }
+}
+
+
+// -- Handler Class
+public class ContractTriggerHandler {
+    public static void afterInsert(List&lt;Contract__c&gt; contracts) {
+        if(contracts == null || contracts.isEmpty()) return;
+
+
+        List&lt;Id&gt; employeeIds = new List&lt;Id&gt;();
+        for(Contract__c c : contracts) {
+            if(c.EmployeeId__c == null) continue;
+            employeeIds.add(c.EmployeeId__c);
+        }
+
+
+        List&lt;Employee__c&gt; employees = [SELECT Id, Start_Date__c, End_Date__c, Status__c, Project_Name__c,
+                                       (SELECT Id, Name, Primary__c, Start_Date__c, End_Date__c, Project_Name__c
+                                       FROM Contracts__r)
+                                       FROM Employee__c
+                                       WHERE Id IN :employeeIds];
+
+
+        List&lt;Employee__c&gt; updatedEmployees = new List&lt;Employee__c&gt;();
+        if(!(employees == null || employees.isEmpty())) {
+            for(Employee__c e : employees) {
+                if(e.Contracts__r.isEmpty()) continue;
+
+
+                if(e.Contracts__r.size() == 1) {
+                    e.Start_Date__c = e.Contracts__r[0].Start_Date__c;
+                    e.End_Date__c = e.Contracts__r[0].End_Date__c;
+                    e.Project_Name__c = e.Contracts__r[0].Project_Name__c;
+                    e.Status__c = 'Busy';
+                    updatedEmployees.add(e);
+                }
+                else {
+                    for(Contract__c c : e.Contracts__r) {
+                        if(c.End_Date__c &gt;= Date.today() &amp;&amp; c.Primary__c) {
+                            e.Start_Date__c = c.Start_Date__c;
+                            e.End_Date__c = c.End_Date__c;
+                            e.Project_Name__c = c.Project_Name__c;
+                            e.Status__c = 'Busy';
+                            if(updatedEmployees.contains(e)) {}
+                            else updatedEmployees.add(e);
+                        }
+                    }
+                }
+            }
+            update updatedEmployees;
+        }
+    }
+}
+</code></pre>
+
+<h2 id="h2-13">Asynchronous Apex</h2>
+<quote> <a href="https://resources.docs.salesforce.com/194/latest/en-us/sfdc/pdf/salesforce_async_processing.pdf" target="_blank">Asynchronous Apex processes Official Documentation</a>.</quote>
+<p>Advantages :</p>
+
+<ul>
+	<li> <strong>User Efficiency</strong> : Making a user wait for a long running process is not a an efficient use of the user's time. It can be done in the background and the user can see the results at their convenience.</li>
+</ul>
+<ul>
+	<li> <strong>Resource Efficiency</strong> : Each Salesforce instance has a finite set of resources. Under normal load patterns, these resources can be managed for asynchronous process which results typically in faster request processing.</li>
+	<li> <strong>Scalability</strong> : By allowing some features to execute asynchronously, resources can be managed and scaled quickly. This allows the Salesforce instance to handle more customer jobs using parallel processing.</li>
+</ul>
+<p><strong>Asynchronous process</strong> is a process or function which does not require interation with a user. It can be used to execute a task in the background without the user having to wait for the task to finish.</p>
+
+<quote> Operations running in Async Apex will run in their own transaction.</quote><quote> Track Progress of apex async jobs in Setup | Environments | Jobs | Apex Jobs Or search 'Apex Jobs' in Quick Search box.</quote>
+<h3 id="h3-64">Use of Asynchronous Apex</h3>
+<ul>
+	<li> Processing a very large number of records.</li>
+	<li> Making callouts to external web services.</li>
+	<li> Creating a better and faster user experience by offloading some processing to asynchronous calls.</li>
+</ul>
+<h3 id="h3-65">Asynchronous Process Overview</h3>
+<p>Salesforce uses a queue based asynchronous processing framework. This framwork is used to manage asynchronous requests within each instance. The request lifecycle is made of three parts.</p>
+
+<ul>
+	<li> <strong>Enqueue</strong> - Asynchronous request(future, Batch, etc) is added to the queue with the appropriate data to process this request.</li>
+	<li> <strong>Persistence</strong> - The request is stored in persistent storage for failure recovery and to provide transactional capability.</li>
+	<li> <strong>Dequeue</strong> - This is when the request is taken off the queue and processed. Transaction management occurs to assure messages are not lost if there is a processing failure.</li>
+</ul>
+<p>Each request is processed by a <strong>handler</strong>, which is a code that performs functions for a specific request type. Handlers are executed by <strong>Worker Threads</strong> on each of the application server that make up an instance.</p>
+
+<p>Request from different organizations for different functions will be in the queue. As the request is completed, another request is removed from the queue is removed and processed.</p>
+
+<p>Thus a single customer can enqueue a large number of request to the queue. To prevent this the queueing framwork implements <strong>flow control</strong> which prevent a single customer from using all the available threads.</p>
+
+<h3 id="h3-66">AsyncApexJob</h3>
+<p>Represents an individual Apex sharing recalculation job, a batch Apex job, a method with the <samp>@future</samp> annotation or a job that implements <samp>Queueable</samp>.</p>
+
+<p>Use this object to query Apex batch jobs in your organization.</p>
+
+<quote> For every 10000 AsyncApexJob records, Apex creates an AsyncApexJob record of type <samp>BatchApexWorker</samp> for interanl use. So when querying they need to be accounted for by filtering them out. Use <samp>JobType</samp> field to filter.</quote>
+<h4 id="h4-4">Fields of AsyncApexJob</h4>
+<p>Following are some important fields of the AsyncApexJob object.</p>
+
+<ul>
+	<li> ApexClassId - Id of the Apex class executing the job. Label is Class ID.</li>
+	<li> Complete Date.</li>
+	<li> JobType - The type of job being processed (BatchApex, Future, Queueable, ScheduledApex, SharingRecalculation etc).</li>
+	<li> NumberOfErrors - Total number of batches with a failure. Label is Failures.</li>
+	<li> Status - The status of the job (Aborded, Completed, Failed, Holding, Preparing, Processing, Queued).</li>
+</ul>
+<h3 id="h3-67">Future Method</h3>
+<ul>
+	<li> Run in its own thread/transaction.</li>
+	<li> Executes when system resources are available.</li>
+	<li> Is annotated with <samp>@future</samp>.</li>
+	<li> Must be static.</li>
+	<li> Must have void return type.</li>
+	<li> Parameters must be primitive data Types, collection of primitive data types.</li>
+	<li> Future methods cannot be called from other future methods.</li>
+	<li> Any number of future methods can be called from synchronous code.</li>
+	<li> Isolate DML operations on different object type to prevent mixed DML exception.</li>
+</ul>
+<quote> Id's are primitive datatype in Apex.</quote><quote> Async methods including other future methods cannot be called from a future method.</quote>
+
+<pre><code class="language-java">
+public class MyClass {
+  @future
+  public static void myFutureMethod() {
+    //perform heavy operation here
+  }
+}
+</code></pre>
+
+<p>As future methods do not guarantee the time of its running, being able to pass data base objects such as Accounts, Leads etc and then working on them in the methods can violate the database intergrity as the records could have been changed by the time the methods executes. A list of Ids can be used to fetch fresh data for operations in the future method.</p>
+
+<p>As future methods do not return any id and hence their status cannot be tracked from apex code.</p>
+
+<h4 id="h4-5">Limitations of Future</h4>
+<ul>
+	<li> As no Apex JobId is created, the execution of future methods cannot be tracked.</li>
+	<li> Future methods cannot have objects as arguments. Arguements have to be a primitive datatype or Collection of primitive datatype.</li>
+	<li> Future methods cannot be queued, as future methods cannot be invoked from inside oneanother.</li>
+</ul>
+<h4 id="h4-6">Future Request Design</h4>
+<p>Every <samp>@future</samp> invocation adds one request ot the asynchronous queue.</p>
+
+<p>Adding large number of <samp>@future</samp> requests over a short period shoudl be avoided as adding more than 2000 request to the queue at any time could delay request processing due to flow control.</p>
+
+<p>Ensure that <samp>@future</samp> requests execute as fast as possible as longer running times can lead to flow control.</p>
+
+<p>Minimize web service call out time if utilized.</p>
+
+<p>Consider using Batch Apex instead of <samp>@future</samp> to process large number of records asynchronosly. This is more efficient than having a <samp>@future</samp> request for each record.</p>
+
+<quote> Extended delay time is 5 minutes.</quote>
+<h4 id="h4-7">Future Method Example</h4>
+
+<pre><code class="language-java">
+public class LeadAsynchronous {
+  @future
+  public static void updateLeadRecords(List&lt;ID&gt; existingRecordIds) {
+    List&lt;Lead&gt; existingRecords= [SELECT Id, LeadSource
+                                  FROM Lead
+                                  WHERE Id IN :existingRecordIds
+                                ];
+    for (Lead record : existingRecords) {
+      record.LeadSource = 'Web';
+    }
+    update existingRecords;
+  }
+}
+</code></pre>
+
+<p>Example 2 - Update number of contacts linked with an account</p>
+
+
+<pre><code class="language-java">
+public class AccountProcessor {
+  @future
+  public static void countContacts(List&lt;Id&gt; accountIds) {
+    List&lt;Account&gt; accounts = [SELECT Id, Number_Of_Contacts__c,
+                              (SELECT Id FROM Contacts)
+                              FROM Account WHERE Id IN :accountIds
+                             ];
+
+
+    for(Account account : accounts) {
+        account.Number_Of_Contacts__c = account.Contacts.size();
+    }
+
+
+    update accounts;
+  }
+}
+</code></pre>
+
+<p>Test for example 2.</p>
+
+
+<pre><code class="language-java">
+@isTest
+public class AccountProcessorTest {
+  @isTest
+  public static void checkNumberOfContacts () {
+    Account acc1 = new Account(Name='Account1');
+    Account acc2 = new Account(Name='Account2');
+    Account acc3 = new Account(Name='Account3');
+    List&lt;Account&gt; accounts = new List&lt;Account&gt; {acc1, acc2, acc3};
+    insert accounts;
+
+
+    Contact con1 = new Contact(LastName='Contact1', AccountId=acc1.Id);
+    Contact con2 = new Contact(LastName='Contact2', AccountId=acc2.id);
+    Contact con3 = new Contact(LastName='Contact3', AccountId=acc2.id);
+    Contact con4 = new Contact(LastName='Contact4', AccountId=acc2.id);
+
+
+    List&lt;Contact&gt; contacts = new List&lt;Contact&gt;{con1, con2, con3, con4};
+    insert contacts;
+
+
+    List&lt;Id&gt; accountIds = new List&lt;Id&gt; {acc1.Id, acc2.Id, acc3.Id};
+
+
+    Test.startTest();
+    AccountProcessor.countContacts(accountIds);
+    Test.stopTest();
+
+
+    System.assert(acc1.Number_Of_Contacts__c == 1,
+                  'Account1 does not have exactly 1 contact number');
+    System.assert(acc2.Number_Of_Contacts__c == 3,
+                  'Account2 does not have exactly 3 contact number');
+    System.assert(acc3.Number_Of_Contacts__c == 0,
+                  'Account1 does not have exactly 1 contact number');
+  }
+}
+</code></pre>
+
+<h3 id="h3-68">Batch Apex</h3>
+<p>We can use Batch Apex to build complex, long running processes that run on thousands of records on the Lightning Platform.</p>
+
+<ol>
+	<li> Operates over small batches/chunks of records. Can process upto 2000 per batch, if not specified each batch default to 200 records.</li>
+	<li> Can process upto 50 million records. If more records are supplied the batch job fails immediately.</li>
+	<li> Can be scheduled.</li>
+	<li> Implements <samp>Database.Batchable&lt;SObject&gt;</samp> interface.</li>
+	<li> Each Batch Apex invocation creates an <samp>AsyncApexJob</samp> record. It can be queried to retrieve the job status, number of errors, progress and submitter. Job Id can be used to query specific jobs.</li>
+</ol>
+<quote> In <samp>Database.Batchable&lt;sObject&gt;</samp>, SObject must be used, it cannot be specific Object like Account or Lead.</quote>
+<p>When A class implements <samp>Database.Batchable&lt;sObjectName&gt;</samp> there are three methods that need to be implemented in that class.</p>
+
+<quote> When one exexute fails, the transaction for that execute it rolled back, the execute failing does not impact the further or previous executes in that batch.</quote>
+<h4 id="h4-8">Batch Apex Limitations</h4>
+<ul>
+	<li> Upto 5 batch jobs can be in a queued simultaneously.</li>
+	<li> Upto 100 Holding batch jobs can be held in the Apex flex queue.</li>
+	<li> Upto a 100 callout can be implemented each in start, execute and finish methods of Batch Class.</li>
+	<li> Only one batch Apex job's start method can run at a time in an org. Any other Apex jobs remain in the queue until they are started.</li>
+	<li> Methods declared with <samp>@future</samp> cannot be called from Batch Apex Classes.</li>
+</ul>
+<h4 id="h4-9">start(Database.BatchableContext bc)</h4>
+<ol>
+	<li> Executes only once.</li>
+	<li> Returns batch scope or records (returns <samp>Database.QueryLocator</samp>).</li>
+	<li> All the records that the batch class needs to process must be fetched in this methods.</li>
+	<li> Can return upto 50million records</li>
+	<li> This methods return a QueryLocator, which is nothing butthe scope that we get in the start methods.</li>
+	<li> The QueryLocator object will get all the object and supply it to execute according to the batch size.</li>
+	<li> Trouble shooting can be troublesome.</li>
+	<li> Jobs are queued and are subject to server availability which can take longer than anticipated.</li>
+</ol>
+<h4 id="h4-10">execute(Database.BatchableContext bc)</h4>
+<ol>
+	<li> Executes each batch/chunk of records separately.</li>
+	<li> This is the only methods of the three that will runmultiple times.</li>
+	<li> Each Execution of this methods will have separate set of governor limits.</li>
+	<li> Must have void return type.</li>
+	<li> Each execute method will be separate transaction and so will have individual logs.</li>
+</ol>
+<h4 id="h4-11">finish(Database.BatchableContext bc)</h4>
+<ol>
+	<li> Executes only once after all execute operatation are completed.</li>
+	<li> Called after all batches are processed.</li>
+	<li> Can be used for post processing and even for calling another batch class</li>
+</ol>
+<quote> Batch Size must be greater than 0 and can be upto 2000. If not defined then the default value is 200. Batch size should be choosen depending on the complexity of code and the time each batch takes to execute.</quote>
+
+<pre><code class="language-java">
+// --- Basic Batch Class Structure
+public class SampleBatchClass implements Database.Batchable&lt;sObject&gt; {
+
+
+  //-- start runs once
+  public Database.QueryLocator start (Database.BatchableContext bc) {
+    //Get records here
+    String query = 'SELECT Id FROM sObject';
+    return Database.getQueryLocator(query);//returns whole scope
+  }
+
+
+  //-- execute runs totalNumberOfRecords/batchSize number of times
+  public void execute (Database.BatchableContext bc, List&lt;sObject&gt; scope) {
+
+
+    //returns the id of the current batch being executed.
+    Id currentBatchId = bc.getChildJobId();
+    //Can only be used in execute methods.
+
+
+    // The second parameter is a List of the sObject records and
+    //of size equal to the batch size that we specify.
+    //200 if not specified.
+
+
+    //Process the records in the list here.
+  }
+
+
+  //-- finish runs once for the batch class after all the batches
+  //are processed
+  public void finish (Database.BatchableContext bc) {
+
+
+    //returns the job id for the batch
+    Id jobId = bc.getJobId();
+    //-- Can be used in start, execute and finish.
+
+
+    // cleanup, confirmation notification/emails etc
+    //or chaining other async code can be done here
+  }
+}
+
+
+// --- Execute Batch Class
+
+
+SampleBatchClass batchInstance = new SampleBatchClass();
+
+
+//execute batch with batch size 100
+Id batchJobId = Database.executeBatch(batchInstance, 100);
+
+
+//Schedule Batch
+String cronID =
+  System.scheduleBatch(batchInstance, 'My sample Job', 20);
+//scheduleBatch(batchInstance, BatchJobName, MinutesFromNow).
+//We can give the scheduled batch job any name.
+</code></pre>
+
+<quote> Methods marked with <samp>@future</samp> cannot be called from Batch Apex classes.</quote>
+<h4 id="h4-12">Batchable Class public or global</h4>
+<p>When <samp>Database.Batchable</samp> was first made available, implementors had no choice but to use global.</p>
+
+<p>This exposed the <samp>Database.Batchable</samp> part of any managed package.</p>
+
+<p>This error has now been corrected and <samp>Database.Batchable</samp> classes can now be <samp>public</samp> or <samp>global</samp>.</p>
+
+<quote> From Checkmarx scanner - It is a common misconception to believe that batch apex or async apex must run with the global keyword. This is not true, the only classes that must be global are those that expose webservices or are intended to be used by extension packages. All async apex should run as public in order to avoid creating privileged entry points to your app.</quote>
+<h4 id="h4-13">Variable State in Batchable Class</h4>
+<p>According to documentation <samp>Database.Batchable</samp> class implementation, the state is not maintainer in fields between invocations of the methods unless the implementation class is also implements <samp>Database.Stateful</samp>.</p>
+
+<p>If Instance variable do not change during the whole batch execution there is no need to implement <samp>Database.Stateful</samp>.</p>
+
+<p>If however the variables change during batch execution, it might be necessary for the class to implement <samp>Database.Stateful</samp> so that the variable values are maintained throughout the batch execution.</p>
+
+<h4 id="h4-14">Batch Class Example</h4>
+<quote> Make sure that the number of records inserted is less than or equal to the batch size of 200 because test methods can execute only one batch. It must also ensure that the Iterable returned by the start method matches the batch size.</quote>
+<p>Change Active field on student record and send the creater a message/email once batch completes.</p>
+
+
+<pre><code class="language-java">
+public class T_BatchApex implements Database.Batchable&lt;sObject&gt;{
+    private Integer rollNumberStart;
+    private Integer rollNumberEnd;
+    private Boolean toActivate; //if true check active else uncheck.
+
+
+    public T_BatchApex (Integer startNum, Integer endNum, Boolean toActivate) {
+        rollNumberStart = startNum;
+        rollNumberEnd = endNum;
+        this.toActivate = toActivate;
+    }
+
+
+    public Database.QueryLocator start(Database.BatchableContext bc) {
+        List&lt;String&gt; activateRollNumbers = new List&lt;String&gt;();
+        for(Integer i = rollNumberStart; i &lt;= rollNumberEnd; i++) {
+            activateRollNumbers.add(String.valueOf(i));
+        }
+
+
+        return Database.getQueryLocator([SELECT Id, Name, Active__c, Roll_Number__c
+                                         FROM Student__c
+                                         WHERE Roll_Number__c IN :activateRollNumbers
+                                        ]);
+    }
+
+
+    public void execute(Database.BatchableContext bc, List&lt;Student__c&gt; students) {
+        for(Student__c s : students) {
+            s.Active__c = toActivate;
+        }
+        if(!students.isEmpty()) {
+            update students;
+        }
+    }
+
+
+    public void finish (Database.BatchableContext bc) {
+        List&lt;Messaging.SingleEmailMessage&gt; emails =
+            new List&lt;Messaging.SingleEmailMessage&gt;();
+
+
+        Messaging.SingleEmailMessage m1 =
+            new Messaging.SingleEmailMessage();
+
+
+        List&lt;String&gt; emailAddresses = new List&lt;String&gt;();
+        emailAddresses.add(userInfo.getUserEmail());
+
+
+        m1.setToAddresses(emailAddresses);
+        m1.setSubject('Student Activation in Batch Class complete.');
+        m1.setPlainTextBody(
+            UserInfo.getFirstName() +
+            ' the batch execution for student activation from ' +
+            rollNumberStart + ' to ' + rollNumberEnd +
+            ' has complete. Please check or to verify changes.'
+        );
+
+
+        emails.add(m1);
+        Messaging.sendEmail(emails);
+    }
+}
+
+
+// -- Execute batch
+T_BatchApex act = new T_BatchApex(10130, 10200, true);
+Database.executeBatch(act);
+</code></pre>
+
+<p>Delete Records From Recycle Bin with name that start with a given string.</p>
+
+
+<pre><code class="language-java">
+public class T_DeleteBatch implements Database.Batchable&lt;sObject&gt;{
+    private final String startWith;
+    public T_DeleteBatch(String startWith) {
+        this.startWith = startWith;
+    }
+
+
+    public Database.QueryLocator start (Database.BatchableContext bc) {
+        String nameStartWith = startWith + '%';
+        return Database.getQueryLocator(
+            [SELECT Id, IsDeleted, Name FROM Student__c
+             WHERE Name LIKE :nameStartWith ALL ROWS
+            ]
+        );
+    }
+
+
+    public void execute(Database.BatchableContext bc, List&lt;Student__c&gt; students) {
+        Database.emptyRecycleBin(students);
+    }
+
+
+    public void finish (Database.BatchableContext bc) {
+        System.debug('All records of student starting with '
+                     + startWith
+                     + ' have been deleted from recycle bin.');
+    }
+}
+</code></pre>
+
+<p>Following example for <samp>Database.Stateful</samp>, Say we have Student object with marks field, we want to average the marks of all students and save it in a new Student object named Average. We will also assign students their marks and grades based on marks. We assign marks between 80 and 200.</p>
+
+<p>Here we will have to keep track of total number of students that we have processed and total marks from each execution of the execute method. Thus we will use the <samp>Database.Stateful</samp> interface to maintain the value of variables.</p>
+
+
+<pre><code class="language-java">
+public class T_BatchApex implements Database.Batchable&lt;sObject&gt;, Database.Stateful{
+  private Integer totalMarks;
+  private Integer totalStudentsProcessed;
+
+
+  public T_BatchApex () {
+    totalMarks = 0;
+    totalStudentsProcessed = 0;
+    System.debug('Batch Started.');
+  }
+
+
+  public Database.QueryLocator start(Database.BatchableContext bc) {
+    return Database.getQueryLocator([SELECT Id, Marks__c
+                                     FROM Student__c]);
+  }
+
+
+  public void execute(Database.BatchableContext bc, List&lt;Student__c&gt; students) {
+    for(Student__c s : students) {
+      s.Marks__c = generateRandNumber(80, 200);
+      s.Grade__c = getGrade(Integer.valueOf(s.Marks__c));
+    }
+
+
+    List&lt;Id&gt; successfullyUpdated = new List&lt;Id&gt;();
+
+
+    Database.SaveResult[] res = Database.update(students, false);
+    for(Database.SaveResult sr : res) {
+      if(sr.isSuccess()) {
+        successfullyUpdated.add(sr.getId());
+      }
+      else {for(Database.Error err : sr.getErrors()) {}}
+    }
+
+
+    List&lt;Student__c&gt; updatedStudents = [SELECT Id, Marks__c, Grade__c
+                                        FROM Student__c
+                                        Where Id In :successfullyUpdated];
+
+
+    //-- Only add marks of successfully updated student to our total
+    for(Student__c st : updatedStudents) {
+      totalMarks += Integer.valueOf(st.Marks__c);
+      totalStudentsProcessed++;
+    }
+  }
+
+
+  public void finish (Database.BatchableContext bc) {
+    List&lt;Student__c&gt; l = [SELECT Id, Name
+                          FROM Student__c
+                          WHERE Name = 'Average'
+                          LIMIT 1];
+    if(!l.isEmpty()) {
+        delete l;
+    }
+  Student__c average = new Student__c(Name = 'Average');
+    average.Marks__c = totalMarks / totalStudentsProcessed;
+    average.Grade__c = getGrade(Integer.valueOf(average.Marks__c));
+    insert average;
+  }
+
+
+  @TestVisible
+  private Integer generateRandNumber(Integer low, Integer high) {
+    return (Integer) (Math.roundToLong(Math.random() &lowast; (high-low)) + low);
+  }
+
+
+  @TestVisible
+  private String getGrade(Integer num) {
+  if(num &lt; 140) return 'Improve';
+    else if(num &lt; 180) return 'Good';
+    else return 'Excellent';
+  }
+}
+</code></pre>
+
+<p>Test For Above Batch Class</p>
+
+
+<pre><code class="language-java">
+@isTest
+public class T_BatchApex_Test {
+    @testSetup
+    public static void dataSetup() {
+        Integer previousStudentMark = 100;
+        List&lt;Student__c&gt; students = new List&lt;Student__c&gt;();
+        for(Integer i = 1; i &lt;= 5; i++) {
+            Student__c s = new Student__c();
+            s.Name = 'Test ' + i;
+            s.Marks__c = previousStudentMark + 20;
+            students.add(s);
+        }
+        if(!students.isEmpty())
+            insert students;
+    }
+
+
+    @isTest
+    public static void testBatch() {
+        T_BatchApex t_ba = new T_BatchApex();
+        Test.startTest();
+        Database.executeBatch(t_ba, 50);
+        Test.stopTest();
+        Student__c average = [SELECT Id, Name
+                              FROM Student__c
+                              WHERE Name = 'Average'
+                              LIMIT 1];
+        System.assertEquals(160 ,average.Marks__c,
+                            'Average Marks dont Match');
+    }
+
+
+    @isTest
+    public static void testGradesMethod() {
+        T_BatchApex t_ba = new T_BatchApex();
+        System.assertEquals('Excellent', t_ba.getGrade(190));
+        System.assertEquals('Good', t_ba.getGrade(150));
+        System.assertEquals('Improve', t_ba.getGrade(139));
+        System.assertEquals('Improve', t_ba.getGrade(-10));
+    }
+
+
+    @isTest
+    public static void testRandomNumberGenerator() {
+        T_BatchApex t_ba = new T_BatchApex();
+        Integer a = t_ba.generateRandNumber(200, 250);
+        System.assert(a &lt;= 250 &amp;&amp; a &gt;= 200, 'Random number not between 200 and 250');
+        Integer b = t_ba.generateRandNumber(0, 10);
+        System.assert(b &lt;= 10 &amp;&amp; b &gt;= 0, 'Random number not between 0 and 10');
+    }
+}
+</code></pre>
+
+<h3 id="h3-69">Queueable Apex</h3>
+<p>Queueable Apex is essentailly a superset of future methods, but has the advantage of being able to chain other async apex jobs.</p>
+
+<ul>
+	<li> Can operate on Non-primitive type.</li>
+	<li> Allows Monitoring of Apex jobs and track progress on setup page. When a job is submitted as JobId is returned that can be used for tracking that job.</li>
+	<li> Allows Chaining of different queueable class.</li>
+	<li> Upto 50 jobs can be queued using <samp>System.enqueueJob</samp> in a single transaction.</li>
+	<li> Only one child job can be queued from a parent queueable job.</li>
+	<li> There is no limit to the depth of queuable jobs inside other queueable jobs. However for developer edition there is a limit of upto 5 jobs deep.</li>
+</ul>
+<quote> Future methods are much simple and should be used whenever possible. Use Queuable when it is absolutely necessary.</quote>
+
+<pre><code class="language-java">
+public class SampleQueuableClass implements Queueable {
+  public void execute (QueueableContext context) {
+    //Write all async code here.
+
+
+    //Other queueable classes can be chained.
+  }
+}
+
+
+SampleQueueableClass sampleQueue = new SampleQueueableClass();
+//Enqueue the job processing
+ID jobID = System.enqueueJob(sampleQueue);
+</code></pre>
+
+<p>An Id is returned when we enqueue queueable jobs, thus allowing us to track their progress in apex code itself.</p>
+
+<h4 id="h4-15">Chaining Queuable Jobs</h4>
+
+<pre><code class="language-java">
+public class FirstJob implements Queueable {
+  public void execute(QueueableContext context) {
+    // Awesome processing logic here
+    // Chain this job to next job by submitting the next job
+    if(!Test.isRunningTest()) {
+      System.enqueueJob(new SecondJob());
+    }
+  }
+}
+</code></pre>
+
+<quote> Jobs cannot be queued in a test. To aviod errors in a test, before enqueueing job inside of another async job, test the context to check that it is not running in test context by using <samp>Test.isRunningTest()</samp>.</quote>
+<h4 id="h4-16">Making callout from Queueable Jobs</h4>
+<quote> Apex allows HTTP and web service callouts from queueable jobs, if they implement the <samp>Database.AllowsCallouts</samp> marker interface. In queueable jobs that implement this interface, callouts are also allowed in chained queueable jobs.</quote>
+<h4 id="h4-17">Queuable Apex Example</h4>
+
+<pre><code class="language-java">
+public class LeadQueuable implements Queueable {
+  //QueueableContext is used by apex interanlly
+  public void execute (QueueableContex context) {
+    List&lt;Lead&gt; existingRecords = [SELECT Id, LeadSource FROM Lead];
+    for (Lead record : existingRecords) {
+      record.LeadSource = 'Web';
+    }
+    update existingRecords;
+
+
+    //-- Another queueable class can be called here to chain
+  }
+}
+
+
+//-- Run Queueable class
+LeadQueueable leadQueuableInstance = new LeadQueueable();
+Id jobId = System.enqueueJob(leadQueuableInstance);
+//-- jobId above can be used to track the progress of the
+//queueable job
+</code></pre>
+
+<p>Example 2 - Queueable class that gets 200 accounts where state is the given state and add the given contact to the account. The same contact to all.</p>
+
+
+<pre><code class="language-java">
+public class AddPrimaryContact implements Queueable {
+  private Contact con;
+  private String state;
+
+
+  public AddPrimaryContact(Contact c, String state) {
+    this.con = c;
+    this.state = state;
+  }
+
+
+  public void execute(QueueableContext qc) {
+    List&lt;Account&gt; accounts = [SELECT Id, BillingState
+                             FROM Account
+                             WHERE BillingState =:this.state];
+
+
+    List&lt;Contact&gt; contacts = new List&lt;Contact&gt;();
+    for(Account acc : accounts) {
+        Contact con = this.con.clone(false, true);
+        con.AccountId = acc.Id;
+        contacts.add(con);
+    }
+    insert contacts;
+  }
+}
+</code></pre>
+
+<p>Test for above queueable example.</p>
+
+
+<pre><code class="language-java">
+@isTest
+public class AddPrimaryContactTest {
+  @testSetup
+  public static void setupData() {
+    List&lt;Account&gt; accounts = new List&lt;Account&gt;();
+    for(Integer i =1; i&lt;=100; i++) {
+        Account acc = new Account(Name=('Test Account' + i));
+        if(i&lt;=50)
+            acc.BillingState = 'CA';
+        else
+            acc.BillingState = 'NY';
+
+
+        accounts.add(acc);
+    }
+    insert accounts;
+  }
+
+
+  @isTest
+  public static void accountStateTest() {
+    Contact con = new Contact(LastName='Sales');
+    Test.startTest();
+    AddPrimaryContact apc = new AddPrimaryContact(con, 'CA');
+    System.enqueueJob(apc);
+    Test.stopTest();
+
+
+    List&lt;Account&gt; accounts = [SELECT Id, BillingState,
+                             (SELECT Id FROM Contacts)
+                             FROM Account];
+    for(Account acc : accounts) {
+        if(acc.BillingState == 'CA'){
+            System.assert(acc.Contacts.size() == 1);
+        }else {
+            System.assert(acc.Contacts.size() == 0);
+        }
+    }
+  }
+}
+</code></pre>
+
+<h3 id="h3-70">Scheduled Apex</h3>
+<p>Scheduled Apex provides us an ability to run apex code at specific time or periodically.</p>
+
+<ul>
+	<li> There can be maximum of 100 scheduled Apex Jobs at one time.</li>
+	<li> Synchronous Web Service callout are not supported from scheduled apex jobs.</li>
+</ul>
+<p>Scheduled Apex can run any type of apex code, which includes any sync code as well as any async code like Batch Apex or Queueable Apex.</p>
+
+
+<pre><code class="language-javascript">
+public class SampleScheduler implements Schedulable {
+  //SchedulableContext is used by apex internally
+  public void execute(SchedulableContext Sc) {
+    //apex code here
+  }
+}
+
+
+SampleScheduler sampleScheduler = new SampleScheduler();
+String cronExp = '00 30 8 1 &lowast; ?';
+// -- jobId can be used to track the progress of our job.
+String jobId = System.schedule('Merge Job', cronExp, sampleScheduler);
+</code></pre>
+
+<h4 id="h4-18">Cron Expressions</h4>
+<p>Cron Expressions Table</p>
+
+<table>
+<tr>
+	<th>Name</th>
+	<th>Value</th>
+	<th>Special Chars</th>
+</tr>
+
+<tr>
+	<td>Seconds</td>
+	<td>0-59</td>
+	<td></td>
+</tr>
+<tr>
+	<td>Minutes</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>Hours</td>
+	<td>0-23</td>
+	<td></td>
+</tr>
+<tr>
+	<td>Days of Month</td>
+	<td>0-31</td>
+	<td>,-\*?/LW</td>
+</tr>
+<tr>
+	<td>Month</td>
+	<td>1-12(JAN-DEC)</td>
+	<td>,-\*/</td>
+</tr>
+<tr>
+	<td>Days of week</td>
+	<td>1-7(SUN-SAT)</td>
+	<td>,-\*?/L#</td>
+</tr>
+<tr>
+	<td>Optional Year</td>
+	<td>null or 1970-2099</td>
+	<td>,-\*/</td>
+</tr>
+</table>
+<p>Where :</p>
+
+<ol>
+	<li> <samp>,</samp> : Give multiple values > 1, 2.</li>
+	<li> <samp>-</samp> : Gives Ranges values > 1-5.</li>
+	<li> <samp>*</samp> : All possible Values.</li>
+	<li> <samp>?</samp> : Do not specify any value.</li>
+	<li> <samp>/</samp> : Specifies increments.</li>
+	<li> <samp>L</samp> : Last possible value.</li>
+	<li> <samp>W</samp> : Cloest Weekday.</li>
+</ol>
+<p>Examples :</p>
+
+<ul>
+	<li> <samp>0 0 13 &#42; &#42; ?</samp> : Class runs every day at 1 PM.</li>
+	<li> <samp>0 0 10 ? * MON-FRI</samp> : Class runs Monday through Friday at 10am.</li>
+</ul>
+<h4 id="h4-19">Schedule a Job from UI</h4>
+<p>Go to <strong>Setup | Apex Classes | Schedule Apex</strong>.</p>
+
+<p>Enter a job name and lookup the Apex class. Select the frequency, the start and end and preferred Start time. Then Save.Date</p>
+
+<h4 id="h4-20">Schedulable Apex Example</h4>
+
+<pre><code class="language-java">
+public class LeadSchedulable implements Schedulable {
+  public void execute (SchedulableContext sc) {
+    List&lt;Lead&gt; existingRecords = [SELECT Id, LeadSource FROM Lead];
+    for(Lead record : existingRecords) {
+      record.LeadSource = 'Web';
+    }
+    update existingRecords;
+  }
+}
+
+
+//-- Execute Schedulable Apex Class
+String cronExp = '00 30 3 ? &lowast; MON';
+LeadSchedulable leadSchedulable = new LeadSchedulable();
+System.schedule('Sample Job', cronExp, leadSchedulable);
+</code></pre>
+
+<quote> To track a scheduled job with the job id make a query to The <samp>CronTrigger</samp> object.</quote>
+<h4 id="h4-21">Immediately Run Scheduled Apex class from Developer Console</h4>
+<p>To run Scheduled Apex immediately from Developer Console use Anonymous Window or call the following from other method.</p>
+
+<p><samp>new scheduleClassName().execute(null);</samp> - here the context is set to null, as it does not matter here.</p>
+
+<h3 id="h3-71">Monitoring Asynchronous Apex</h3>
+<p>In the interface, status of all the jobs can be monitored.</p>
+
+<p>To see all the jobs go to <strong>Setup | Apex Jobs</strong>.</p>
+
+<p>The Apex Jobs page shows all asynchronous Apex jobs with information about each job's execution.</p>
+
+<h4 id="h4-22">Monitoring future Jobs</h4>
+<p>Future jobs are currently not a part of flex queue.</p>
+
+<p>Future jobs show up on the Apex Jobs page like any other jobs.</p>
+
+<p>They can be queried by quering the <samp>AsyncApexJob</samp> object.</p>
+
+<h4 id="h4-23">Monitoring Queueable Apex</h4>
+<p>SOQL query on <samp>AsyncApexJob</samp> by filtering on the job ID that the <samp>System.enqueueJob</samp> method returns.</p>
+
+
+<pre><code class="language-java">
+AsyncApexJob jobInfo = [SELECT Status, NumberOfErrors
+    FROM AsyncApexJob WHERE Id = :jobID];
+</code></pre>
+
+<h4 id="h4-24">Monitoring Scheduled Jobs</h4>
+<p>Scheduled jobs can be queried by SOQL query on <samp>CronTrigger</samp>.</p>
+
+
+<pre><code class="language-java">
+CronTrigger ct = [SELECT TimesTriggered, NextFireTime FROM CronTrigger WHERE Id = :jobID];
+
+
+// -- While performing query inside of the schedulable class
+//Id can be obtained by using the getTriggerId method on SchedulableContext.
+public class DoAwesomeStuff implements Schedulable {
+  public void execute(SchedulableContext sc) {
+    // some awesome code
+    CronTrigger ct = [SELECT TimesTriggered, NextFireTime FROM CronTrigger WHERE Id = :sc.getTriggerId()];
+  }
+}
+</code></pre>
+
+<quote> Query <samp>CronJobDetail</samp> directly to get the job’s name and type.</quote>
+<h4 id="h4-25">Delete Queued Scheduled Job</h4>
+<p>To delete queued scheduled job goto <strong>Setup | Environment | Jobs | Scheduled Jobs</strong>.</p>
+
+<h4 id="h4-26">Apex Flex Queue</h4>
+<p>The Apex Flex queue enables up <strong>100 batch jobs</strong> to be submited for execution.</p>
+
+<p>Any jobs that are submitted for execution are in holding status and are placed in the Apex Flex queue. Up to 100 batch jobs can be in the holding status.</p>
+
+<p>Jobs are processed <strong>first-in first-out—in</strong> the order in which they’re submitted.</p>
+
+<p>When system resources become available, the system picks up the next job from the top of the Apex Flex queue and moves it to the batch job queue.</p>
+
+<p>The system can process up to five queued or active jobs simultaneously for each organization.</p>
+
+<p>The status of these moved jobs changes from <strong>Holding</strong> to <strong>Queued</strong>.</p>
+
+<p><strong>Queued jobs</strong> get executed when the system is ready to process new jobs.</p>
+
+<p>Like other jobs, queued jobs can be monitor in the Apex Jobs page.</p>
+
+<h2 id="h2-14">Salesforce Platform APIs</h2>
+<p><strong>REST API</strong>, <strong>SOAP API</strong>, <strong>Bulk API</strong> and <strong>Steam API</strong> together make the <strong>Salesforce Data API</strong>. They enable developers to manipulate salesforce data.</p>
+
+<h3 id="h3-72">API Limits</h3>
+<p>All salefirce api calls require authentication.</p>
+
+<p>Salesforce limits the number of API calls per org.</p>
+
+<p>There are three type of API limits -</p>
+
+<ul>
+	<li> Timeout Limits - restricts the lenght of time a single call is allowed to run.</li>
+	<li> Concurrent request limits - depends on the org type.</li>
+	<li> Total request allocations - limit cap the number of calls made within a rolling 24-hour period. Limit depends on the edition of the org and license type.</li>
+</ul>
+<h4 id="h4-27">Check API limits</h4>
+<ul>
+	<li> <strong>Setup | Environments | System Overview</strong> - This page gives a lot of information about all the different types of usages in the org.</li>
+	<li> Information returned in the <samp>Sforce-Limit_Info</samp> response header for REST API.</li>
+	<li> Information returned in the response body for SOAP API. In <samp>&lt;type&gt; API REQUESTS &lt;/type&gt;</samp>.</li>
+	<li> The <samp>/limit</samp> call in the REST API.</li>
+</ul>
+<p>Notification when the org exceeds number of API calls can be setup in <strong>Setup | Environment | Monitoring |API Usage Notifications</strong>.</p>
+
+<h3 id="h3-73">Which API To Use?</h3>
+<p>Following table shows the most used APIs</p>
+
+<table>
+<tr>
+	<th>API Name</th>
+	<th>Protocol</th>
+	<th>Data Format</th>
+	<th>Communication</th>
+</tr>
+
+<tr>
+	<td>REST API</td>
+	<td>REST</td>
+	<td>JSON, XML</td>
+	<td>Synchronous</td>
+</tr>
+<tr>
+	<td>SOAP API</td>
+	<td>SOAP (WSDL)</td>
+	<td>XML</td>
+	<td>Synchronous</td>
+</tr>
+<tr>
+	<td>Connect REST API</td>
+	<td>REST</td>
+	<td>JSON, XML</td>
+	<td>Synchronous (photos asynchronously)</td>
+</tr>
+<tr>
+	<td>User Interface API</td>
+	<td>REST</td>
+	<td>JSON</td>
+	<td>Synchronous</td>
+</tr>
+<tr>
+	<td>Analytics REST API</td>
+	<td>REST</td>
+	<td>JSON, XML</td>
+	<td>Synchronous</td>
+</tr>
+<tr>
+	<td>Bulk API</td>
+	<td>REST</td>
+	<td>CSV, JSON, XML</td>
+	<td>Asynchronous</td>
+</tr>
+<tr>
+	<td>Metadata API</td>
+	<td>SOAP (WSDL)</td>
+	<td>XML</td>
+	<td>Asynchronous</td>
+</tr>
+<tr>
+	<td>Streaming API</td>
+	<td>Bayeux</td>
+	<td>JSON</td>
+	<td>Asynchronous (stream of data)</td>
+</tr>
+<tr>
+	<td>Apex REST API</td>
+	<td>REST</td>
+	<td>JSON, XML, Custom</td>
+	<td>Synchronous</td>
+</tr>
+<tr>
+	<td>Apex SOAP API</td>
+	<td>SOAP (WSDL)</td>
+	<td>XML</td>
+	<td>Synchronous</td>
+</tr>
+<tr>
+	<td>Tooling API</td>
+	<td>REST or SOAP (WSDL)</td>
+	<td>JSON, XML, Custom</td>
+	<td>Synchronous</td>
+</tr>
+</table>
+<h3 id="h3-74">Reset Password and Security Token</h3>
+<p>Username, password and Security Token for salseforce account is needed to authenticate when authenticating from an unkown Ip Address.</p>
+
+<p>To get the Security token goto <strong>Bear Icon | Settings (Under Username) | My Personal Information | Reset My Secruity Token</strong>.</p>
+
+<p>When making request from an unkown IP address the passwork and token should be used together like <samp>passwordsecuritytoken</samp> without spaces.</p>
+
+<p>Session Id will be generated and send by salesforce on successful login, that then can be used for further requests.</p>
+
+<h3 id="h3-75">Connect Postman to Salesforce</h3>
+<p>Postman can be used to test REST api. If using any other tool the process to follow in setting up salesforce remains the same.</p>
+
+<quote> A fork of the <a href="https://www.postman.com/salesforce-developers/workspace/salesforce-developers" target="_blank">Salesforce Developers Workspace</a> can be made that has the collection of all the request that are possible with salesforce REST API.</quote>
+<p>To create a fork, click on three dots besides Salesforce Platform API and from the drop down select <samp>Create a Fork</samp>.</p>
+
+<p>Once forked, click on Salesforce Platform API which will open an authorization window on right. Click <samp>Get New Authorization Token</samp>, then Allow postman in the new window where salseforce open, the <samp>Use Token</samp>. Also in the variables tab under <samp>_endpoint</samp> in current value use mydomain for the org.</p>
+
+<h4 id="h4-28">Set up Cross-Origin Resource Sharing (CORS)</h4>
+<p>Cross Origin Resource Sharing or CORS allows code running in a web browser to communicate with salesforce from a specific origin.</p>
+
+<quote> While using postman's desktop version this step will not be needed as, it does not send preflight request like browsers do.</quote>
+<p><strong>Setup | Security | CORS</strong> - and add new link to <strong>Allowed Origin List</strong>.</p>
+
+<p>In case of postman add <samp>https://&lt;em&gt;.postman.co</samp> and <samp>https://&lt;/em&gt;.postman.com</samp> as the Origin URL pattern.</p>
+
+<h4 id="h4-29">Authorize Org</h4>
+<p>An Access token is needed to access Salesforce API. Authentication grants a access token that's valid for a certain duration.</p>
+
+<p>Getting all that is required for authentication and then making request with all these different information fro authorization, is difficult. So tools like, postman(with salesforce requests fork), workbench and dataloader can be used to ease the work and directly connect with salesforce with auth 2.0 and also take care or authorization in the subsequent requests.</p>
+
+<p>Orgs can be authorized with the fork of <a href="https://www.postman.com/salesforce-developers/workspace/salesforce-developers/overview" target="_blank">postman</a> or with <a href="https://workbench.developerforce.com/login.php" target="_blank">workbench</a> or with <a href="https://dataloader.io/" target="_blank">dataloader.io</a> for data transfer.</p>
+
+<h3 id="h3-76">REST Resources and Methods</h3>
+<p>REST request consists of four components - a resource URI, an HTTP method, request headers, and a request body.</p>
+
+<p>REST resources can be used to -</p>
+
+<ul>
+	<li> Obtain Detailed information about a salesforce object.</li>
+	<li> Perfrom a query or search.</li>
+	<li> Update or delete records.</li>
+	<li> Retrieve summary information about the API version.</li>
+</ul>
+<h3 id="h3-77">SOAP API</h3>
+<p>Salesforce uses two types of WSDL(Web Services Description Language) files. One is org specific called <strong>Enterprise WSDL</strong> and is strongly typed, where as other is loosely typed to support several orgs called <strong>Partner WSDL</strong>.</p>
+
+<p>To generate a WSDL goto <strong>Setup | Integrations | API</strong>. Here different WSDL can be generated.</p>
+
+<quote> While using enterprise WSDL, whenever the metadata in the org is changed, a new WSDL should be generated to reflect the changes.</quote>
+<p>Third party tools such as SOAPUI can be used to consume the WSDL. <a href="https://www.soapui.org/downloads/soapui.html" target="_blank">SOAPUI can be download here</a>.</p>
+
+<h4 id="h4-30">Authenticating SOAP</h4>
+<p>Once SOAPUI is installed the WSDL can be loaded. Use <strong>login | Request 1</strong> to authenticate.</p>
+
+<p>Everything between <samp>&lt;soapenv:Header&gt;&lt;/soapenv:Header&gt;</samp> can be removed excluting these tags themseleves. Use the username and password with token in relevant tags.</p>
+
+<p>The request's response will contain the <samp>sessionId</samp> that will be needed to make further requests. It also has the instance name in <samp>serverURL</samp> tag which is <samp>https://instanceName.salesforce.com\...</samp>, which will also be needed.</p>
+
+<p>If my domain is configured using my domain instead of the instance is prefered as the instance name can change.</p>
+
+<h4 id="h4-31">Create a new Record with SOAP UI</h4>
+<p>Once authenticated, the sessionId can be used to manipulate records. To create a record click on create and Request 1.</p>
+
+<p>In this all the heads except for session header can be deleted.</p>
+
+<p>Example - Create an Account</p>
+
+
+<pre><code class="language-xml">
+&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:enterprise.soap.sforce.com" xmlns:urn1="urn:sobject.enterprise.soap.sforce.com"&gt;
+   &lt;soapenv:Header&gt;
+      &lt;urn:SessionHeader&gt;
+         &lt;urn:sessionId&gt;SessionIDThatWasCopiedWhenAuthenticating&lt;/urn:sessionId&gt;
+      &lt;/urn:SessionHeader&gt;
+   &lt;/soapenv:Header&gt;
+   &lt;soapenv:Body&gt;
+      &lt;urn:create&gt;
+         &lt;!--Zero or more repetitions:--&gt;
+         &lt;urn:sObjects xsi:type="urn1:Account" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+            &lt;!--Zero or more repetitions:--&gt;
+             &lt;Name&gt;Bluebeards Coconut Milk House&lt;/Name&gt;
+             &lt;Description&gt;It is better than Blackbeards.&lt;/Description&gt;
+         &lt;/urn:sObjects&gt;
+      &lt;/urn:create&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;
+</code></pre>
+
+<h3 id="h3-78">Bulk API</h3>
+<p>Bulk API is based on REST. Unlike REST and SOAP API, Bulk API works Asynchronously.</p>
+
+<p>The easiest way of using Bulk api is to use Data Loader.</p>
+
+<p>Salseforce's postman fork also is easy to use to use Bulk Api. For detailed walk through see <a href="https://trailhead.salesforce.com/content/learn/modules/api_basics/api_basics_bulk" target="_blank">this Use Bulk API 2.0 module</a></p>
+
+<p>Bulk Api with postman also supports uploading of csv file with <samp>binary</samp> as the type of body.</p>
+
+<p>The status of Bulk jobs can be checked in <strong>Setup | Environmnet | Jobs | Bulk Data Loader Jobs</strong>.</p>
+
+<h3 id="h3-79">Streaming API</h3>
+<p>Streaming Api enables to push real time notification to clients using publish subscribe model.</p>
+
+<h3 id="h3-80">Metadata API</h3>
+<p>Use metadata API to retrieve, deploy, create, update or delete customizations for orgs. The most common use is to migrate changes from sandbox or testing org to production org.</p>
+
+<p>Metadata API is intended for managing customizations and for building tools that can manage the metadata model, not the data itself.</p>
+
+<p>The easiest way to access the functionality in Metadata API is to use the salesforce Entension for VS Code or Ant Migration Tool.</p>
+
+<h3 id="h3-81">Tooling API</h3>
+<p>Use tooling API to build custom development tools or apps for Platform applications.</p>
+
+<p>Tooling API can be used to build specialized development tools for specific applications or services.</p>
+
+<p>Tooling API's SOQL capablilities for many metadata types allow to retrieve smaller pieces of metadata. Tooling API provide both SOAP and REST interfaces.</p>
+
+<h2 id="h2-15">Apex Integration With REST</h2>
+<quote> <a href="https://resources.docs.salesforce.com/sfdc/pdf/api_rest.pdf" target="_blank">For an Indepth official guide on REST in salesforce download pdf here</a>.</quote>
+<h3 id="h3-82">External Service Callout</h3>
+<p>Before callout can be made the site to which the callout will be made has to be approved by adding it to the Authorized Endpoint addresses list.</p>
+
+<p>To Approve a site for an organization go to <strong>Setup | Security | Remote Site Setting | New Remote Site</strong>.</p>
+
+<p>Add all the details needed on this page and then save.</p>
+
+<quote> Callouts enable Apex to invoke external web or HTTP services. Apex Web services allow an external application to invoke Apex methods through Web services.</quote>
+<h3 id="h3-83">HTTP callout</h3>
+<table>
+<tr>
+	<th>HTTP Method</th>
+	<th>Description</th>
+</tr>
+
+<tr>
+	<td>GET</td>
+	<td>Retrieve data identified by a URL.</td>
+</tr>
+<tr>
+	<td>POST</td>
+	<td>Create a resource or post data to the server.</td>
+</tr>
+<tr>
+	<td>DELETE</td>
+	<td>Delete a resource identified by a URL.</td>
+</tr>
+<tr>
+	<td>PATCH</td>
+	<td>The PATCH method applies partial modifications to a resource.</td>
+</tr>
+<tr>
+	<td>PUT</td>
+	<td>Create or replace the resource sent in the request body.</td>
+</tr>
+</table>
+<quote> <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods" target="_blank">More info on HTTP Methods visit MDN</a>.</quote>
+<p>Other than setting the request method, headers for a request can also be set.</p>
+
+<h3 id="h3-84">Example Callout</h3>
+
+<pre><code class="language-java">
+public class AnimalsCallouts {
+    public static HttpResponse makeGetCallout() {
+        Http http = new Http();
+        HttpRequest request = new HttpRequest();
+        request.setEndpoint('https://th-apex-http-callout.herokuapp.com/animals');
+        request.setMethod('GET');
+        HttpResponse response = http.send(request);
+        // If the request is successful, parse the JSON response.
+        if(response.getStatusCode() == 200) {
+            // Deserializes the JSON string into collections of primitive data types.
+            Map&lt;String, Object&gt; results = (Map&lt;String, Object&gt;) JSON.deserializeUntyped(response.getBody());
+            // Cast the values in the 'animals' key as a list
+            List&lt;Object&gt; animals = (List&lt;Object&gt;) results.get('animals');
+            System.debug('Received the following animals:');
+            for(Object animal: animals) {
+                System.debug(animal);
+            }
+        }
+        return response;
+    }
+    public static HttpResponse makePostCallout() {
+        Http http = new Http();
+        HttpRequest request = new HttpRequest();
+        request.setEndpoint('https://th-apex-http-callout.herokuapp.com/animals');
+        request.setMethod('POST');
+        request.setHeader('Content-Type', 'application/json;charset=UTF-8');
+        request.setBody('{"name":"mighty moose"}');
+        HttpResponse response = http.send(request);
+        // Parse the JSON response
+        if(response.getStatusCode() != 201) {
+            System.debug('The status code returned was not expected: ' +
+                response.getStatusCode() + ' ' + response.getStatus());
+        } else {
+            System.debug(response.getBody());
+        }
+        return response;
+    }
+}
+</code></pre>
+
+<h3 id="h3-85">Mapping Custom objects with Response JSON</h3>
+<p>In JSON response The outer response object contains Animal object.</p>
+
+
+<pre><code class="language-java">
+public class AnimalLocator {
+    public class Animal {
+        public Integer id;
+        public String name;
+        public String eats;
+        public String says;
+    }
+    public class ResOutput{
+        public Animal animal;
+    }
+
+
+    public static String getAnimalNameById (Integer id) {
+        Http http = new Http();
+        HttpRequest request = new HttpRequest();
+        request.setEndpoint('https://th-apex-http-callout.herokuapp.com/animals/' + id);
+        request.setMethod('GET');
+        HttpResponse response = http.send(request);
+        ResOutput results = (ResOutput) JSON.deserialize(response.getBody(), ResOutput.class);
+        return(results.animal.name);
+    }
+}
+</code></pre>
+
+<quote> If the JSON is an array of items, <samp>Item</samp> being the class name for mapping, use <samp>List&lt;Item&gt;.class</samp> as the mapping class.</quote><quote> If while mapping one or more of the keys in JSON response is a Apex keyword or an invalid variable name (ex. <samp>_id</samp>), replace these in the response by using <samp>reponse.getBody().replace('_id', 'id')</samp>, and then deserialize this string.</quote>
+<h3 id="h3-86">Testing Service Callout</h3>
+<p>Apex test do not support callout, or test that perform callout fail.</p>
+
+<p>Mock callout allow to specify what response to return to the test instead of actually calling the web service.</p>
+
+<p>Callouts can be tested either by implementing an interface or by using static resource.</p>
+
+<quote> While testing mock callout, make sure in developer console to have <strong>Test | Always Run Synchronously</strong> is checked.</quote>
+<h4 id="h4-32">Test callout with StaticResourseCalloutMock</h4>
+<p>The static resource contains the body to return.</p>
+
+<p>When test is run and callout is made, apex knows to lookup the response specified in the static resource and return that instead.</p>
+
+<p><samp>Test.setMock()</samp> method informs the runtime that mock callout are used in the test.</p>
+
+<p>In <strong>Developer Console</strong> select <strong>File | New | Static Resource</strong>.</p>
+
+<p>Enter Name, for MIME type enter text/plain (even if JSON is used), Submit.</p>
+
+<p>In the tab that opens next, enter the content to be returned, then press Ctrl + S to save.</p>
+
+<p>Example</p>
+
+
+<pre><code class="language-java">
+@isTest
+public class TestCallout {
+  @isTest
+  public static void withStaticResource() {
+    // Create the mock response based on a static resource
+    StaticResourceCalloutMock mock = new StaticResourceCalloutMock();
+    mock.setStaticResource('GetAnimalResource');
+    mock.setStatusCode(200);
+    mock.setHeader('Content-Type', 'application/json;charset=UTF-8');
+    // Associate the callout with a mock response
+    Test.setMock(HttpCalloutMock.class, mock);
+    // Call method to test
+    HttpResponse result = AnimalsCallouts.makeGetCallout();
+    // Verify mock response is not null
+    System.assertNotEquals(null,result, 'The callout returned a null response.');
+    // Verify status code
+    System.assertEquals(200,result.getStatusCode(), 'The status code is not 200.');
+  }
+}
+</code></pre>
+
+<h4 id="h4-33">Test Callout with HttpCalloutMock</h4>
+<p>To test <samp>POST</samp> callout, apex provides an implementation of <samp>HttpCalloutMock</samp> interface. The interface allows to specify the response that sent in the <samp>response</samp> method.</p>
+
+
+<pre><code class="language-java">
+@isTest
+global class AnimalsHttpCalloutMock implements HttpCalloutMock {
+  // Implement this interface method
+  global HTTPResponse respond(HTTPRequest request) {
+    // Create a fake response
+    HttpResponse response = new HttpResponse();
+    response.setHeader('Content-Type', 'application/json');
+    response.setBody('{"animals": ["majestic badger", "fluffy bunny", "scary bear", "chicken", "mighty moose"]}');
+    response.setStatusCode(200);
+    return response;
+  }
+}
+
+
+//--- Test class in other file.
+
+
+@isTest
+private class TestWithHttpCalloutMock {
+  @isTest
+  static void testPostCallout() {
+    // Set mock callout class
+    Test.setMock(HttpCalloutMock.class, new AnimalsHttpCalloutMock());
+    // This causes a fake response to be sent
+    // from the class that implements HttpCalloutMock.
+    HttpResponse response = AnimalsCallouts.makePostCallout();
+    // Verify that the response received contains fake values
+    String contentType = response.getHeader('Content-Type');
+    System.assert(contentType == 'application/json');
+    String actualValue = response.getBody();
+    System.debug(response.getBody());
+    String expectedValue = '{"animals": ["majestic badger", "fluffy bunny", "scary bear", "chicken", "mighty moose"]}';
+    System.assertEquals(expectedValue, actualValue);
+    System.assertEquals(200, response.getStatusCode());
+  }
+}
+</code></pre>
+
+<h2 id="h2-16">Apex Web Services</h2>
+<h3 id="h3-87">Expose Apex Class as REST Service</h3>
+<p>By making methods callable through web, external applications can integrate with Salesforce.</p>
+
+<p>To define a class a REST service make sure the class is defined as global and static, the add annotations to the class and methods.</p>
+
+
+<pre><code class="language-java">
+@RestResource(urlMapping='/Account/&lowast;')
+global with sharing class MyRestResource {
+    @HttpGet
+    global static Account getRecord() {
+        // Add your code
+    }
+}
+</code></pre>
+
+<quote> The base url for any Rest endpoint is <samp>https://yourInstance.my.salesforce.com/services/apexrest/</samp>. The URL mapping is appended to the base endpoint to form the endpoint for your REST service.</quote>
+<h3 id="h3-88">Method annotations for different rest methods -</h3>
+<table>
+<tr>
+	<th>Annotation</th>
+	<th>Action</th>
+	<th>Details</th>
+</tr>
+
+<tr>
+	<td><samp>@HttpGet</samp></td>
+	<td>Read</td>
+	<td>Reads or retrieves records.</td>
+</tr>
+<tr>
+	<td><samp>@HttpPost</samp></td>
+	<td>Create</td>
+	<td>Creates records.</td>
+</tr>
+<tr>
+	<td><samp>@HttpDelete</samp></td>
+	<td>Delete</td>
+	<td>Deletes records.</td>
+</tr>
+<tr>
+	<td><samp>@HttpPut</samp></td>
+	<td>Upsert</td>
+	<td>Typically used to update existing records or create records.</td>
+</tr>
+<tr>
+	<td><samp>@HttpPatch</samp></td>
+	<td>Update</td>
+	<td>Typically used to update fields in existing records.</td>
+</tr>
+</table>
+<h3 id="h3-89">Making REST calls with Workbench</h3>
+<p>Workbench uses Session Authentication, when logged in with username and password.</p>
+
+<p>The Use REST explorer to call the REST service.</p>
+
+<ul>
+	<li> Navigate to <a href="https://workbench.developerforce.com/login.php" target="_blank">Workbench</a>.</li>
+	<li> For Enviroment select Production.</li>
+	<li> Select latest API version.</li>
+	<li> Then login with Salesforce.</li>
+	<li> Allow workbench to access the orgs infromation.</li>
+	<li> Enter login credentials and the click Login with Salesforce.</li>
+	<li> After login select <strong>utilities | REST Explorer</strong>.</li>
+</ul>
+<h3 id="h3-90">Using Connected App</h3>
+<p>Workbench in the background automatically sends the session Id that is need to connect to salesforce orgs when making Rest Requests.</p>
+
+<p>But for a Third party api to connect with Salesforce org, a connect app for that service needs to created. This app allows the third party application to connect with the salesforce org.</p>
+
+<p>To setup a Connected App-</p>
+
+<ul>
+	<li> Go to <strong>Setup | App Manager | New Connected App</strong>.</li>
+	<li> Add name, contact email and any other information.</li>
+	<li> Select <strong>Enable OAuth Settings</strong>.</li>
+	<li> Enter a Callback URL, that is secure. <samp>http://</samp> does not work. For quick start just enter <samp>https://</samp>.</li>
+	<li> Enter an OAuth scope</li>
+	<li> Click save</li>
+	<li> Once the app is ready <strong>Consumer Key</strong> is created and displayed and, <strong>Consumer Secret</strong> is created which can be accessed by given link on page.</li>
+</ul>
+<h3 id="h3-91">Supported Data Types for Apex REST</h3>
+<p>Apex REST supports these data types for parameters and return values.</p>
+
+<ul>
+	<li> Apex primitives (excluding Object and Blob).</li>
+	<li> sObjects</li>
+	<li> Lists or maps of Apex primitives or sObjects (only maps with String keys are supported).</li>
+	<li> User-defined types that contain member variables of the types listed above.</li>
+</ul>
+<h3 id="h3-92">Namespaces in Apex REST Endpoints</h3>
+<p>Apex REST methods can be used in managed and unmanaged packages. When calling Apex REST methods that are contained in a managed package, you need to include the managed package namespace in the REST call URL.</p>
+
+<p>For example, if the class is contained in a managed package namespace called <samp>packageNamespace</samp> and the Apex REST methods use a URL mapping of <samp>/MyMethod/*</samp>, the URL used via REST to call these methods would be of the form <samp>https://instance.my.salesforce.com/services/apexrest/packageNamespace/MyMethod/</samp>.</p>
+
+<h3 id="h3-93">Security Considerations for Apex Web Services</h3>
+<p>The security context under which Apex web service methods run differs from the security context of Salesforce APIs.</p>
+
+<p>Unlike Salesforce APIs, Apex web service methods run with system privileges and don't respect the user's object and field permissions.</p>
+
+<p>However, Apex web service methods enforce sharing rules when declared with the with sharing keyword.</p>
+
+<h3 id="h3-94">Testing Apex REST services</h3>
+<p>For most Apex REST classes, testing is similar to any other, just call the methods of the class and pass in the parameters.</p>
+
+<p>If any classes/methods rely on the incoming request, create a <samp>RestRequest</samp> in the test method and then set properties on that request.</p>
+
+<p>If the methods access request values from <samp>RestContext</samp> then add the <samp>RestRequest</samp> to the context by using <samp>RestContext.request = request;</samp>.</p>
+
+
+<pre><code class="language-java">
+// Set up a test request
+RestRequest request = new RestRequest();
+// Set request properties
+request.requestUri =
+    'https://yourInstance.my.salesforce.com/services/apexrest/Cases/'
+    + recordId;
+request.httpMethod = 'GET';
+// Set other properties, such as parameters
+request.params.put('status', 'Working');
+// more awesome code here....
+// Finally, assign the request to RestContext if used
+RestContext.request = request;
+
+
+//-- then call the method for example case by id
+Case thisCase = CaseManager.getCaseById();
+// Verify results
+System.assert(thisCase != null);
+</code></pre>
+
+<h3 id="h3-95">Example Apex REST Web Service</h3>
+<h4 id="h4-34">Example 1 : Basic REST Service</h4>
+
+<pre><code class="language-java">
+@RestResource(urlMapping='/Cases/&lowast;')
+global with sharing class CaseManager {
+    @HttpGet
+    global static Case getCaseById() {
+        RestRequest request = RestContext.request;
+        // grab the caseId from the end of the URL
+        String caseId = request.requestURI.substring(
+          request.requestURI.lastIndexOf('/')+1);
+        Case result =  [SELECT CaseNumber,Subject,Status,Origin,Priority
+                        FROM Case
+                        WHERE Id = :caseId];
+        return result;
+    }
+    @HttpPost
+    global static ID createCase(String subject, String status,
+        String origin, String priority) {
+        Case thisCase = new Case(
+            Subject=subject,
+            Status=status,
+            Origin=origin,
+            Priority=priority);
+        insert thisCase;
+        return thisCase.Id;
+    }
+    @HttpDelete
+    global static void deleteCase() {
+        RestRequest request = RestContext.request;
+        String caseId = request.requestURI.substring(
+            request.requestURI.lastIndexOf('/')+1);
+        Case thisCase = [SELECT Id FROM Case WHERE Id = :caseId];
+        delete thisCase;
+    }
+    @HttpPut
+    global static ID upsertCase(String subject, String status,
+        String origin, String priority, String id) {
+        Case thisCase = new Case(
+                Id=id,
+                Subject=subject,
+                Status=status,
+                Origin=origin,
+                Priority=priority);
+        // Match case by Id, if present.
+        // Otherwise, create new case.
+        upsert thisCase;
+        // Return the case ID.
+        return thisCase.Id;
+    }
+    @HttpPatch
+    global static ID updateCaseFields() {
+        RestRequest request = RestContext.request;
+        String caseId = request.requestURI.substring(
+            request.requestURI.lastIndexOf('/')+1);
+        Case thisCase = [SELECT Id FROM Case WHERE Id = :caseId];
+        // Deserialize the JSON string into name-value pairs
+        Map&lt;String, Object&gt; params = (Map&lt;String, Object&gt;)JSON.deserializeUntyped(request.requestbody.tostring());
+        // Iterate through each parameter field and value
+        for(String fieldName : params.keySet()) {
+            // Set the field and value on the Case sObject
+            thisCase.put(fieldName, params.get(fieldName));
+        }
+        update thisCase;
+        return thisCase.Id;
+    }
+}
+</code></pre>
+
+<h4 id="h4-35">Example 2 : Using RestContext.request and Restcontext:response to Create Attachment</h4>
+
+<pre><code class="language-java">
+@RestResource(urlMapping='/CaseManagement/v1/&lowast;')
+global with sharing class CaseMgmtService
+{
+
+
+    @HttpPost
+    global static String attachPic(){
+        RestRequest req = RestContext.request;
+        RestResponse res = Restcontext.response;
+        Id caseId = req.requestURI.substring(req.requestURI.lastIndexOf('/')+1);
+        Blob picture = req.requestBody;
+        Attachment a = new Attachment (ParentId = caseId,
+                                       Body = picture,
+                                       ContentType = 'image/jpg',
+                                       Name = 'VehiclePicture');
+        insert a;
+        return a.Id;
+   }
+}
+</code></pre>
+
+<h2 id="h2-17">Sending Emails</h2>
+<p>Emails can be send and the send emails can be checked in apex using the <samp>Messaging</samp> class.</p>
+
+<h3 id="h3-96">Example Send Email and Check Sent Emails</h3>
+
+<pre><code class="language-java">
+public class EmailMissionSpecialist {
+   // Public method
+   public void sendMail(String address, String subject, String body) {
+      // Create an email message object
+      Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
+      String[] toAddresses = new String[] {address};
+      mail.setToAddresses(toAddresses);
+      mail.setSubject(subject);
+      mail.setPlainTextBody(body);
+      // Pass this email message to the built-in sendEmail method 
+      // of the Messaging class
+      Messaging.SendEmailResult[] results = Messaging.sendEmail(
+                                new Messaging.SingleEmailMessage[] { mail });
+      // Call a helper method to inspect the returned results
+      inspectResults(results);
+   }
+   // Helper method
+   private static Boolean inspectResults(Messaging.SendEmailResult[] results) {
+      Boolean sendResult = true;
+      // sendEmail returns an array of result objects.
+      // Iterate through the list to inspect results. 
+      // In this class, the methods send only one email, 
+      // so we should have only one result.
+      for (Messaging.SendEmailResult res : results) {
+         if (res.isSuccess()) {
+            System.debug('Email sent successfully');
+         }
+         else {
+            sendResult = false;
+            System.debug('The following errors occurred: ' + res.getErrors());                 
+         }
+      }
+      return sendResult;
+   }
+}
+</code></pre>
+
+<h2 id="h2-18">Custom Settings</h2>
+<p>Custom Settings to create and manage custom data at the organization, profile, and user levels.</p>
+
+<p>Custom Settings data is stored in the application cache. That means it can be accessed efficiently without the cost of repeated querying.</p>
+
+<p>Custom Settings data can be used by formula fields, Visualforce, apex and web service api.</p>
+
+<p>To Create Custom Settings <strong>Setup | Custom Code | Custom Settings</strong>. Click <strong>New</strong> to create a new custom settings object.</p>
+
+<p>To add fields to the custom settings, click on the custom setting, which will take to the details page.</p>
+
+<p>To add records to the custom settings, click <strong>manage</strong> next to the custom setting name or <strong>Manage</strong> button on the custom settings details page.</p>
+
+<quote> Custom Settings are not visible in tests. They have to be created and inserted in the test class, else the code using it will throw null Exception.</quote>
+<p>Limitations of custom settings.</p>
+
+<ul>
+	<li> Records (definitions) are not deployed. They have to be created in production. Headers or metadata for these object is deployed, but records are not.</li>
+</ul>
+<h3 id="h3-97">Enable List custom Settings</h3>
+<p>By default List custom Setting are disabled. Only herarchical custom settings can be created.</p>
+
+<p>Go to : <strong>Setup | Home | Data | Schema Setting</strong> and here enable <strong>Manage List Custom Setting Type</strong>.</p>
+
+<h3 id="h3-98">Accessing Custom Settings</h3>
+<p>To access list of custom settings Use</p>
+
+<p><samp>Map&lt;String_dataset_name, CustomSettingName__c&gt; mcs = CustomSettingName__c.getAll();</samp></p>
+
+<p>To return all the field values associated with a data set use</p>
+
+<p><samp>CustomSettingName__c mc = CustomSettingName__c.getValues(data_set_name);</samp></p>
+
+<p>To Access Heirarchy Custom Settings at organization level use</p>
+
+<p><samp>CustomSettingName__c mc = CustomSettingName__c.getOrgDefaults();</samp></p>
+
+<p>To Access Heirarchy Custom Settings for a particular profile use</p>
+
+<p><samp>CustomSettingName__c mc = CustomSettingName__c.getInstance(Profile_ID);</samp></p>
+
+<h2 id="h2-19">Custom Code</h2>
+<h3 id="h3-99">Custom Labels</h3>
+<p>Custom Labels are text values stored in Salesforce that can be translated into any language that Salesforce supports.</p>
+
+<p>The Main advantage of custom label other than native language support is they can be edited in production to make customized applications.</p>
+
+<h2 id="h2-20">Custom Metadata</h2>
+<p>Custom metadata type is an object that is used to define the structure for application metadata.</p>
+
+<p>The fields of custom metadata types and the values in the field consist only of metadata.</p>
+
+<p>The records on custom metadata type are also metadata, not data.</p>
+
+<h3 id="h3-100">Why use Custom Metadata</h3>
+<p>Instead of storing hard-coded data, custom metadata types let configure apps by building reusable functionality that determines the behaviour based on metadata. Most of this customization can be done with declarative tools.</p>
+
+<p>When an app is deployed with custom metadata type, all records and fields are included in the package installation, so no additional steps are needed.</p>
+
+<p>Custom metadata unlike custom settings can be deployed from sandbox using change sets and also packaged in managed packages.</p>
+
+<quote> Custom metadata types are customizable, deployable, packageable, and upgradeable application metadata.</quote>
+<h3 id="h3-101">Where to use Custom Metadata types</h3>
+<ul>
+	<li> Mappings - To create association between two different objects.</li>
+	<li> Business rules</li>
+	<li> Master data - Ex. Invetory low values that will be used to define when alert are send.</li>
+	<li> Protected Information - Data like API keys in protected packages.</li>
+</ul>
+<h3 id="h3-102">What can use Custom Metadata types</h3>
+<ul>
+	<li> Apex</li>
+	<li> Flows</li>
+	<li> Formula fields</li>
+	<li> Process Builder</li>
+	<li> Validation rules</li>
+</ul>
+<h3 id="h3-103">Create and Manage Custom Metadata Types</h3>
+<p>To create custom metadata type goto <strong>Setup | Custom Code | Custom Metadata types</strong> then click <strong>New Custom Metadata type</strong>.</p>
+
+<p>Once created, on the details page <strong>Custom Fields</strong> can be created.</p>
+
+<p>To Create new records click <strong>Manage CustomMetadataTypeName</strong> to add records.</p>
+
+<quote> Custom Metadata records can be created, read, and update but not deleted from apex code.</quote>
+<h3 id="h3-104">Using Custom Metadata types</h3>
+<h4 id="h4-36">In Default Values</h4>
+<p>There is no UI for Default value option.</p>
+
+<p>The syntax used is <samp>$CustomMetadata.CustomMetadataTypeAPIName.RecordAPIName.FieldAPIName</samp>. Ex. <samp>$CustomMetadata.Support_Tier__mdt.Bronze.MasterLabel</samp>.</p>
+
+<p>Use the required appropriate suffix, <samp>__mdt</samp> for custom metadata type and <samp>__c</samp> for fields, records do not require suffix.</p>
+
+<h4 id="h4-37">In Validation Rules</h4>
+<p>Like in Default values the same formula applies to add custom metadata type to any validation rule formula.</p>
+
+<p><samp>$CustomMetadata.CustomMetadataTypeAPIName.RecordAPIName.FieldAPIName</samp> with appropriate <samp>__c</samp> and <samp>__mdt</samp> suffix.</p>
+
+<h4 id="h4-38">In formula</h4>
+<p>Again Similar to Default value and Validation rule directly use the same syntax to reference Custom metadata record value in a formula.</p>
+
+<p><samp>$CustomMetadata.CustomMetadataTypeAPIName.RecordAPIName.FieldAPIName</samp> with appropriate <samp>__c</samp> and <samp>__mdt</samp> suffix.</p>
+
+<h3 id="h3-105">Apex Metadata API</h3>
+<p>The API allows making metadata changes directly from Apex. Also configuration changes can be automated.</p>
+
+<p>Apex Metadata API gives you the power to automate changes to an org's configuration</p>
+
+<p>Currently Apex Metadata API only two types of metadata types are supported, page layouts and records of custom metadata types.</p>
+
+<p>The metadata api uses classes and methods from the <samp>Metadata</samp> namespace.</p>
+
+<p>Tracking status of deployment needs setting up of a callback that is called when the deployment completes. The callback class must implement the <samp>Metadata.DeployCallback</samp> interface. As the callback is also called asynchronously after deployment, there can be a deplay before the callback is called.</p>
+
+<p>To deploy Metadata to current org use <samp>Metadata.Operations.enqueueDeployment</samp> method.</p>
+
+<p>To initiate the deployment from a post intall script, which is an apex class that implements the <samp>InstallHandler</samp> interface. If a package contains a post install script, the script is run automatically after the package is installed or upgraded.</p>
+
+<p>Custom Metadata records can be created, read, and update but not deleted from apex code.</p>
+
+<h3 id="h3-106">Safeguard in Apex Metadata API</h3>
+<ul>
+	<li> Restrictions on the type of metadata that can be created or modified.</li>
+	<li> Restrictions on the apps that can deploy changes.</li>
+	<li> Detailed audit histories that track metadata changes.</li>
+</ul>
+<h3 id="h3-107">Example Of Apex Metadata API</h3>
+<p>Create an apex class to retrieve the existing metadata for the contact page layout. Update this metadata with a new custom field that represents a twitter username.</p>
+
+
+<pre><code class="language-java">
+// -- Retrieve Metadata and Add a custom field.
+public class UpdateContactPageLayout {
+    public Metadata.Layout addLayoutItem() {
+        //Retrieve metadata from contact pagelayout
+        List&lt;Metadata.Metadata&gt; layoutsList = 
+            Metadata.Operations.retrieve(
+                Metadata.MetadataType.Layout, 
+                new List&lt;String&gt;{'Contact-Contact Layout'}) ;
+        
+        System.debug(layoutsList);
+        
+        //Get the first layout
+         Metadata.Layout layoutMetadata = (Metadata.Layout) layoutsList.get(0);
+        
+        //Assign value of Additional Information.
+        Metadata.LayoutSection contactLayoutSection = null;
+
+
+        for(Metadata.LayoutSection section: layoutMetadata.layoutSections) {
+            if(section.label == 'Additional Information') {
+                contactLayoutSection = section;
+                break;
+            }
+        }
+        
+        List&lt;Metadata.LayoutColumn&gt; contactColumns = contactLayoutSection.layoutColumns;
+        
+        List&lt;Metadata.LayoutItem&gt; contactLayoutItems =contactColumns[0].layoutItems;
+        
+        //Create a new Metadata item for the custom field
+        Metadata.LayoutItem newField = new Metadata.LayoutItem();
+        newField.behavior = Metadata.UiBehavior.Edit;
+        //To use this class, replace
+        //'AMAPI__Apex_MD_API_sample_field__c' 
+        //with your namespace and field name.
+        newField.field = 'AMAPI__Apex_MD_API_Twitter_name__c';
+        contactLayoutItems.add(newField);
+        //Add newField to contactLayoutItems
+        return layoutMetadata;
+    }
+}
+</code></pre>
+
+<p>Provide a callback class</p>
+
+
+<pre><code class="language-java">
+public class PostInstallCallback implements Metadata.DeployCallback {
+    public void handleResult(Metadata.DeployResult result,
+        Metadata.DeployCallbackContext context) {
+        if (result.status == Metadata.DeployStatus.Succeeded) {
+            // Deployment was successful, take appropriate action.
+            System.debug('Deployment Succeeded!');
+        } else {
+            // Deployment wasn’t successful, take appropriate action.
+      System.debug('Deployment Failed!');
+        }
+    }
+}
+</code></pre>
+
+<p>Create a depolyment container</p>
+
+
+<pre><code class="language-java">
+public class DeployMetadata {
+    // Create metadata container 
+    public Metadata.DeployContainer constructDeploymentRequest() {
+        Metadata.DeployContainer container = new Metadata.DeployContainer();
+        // Add components to container         
+        Metadata.Layout layoutMetadata = new UpdatePageLayout().buildLayout();
+        container.addMetadata(layoutMetadata);
+        return container;
+    }
+    // Deploy metadata
+    public void deploy(Metadata.DeployContainer container) {
+        // Create callback. 
+        PostInstallCallback callback = new PostInstallCallback();
+        // Deploy the container with the new components. 
+        Id asyncResultId = Metadata.Operations.enqueueDeployment(container, callback);
+    }
+}
+</code></pre>
+
+<p>Deploy Metadata Asynchronously</p>
+
+
+<pre><code class="language-java">
+public class PostInstallScript implements InstallHandler {
+    // Deploy post-install metadata  
+    public void onInstall(InstallContext context) {
+        DeployMetadata deployUtil = new DeployMetadata();
+        Metadata.DeployContainer container = deployUtil.constructDeploymentRequest();
+        deployUtil.deploy(container);
+    }
+}
+</code></pre>
+
+<h3 id="h3-108">Build Admin Tools for Automated Configuration</h3>
+<p>A custom setup UI can be build to enable admins to configure and deploy new custom metadata type using apex.</p>
+
+<p>There could be a setup wizard consisting of visualforce pages that guides admins throught a series of pages to do complicated configuration.</p>
+
+
+<pre><code class="language-java">
+public class MetadataExample {
+    public void updateMetadata() {
+        Metadata.CustomMetadata customMetadata = new Metadata.CustomMetadata();
+        customMetadata.fullName = 'MyNamespace__MyMetadataTypeName.MyMetadataRecordName';
+        Metadata.CustomMetadataValue customField = new Metadata.CustomMetadataValue();
+        customField.field = 'customField__c';
+        customField.value = 'New value';
+        customMetadata.values.add(customField);
+        Metadata.DeployContainer deployContainer = new Metadata.DeployContainer();
+        deployContainer.addMetadata(customMetadata);
+        
+        Id asyncResultId = Metadata.Operations.enqueueDeployment(deployContainer, null);
+    }
+}
+</code></pre>
+
+<h3 id="h3-109">Testing Metadata Deployment</h3>
+<p>Container and callback can be tested to ensure that everthing works propertly. How the org looks after the deployment cannot be tested.</p>
+
+<p>Callback is normally called by salesforce as a part of the asynchronous deployment process and so to test your callback outside of the deployment process, create test that use callback class directly.</p>
+
+<quote> Apex Metadata API wasn't built for testing other code. It can be tempting to use the Apex Metadata API to toggle features on and off for unit testing. However, because Apex Metadata API relies on asynchronous deployment, it isn't compatible with Apex's synchronous tests.</quote>
+
+<pre><code class="language-java">
+// --- Test deployment container
+@IsTest
+public class DeploymentTest {
+    @IsTest
+    static void testDeployment() {
+        DeployMetadata deployMd = new DeployMetadata();
+        Metadata.DeployContainer container = deployMd.constructDeploymentRequest();
+        List&lt;Metadata.Metadata&gt; contents = container.getMetadata();
+        System.assertEquals(1, contents.size());
+        Metadata.Layout md = (Metadata.Layout) contents.get(0);
+        // Perform various assertions the layout metadata.
+        System.assertEquals('Account-Account Layout', md.fullName);
+    }
+}
+
+
+// --- Test Deployment Callback
+@IsTest
+public class MyDeploymentCallbackTest {
+    @IsTest
+    static void testMyCallback() {
+        // Instantiate the callback.
+        Metadata.DeployCallback callback = new PostInstallCallback();
+        // Create test result and context objects.
+        Metadata.DeployResult result = new Metadata.DeployResult();
+        result.numberComponentErrors = 1;
+        Metadata.DeployCallbackContext context = new Metadata.DeployCallbackContext();
+        // Invoke the callback's handleResult method.
+        callback.handleResult(result, context);
+    }
+}
+</code></pre>
+
+</div>
+</div>
+
+    <!-- Format -->
+    <script src="../../highlight/highlight.min.js"></script>
+    <script src="../../library/format.js"></script>
+</body>
+</html>

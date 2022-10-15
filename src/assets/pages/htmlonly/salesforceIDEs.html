@@ -1,0 +1,192 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<title></title>
+</head>
+<body>
+<div id="container">
+
+<div id="index">
+<ul id="index-list">
+<li class="index-li-h2"><a href="#h2-0">Salesforce Development with VScode</a></li>
+<li class="index-li-h3"><a href="#h3-0">Configure Prettier</a></li>
+<li class="index-li-h3"><a href="#h3-1">Installing Java Development Kit (JDK)</a></li>
+<li class="index-li-h2"><a href="#h2-1">Create a new Project</a></li>
+<li class="index-li-h2"><a href="#h2-2">Connect Organization with project</a></li>
+<li class="index-li-h2"><a href="#h2-3">Getting Data from organization</a></li>
+<li class="index-li-h2"><a href="#h2-4">Developer Hub</a></li>
+<li class="index-li-h3"><a href="#h3-2">Create a Scratch Org</a></li>
+<li class="index-li-h2"><a href="#h2-5">Using SFDX in terminal</a></li>
+</ul>
+</div>
+
+<div id="content">
+<h1 id="h1-0">Salesforce</h1>
+<h2 id="h2-0">Salesforce Development with VScode</h2>
+<p>First <a href="https://developer.salesforce.com/tools/sfdxcli" target="_blank">Download the salesforce cli</a> and install it.</p>
+
+<p>To check sfdx is installed successfully in terminal use <samp>sfdx -v</samp>, it will give a version of sfdx and node installed on the system.</p>
+
+<p>If there is an error, try installing sfdx again, or check if it is added to the class path for windows operating system. Also check nodejs is installed on the system and is added to the class path on the operating system.</p>
+
+<p>To update existing version of sfdx use <samp>sfdx update</samp>.</p>
+
+<p><a href="https://code.visualstudio.com/download" target="_blank">Download and Install VsCode</a>.</p>
+
+<p>If you use VsCode for other developement, or other project and would like to setup a different Vscode install just for development of Saleforce. You could try <a href="https://code.visualstudio.com/docs/editor/portable" target="_blank">Portable version, guide here</a>.</p>
+
+<p>The protable version will considerable declutter the development enviroment and give you a clean vscode version to work with salesforce.</p>
+
+<p>After vscode is installed, and open, install the <strong>Salesforce Extension Pack (Expanded)</strong> or <strong>Salesforce Extension Pack</strong> from the vscode extensions tab on the left side bar.</p>
+
+<p>This will install all the tools that salesforce provide for developing and integrating saleforce org with vscode, so data from org can be accessed in vscode and send from vscode to your organization.</p>
+
+<p>After installing the extensions, vscode is ready for development.</p>
+
+<h3 id="h3-0">Configure Prettier</h3>
+<p>If some of the plugins like prettier are not working out of the box after intalling, do <samp>npm install</samp>, this will install the packages from <samp>package.json</samp>. Also there are many predefined scripts in <samp>package.json</samp> that might be helpful.</p>
+
+<p>Prettier can also be further configured to support lwc template formatting, by changing its parser from html template to lwc.</p>
+
+<p>There are several ways to configure prettier that can be found on the <a href="https://prettier.io/docs/en/configuration.html" target="_blank">prettier website here</a>.</p>
+
+<p>The simplest being adding a <samp>prettier</samp> option to <samp>package.json</samp>.</p>
+
+
+<pre><code class="language-json">
+"prettier": {
+  "overrides": [
+    {
+      "files": "&lowast;.html",
+      "options": {
+        "parser": "lwc"
+      }
+    }
+  ]
+}
+</code></pre>
+
+<p>All of these configuration are local and do not need to be and are not commited to remote server.</p>
+
+<h3 id="h3-1">Installing Java Development Kit (JDK)</h3>
+<p>Java (JDK) is required for some features to work, particularly for apex support, so make sure JDK is also installed if there are errors with some plugins. <a href="https://developer.salesforce.com/tools/vscode/en/vscode-desktop/java-setup" target="_blank">Salesforce Guide on Setting up Java with download links.</a></p>
+
+<p>Once JDK is installed on system, add the home path of JDK in <strong>File | Preferences | Settings | search apex | salesforcedx-vscode-apex.java.home</strong>.</p>
+
+<p>There are also other setting that can be configured for the plugins that have been installed.</p>
+
+<h2 id="h2-1">Create a new Project</h2>
+<p>Before an org can be connected to the project in vscode, a blank project needs to be created.</p>
+
+<p>Open Command pallete from <strong>View | Command Pallete</strong> or using shortcut <samp>F1</samp> or <samp>Ctrl+Shift+P</samp> or <samp>Cmd + Shift + P</samp>.</p>
+
+<p>Type in <samp>SFDX: Create Project</samp> and follow to create a new project.</p>
+
+<h2 id="h2-2">Connect Organization with project</h2>
+<p>Once a blank project is created an org can be connected to the project to get classes and other metadata for development and deploy data back to org once developed.</p>
+
+<p>To connect an org, open command pallete and search <strong>SFDX: Authorize an Org</strong>.</p>
+
+<p>Select the type of org from the list. If using developer org, select production.</p>
+
+<p>Enter a name for that will represent that org in the local project.</p>
+
+<p>Then salesforce cli will open a new tab in the browser and take to the saleforce login page.</p>
+
+<p>Login to the org that need to be connected. After logging in, salesforce will ask for permission. Allow this permission.</p>
+
+<p>Once allowed the local vscode developement enviroment is ready to get and deploy data to that org. Salesforce CLI will remember credential for future authentication and authorization.</p>
+
+<h2 id="h2-3">Getting Data from organization</h2>
+<p>Classes and other meta data can be fetched from organization and deployed to the connected organization.</p>
+
+<p>To do that use the <strong>Cloud</strong> button now available on the left side nav bar. The Cloud button is available when in a saleforce project that has a connected organization.</p>
+
+<p>From the tab, all that can be fetched from the org is seen. Click on the cloud with down arrow button to download it for local development.</p>
+
+<quote> Classes, Triggers, Aura, LWC etc fetched from the org is seen in the <samp>force-app/main/default</samp> folder of the project.</quote>
+<p>To deploy data back to organization, right click on the class and select <strong>SFDX: Deploy this Source to Org</strong>.</p>
+
+<p>There are other options to delete from org, retrive changes from org and so on.</p>
+
+<h2 id="h2-4">Developer Hub</h2>
+<p>A <strong>scratch org</strong> is a dedicated, congfigurable, and short-term Salesforce environment that can quickly spin up when starting a new project, a new feature branch or a feature test.</p>
+
+<p>A <strong>Developer Hub</strong> is the main salesforce or that can be used to create and manage scratch orgs.</p>
+
+<quote> After Dev Hub is enabled on an org, it cannot be disabled.</quote>
+<p>To Enable Dev Hub in an org goto <strong>Setup | Developement | Dev Hub</strong>.</p>
+
+<p>Now that the org is set to create Scratch Org, connect the org with vs code project.</p>
+
+<h3 id="h3-2">Create a Scratch Org</h3>
+<p>In vs code open Command pallet and use <strong>SFDX: Create Default Scratch Org</strong>. Then the defaults can be accepted or changes can be made as needed.</p>
+
+<p>Creating a scratch org can take some minutes. Once created a success message is displayed.</p>
+
+<p>To Open the default scratch org use <strong>SFDX: Open Default Org</strong> in command pallet in vscode.</p>
+
+<quote> At the bottom left corner of vs code, there is a button(open org), that will open the scratch org, if salseforce plugins are installed..</quote>
+<p>When code is send to a scratch org it is said to be pushed to the org and not deployed. Deployed is used for the actual org.</p>
+
+<p>To Push code to scratch org use <strong>SFDX: Push Source to Default Scratch Org</strong>.</p>
+
+<h2 id="h2-5">Using SFDX in terminal</h2>
+<p>Using the commands provided by the saleforce extensions in vscode is simpler and also avoids errors. So it is recommended to use them.</p>
+
+<p><samp>sfdx</samp> will give helpful commands that can be used.</p>
+
+<p><samp>sfdx commands</samp> will give a list of all the commands supported by sfdx cli.</p>
+
+<p><samp>sfdx update</samp> to update installed sfdx cli.</p>
+
+<p><samp>sfdx -v</samp> or <samp>sfdx --version</samp> to check the version of sfdx cli</p>
+
+<p><samp>sfdx plugins --core</samp> to see the core plugins included with the sfdx installation.</p>
+
+<p><samp>sfdx force:project:create -n "project name"</samp> - to create a new project.</p>
+
+<p><samp>sfdx force:auth:web:login -a aliasName -d</samp> - this will open the saleforce login page to get authorization in the default browser.</p>
+
+<ul>
+	<li> <samp>-a</samp> defines the alias for the org.</li>
+	<li> <samp>-d</samp> to make it default for this project</li>
+</ul>
+<p><samp>sfdx force:org:create -a scratchOrgAlias -d 7 -f config/project-scratch-def.json -s</samp></p>
+
+<ul>
+	<li> <samp>-d</samp> in this above case is number of days the scratch org lives and default is 7.</li>
+	<li> <samp>-f</samp> is the configuration file path for the scratch org.</li>
+	<li> <samp>-s</samp> use the same username while createing the scratch org as the current hub.</li>
+</ul>
+<quote> By default the scratch org do not have any data, but if data is needed in the scratch org from hub org, then the configuration(<samp>config/project-scratch-def.json</samp>) file should have an additional option <samp>"hasSampleData" : true</samp>, add if not already present.</quote>
+<p><samp>sfdx force:org:open</samp> - To Open org from command line, this will open the default scratch org in default browser.</p>
+
+<p><samp>sfdx force:lightning:component:create -n myFirstWebComponent -d force-app/main/default/lwc --type lwc</samp> - To create a new Lightning web component.</p>
+
+<ul>
+	<li> <samp>-n</samp> defines the name of lwc folder and its files.</li>
+	<li> <samp>-d</samp> defines the target directory where the lightning web component should be created. The target directory must be named <samp>lwc</samp>.</li>
+	<li> <samp>--type</samp> specifies what is to be created aura or lwc.</li>
+</ul>
+<p><samp>force:source:deploy</samp> - To deploy to org.</p>
+
+<p><samp>sfdx force:source:push</samp> - To push to scratch org salesforce.</p>
+
+<p><samp>sfdx force:source:retrieve</samp> - to retrieve the metadata.</p>
+
+<p>Delete LWC</p>
+
+<ul>
+	<li> <samp>sfdx force:source:delete -m LightningComponentBundle:LWCName -u username@company.com</samp> - From cli where LWCName is the name of component.</li>
+	<li> <strong>SFDX: Delete from Project and Org</strong> - In vscode.</li>
+	<li> Delete the component folder and use - <samp>sfdx force:source:push --forceoverwrite</samp> - Don't recommend using as it may or may not work.</li>
+</ul>
+</div>
+</div>
+
+    <!-- Format -->
+    <script src="../../highlight/highlight.min.js"></script>
+    <script src="../../library/format.js"></script>
+</body>
+</html>
