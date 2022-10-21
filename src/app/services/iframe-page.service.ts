@@ -35,4 +35,8 @@ export class IframePageService {
   public getNavFragment ():string {
     return this.navFragment;
   }
+
+  public getPages() :PagesI {
+    return this.pages;
+  }
 }

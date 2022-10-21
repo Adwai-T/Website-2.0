@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { EventEmitter, HostListener, Injectable } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -16,6 +16,7 @@ export class NavBarService {
     private titleService: Title,
     private router: Router,
     private location: Location,
+    private activatedRoute: ActivatedRoute,
   ) {}
 
   public changeTitle(title: string): boolean {
@@ -31,10 +32,13 @@ export class NavBarService {
   public locationService(): Location {
     return this.location;
   }
-
   public routerService(): Router {
     return this.router;
   }
+  public getCurrentRoute(): ActivatedRoute {
+    return this.activatedRoute;
+  }
+
  
   public getTitle(): string {
     return this.title;

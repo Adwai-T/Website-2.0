@@ -21,7 +21,6 @@ import { WindowService } from 'src/app/services/window.service';
   styleUrls: ['./iframe-container.component.css'],
 })
 export class IframeContainerComponent implements OnDestroy {
-
   public url: SafeResourceUrl =
     this.loadFileService.getSanitizedResourceUrl('');
 
@@ -36,27 +35,42 @@ export class IframeContainerComponent implements OnDestroy {
     private windowService: WindowService,
     private pageService: IframePageService,
     private themeService: ThemeService,
-    private errorService: ErrorsService,
+    private errorService: ErrorsService
   ) {
-    this.loadPage(pageService.getCurrentPage());
-    this.windowService.setAppContentOverflowY('hidden');
-    this.pageEventSubscription = pageService.getPageUrlEvent.subscribe((page: Page) => {
-      this.loadPage(page);
-    });
+    if (pageService.getCurrentPage() == pageService.getPages()['none']) {
+      //When back botton is pressed(pop state event)
+      //two navigates are needed to go to notes.
+      this.navbarService
+        .routerService()
+        .navigate([navbarService.getCurrentParentUrl().slice(1)]);// /notes or /projects
+    } else {
+      this.loadPage(pageService.getCurrentPage());
+      this.windowService.setAppContentOverflowY('hidden');
+    }
+    this.pageEventSubscription = pageService.getPageUrlEvent.subscribe(
+      (page: Page) => {
+        this.loadPage(page);
+      }
+    );
   }
 
   private loadPage(page: Page): void {
-    if(!page) {
-      this.errorService.addError({message: 'Sorry, Page is no longer available.', code: 0})
+    if (!page) {
+      this.errorService.addError({
+        message: 'Sorry, Page is no longer available.',
+        code: 0,
+      });
       return;
     }
-    this.url = this.loadFileService.getSanitizedResourceUrl(page.html + this.pageService.getNavFragment());
+    this.url = this.loadFileService.getSanitizedResourceUrl(
+      page.html + this.pageService.getNavFragment()
+    );
     this.navbarService.changeTitle(page.title);
 
     let navLinkStart = '';
-    if(page.navLinkStart) {
-      navLinkStart = `${page.navLinkStart}/`
-      this.navbarService.setCurrentParentUrl('/' + navLinkStart.slice(0, -1));//remove last `/` and add at start
+    if (page.navLinkStart) {
+      navLinkStart = `${page.navLinkStart}/`;
+      this.navbarService.setCurrentParentUrl('/' + navLinkStart.slice(0, -1)); //remove last `/` and add at start
     }
 
     this.navbarService.setUrl(
@@ -65,12 +79,13 @@ export class IframeContainerComponent implements OnDestroy {
   }
 
   @HostListener('window:popstate', ['$event'])
-  onPopState(event:Event) {
+  onPopState(event: Event) {
     let currentUrl = this.navbarService.getCurrentUrl();
-    if(currentUrl === '/iframe') {
-      this.navbarService.routerService().navigateByUrl(
-        '/'
-      );
+    if (currentUrl === '/iframe') {
+      this.pageService.setCurrentPage(this.pageService.getPages()['none']);
+      //Event after navigation, the site remains on iframe component
+      //so one more navigation is done in constructor.
+      this.navbarService.routerService().navigate(['notes']);
     }
   }
 
