@@ -76,7 +76,8 @@ export const backEndDev:Topic[] = [
     subTitle: 'web-dev',
     imageSrc: 'assets/images/articles/languages/spring.png',
     description:
-      'The Spring Framework (Spring) is an open-source application framework that provides infrastructure support for developing Java applications.',
+      'The Spring Framework (Spring) is an open-source application framework that provides'
+      + ' infrastructure support for developing Java applications.',
     page: Pages.spring,
     github: 'https://github.com/Adwai-T/Notes/blob/master/Java/Spring.md',
   },
@@ -85,7 +86,9 @@ export const backEndDev:Topic[] = [
     subTitle: 'web-dev',
     imageSrc: 'assets/images/articles/languages/spring-boot.png',
     description:
-      'Spring Boot is an open source, microservice-based Java web framework.',
+      'Spring Boot is an open source, microservice-based Java web framework. Spring takes an '
+      + 'opinionated approach for developing Spring application. This allows it to reduce'
+      + 'a lot of setup and get quick running application.',
     page: Pages.springboot,
     github: 'https://github.com/Adwai-T/Notes/blob/master/Java/SpringBoot.md',
   },
@@ -94,7 +97,9 @@ export const backEndDev:Topic[] = [
     subTitle: 'web-dev',
     imageSrc: 'assets/images/articles/languages/spring.png',
     description:
-      'Spring Boot is an open source, microservice-based Java web framework.',
+      'Spring Security is a powerful framework to use with spring, that provides lots '
+      + 'out of the box functionality to setup security for spring application and '
+      + 'can be extended to fit almost any security requirenment.',
     page: Pages.springsecurity,
     github: 'https://github.com/Adwai-T/Notes/blob/master/Java/SpringSecurity.md',
   },
@@ -103,7 +108,8 @@ export const backEndDev:Topic[] = [
     subTitle: 'documentation',
     imageSrc: 'assets/images/articles/languages/swagger.png',
     description:
-      'Spring Boot is an open source, microservice-based Java web framework.',
+      'Swagger is a popular documentation tool used with Spring. It provides '
+      + 'many tools to help document and test endpoint.',
     page: Pages.swagger,
     github: 'https://github.com/Adwai-T/Notes/blob/master/Java/swagger.md',
   },
@@ -112,7 +118,8 @@ export const backEndDev:Topic[] = [
     subTitle: 'documentation',
     imageSrc: 'assets/images/articles/languages/swagger.png',
     description:
-      'Spring Boot is an open source, microservice-based Java web framework.',
+      'JavaDoc is a documentation tool that can be used with spring. It is based on Swagger but'
+      + ' improves on it to be compatible with recent releases of spring.',
     page: Pages.javadoc,
     github: 'https://github.com/Adwai-T/Notes/blob/master/Java/SpringDoc.md',
   },
@@ -205,7 +212,8 @@ export const languages: Topic[] = [
     title:'Lua',
     subTitle: 'language',
     imageSrc: 'assets/images/articles/languages/lua.png',
-    description: 'Lua is a lightweight, high-level, multi-paradigm programming language designed primarily for embedded use in applications.',
+    description: 'Lua is a lightweight, high-level, multi-paradigm programming language designed'
+    + ' primarily for embedded use in applications.',
     page: Pages.lua,
     github: 'https://github.com/Adwai-T/Notes/blob/master/Lua/Lua.md',
   },
@@ -214,7 +222,8 @@ export const languages: Topic[] = [
     subTitle: 'language',
     imageSrc: 'assets/images/articles/languages/java.png',
     description:
-      'Java is a popular programming language for backend development using the spring framework.',
+      'Java is a popular programming language for developing apps that can run on any platfrom,'
+      + ' that support the JRE. It is a garbage collected, Object Oriented Programming language.',
     page: Pages.java,
     github: 'https://github.com/Adwai-T/Notes/blob/master/Java/Java.md',
   },
