@@ -25,5 +25,12 @@ export const urls = {
         getAllContacted: baseUrl + 'contact/filter/contacted',
         getAll: baseUrl + 'contact/getAll',
         delete: baseUrl + 'contact/delete',
+    },
+    comments: {
+        base: baseUrl+ 'comments',
+        getById: baseUrl + 'comments',
+        getByTopic: baseUrl + 'comments',
+        deleteById: baseUrl + 'comments',
+        postComment: baseUrl + 'comments',
     }
 }

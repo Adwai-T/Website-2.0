@@ -36,6 +36,9 @@ export class AccountService {
 
   public loginEvent: EventEmitter<AuthConfirmation> = new EventEmitter<AuthConfirmation>();
   private loggedIn: boolean = false;
+  private user:User|undefined;
+  
+
   private admin: boolean = false;
   private memeber: boolean = false;
 
@@ -72,17 +75,18 @@ export class AccountService {
     this.loggedIn = loggedIn
   }
 
-  public isMember() :boolean {
-    return this.memeber;
+  public getLoggedInUser() :User|undefined {
+    return this.user;
   }
-  public setMemeber(member:boolean) :void {
-    this.memeber = member;
+  public setLoggedInUser(user:User) {
+    this.user = user;
   }
 
-  public isAdmin() :boolean {
+  public isAdmin() {
     return this.admin;
   }
-  public setAdmin(admin:boolean) :void {
-    this.admin = admin;
-  }
+  public setAdmin(isAdmin:boolean) {
+    this.admin = isAdmin;
+  } 
+
 }
